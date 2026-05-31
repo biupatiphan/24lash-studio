@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>24Lash Studio · จองคิวต่อขนตา</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;500;600;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <span class="logo-mark">🌸</span>
+        <div>
+          <h1 id="shopName">24Lash Studio</h1>
+          <p class="tagline">จองคิวต่อขนตาออนไลน์</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Stepper -->
+    <div class="stepper">
+      <div class="step active" data-step="1"><span class="dot">1</span><label>เลือกวัน-เวลา</label></div>
+      <div class="step" data-step="2"><span class="dot">2</span><label>ชำระมัดจำ</label></div>
+      <div class="step" data-step="3"><span class="dot">3</span><label>เสร็จสิ้น</label></div>
+    </div>
+
+    <!-- ===== STEP 1: เลือกวันเวลา + กรอกข้อมูล ===== -->
+    <section class="card screen active" id="screen1">
+      <h2 class="card-title">เลือกบริการ</h2>
+      <div class="services" id="services"></div>
+
+      <h2 class="card-title">เลือกวันที่</h2>
+      <div class="calendar">
+        <div class="cal-head">
+          <button class="cal-nav" id="prevMonth" type="button">‹</button>
+          <span id="calLabel"></span>
+          <button class="cal-nav" id="nextMonth" type="button">›</button>
+        </div>
+        <div class="cal-weekdays">
+          <span>อา</span><span>จ</span><span>อ</span><span>พ</span><span>พฤ</span><span>ศ</span><span>ส</span>
+        </div>
+        <div class="cal-grid" id="calGrid"></div>
+      </div>
+
+      <h2 class="card-title">เลือกเวลา</h2>
+      <p class="hint" id="slotHint">กรุณาเลือกวันที่ก่อนค่ะ</p>
+      <div class="slots" id="slots"></div>
+
+      <h2 class="card-title">ข้อมูลของคุณ</h2>
+      <form id="detailsForm" class="form" novalidate>
+        <label>ชื่อ / ชื่อเล่น
+          <input type="text" id="name" placeholder="เช่น คุณมายด์" required />
+        </label>
+        <label>อีเมล
+          <input type="email" id="email" placeholder="you@email.com" required />
+          <small class="field-note">เราจะส่งคำเชิญ Google Calendar ไปที่อีเมลนี้</small>
+        </label>
+        <label>เบอร์โทรศัพท์
+          <input type="tel" id="phone" placeholder="08X-XXX-XXXX" required />
+        </label>
+      </form>
+
+      <button class="btn-primary" id="toStep2" type="button">ถัดไป · ชำระมัดจำ</button>
+    </section>
+
+    <!-- ===== STEP 2: ชำระมัดจำ ===== -->
+    <section class="card screen" id="screen2">
+      <h2 class="card-title">สรุปการจอง</h2>
+      <div class="summary" id="summary"></div>
+
+      <h2 class="card-title">ชำระเงินมัดจำ</h2>
+      <div class="pay-box">
+        <p class="deposit-amount">มัดจำ <b id="depositAmt">300</b> บาท</p>
+        <div class="bank-info" id="bankInfo"></div>
+        <p class="pay-note">โอนแล้วแนบสลิปด้านล่างเพื่อยืนยันการจองค่ะ 💕</p>
+      </div>
+
+      <h2 class="card-title">แนบหลักฐานการโอน</h2>
+      <label class="upload" id="uploadLabel">
+        <input type="file" id="slip" accept="image/*,application/pdf" hidden />
+        <div class="upload-inner" id="uploadInner">
+          <span class="up-icon">📎</span>
+          <span class="up-text">แตะเพื่อเลือกรูปสลิป (หรือ PDF)</span>
+        </div>
+      </label>
+      <div class="preview" id="preview"></div>
+
+      <div class="row-btns">
+        <button class="btn-ghost" id="backTo1" type="button">‹ ย้อนกลับ</button>
+        <button class="btn-primary" id="submitBtn" type="button">ยืนยันการจอง</button>
+      </div>
+      <p class="err" id="submitErr"></p>
+    </section>
+
+    <!-- ===== STEP 3: สำเร็จ ===== -->
+    <section class="card screen" id="screen3">
+      <div class="success">
+        <div class="success-icon">🌷</div>
+        <h2>จองคิวสำเร็จ!</h2>
+        <p class="success-sub" id="successSub"></p>
+        <div class="success-card" id="successCard"></div>
+        <p class="success-note">📅 เราได้ส่งคำเชิญ Google Calendar ไปที่อีเมลของคุณและของร้านแล้ว<br>เปิดอีเมลแล้วกดเพิ่มลงปฏิทินได้เลยค่ะ</p>
+        <button class="btn-primary" id="bookAgain" type="button">จองคิวอีกครั้ง</button>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p id="footShop">24Lash Studio</p>
+      <p id="footContact"></p>
+    </footer>
+  </div>
+
+  <!-- Loading overlay -->
+  <div class="overlay" id="overlay">
+    <div class="spinner"></div>
+    <p>กำลังดำเนินการ...</p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
