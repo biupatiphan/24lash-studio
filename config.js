@@ -34,11 +34,8 @@ export const PAYMENT = {
 };
 
 export const MAIL = {
-  host: process.env.SMTP_HOST,
-  port: Number(process.env.SMTP_PORT || 465),
-  secure: String(process.env.SMTP_SECURE) === 'true',
-  user: process.env.SMTP_USER,
-  pass: process.env.SMTP_PASS,
+  apiKey: process.env.BREVO_API_KEY,
+  senderEmail: process.env.SENDER_EMAIL || process.env.SMTP_USER,
   fromName: process.env.MAIL_FROM_NAME || '24Lash Studio',
   ownerEmail: process.env.OWNER_EMAIL || 'patiphan.tan@gmail.com',
 };

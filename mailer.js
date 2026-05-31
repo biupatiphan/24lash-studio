@@ -1,18 +1,24 @@
-import nodemailer from 'nodemailer';
 import ical from 'ical-generator';
 import { MAIL, SHOP, TIMEZONE } from './config.js';
 
-let transporter = null;
+const BREVO_URL = 'https://api.brevo.com/v3/smtp/email';
 
-function getTransporter() {
-  if (transporter) return transporter;
-  transporter = nodemailer.createTransport({
-    host: MAIL.host,
-    port: MAIL.port,
-    secure: MAIL.secure,
-    auth: { user: MAIL.user, pass: MAIL.pass },
+// ส่งอีเมลผ่าน Brevo API (HTTPS) — ใช้แทน SMTP เพราะโฮสต์บางเจ้าบล็อกพอร์ต SMTP
+async function sendViaBrevo(message) {
+  const res = await fetch(BREVO_URL, {
+    method: 'POST',
+    headers: {
+      accept: 'application/json',
+      'content-type': 'application/json',
+      'api-key': MAIL.apiKey,
+    },
+    body: JSON.stringify(message),
   });
-  return transporter;
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Brevo ${res.status}: ${text}`);
+  }
+  return res.json();
 }
 
 // สร้างไฟล์ปฏิทิน (.ics) สำหรับนัดหมาย — เปิดได้กับ Google Calendar / Apple Calendar
@@ -32,7 +38,7 @@ function buildIcs(booking) {
       `ค่ามัดจำที่ชำระ: ${booking.depositAmount} บาท\n` +
       `รหัสการจอง: ${booking.id}`,
     location: SHOP.address || SHOP.name,
-    organizer: { name: SHOP.name, email: MAIL.user },
+    organizer: { name: SHOP.name, email: MAIL.senderEmail },
     attendees: [
       { name: booking.name, email: booking.email, rsvp: true },
       { name: SHOP.name, email: MAIL.ownerEmail, rsvp: true },
@@ -93,44 +99,43 @@ function row(k, v) {
 
 export async function sendBookingEmails(booking, slip) {
   const icsContent = buildIcs(booking);
-  const from = `"${MAIL.fromName}" <${MAIL.user}>`;
+  const sender = { name: MAIL.fromName, email: MAIL.senderEmail };
 
   const calendarAttachment = {
-    filename: 'appointment.ics',
-    content: icsContent,
-    contentType: 'text/calendar; charset=utf-8; method=REQUEST',
+    name: 'appointment.ics',
+    content: Buffer.from(icsContent, 'utf-8').toString('base64'),
   };
 
   const slipAttachment = slip
-    ? [{ filename: slip.originalname || 'payment-slip', content: slip.buffer }]
+    ? [{ name: slip.originalname || 'payment-slip', content: slip.buffer.toString('base64') }]
     : [];
 
-  const tx = getTransporter();
-
   // อีเมลถึงลูกค้า
-  await tx.sendMail({
-    from,
-    to: booking.email,
+  await sendViaBrevo({
+    sender,
+    to: [{ email: booking.email, name: booking.name }],
     subject: `✅ ยืนยันการจองคิว ${SHOP.name} - ${booking.dateLabel} ${booking.time} น.`,
-    html: customerHtml(booking),
-    icalEvent: { method: 'REQUEST', content: icsContent },
-    attachments: [calendarAttachment],
+    htmlContent: customerHtml(booking),
+    attachment: [calendarAttachment],
   });
 
   // อีเมลถึงเจ้าของร้าน (แนบสลิป)
-  await tx.sendMail({
-    from,
-    to: MAIL.ownerEmail,
+  await sendViaBrevo({
+    sender,
+    to: [{ email: MAIL.ownerEmail, name: SHOP.name }],
     subject: `📥 จองใหม่: ${booking.name} - ${booking.dateLabel} ${booking.time} น.`,
-    html: ownerHtml(booking),
-    icalEvent: { method: 'REQUEST', content: icsContent },
-    attachments: [calendarAttachment, ...slipAttachment],
+    htmlContent: ownerHtml(booking),
+    attachment: [calendarAttachment, ...slipAttachment],
   });
 }
 
 export async function verifyMail() {
+  if (!MAIL.apiKey) return 'ยังไม่ได้ตั้งค่า BREVO_API_KEY';
   try {
-    await getTransporter().verify();
+    const res = await fetch('https://api.brevo.com/v3/account', {
+      headers: { accept: 'application/json', 'api-key': MAIL.apiKey },
+    });
+    if (!res.ok) return `Brevo ${res.status}: ${await res.text()}`;
     return true;
   } catch (e) {
     return e.message;
