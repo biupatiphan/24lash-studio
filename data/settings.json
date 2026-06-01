@@ -41,7 +41,13 @@
     "2026-06-01",
     "2026-06-02"
   ],
-  "blockedTimes": [],
+  "blockedTimes": [
+    {
+      "date": "2026-06-03",
+      "start": "11:00",
+      "end": "14:00"
+    }
+  ],
   "shop": {
     "name": "Lashbkk24",
     "address": "",
