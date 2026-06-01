@@ -33,7 +33,7 @@
   ],
   "businessHours": {
     "open": "10:00",
-    "close": "19:00",
+    "close": "22:00",
     "slotMinutes": 60
   },
   "closedWeekdays": [],
