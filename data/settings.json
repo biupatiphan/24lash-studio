@@ -39,9 +39,9 @@
   "closedWeekdays": [],
   "closedDates": [
     "2026-06-01",
-    "2026-06-02",
-    "2026-06-03"
+    "2026-06-02"
   ],
+  "blockedTimes": [],
   "shop": {
     "name": "Lashbkk24",
     "address": "",
