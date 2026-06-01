@@ -309,6 +309,21 @@ body {
 .bank-info .brow { display: flex; justify-content: space-between; padding: 5px 0; }
 .bank-info .brow span:first-child { color: var(--text-soft); }
 .bank-info .brow b { color: var(--text); }
+.bank-info .brow .bval { display: flex; align-items: center; gap: 8px; color: var(--text); }
+.copy-btn {
+  border: 1px solid var(--rose);
+  background: #fff;
+  color: var(--rose);
+  font-family: inherit;
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all .15s;
+}
+.copy-btn:hover { background: var(--rose); color: #fff; }
+.copy-btn.copied { background: var(--rose); color: #fff; border-color: var(--rose); }
 .pay-note { font-size: 13px; color: var(--rose); margin-top: 12px; }
 
 /* Upload */

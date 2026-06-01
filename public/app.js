@@ -142,13 +142,40 @@ async function loadSlots() {
 function renderBankInfo() {
   const p = state.config.payment;
   const rows = [];
-  if (p.promptpayId) rows.push(['พร้อมเพย์', p.promptpayId]);
-  if (p.bankName) rows.push(['ธนาคาร', p.bankName]);
-  if (p.bankAccountName) rows.push(['ชื่อบัญชี', p.bankAccountName]);
-  if (p.bankAccountNumber) rows.push(['เลขบัญชี', p.bankAccountNumber]);
+  if (p.promptpayId) rows.push(['พร้อมเพย์', p.promptpayId, true]);
+  if (p.bankName) rows.push(['ธนาคาร', p.bankName, false]);
+  if (p.bankAccountName) rows.push(['ชื่อบัญชี', p.bankAccountName, false]);
+  if (p.bankAccountNumber) rows.push(['เลขบัญชี', p.bankAccountNumber, true]);
   $('#bankInfo').innerHTML = rows
-    .map(([k, v]) => `<div class="brow"><span>${k}</span><b>${v}</b></div>`)
+    .map(([k, v, copyable]) => {
+      const val = copyable
+        ? `<b>${v}</b><button type="button" class="copy-btn" data-copy="${String(v).replace(/"/g, '&quot;')}">คัดลอก</button>`
+        : `<b>${v}</b>`;
+      return `<div class="brow"><span>${k}</span><span class="bval">${val}</span></div>`;
+    })
     .join('');
+  $$('#bankInfo .copy-btn').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const text = btn.dataset.copy;
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+      const old = btn.textContent;
+      btn.textContent = 'คัดลอกแล้ว!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = old;
+        btn.classList.remove('copied');
+      }, 1500);
+    });
+  });
 }
 
 // ---------- navigation ----------
