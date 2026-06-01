@@ -112,9 +112,11 @@ function confirmedCustomerHtml(booking) {
         ${row('ค่ามัดจำ', `${booking.depositAmount} บาท`)}
         ${row('รหัสการจอง', booking.id)}
       </table>
-      <p style="background:#fff0f6;padding:12px 16px;border-radius:12px;font-size:14px">
-        📅 ไฟล์ปฏิทินแนบมาในอีเมลนี้แล้ว — กดเปิดเพื่อเพิ่มนัดหมายลง Google Calendar ของคุณได้เลยค่ะ
+      <p style="background:#fff0f6;padding:12px 16px;border-radius:12px;font-size:14px;text-align:center">
+        📅 กดปุ่มด้านล่างเพื่อเพิ่มนัดหมายลงปฏิทินของคุณได้เลยค่ะ
       </p>
+      ${gcalButton(booking)}
+      <p style="font-size:12px;color:#9b8b92;text-align:center">หรือเปิดไฟล์ <b>appointment.ics</b> ที่แนบมา (สำหรับ Apple Calendar)</p>
       <p style="font-size:13px;color:#9b8b92">หากต้องการเปลี่ยนแปลงนัดหมาย กรุณาติดต่อร้าน ${SHOP.phone || ''}</p>
     </div>
   </div>`;
@@ -133,8 +135,38 @@ function ownerCalendarHtml(booking) {
       ${row('เวลา', `${booking.time} - ${booking.endTime} น.`)}
       ${row('รหัสการจอง', booking.id)}
     </table>
-    <p style="background:#fff0f6;padding:12px 16px;border-radius:12px;font-size:14px">📅 ไฟล์ปฏิทินแนบมาในอีเมลนี้แล้ว — กดเปิดเพื่อเพิ่มนัดหมายลง Google Calendar ของร้านได้เลยค่ะ</p>
+    <p style="background:#fff0f6;padding:12px 16px;border-radius:12px;font-size:14px;text-align:center">📅 กดปุ่มด้านล่างเพื่อเพิ่มนัดหมายลง Google Calendar ของร้านได้เลยค่ะ</p>
+    ${gcalButton(booking)}
+    <p style="font-size:12px;color:#9b8b92;text-align:center">หรือเปิดไฟล์ <b>appointment.ics</b> ที่แนบมา (สำหรับ Apple Calendar)</p>
   </div>`;
+}
+
+// แปลงเวลา ISO -> รูปแบบ UTC แบบกระชับสำหรับลิงก์ Google Calendar (YYYYMMDDTHHMMSSZ)
+function gcalDate(iso) {
+  return new Date(iso).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+}
+
+// สร้างลิงก์ "เพิ่มลง Google Calendar" ที่กดแล้วเปิดปฏิทินพร้อมข้อมูลครบ กด Save ได้เลย
+function googleCalUrl(booking) {
+  const dates = `${gcalDate(booking.startISO)}/${gcalDate(booking.endISO)}`;
+  const text = encodeURIComponent(`${SHOP.name} - ${booking.serviceName}`);
+  const details = encodeURIComponent(
+    `บริการ: ${booking.serviceName}\n` +
+    `ลูกค้า: ${booking.name}\n` +
+    `เบอร์โทร: ${booking.phone}\n` +
+    `อีเมล: ${booking.email}\n` +
+    `รหัสการจอง: ${booking.id}`
+  );
+  const location = encodeURIComponent(SHOP.address || SHOP.name);
+  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${text}&dates=${dates}&details=${details}&location=${location}`;
+}
+
+// ปุ่มสีชมพูสำหรับเพิ่มลง Google Calendar
+function gcalButton(booking) {
+  return `
+    <div style="text-align:center;margin:8px 0 16px">
+      <a href="${googleCalUrl(booking)}" style="display:inline-block;background:#e75a8a;color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding:12px 28px;border-radius:999px">📅 เพิ่มลง Google Calendar</a>
+    </div>`;
 }
 
 function row(k, v) {
