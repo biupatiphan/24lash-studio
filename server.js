@@ -156,6 +156,14 @@ function sanitizeSettings(input) {
   const closedDates = (Array.isArray(input.closedDates) ? input.closedDates : [])
     .map((d) => String(d).trim()).filter((d) => DATE_RE.test(d));
 
+  const blockedTimes = (Array.isArray(input.blockedTimes) ? input.blockedTimes : [])
+    .map((b) => ({
+      date: String(b?.date || '').trim(),
+      start: String(b?.start || '').trim(),
+      end: String(b?.end || '').trim(),
+    }))
+    .filter((b) => DATE_RE.test(b.date) && HHMM_RE.test(b.start) && HHMM_RE.test(b.end) && toMin(b.start) < toMin(b.end));
+
   const shop = input.shop || {};
   const payment = input.payment || {};
   const deposit = Math.round(Number(payment.depositAmount));
@@ -165,6 +173,7 @@ function sanitizeSettings(input) {
     businessHours: { open: bh.open, close: bh.close, slotMinutes },
     closedWeekdays: [...new Set(closedWeekdays)],
     closedDates: [...new Set(closedDates)].sort(),
+    blockedTimes: blockedTimes.sort((a, b) => (a.date + a.start).localeCompare(b.date + b.start)),
     shop: {
       name: String(shop.name || '').trim() || '24Lash Studio',
       address: String(shop.address || '').trim(),
@@ -228,10 +237,17 @@ app.get('/api/availability', (req, res) => {
     return d.getHours() * 60 + d.getMinutes();
   })();
 
+  // ช่วงเวลาที่ร้านปิดเฉพาะวันนี้ (เป็นนาที)
+  const blocks = (s.blockedTimes || [])
+    .filter((b) => b.date === date)
+    .map((b) => ({ start: toMin(b.start), end: toMin(b.end) }));
+
   const slots = generateSlots().map((time) => {
     const start = toMin(time);
     const end = start + svc.duration;
     let available = end <= closeMin && !store.isSlotTaken(date, start, end);
+    // ตัดช่วงเวลาที่ร้านปิดเฉพาะกิจ (จองทับช่วงไม่ว่างไม่ได้)
+    if (blocks.some((bl) => start < bl.end && end > bl.start)) available = false;
     // ตัดเวลาที่ผ่านไปแล้วของวันนี้ออก
     if (date < todayStr) available = false;
     if (date === todayStr && start <= nowMin + 30) available = false;
@@ -264,6 +280,14 @@ app.post('/api/bookings', upload.single('slip'), async (req, res) => {
 
     if (store.isSlotTaken(date, startMinutes, endMinutes)) {
       return res.status(409).json({ error: 'ช่วงเวลานี้เพิ่งถูกจองไปแล้ว กรุณาเลือกเวลาอื่นค่ะ' });
+    }
+
+    // กันจองทับช่วงเวลาที่ร้านปิดเฉพาะกิจ
+    const blockedHit = (getSettings().blockedTimes || []).some(
+      (b) => b.date === date && startMinutes < toMin(b.end) && endMinutes > toMin(b.start),
+    );
+    if (blockedHit) {
+      return res.status(409).json({ error: 'ช่วงเวลานี้ร้านไม่ว่าง กรุณาเลือกเวลาอื่นค่ะ' });
     }
 
     const booking = makeBooking({

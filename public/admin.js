@@ -32,6 +32,7 @@ function render() {
   $('#slot').value = settings.businessHours.slotMinutes;
   renderWeekdays();
   renderClosedDates();
+  renderBlockedTimes();
   $('#shopName').value = settings.shop.name || '';
   $('#shopAddress').value = settings.shop.address || '';
   $('#shopPhone').value = settings.shop.phone || '';
@@ -117,6 +118,53 @@ $('#addDate').addEventListener('click', () => {
   if (!settings.closedDates.includes(v)) settings.closedDates.push(v);
   $('#closedDateInput').value = '';
   renderClosedDates();
+});
+
+function thaiDate(d) {
+  try {
+    return new Date(d + 'T00:00:00').toLocaleDateString('th-TH', { day: 'numeric', month: 'short', year: '2-digit' });
+  } catch { return d; }
+}
+
+function renderBlockedTimes() {
+  if (!Array.isArray(settings.blockedTimes)) settings.blockedTimes = [];
+  const wrap = $('#blockedTimes');
+  wrap.innerHTML = '';
+  settings.blockedTimes
+    .slice()
+    .sort((a, b) => (a.date + a.start).localeCompare(b.date + b.start))
+    .forEach((b) => {
+      const chip = document.createElement('span');
+      chip.className = 'date-chip';
+      chip.innerHTML = `${thaiDate(b.date)} · ${b.start}–${b.end} <button type="button">×</button>`;
+      chip.querySelector('button').addEventListener('click', () => {
+        settings.blockedTimes = settings.blockedTimes.filter(
+          (x) => !(x.date === b.date && x.start === b.start && x.end === b.end),
+        );
+        renderBlockedTimes();
+      });
+      wrap.appendChild(chip);
+    });
+}
+
+$('#addBlock').addEventListener('click', () => {
+  const date = $('#blockDate').value;
+  const start = $('#blockStart').value;
+  const end = $('#blockEnd').value;
+  if (!date || !start || !end) {
+    alert('กรุณาเลือกวันที่ เวลาเริ่ม และเวลาสิ้นสุดให้ครบ');
+    return;
+  }
+  if (start >= end) {
+    alert('เวลาเริ่มต้องมาก่อนเวลาสิ้นสุด');
+    return;
+  }
+  if (!Array.isArray(settings.blockedTimes)) settings.blockedTimes = [];
+  const exists = settings.blockedTimes.some((x) => x.date === date && x.start === start && x.end === end);
+  if (!exists) settings.blockedTimes.push({ date, start, end });
+  $('#blockStart').value = '';
+  $('#blockEnd').value = '';
+  renderBlockedTimes();
 });
 
 // ---------- save ----------

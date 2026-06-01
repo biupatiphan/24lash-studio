@@ -101,6 +101,20 @@
         <div id="closedDates"></div>
       </div>
 
+      <!-- ปิดเฉพาะช่วงเวลา -->
+      <div class="card">
+        <h2>ปิดเฉพาะช่วงเวลา</h2>
+        <p class="note" style="margin-top:0">เลือกวันและช่วงเวลาที่ไม่ว่าง (เช่น 3 มิ.ย. ไม่ว่าง 13:00–16:00) ลูกค้าจะจองช่วงนั้นไม่ได้ แต่เวลาอื่นของวันยังจองได้</p>
+        <div class="svc-grid" style="grid-template-columns:1fr 1fr 1fr">
+          <div><label>วันที่</label><input type="date" id="blockDate" /></div>
+          <div><label>ตั้งแต่</label><input type="time" id="blockStart" /></div>
+          <div><label>ถึง</label><input type="time" id="blockEnd" /></div>
+        </div>
+        <div style="height:10px"></div>
+        <button class="btn-ghost" id="addBlock" type="button">+ เพิ่มช่วงไม่ว่าง</button>
+        <div id="blockedTimes" style="margin-top:10px"></div>
+      </div>
+
       <!-- ข้อมูลร้าน -->
       <div class="card">
         <h2>ข้อมูลร้าน</h2>

@@ -21,6 +21,7 @@ export const DEFAULTS = {
   businessHours: { open: '10:00', close: '19:00', slotMinutes: 30 },
   closedWeekdays: [],   // 0=อาทิตย์ ... 6=เสาร์
   closedDates: [],      // วันที่ปิดเฉพาะกิจ ['YYYY-MM-DD']
+  blockedTimes: [],     // ปิดเฉพาะช่วงเวลาของบางวัน [{ date:'YYYY-MM-DD', start:'HH:MM', end:'HH:MM' }]
   shop: {
     name: process.env.SHOP_NAME || '24Lash Studio',
     address: process.env.SHOP_ADDRESS || '',
@@ -42,6 +43,7 @@ function merge(raw = {}) {
     businessHours: { ...DEFAULTS.businessHours, ...(raw.businessHours || {}) },
     closedWeekdays: Array.isArray(raw.closedWeekdays) ? raw.closedWeekdays : DEFAULTS.closedWeekdays,
     closedDates: Array.isArray(raw.closedDates) ? raw.closedDates : DEFAULTS.closedDates,
+    blockedTimes: Array.isArray(raw.blockedTimes) ? raw.blockedTimes : DEFAULTS.blockedTimes,
     shop: { ...DEFAULTS.shop, ...(raw.shop || {}) },
     payment: { ...DEFAULTS.payment, ...(raw.payment || {}) },
   };
