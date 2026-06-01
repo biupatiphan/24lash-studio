@@ -1,5 +1,6 @@
 import ical from 'ical-generator';
-import { MAIL, SHOP, TIMEZONE } from './config.js';
+import { MAIL, TIMEZONE } from './config.js';
+import { getSettings } from './settings.js';
 
 const BREVO_URL = 'https://api.brevo.com/v3/smtp/email';
 
@@ -23,6 +24,7 @@ async function sendViaBrevo(message) {
 
 // สร้างไฟล์ปฏิทิน (.ics) สำหรับนัดหมาย — เปิดได้กับ Google Calendar / Apple Calendar
 function buildIcs(booking) {
+  const SHOP = getSettings().shop;
   const cal = ical({ name: `${SHOP.name} Booking`, timezone: TIMEZONE });
   cal.method('REQUEST');
   cal.createEvent({
@@ -49,6 +51,7 @@ function buildIcs(booking) {
 
 // อีเมลถึงลูกค้าตอนเพิ่งจอง — แจ้งว่ารับเรื่องแล้ว กำลังรอร้านยืนยัน (ยังไม่แนบปฏิทิน)
 function pendingCustomerHtml(booking) {
+  const SHOP = getSettings().shop;
   return `
   <div style="font-family:'Prompt',Arial,sans-serif;max-width:520px;margin:auto;background:#fff;border-radius:16px;overflow:hidden;border:1px solid #ffd9e6">
     <div style="background:linear-gradient(135deg,#ff9ec4,#ffc2d8);padding:24px;text-align:center;color:#fff">
@@ -96,6 +99,7 @@ function ownerNotifyHtml(booking, confirmUrl) {
 
 // อีเมลถึงลูกค้าหลังร้านยืนยัน — แนบไฟล์ปฏิทิน
 function confirmedCustomerHtml(booking) {
+  const SHOP = getSettings().shop;
   return `
   <div style="font-family:'Prompt',Arial,sans-serif;max-width:520px;margin:auto;background:#fff;border-radius:16px;overflow:hidden;border:1px solid #ffd9e6">
     <div style="background:linear-gradient(135deg,#ff9ec4,#ffc2d8);padding:24px;text-align:center;color:#fff">
@@ -148,6 +152,7 @@ function gcalDate(iso) {
 
 // สร้างลิงก์ "เพิ่มลง Google Calendar" ที่กดแล้วเปิดปฏิทินพร้อมข้อมูลครบ กด Save ได้เลย
 function googleCalUrl(booking) {
+  const SHOP = getSettings().shop;
   const dates = `${gcalDate(booking.startISO)}/${gcalDate(booking.endISO)}`;
   const text = encodeURIComponent(`${SHOP.name} - ${booking.serviceName}`);
   const details = encodeURIComponent(
@@ -178,6 +183,7 @@ function row(k, v) {
 
 // ตอนลูกค้าจอง: แจ้งลูกค้าว่ารอยืนยัน + ส่งให้ร้าน (แนบสลิป + ปุ่มยืนยัน)
 export async function sendBookingEmails(booking, slip, confirmUrl) {
+  const SHOP = getSettings().shop;
   const sender = { name: MAIL.fromName, email: MAIL.senderEmail };
 
   const slipAttachment = slip
@@ -204,6 +210,7 @@ export async function sendBookingEmails(booking, slip, confirmUrl) {
 
 // หลังร้านกดยืนยัน: ส่งอีเมลยืนยัน + ไฟล์ปฏิทินให้ทั้งลูกค้าและร้าน
 export async function sendConfirmationEmails(booking) {
+  const SHOP = getSettings().shop;
   const sender = { name: MAIL.fromName, email: MAIL.senderEmail };
   const calendarAttachment = {
     name: 'appointment.ics',

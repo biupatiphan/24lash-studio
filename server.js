@@ -4,9 +4,12 @@ import path from 'path';
 import crypto from 'crypto';
 import { fileURLToPath } from 'url';
 import {
-  SERVICES, BUSINESS_HOURS, CLOSED_WEEKDAYS, SHOP, PAYMENT, TIMEZONE, PORT,
-  BASE_URL, CONFIRM_SECRET, getService,
+  TIMEZONE, PORT, BASE_URL, CONFIRM_SECRET, ADMIN_PASSWORD,
 } from './config.js';
+import {
+  getSettings, getService, saveSettings, SETTINGS_PATH,
+} from './settings.js';
+import { commitFile } from './github.js';
 import * as store from './store.js';
 import { sendBookingEmails, sendConfirmationEmails, verifyMail } from './mailer.js';
 
@@ -34,10 +37,11 @@ const toHHMM = (min) =>
   `${String(Math.floor(min / 60)).padStart(2, '0')}:${String(min % 60).padStart(2, '0')}`;
 
 function generateSlots() {
+  const { businessHours } = getSettings();
   const slots = [];
-  const open = toMin(BUSINESS_HOURS.open);
-  const close = toMin(BUSINESS_HOURS.close);
-  for (let t = open; t < close; t += BUSINESS_HOURS.slotMinutes) {
+  const open = toMin(businessHours.open);
+  const close = toMin(businessHours.close);
+  for (let t = open; t < close; t += businessHours.slotMinutes) {
     slots.push(toHHMM(t));
   }
   return slots;
@@ -75,7 +79,7 @@ function makeBooking({ id, name, email, phone, serviceId, date, time, status }) 
     endMinutes,
     startISO: bangkokISO(date, startMinutes),
     endISO: bangkokISO(date, endMinutes),
-    depositAmount: PAYMENT.depositAmount,
+    depositAmount: getSettings().payment.depositAmount,
     status,
     createdAt: new Date().toISOString(),
   };
@@ -102,6 +106,80 @@ function verifyToken(token) {
   }
 }
 
+// ---------- หลังบ้าน (admin) ----------
+// ตรวจรหัสผ่านแบบ timing-safe ; ถ้าไม่ได้ตั้ง ADMIN_PASSWORD = ปิดหลังบ้าน
+function checkAdmin(req) {
+  if (!ADMIN_PASSWORD) return false;
+  const pw = req.get('x-admin-password') || (req.body && req.body.password) || '';
+  const a = Buffer.from(String(pw));
+  const b = Buffer.from(ADMIN_PASSWORD);
+  return a.length === b.length && crypto.timingSafeEqual(a, b);
+}
+
+const HHMM_RE = /^([01]\d|2[0-3]):([0-5]\d)$/;
+const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+const slug = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+
+// ตรวจ/ทำความสะอาดค่าที่ส่งมาจากหลังบ้านก่อนบันทึก
+function sanitizeSettings(input) {
+  if (!input || typeof input !== 'object') throw new Error('ข้อมูลไม่ถูกต้อง');
+
+  const services = (Array.isArray(input.services) ? input.services : [])
+    .map((s, i) => {
+      const name = String(s.name || '').trim();
+      if (!name) throw new Error(`บริการลำดับที่ ${i + 1} ต้องมีชื่อ`);
+      const duration = Math.round(Number(s.duration));
+      const price = Math.round(Number(s.price));
+      if (!Number.isFinite(duration) || duration <= 0) throw new Error(`ระยะเวลาของ "${name}" ไม่ถูกต้อง`);
+      if (!Number.isFinite(price) || price < 0) throw new Error(`ราคาของ "${name}" ไม่ถูกต้อง`);
+      const id = (s.id && slug(s.id)) || slug(name) || `svc-${i + 1}`;
+      return { id, name, duration, price };
+    });
+  if (!services.length) throw new Error('ต้องมีบริการอย่างน้อย 1 รายการ');
+  // กัน id ซ้ำ
+  const ids = new Set();
+  services.forEach((s) => {
+    let id = s.id, n = 2;
+    while (ids.has(id)) id = `${s.id}-${n++}`;
+    s.id = id;
+    ids.add(id);
+  });
+
+  const bh = input.businessHours || {};
+  if (!HHMM_RE.test(bh.open) || !HHMM_RE.test(bh.close)) throw new Error('เวลาทำการต้องเป็นรูปแบบ HH:MM');
+  if (toMin(bh.open) >= toMin(bh.close)) throw new Error('เวลาเปิดต้องมาก่อนเวลาปิด');
+  const slotMinutes = Math.round(Number(bh.slotMinutes));
+  if (!Number.isFinite(slotMinutes) || slotMinutes < 5 || slotMinutes > 240) throw new Error('ความถี่ช่วงเวลาไม่ถูกต้อง');
+
+  const closedWeekdays = (Array.isArray(input.closedWeekdays) ? input.closedWeekdays : [])
+    .map(Number).filter((n) => n >= 0 && n <= 6);
+  const closedDates = (Array.isArray(input.closedDates) ? input.closedDates : [])
+    .map((d) => String(d).trim()).filter((d) => DATE_RE.test(d));
+
+  const shop = input.shop || {};
+  const payment = input.payment || {};
+  const deposit = Math.round(Number(payment.depositAmount));
+
+  return {
+    services,
+    businessHours: { open: bh.open, close: bh.close, slotMinutes },
+    closedWeekdays: [...new Set(closedWeekdays)],
+    closedDates: [...new Set(closedDates)].sort(),
+    shop: {
+      name: String(shop.name || '').trim() || '24Lash Studio',
+      address: String(shop.address || '').trim(),
+      phone: String(shop.phone || '').trim(),
+    },
+    payment: {
+      depositAmount: Number.isFinite(deposit) && deposit >= 0 ? deposit : 0,
+      bankName: String(payment.bankName || '').trim(),
+      bankAccountName: String(payment.bankAccountName || '').trim(),
+      bankAccountNumber: String(payment.bankAccountNumber || '').trim(),
+      promptpayId: String(payment.promptpayId || '').trim(),
+    },
+  };
+}
+
 // หน้าเว็บผลลัพธ์ (โทนชมพูให้เข้ากับเว็บ) สำหรับร้านหลังกดลิงก์ยืนยัน
 function resultPage(title, message, ok = true) {
   return `<!DOCTYPE html><html lang="th"><head><meta charset="UTF-8" />
@@ -116,12 +194,14 @@ function resultPage(title, message, ok = true) {
 
 // ---------- API ----------
 app.get('/api/config', (req, res) => {
+  const s = getSettings();
   res.json({
-    shop: SHOP,
-    payment: PAYMENT,
-    services: SERVICES,
-    businessHours: BUSINESS_HOURS,
-    closedWeekdays: CLOSED_WEEKDAYS,
+    shop: s.shop,
+    payment: s.payment,
+    services: s.services,
+    businessHours: s.businessHours,
+    closedWeekdays: s.closedWeekdays,
+    closedDates: s.closedDates,
   });
 });
 
@@ -130,12 +210,13 @@ app.get('/api/availability', (req, res) => {
   const { date, serviceId } = req.query;
   if (!date) return res.status(400).json({ error: 'ต้องระบุวันที่' });
 
-  const svc = getService(serviceId) || SERVICES[0];
+  const s = getSettings();
+  const svc = getService(serviceId) || s.services[0];
   const day = new Date(`${date}T00:00:00`).getDay();
-  const closeMin = toMin(BUSINESS_HOURS.close);
+  const closeMin = toMin(s.businessHours.close);
 
-  // วันปิดร้าน
-  if (CLOSED_WEEKDAYS.includes(day)) {
+  // วันปิดร้าน (วันประจำสัปดาห์ หรือ วันปิดเฉพาะกิจ)
+  if (s.closedWeekdays.includes(day) || s.closedDates.includes(date)) {
     return res.json({ closed: true, slots: [] });
   }
 
@@ -266,10 +347,39 @@ app.get('/api/bookings/confirm', async (req, res) => {
   ));
 });
 
+// โหลดค่าปัจจุบันเข้าหลังบ้าน (ต้องใส่รหัสผ่าน)
+app.get('/api/admin/settings', (req, res) => {
+  if (!checkAdmin(req)) return res.status(401).json({ error: 'รหัสผ่านไม่ถูกต้อง' });
+  res.json({ settings: getSettings() });
+});
+
+// บันทึกค่าจากหลังบ้าน -> เขียนในเครื่อง + commit ขึ้น GitHub (Render redeploy ให้ค่าถาวร)
+app.post('/api/admin/settings', async (req, res) => {
+  if (!checkAdmin(req)) return res.status(401).json({ error: 'รหัสผ่านไม่ถูกต้อง' });
+  try {
+    const clean = sanitizeSettings(req.body.settings);
+    const json = saveSettings(clean);
+
+    let committed = false;
+    let warning = null;
+    try {
+      await commitFile(SETTINGS_PATH, json, 'Update shop settings via admin panel');
+      committed = true;
+    } catch (e) {
+      console.error('commit settings ล้มเหลว:', e.message);
+      warning = 'บันทึกในเครื่องแล้ว แต่บันทึกถาวรขึ้น GitHub ไม่สำเร็จ: ' + e.message;
+    }
+
+    res.json({ ok: true, committed, warning, settings: getSettings() });
+  } catch (e) {
+    res.status(400).json({ error: e.message });
+  }
+});
+
 app.get('/api/health', async (req, res) => {
   res.json({ ok: true, mail: await verifyMail() });
 });
 
 app.listen(PORT, () => {
-  console.log(`\n🌸 ${SHOP.name} กำลังทำงานที่ http://localhost:${PORT}\n`);
+  console.log(`\n🌸 ${getSettings().shop.name} กำลังทำงานที่ http://localhost:${PORT}\n`);
 });

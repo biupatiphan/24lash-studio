@@ -70,6 +70,7 @@ function renderCalendar() {
   const daysInMonth = new Date(m.getFullYear(), m.getMonth() + 1, 0).getDate();
   const todayStr = ymd(new Date());
   const closed = state.config.closedWeekdays || [];
+  const closedDates = state.config.closedDates || [];
 
   for (let i = 0; i < firstDay; i++) {
     const e = document.createElement('div');
@@ -85,7 +86,7 @@ function renderCalendar() {
     cell.textContent = d;
 
     const isPast = dateStr < todayStr;
-    const isClosed = closed.includes(dateObj.getDay());
+    const isClosed = closed.includes(dateObj.getDay()) || closedDates.includes(dateStr);
 
     if (dateStr === todayStr) cell.classList.add('today');
 
