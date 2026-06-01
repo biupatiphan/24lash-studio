@@ -32,6 +32,17 @@ export function add(booking) {
   return booking;
 }
 
+// อัปเดตสถานะการจองตามรหัส (เช่น pending -> confirmed) ; คืน booking ที่เจอ หรือ null
+export function setStatus(id, status) {
+  ensure();
+  const all = getAll();
+  const b = all.find((x) => x.id === id);
+  if (!b) return null;
+  b.status = status;
+  fs.writeFileSync(FILE, JSON.stringify(all, null, 2));
+  return b;
+}
+
 // ตรวจว่าช่วงเวลาทับซ้อนกับการจองที่มีอยู่หรือไม่
 export function isSlotTaken(date, startMinutes, endMinutes) {
   return getByDate(date).some((b) => {

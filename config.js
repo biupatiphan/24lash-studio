@@ -43,6 +43,13 @@ export const MAIL = {
 export const TIMEZONE = process.env.TIMEZONE || 'Asia/Bangkok';
 export const PORT = Number(process.env.PORT || 3000);
 
+// URL ของเว็บ (Render ใส่ RENDER_EXTERNAL_URL ให้อัตโนมัติ) ใช้สร้างลิงก์ปุ่มยืนยันในอีเมล
+export const BASE_URL =
+  process.env.BASE_URL || process.env.RENDER_EXTERNAL_URL || `http://localhost:${PORT}`;
+// กุญแจเซ็นลิงก์ยืนยันกันปลอม (ใช้ค่าเดิมที่มีอยู่แล้วเพื่อไม่ต้องตั้งค่าเพิ่ม)
+export const CONFIRM_SECRET =
+  process.env.CONFIRM_SECRET || process.env.BREVO_API_KEY || 'dev-confirm-secret';
+
 export function getService(id) {
   return SERVICES.find((s) => s.id === id);
 }
