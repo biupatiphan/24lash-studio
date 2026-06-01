@@ -1,20 +1,56 @@
 {
   "services": [
-    { "id": "classic", "name": "Classic Lash (ขนตาแบบธรรมชาติ)", "duration": 90, "price": 690 },
-    { "id": "volume", "name": "Volume Lash (ขนตาฟูหนา)", "duration": 120, "price": 990 },
-    { "id": "hybrid", "name": "Hybrid Lash (ผสมผสาน)", "duration": 105, "price": 850 },
-    { "id": "refill", "name": "Refill (เติมขนตา)", "duration": 60, "price": 490 },
-    { "id": "removal", "name": "Removal (ถอดขนตา)", "duration": 30, "price": 200 }
+    {
+      "id": "classic",
+      "name": "Classic Lash (ขนตาแบบธรรมชาติ)",
+      "duration": 90,
+      "price": 690
+    },
+    {
+      "id": "volume",
+      "name": "Volume Lash (ขนตาฟูหนา)",
+      "duration": 120,
+      "price": 990
+    },
+    {
+      "id": "hybrid",
+      "name": "Hybrid Lash (ผสมผสาน)",
+      "duration": 105,
+      "price": 850
+    },
+    {
+      "id": "refill",
+      "name": "Refill (เติมขนตา)",
+      "duration": 60,
+      "price": 490
+    },
+    {
+      "id": "removal",
+      "name": "Removal (ถอดขนตา)",
+      "duration": 30,
+      "price": 200
+    }
   ],
-  "businessHours": { "open": "10:00", "close": "19:00", "slotMinutes": 30 },
+  "businessHours": {
+    "open": "10:00",
+    "close": "19:00",
+    "slotMinutes": 60
+  },
   "closedWeekdays": [],
-  "closedDates": [],
-  "shop": { "name": "24Lash Studio", "address": "", "phone": "" },
+  "closedDates": [
+    "2026-06-01",
+    "2026-06-02"
+  ],
+  "shop": {
+    "name": "Lashbkk24",
+    "address": "",
+    "phone": ""
+  },
   "payment": {
-    "depositAmount": 300,
-    "bankName": "",
-    "bankAccountName": "",
-    "bankAccountNumber": "",
+    "depositAmount": 200,
+    "bankName": "SCB",
+    "bankAccountName": "Thapatcha tangsanpanthong",
+    "bankAccountNumber": "2182862265",
     "promptpayId": ""
   }
 }
