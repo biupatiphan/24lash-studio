@@ -14,15 +14,15 @@
     },
     {
       "id": "hybrid",
-      "name": "Hybrid Lash (ผสมผสาน)",
+      "name": "Hybrid Lash /YY/WW/UU",
       "duration": 105,
-      "price": 850
+      "price": 599
     },
     {
       "id": "refill",
-      "name": "Refill (เติมขนตา)",
+      "name": "Monako",
       "duration": 60,
-      "price": 490
+      "price": 799
     },
     {
       "id": "removal",
@@ -32,15 +32,12 @@
     }
   ],
   "businessHours": {
-    "open": "10:00",
-    "close": "22:00",
+    "open": "09:00",
+    "close": "23:00",
     "slotMinutes": 60
   },
   "closedWeekdays": [],
-  "closedDates": [
-    "2026-06-01",
-    "2026-06-02"
-  ],
+  "closedDates": [],
   "blockedTimes": [
     {
       "date": "2026-06-03",
@@ -50,7 +47,7 @@
   ],
   "shop": {
     "name": "Lashbkk24",
-    "address": "",
+    "address": "Ideo mobi 81",
     "phone": ""
   },
   "payment": {
