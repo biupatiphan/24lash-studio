@@ -4,7 +4,7 @@
       "id": "classic",
       "name": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
-      "price": 699
+      "price": 649
     },
     {
       "id": "volume",
@@ -16,7 +16,7 @@
       "id": "hybrid",
       "name": "Hybrid Lash  ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
-      "price": 699
+      "price": 749
     },
     {
       "id": "refill",
@@ -64,13 +64,13 @@
       "id": "yy-shape-lashes-y",
       "name": "YY shape Lashes ขนตาแกนY/ไม่จำกัดเส้นและความยาว/เคลมฟรี",
       "duration": 60,
-      "price": 699
+      "price": 649
     },
     {
       "id": "ww-shape-lashes-ww",
       "name": "WW shape Lashes ขนตาแกนWW/ ไม่จำกัดเส้นและความยาว/เคลมฟรี",
       "duration": 60,
-      "price": 699
+      "price": 649
     },
     {
       "id": "foxy-lashes",
