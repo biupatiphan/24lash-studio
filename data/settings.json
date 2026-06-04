@@ -2,33 +2,81 @@
   "services": [
     {
       "id": "classic",
-      "name": "Classic Lash (ขนตาแบบธรรมชาติ)",
-      "duration": 90,
-      "price": 690
+      "name": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+      "duration": 60,
+      "price": 699
     },
     {
       "id": "volume",
-      "name": "Volume Lash (ขนตาฟูหนา)",
+      "name": "Volume Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 120,
-      "price": 990
+      "price": 0
     },
     {
       "id": "hybrid",
-      "name": "Hybrid Lash /YY/WW/UU",
-      "duration": 105,
-      "price": 599
+      "name": "Hybrid Lash  ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+      "duration": 60,
+      "price": 699
     },
     {
       "id": "refill",
-      "name": "Monako",
+      "name": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
-      "price": 799
+      "price": 749
     },
     {
       "id": "removal",
-      "name": "Removal (ถอดขนตา)",
-      "duration": 30,
-      "price": 200
+      "name": "Removal (ถอดขนตา) เริ่มต้น 50-150",
+      "duration": 20,
+      "price": 150
+    },
+    {
+      "id": "whispy-classic",
+      "name": "Whispy Classic ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+      "duration": 60,
+      "price": 849
+    },
+    {
+      "id": "whispy-volume",
+      "name": "Whispy Volume ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+      "duration": 60,
+      "price": 950
+    },
+    {
+      "id": "wet-look-3d-4d",
+      "name": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+      "duration": 60,
+      "price": 749
+    },
+    {
+      "id": "wet-look-5d-10d",
+      "name": "Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+      "duration": 60,
+      "price": 950
+    },
+    {
+      "id": "u-shape-lashes",
+      "name": "U shape Lashes ขนตาแกนยู / ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+      "duration": 60,
+      "price": 699
+    },
+    {
+      "id": "yy-shape-lashes-y",
+      "name": "YY shape Lashes ขนตาแกนY/ไม่จำกัดเส้นและความยาว/เคลมฟรี",
+      "duration": 60,
+      "price": 699
+    },
+    {
+      "id": "ww-shape-lashes-ww",
+      "name": "WW shape Lashes ขนตาแกนWW/ ไม่จำกัดเส้นและความยาว/เคลมฟรี",
+      "duration": 60,
+      "price": 0
+    },
+    {
+      "id": "foxy-lashes",
+      "name": "Foxy Lashes ขนตาทรงฟ็อกซี่อาย/ ไม่จำกัดเส้นและความยาว/เคลมฟรี",
+      "duration": 90,
+      "price": 950
     }
   ],
   "businessHours": {
@@ -38,17 +86,11 @@
   },
   "closedWeekdays": [],
   "closedDates": [],
-  "blockedTimes": [
-    {
-      "date": "2026-06-03",
-      "start": "11:00",
-      "end": "14:00"
-    }
-  ],
+  "blockedTimes": [],
   "shop": {
     "name": "Lashbkk24",
-    "address": "Ideo mobi 81",
-    "phone": ""
+    "address": "Ideo mobi 81 ติดบีทีเอสอ่อนนุช",
+    "phone": "0988964928"
   },
   "payment": {
     "depositAmount": 200,
