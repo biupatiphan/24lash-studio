@@ -10,7 +10,7 @@
       "id": "volume",
       "name": "Volume Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 120,
-      "price": 0
+      "price": 1100
     },
     {
       "id": "hybrid",
@@ -85,7 +85,9 @@
     "slotMinutes": 60
   },
   "closedWeekdays": [],
-  "closedDates": [],
+  "closedDates": [
+    "2026-06-09"
+  ],
   "blockedTimes": [],
   "shop": {
     "name": "Lashbkk24",
