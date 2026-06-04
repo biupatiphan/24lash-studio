@@ -4,7 +4,7 @@
       "id": "classic",
       "name": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
-      "price": 649
+      "price": 599
     },
     {
       "id": "volume",
@@ -16,13 +16,13 @@
       "id": "hybrid",
       "name": "Hybrid Lash  ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
-      "price": 749
+      "price": 699
     },
     {
       "id": "refill",
       "name": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
-      "price": 749
+      "price": 699
     },
     {
       "id": "removal",
@@ -34,13 +34,13 @@
       "id": "whispy-classic",
       "name": "Whispy Classic ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
-      "price": 849
+      "price": 749
     },
     {
       "id": "whispy-volume",
       "name": "Whispy Volume ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
-      "price": 950
+      "price": 899
     },
     {
       "id": "wet-look-3d-4d",
@@ -52,31 +52,49 @@
       "id": "wet-look-5d-10d",
       "name": "Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
-      "price": 950
+      "price": 899
     },
     {
       "id": "u-shape-lashes",
       "name": "U shape Lashes ขนตาแกนยู / ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
-      "price": 699
+      "price": 599
     },
     {
       "id": "yy-shape-lashes-y",
       "name": "YY shape Lashes ขนตาแกนY/ไม่จำกัดเส้นและความยาว/เคลมฟรี",
       "duration": 60,
-      "price": 649
+      "price": 599
     },
     {
       "id": "ww-shape-lashes-ww",
       "name": "WW shape Lashes ขนตาแกนWW/ ไม่จำกัดเส้นและความยาว/เคลมฟรี",
       "duration": 60,
-      "price": 649
+      "price": 599
     },
     {
       "id": "foxy-lashes",
       "name": "Foxy Lashes ขนตาทรงฟ็อกซี่อาย/ ไม่จำกัดเส้นและความยาว/เคลมฟรี",
       "duration": 90,
       "price": 950
+    },
+    {
+      "id": "wet-wispy",
+      "name": "Wet Wispy ไม่จำกัดเส้นและความยาว/เคลมฟรี",
+      "duration": 60,
+      "price": 899
+    },
+    {
+      "id": "mega-volume",
+      "name": "Mega Volume ไม่จำกัดเส้นและความยาว/เคลมฟรี",
+      "duration": 60,
+      "price": 1350
+    },
+    {
+      "id": "anime",
+      "name": "Anime ไม่จำกัดเส้นและความยาว/เคลมฟรี",
+      "duration": 60,
+      "price": 699
     }
   ],
   "businessHours": {
