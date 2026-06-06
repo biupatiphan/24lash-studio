@@ -11,7 +11,7 @@ import {
 } from './settings.js';
 import { commitFile } from './github.js';
 import * as store from './store.js';
-import { sendBookingEmails, sendConfirmationEmails, verifyMail } from './mailer.js';
+import { sendBookingEmails, sendConfirmationEmails, verifyMail, googleCalUrl } from './mailer.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -363,11 +363,18 @@ app.get('/api/bookings/confirm', async (req, res) => {
 
   store.setStatus(booking.id, 'confirmed');
 
+  const calBtn =
+    `<a href="${googleCalUrl(booking)}" target="_blank" rel="noopener" ` +
+    `style="display:inline-block;margin-top:16px;background:#e75a8a;color:#fff;text-decoration:none;` +
+    `font-weight:600;font-size:15px;padding:13px 28px;border-radius:999px">📅 เพิ่มลง Google Calendar ของร้าน</a>`;
+
   res.send(resultPage(
     'ยืนยันการจองเรียบร้อย!',
     `ยืนยันการจอง <b>${booking.id}</b> ของคุณ ${booking.name} แล้วค่ะ<br>` +
     `${booking.dateLabel} เวลา ${booking.time} น.<br><br>` +
-    `ส่งอีเมลยืนยัน + ไฟล์ปฏิทินให้ลูกค้าและร้านแล้ว 📅`,
+    `ส่งอีเมลยืนยันให้ลูกค้าแล้ว 💌<br>` +
+    `กดปุ่มด้านล่างเพื่อเพิ่มนัดนี้ลงปฏิทินร้านได้เลยค่ะ` +
+    calBtn,
   ));
 });
 

@@ -141,7 +141,6 @@ function ownerCalendarHtml(booking) {
     </table>
     <p style="background:#fff0f6;padding:12px 16px;border-radius:12px;font-size:14px;text-align:center">📅 กดปุ่มด้านล่างเพื่อเพิ่มนัดหมายลง Google Calendar ของร้านได้เลยค่ะ</p>
     ${gcalButton(booking)}
-    <p style="font-size:12px;color:#9b8b92;text-align:center">หรือเปิดไฟล์ <b>appointment.ics</b> ที่แนบมา (สำหรับ Apple Calendar)</p>
   </div>`;
 }
 
@@ -151,7 +150,7 @@ function gcalDate(iso) {
 }
 
 // สร้างลิงก์ "เพิ่มลง Google Calendar" ที่กดแล้วเปิดปฏิทินพร้อมข้อมูลครบ กด Save ได้เลย
-function googleCalUrl(booking) {
+export function googleCalUrl(booking) {
   const SHOP = getSettings().shop;
   const dates = `${gcalDate(booking.startISO)}/${gcalDate(booking.endISO)}`;
   const text = encodeURIComponent(`${SHOP.name} - ${booking.serviceName}`);
@@ -226,13 +225,14 @@ export async function sendConfirmationEmails(booking) {
     attachment: [calendarAttachment],
   });
 
-  // ร้าน — ปฏิทินเข้าเมลร้าน
+  // ร้าน — แจ้งยืนยัน + ปุ่มเพิ่มลงปฏิทิน
+  // ⚠️ ห้ามแนบ .ics ให้ร้าน: organizer กับผู้รับเป็นอีเมลเดียวกัน Gmail จะมองว่าเป็นนัดที่ตัวเองสร้าง
+  // แล้วกลืนอีเมลไปจัดการในปฏิทิน ทำให้ไม่เด้งเข้ากล่องจดหมาย — ใช้ปุ่ม Google Calendar ใน HTML แทน
   await sendViaBrevo({
     sender,
     to: [{ email: MAIL.ownerEmail, name: SHOP.name }],
     subject: `📅 ยืนยันแล้ว: ${booking.name} - ${booking.dateLabel} ${booking.time} น.`,
     htmlContent: ownerCalendarHtml(booking),
-    attachment: [calendarAttachment],
   });
 }
 
