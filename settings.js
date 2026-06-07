@@ -39,7 +39,9 @@ export const DEFAULTS = {
 // รวมค่าที่อ่านมากับ defaults กันฟิลด์หาย
 function merge(raw = {}) {
   return {
-    services: Array.isArray(raw.services) && raw.services.length ? raw.services : DEFAULTS.services,
+    services: Array.isArray(raw.services) && raw.services.length
+      ? raw.services.map((s) => ({ ...s, popular: !!s.popular }))
+      : DEFAULTS.services,
     businessHours: { ...DEFAULTS.businessHours, ...(raw.businessHours || {}) },
     closedWeekdays: Array.isArray(raw.closedWeekdays) ? raw.closedWeekdays : DEFAULTS.closedWeekdays,
     closedDates: Array.isArray(raw.closedDates) ? raw.closedDates : DEFAULTS.closedDates,

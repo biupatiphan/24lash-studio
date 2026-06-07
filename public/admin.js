@@ -56,8 +56,22 @@ function renderServices() {
         <div><label>ระยะเวลา (นาที)</label><input type="number" data-i="${i}" data-k="duration" min="1" value="${s.duration}" /></div>
         <div><label>ราคา (บาท)</label><input type="number" data-i="${i}" data-k="price" min="0" value="${s.price}" /></div>
         <button class="btn-del" data-del="${i}" type="button">ลบ</button>
-      </div>`;
+      </div>
+      <div class="pop-toggle ${s.popular ? 'on' : ''}" data-pop="${i}">${s.popular ? '🔥 ยอดฮิต (กดเพื่อเอาออก)' : '☆ ตั้งเป็นยอดฮิต'}</div>`;
     wrap.appendChild(el);
+  });
+
+  wrap.querySelectorAll('[data-pop]').forEach((el) => {
+    el.addEventListener('click', () => {
+      const i = Number(el.dataset.pop);
+      const turningOn = !settings.services[i].popular;
+      if (turningOn && settings.services.filter((s) => s.popular).length >= 3) {
+        alert('เลือกยอดฮิตได้สูงสุด 3 บริการค่ะ — เอาอันเดิมออกก่อนนะคะ');
+        return;
+      }
+      settings.services[i].popular = turningOn;
+      renderServices();
+    });
   });
 
   wrap.querySelectorAll('input').forEach((inp) => {

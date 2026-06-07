@@ -133,7 +133,7 @@ function sanitizeSettings(input) {
       if (!Number.isFinite(duration) || duration <= 0) throw new Error(`ระยะเวลาของ "${name}" ไม่ถูกต้อง`);
       if (!Number.isFinite(price) || price < 0) throw new Error(`ราคาของ "${name}" ไม่ถูกต้อง`);
       const id = (s.id && slug(s.id)) || slug(name) || `svc-${i + 1}`;
-      return { id, name, duration, price };
+      return { id, name, duration, price, popular: !!s.popular };
     });
   if (!services.length) throw new Error('ต้องมีบริการอย่างน้อย 1 รายการ');
   // กัน id ซ้ำ
@@ -143,6 +143,12 @@ function sanitizeSettings(input) {
     while (ids.has(id)) id = `${s.id}-${n++}`;
     s.id = id;
     ids.add(id);
+  });
+  // จำกัด "ยอดฮิต" ไม่เกิน 3 รายการ (เกินมาให้ตัดออก)
+  let popularCount = 0;
+  services.forEach((s) => {
+    if (s.popular && popularCount < 3) popularCount++;
+    else s.popular = false;
   });
 
   const bh = input.businessHours || {};

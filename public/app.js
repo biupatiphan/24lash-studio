@@ -40,13 +40,18 @@ function ymd(d) {
 function renderServices() {
   const wrap = $('#services');
   wrap.innerHTML = '';
-  state.config.services.forEach((s) => {
+  // เรียงให้บริการยอดฮิตขึ้นก่อน (คงลำดับเดิมในแต่ละกลุ่ม)
+  const ordered = state.config.services
+    .map((s, i) => ({ s, i }))
+    .sort((a, b) => (b.s.popular ? 1 : 0) - (a.s.popular ? 1 : 0) || a.i - b.i)
+    .map((x) => x.s);
+  ordered.forEach((s) => {
     const el = document.createElement('div');
-    el.className = 'service';
+    el.className = 'service' + (s.popular ? ' popular' : '');
     el.dataset.id = s.id;
     el.innerHTML = `
       <div>
-        <div class="s-name">${s.name}</div>
+        <div class="s-name">${s.popular ? '<span class="s-badge">🔥 ยอดฮิต</span> ' : ''}${s.name}</div>
         <div class="s-meta">ใช้เวลา ~${s.duration} นาที</div>
       </div>
       <div class="s-price">${s.price.toLocaleString()} ฿</div>`;
