@@ -388,7 +388,8 @@ function renderBookings(list) {
     el.innerHTML = `
       <div class="bk-top">
         <div>
-          <span class="bk-time">${b.time}</span> &nbsp;${escapeAttr(b.name || '')}
+          <span class="bk-date">📅 ${thaiDate(b.date)}</span>
+          <div><span class="bk-time">${b.time}</span> &nbsp;${escapeAttr(b.name || '')}</div>
           <div class="bk-svc">${manualTag}${escapeAttr(b.serviceName || '')} · ฿${(Number(b.price) || 0).toLocaleString()}</div>
           ${phoneLine}
         </div>
