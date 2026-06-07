@@ -373,5 +373,26 @@
     เก็บประวัติทุกคิวถาวร · ดาวน์โหลดเป็นไฟล์ Excel ได้ (ออปชัน)
   </p>
 </div>
+
+<script>
+  // เมื่อเลือกบริการ → เด้งราคาให้ตรง (แต่ยังพิมพ์แก้เองได้)
+  function priceFromOption(text) {
+    const m = text.match(/฿\s*([\d,]+)/);
+    return m ? m[1].replace(/,/g, '') : '';
+  }
+  document.querySelectorAll('select').forEach((sel) => {
+    // เลือกเฉพาะดรอปดาวน์บริการ (ตัวที่ option มีราคา ฿)
+    const isService = [...sel.options].some((o) => o.text.includes('฿'));
+    if (!isService) return;
+    sel.addEventListener('change', () => {
+      const label = sel.options[sel.selectedIndex].text;
+      if (label.includes('กำหนดเอง')) return; // กำหนดเอง = ปล่อยให้พิมพ์เอง
+      const price = priceFromOption(label);
+      const cell = sel.closest('div');
+      const priceInput = cell && cell.nextElementSibling && cell.nextElementSibling.querySelector('input');
+      if (priceInput && price) priceInput.value = price;
+    });
+  });
+</script>
 </body>
 </html>
