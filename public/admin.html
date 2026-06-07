@@ -16,11 +16,17 @@
     .card { background: #fff; border: 1px solid #ffd9e6; border-radius: 18px; padding: 20px; margin-bottom: 16px; box-shadow: 0 6px 24px rgba(231,90,138,.08); }
     .card h2 { font-size: 17px; color: #e75a8a; margin: 0 0 14px; }
     label { display: block; font-size: 13px; color: #9b8b92; margin: 10px 0 4px; }
-    input[type=text], input[type=number], input[type=time], input[type=password], input[type=date] {
+    input[type=text], input[type=number], input[type=time], input[type=password], input[type=date], select {
       width: 100%; padding: 11px 13px; border: 1.5px solid #ffd9e6; border-radius: 12px;
       font-family: inherit; font-size: 15px; color: #5a4a52; background: #fffafc;
     }
-    input:focus { outline: none; border-color: #ff9ec4; }
+    input:focus, select:focus { outline: none; border-color: #ff9ec4; }
+    select {
+      -webkit-appearance: none; -moz-appearance: none; appearance: none;
+      padding-right: 36px; cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23e75a8a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 13px center;
+    }
     .btn { background: linear-gradient(135deg,#ff9ec4,#e75a8a); color: #fff; border: none; border-radius: 999px;
       font-family: inherit; font-weight: 600; font-size: 15px; padding: 13px 24px; cursor: pointer; width: 100%; }
     .btn:disabled { opacity: .6; cursor: default; }
@@ -100,6 +106,7 @@
     .bk-edit { margin-top: 12px; padding-top: 12px; border-top: 1px dashed #f3dbe6; }
     .bk-edit .lbl { font-size: 12px; color: #9b8b92; margin: 10px 0 4px; }
     .bk-edit select, .bk-edit input { width: 100%; padding: 9px 11px; border: 1.5px solid #ffd9e6; border-radius: 10px; font-family: inherit; font-size: 13px; color: #5a4a52; background: #fff; }
+    .bk-edit select { padding-right: 32px; background-position: right 10px center; }
     .svc-grid2 { display: grid; grid-template-columns: 1fr 100px; gap: 8px; }
     .st-pills { display: flex; gap: 6px; flex-wrap: wrap; }
     .st-pills button { font-family: inherit; font-size: 12px; font-weight: 600; border-radius: 999px; padding: 8px 12px; cursor: pointer; border: 1.5px solid #ffd9e6; background: #fff; color: #9b8b92; }
