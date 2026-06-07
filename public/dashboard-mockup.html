@@ -245,7 +245,7 @@
         </div>
         <div><label>ราคา (แก้ได้)</label><input type="text" value="550" /></div>
         <div><label>วันที่</label><input type="text" value="6 มิ.ย. 2569" /></div>
-        <div><label>เวลา</label><input type="text" value="16:30" /></div>
+        <div><label>เวลา</label><select id="addTime"></select></div>
         <div><label>มัดจำ (ใส่ 0 ได้)</label><input type="text" value="0" /></div>
         <div><label>สถานะ</label><select><option>✅ เสร็จแล้ว</option><option>⏳ รอรับบริการ</option></select></div>
       </div>
@@ -380,6 +380,22 @@
     const m = text.match(/฿\s*([\d,]+)/);
     return m ? m[1].replace(/,/g, '') : '';
   }
+  // ช่องเวลา → สร้างช่วงเวลาตามเวลาทำการร้าน (ของจริงจะดึงจากหลังบ้าน)
+  (function fillTimes() {
+    const open = 9 * 60, close = 23 * 60, step = 120; // 09:00–23:00 ทุก 2 ชม.
+    const sel = document.getElementById('addTime');
+    if (!sel) return;
+    const pad = (n) => String(n).padStart(2, '0');
+    for (let t = open; t < close; t += step) {
+      const hhmm = `${pad(Math.floor(t / 60))}:${pad(t % 60)}`;
+      const o = document.createElement('option');
+      o.value = hhmm;
+      o.textContent = `${hhmm} น.`;
+      if (t === 15 * 60) o.selected = true;
+      sel.appendChild(o);
+    }
+  })();
+
   document.querySelectorAll('select').forEach((sel) => {
     // เลือกเฉพาะดรอปดาวน์บริการ (ตัวที่ option มีราคา ฿)
     const isService = [...sel.options].some((o) => o.text.includes('฿'));
