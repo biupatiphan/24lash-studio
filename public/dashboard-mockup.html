@@ -97,6 +97,14 @@
   .pill-btn.sel-cancel{background:#fdecec;color:var(--red);border-color:#f5c6c6;}
   .tap-cue{font-size:11px;color:var(--pink);margin-top:6px;}
 
+  /* edit service before completing */
+  .edit-svc{margin-bottom:14px;padding-bottom:12px;border-bottom:1px dashed #f3dbe6;}
+  .status-actions select,.status-actions input{width:100%;padding:9px 11px;border:1.5px solid var(--line);
+    border-radius:10px;font-family:inherit;font-size:13px;color:var(--ink);background:#fff;}
+  .esvc-grid{display:grid;grid-template-columns:1fr 110px;gap:8px;}
+  .esvc-grid label{display:block;font-size:12px;color:var(--muted);margin:0 0 4px;}
+  .changed-note{font-size:11px;color:#3b6cb7;background:#eef4ff;border-radius:8px;padding:7px 10px;margin-top:8px;}
+
   /* walk-in add */
   .add-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;
     background:linear-gradient(135deg,var(--pink2),var(--pink));color:#fff;border:none;border-radius:14px;
@@ -271,6 +279,21 @@
           <div class="remain">เก็บหน้าร้าน<b>฿550</b></div>
         </div>
         <div class="status-actions">
+          <div class="edit-svc">
+            <div class="hint">บริการจริงที่ทำ (แก้ได้ก่อนกดเสร็จ):</div>
+            <div class="esvc-grid">
+              <div><label>บริการ</label>
+                <select>
+                  <option>Hybrid Lash — ฿850 (ที่จองไว้)</option>
+                  <option selected>Volume Lash — ฿990</option>
+                  <option>Classic Lash — ฿599</option>
+                  <option>กำหนดเอง…</option>
+                </select>
+              </div>
+              <div><label>ราคา (แก้ได้)</label><input type="text" value="990" /></div>
+            </div>
+            <div class="changed-note">🔄 เปลี่ยนจาก Hybrid ฿850 → Volume ฿990 · มัดจำเดิม ฿300 · เก็บหน้าร้านปรับเป็น <b>฿690</b> อัตโนมัติ</div>
+          </div>
           <div class="hint">เปลี่ยนสถานะคิวนี้:</div>
           <div class="pills">
             <button class="pill-btn sel-wait">⏳ รอรับบริการ</button>
