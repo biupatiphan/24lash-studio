@@ -28,18 +28,19 @@
     "phone": "0649326140",
     "serviceId": "whispy-volume",
     "serviceName": "Whispy Volume ไม่จำกัดเส้นและความยาว+เคลมฟรี",
-    "date": "2026-06-23",
-    "dateLabel": "วันอังคารที่ 23 มิถุนายน 2569",
+    "date": "2026-06-17",
+    "dateLabel": "วันพุธที่ 17 มิถุนายน 2569",
     "time": "11:00",
     "endTime": "12:00",
     "startMinutes": 660,
     "endMinutes": 720,
-    "startISO": "2026-06-23T11:00:00+07:00",
-    "endISO": "2026-06-23T12:00:00+07:00",
+    "startISO": "2026-06-17T11:00:00+07:00",
+    "endISO": "2026-06-17T12:00:00+07:00",
     "price": 899,
     "depositAmount": 200,
     "status": "pending",
     "source": "online",
-    "createdAt": "2026-06-07T17:55:58.076Z"
+    "createdAt": "2026-06-07T17:55:58.076Z",
+    "updatedAt": "2026-06-07T18:08:26.690Z"
   }
 ]
