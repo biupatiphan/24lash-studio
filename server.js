@@ -60,15 +60,15 @@ function bangkokISO(dateStr, minutes) {
 }
 
 // สร้าง object การจองแบบเต็มจากข้อมูลหลัก (ใช้ทั้งตอนจองและตอนยืนยัน)
-function makeBooking({ id, name, email, phone, serviceId, date, time, status }) {
+function makeBooking({ id, name, email, phone, serviceId, date, time, status, price, depositAmount, source }) {
   const svc = getService(serviceId);
   const startMinutes = toMin(time);
   const endMinutes = startMinutes + svc.duration;
   return {
     id,
     name: String(name).trim(),
-    email: String(email).trim(),
-    phone: String(phone).trim(),
+    email: String(email || '').trim(),
+    phone: String(phone || '').trim(),
     serviceId,
     serviceName: svc.name,
     date,
@@ -79,8 +79,10 @@ function makeBooking({ id, name, email, phone, serviceId, date, time, status }) 
     endMinutes,
     startISO: bangkokISO(date, startMinutes),
     endISO: bangkokISO(date, endMinutes),
-    depositAmount: getSettings().payment.depositAmount,
+    price: Number.isFinite(Number(price)) ? Math.round(Number(price)) : svc.price,
+    depositAmount: Number.isFinite(Number(depositAmount)) ? Math.round(Number(depositAmount)) : getSettings().payment.depositAmount,
     status,
+    source: source || 'online',
     createdAt: new Date().toISOString(),
   };
 }
@@ -411,6 +413,115 @@ app.post('/api/admin/settings', async (req, res) => {
   } catch (e) {
     res.status(400).json({ error: e.message });
   }
+});
+
+// ---------- หลังบ้าน: จัดการคิว + รายงานยอดขาย ----------
+
+// กรองคิวตามช่วงเวลา: ?date=YYYY-MM-DD | ?month=YYYY-MM | ?from=&to=
+function filterByRange(all, q) {
+  if (q.date && DATE_RE.test(q.date)) return all.filter((b) => b.date === q.date);
+  if (q.month && /^\d{4}-\d{2}$/.test(q.month)) return all.filter((b) => b.date && b.date.startsWith(q.month));
+  if (q.from && q.to && DATE_RE.test(q.from) && DATE_RE.test(q.to)) {
+    return all.filter((b) => b.date >= q.from && b.date <= q.to);
+  }
+  return all;
+}
+
+// รายการคิว (เรียงตามวัน-เวลา)
+app.get('/api/admin/bookings', (req, res) => {
+  if (!checkAdmin(req)) return res.status(401).json({ error: 'รหัสผ่านไม่ถูกต้อง' });
+  const list = filterByRange(store.getAll(), req.query)
+    .slice()
+    .sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time));
+  res.json({ bookings: list });
+});
+
+// รายงานยอดขาย: นับเฉพาะคิวที่ "เสร็จแล้ว" เป็นรายได้จริง
+app.get('/api/admin/report', (req, res) => {
+  if (!checkAdmin(req)) return res.status(401).json({ error: 'รหัสผ่านไม่ถูกต้อง' });
+  const list = filterByRange(store.getAll(), req.query);
+
+  const done = list.filter((b) => b.status === store.STATUS.DONE);
+  const sum = (arr, f) => arr.reduce((t, x) => t + (Number(f(x)) || 0), 0);
+
+  const byService = {};
+  done.forEach((b) => {
+    const k = b.serviceName || b.serviceId || 'อื่นๆ';
+    if (!byService[k]) byService[k] = { name: k, count: 0, sales: 0 };
+    byService[k].count += 1;
+    byService[k].sales += Number(b.price) || 0;
+  });
+
+  res.json({
+    totalSales: sum(done, (b) => b.price),
+    doneCount: done.length,
+    depositTotal: sum(done, (b) => b.depositAmount),
+    onSiteTotal: sum(done, (b) => (Number(b.price) || 0) - (Number(b.depositAmount) || 0)),
+    counts: {
+      pending: list.filter((b) => b.status === store.STATUS.PENDING).length,
+      confirmed: list.filter((b) => b.status === store.STATUS.CONFIRMED).length,
+      done: done.length,
+      noshow: list.filter((b) => b.status === store.STATUS.NOSHOW).length,
+      cancelled: list.filter((b) => b.status === store.STATUS.CANCELLED).length,
+    },
+    byService: Object.values(byService).sort((a, b) => b.sales - a.sales),
+  });
+});
+
+// เพิ่มคิวเอง (walk-in / นัดปากเปล่า) — ไม่ต้องแนบสลิป/ส่งเมล
+app.post('/api/admin/bookings', (req, res) => {
+  if (!checkAdmin(req)) return res.status(401).json({ error: 'รหัสผ่านไม่ถูกต้อง' });
+  try {
+    const { name, serviceId, date, time, price, depositAmount, status } = req.body;
+    if (!serviceId || !getService(serviceId)) return res.status(400).json({ error: 'กรุณาเลือกบริการ' });
+    if (!date || !DATE_RE.test(date)) return res.status(400).json({ error: 'วันที่ไม่ถูกต้อง' });
+    if (!time || !HHMM_RE.test(time)) return res.status(400).json({ error: 'เวลาไม่ถูกต้อง' });
+    const allowed = [store.STATUS.CONFIRMED, store.STATUS.DONE];
+    const st = allowed.includes(status) ? status : store.STATUS.DONE;
+
+    const booking = makeBooking({
+      id: 'WK' + crypto.randomBytes(3).toString('hex').toUpperCase(),
+      name: name || 'Walk-in',
+      email: '', phone: '',
+      serviceId, date, time,
+      price, depositAmount: depositAmount === undefined ? 0 : depositAmount,
+      status: st, source: 'manual',
+    });
+    store.add(booking);
+    res.json({ ok: true, booking });
+  } catch (e) {
+    res.status(400).json({ error: e.message });
+  }
+});
+
+// แก้ไขคิว: เปลี่ยนสถานะ / เปลี่ยนบริการ / แก้ราคา-มัดจำ
+app.post('/api/admin/bookings/:id', (req, res) => {
+  if (!checkAdmin(req)) return res.status(401).json({ error: 'รหัสผ่านไม่ถูกต้อง' });
+  const current = store.getAll().find((b) => b.id === req.params.id);
+  if (!current) return res.status(404).json({ error: 'ไม่พบคิวนี้' });
+
+  const fields = {};
+  const { serviceId, price, depositAmount, status, name } = req.body;
+
+  // เปลี่ยนบริการ -> คำนวณชื่อ/ระยะเวลา/เวลาสิ้นสุด/ราคาใหม่
+  if (serviceId && serviceId !== current.serviceId) {
+    const svc = getService(serviceId);
+    if (!svc) return res.status(400).json({ error: 'ไม่พบบริการที่เลือก' });
+    fields.serviceId = serviceId;
+    fields.serviceName = svc.name;
+    const endMinutes = current.startMinutes + svc.duration;
+    fields.endMinutes = endMinutes;
+    fields.endTime = toHHMM(endMinutes);
+    fields.endISO = bangkokISO(current.date, endMinutes);
+    fields.price = svc.price; // เด้งราคาตามบริการใหม่ (จะถูก override ด้านล่างถ้าส่ง price มา)
+  }
+  if (price !== undefined && Number.isFinite(Number(price))) fields.price = Math.round(Number(price));
+  if (depositAmount !== undefined && Number.isFinite(Number(depositAmount))) fields.depositAmount = Math.round(Number(depositAmount));
+  if (name !== undefined) fields.name = String(name).trim();
+  if (status && Object.values(store.STATUS).includes(status)) fields.status = status;
+
+  const updated = store.update(req.params.id, fields);
+  res.json({ ok: true, booking: updated });
 });
 
 app.get('/api/health', async (req, res) => {
