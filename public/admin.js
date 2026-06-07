@@ -353,11 +353,24 @@ function renderKpis(r) {
     <div class="kpi"><div class="k-label">🏪 รับหน้าร้าน</div><div class="k-val">${baht(r.onSiteTotal)}</div></div>`;
 }
 
+const DONUT_COLORS = ['#e75a8a', '#ff9ec4', '#ffc2d8', '#ff7b54', '#ffb347', '#c77dff', '#7ec8e3', '#8ad6a0', '#f78fb3', '#b5a0e0'];
 function renderByService(list) {
   const wrap = $('#byService');
-  if (!list || !list.length) { wrap.innerHTML = '<div class="muted-empty">ยังไม่มีคิวที่เสร็จในช่วงนี้</div>'; return; }
-  wrap.innerHTML = list.map((s) =>
-    `<div class="bs-row"><span>${escapeAttr(s.name)} <span class="bs-cnt">· ${s.count} คิว</span></span><span class="bs-sales">${baht(s.sales)}</span></div>`).join('');
+  if (!list || !list.length) {
+    wrap.innerHTML = '<div class="muted-empty">ยังไม่มีคิวที่เสร็จในช่วงนี้ — กราฟจะขึ้นเมื่อมีคิวกด "✅ เสร็จแล้ว"</div>';
+    return;
+  }
+  const total = list.reduce((t, s) => t + (Number(s.sales) || 0), 0) || 1;
+  let acc = 0;
+  const stops = list.map((s, i) => {
+    const from = (acc / total) * 360;
+    acc += Number(s.sales) || 0;
+    const to = (acc / total) * 360;
+    return `${DONUT_COLORS[i % DONUT_COLORS.length]} ${from}deg ${to}deg`;
+  }).join(', ');
+  const rows = list.map((s, i) =>
+    `<div class="bs-row"><span><span class="bs-dot" style="background:${DONUT_COLORS[i % DONUT_COLORS.length]}"></span>${escapeAttr(s.name)} <span class="bs-cnt">· ${s.count} คิว</span></span><span class="bs-sales">${baht(s.sales)}</span></div>`).join('');
+  wrap.innerHTML = `<div class="donut-wrap"><div class="donut" style="background:conic-gradient(${stops})"></div></div>${rows}`;
 }
 
 function renderBookings(list) {

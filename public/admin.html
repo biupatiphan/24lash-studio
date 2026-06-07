@@ -81,7 +81,11 @@
     .kpi .k-val { font-size: 20px; font-weight: 700; color: #e75a8a; }
     .kpi .k-sub { font-size: 11px; color: #9b8b92; }
 
-    /* by service */
+    /* by service + donut */
+    .donut-wrap { display: flex; justify-content: center; margin: 4px 0 16px; }
+    .donut { width: 150px; height: 150px; border-radius: 50%; position: relative; }
+    .donut::after { content: ""; position: absolute; inset: 30px; background: #fff; border-radius: 50%; }
+    .bs-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
     .bs-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px dashed #ffe0ec; font-size: 14px; }
     .bs-row:last-child { border-bottom: none; }
     .bs-row .bs-cnt { color: #9b8b92; font-size: 12px; }
