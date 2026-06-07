@@ -442,8 +442,8 @@ app.get('/api/admin/report', (req, res) => {
   const list = filterByRange(store.getAll(), req.query);
 
   const done = list.filter((b) => b.status === store.STATUS.DONE);
-  // มัดจำ = เงินที่รับเข้ามาแล้วตั้งแต่ตอนจอง (นับทุกคิวยกเว้นที่ยกเลิก)
-  const depositList = list.filter((b) => b.status !== store.STATUS.CANCELLED);
+  // มัดจำ = เงินที่รับเข้ามาแล้วตั้งแต่ตอนจอง (ไม่นับคิวที่ยกเลิก/ไม่มา)
+  const depositList = list.filter((b) => b.status !== store.STATUS.CANCELLED && b.status !== store.STATUS.NOSHOW);
   const sum = (arr, f) => arr.reduce((t, x) => t + (Number(f(x)) || 0), 0);
 
   const byService = {};
