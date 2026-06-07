@@ -382,11 +382,15 @@ function renderBookings(list) {
     const el = document.createElement('div');
     el.className = 'bk' + (openId === b.id ? ' open' : '');
     const manualTag = b.source === 'manual' ? '<span class="bdg tag-manual">🚶 เพิ่มเอง</span>' : '';
+    const phoneLine = b.phone
+      ? `<div class="bk-phone">📞 <a href="tel:${escapeAttr(b.phone)}" onclick="event.stopPropagation()">${escapeAttr(b.phone)}</a></div>`
+      : '';
     el.innerHTML = `
       <div class="bk-top">
         <div>
           <span class="bk-time">${b.time}</span> &nbsp;${escapeAttr(b.name || '')}
           <div class="bk-svc">${manualTag}${escapeAttr(b.serviceName || '')} · ฿${(Number(b.price) || 0).toLocaleString()}</div>
+          ${phoneLine}
         </div>
         <span class="bdg bdg-${b.status}">${STLABEL[b.status] || b.status}</span>
       </div>
