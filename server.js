@@ -442,6 +442,8 @@ app.get('/api/admin/report', (req, res) => {
   const list = filterByRange(store.getAll(), req.query);
 
   const done = list.filter((b) => b.status === store.STATUS.DONE);
+  // มัดจำ = เงินที่รับเข้ามาแล้วตั้งแต่ตอนจอง (นับทุกคิวยกเว้นที่ยกเลิก)
+  const depositList = list.filter((b) => b.status !== store.STATUS.CANCELLED);
   const sum = (arr, f) => arr.reduce((t, x) => t + (Number(f(x)) || 0), 0);
 
   const byService = {};
@@ -455,7 +457,7 @@ app.get('/api/admin/report', (req, res) => {
   res.json({
     totalSales: sum(done, (b) => b.price),
     doneCount: done.length,
-    depositTotal: sum(done, (b) => b.depositAmount),
+    depositTotal: sum(depositList, (b) => b.depositAmount),
     onSiteTotal: sum(done, (b) => (Number(b.price) || 0) - (Number(b.depositAmount) || 0)),
     counts: {
       pending: list.filter((b) => b.status === store.STATUS.PENDING).length,
