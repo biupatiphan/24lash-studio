@@ -49,6 +49,64 @@
     #loginCard { max-width: 360px; margin: 60px auto; }
     .note { font-size: 12px; color: #9b8b92; line-height: 1.6; margin-top: 6px; }
     .save-bar { position: sticky; bottom: 0; padding: 14px 0 0; background: linear-gradient(to top, #ffe7f0 70%, transparent); }
+
+    /* ===== tabs + bottom nav ===== */
+    body { padding-bottom: 78px; }
+    .tabview { animation: fade .2s; }
+    @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+    #bottomNav { position: fixed; left: 0; right: 0; bottom: 0; display: flex; background: #fff;
+      border-top: 1px solid #ffd9e6; box-shadow: 0 -4px 20px rgba(231,90,138,.1); z-index: 50; }
+    #bottomNav button { flex: 1; border: none; background: none; font-family: inherit; font-size: 12px;
+      color: #9b8b92; padding: 10px 4px 14px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+    #bottomNav button .nic { font-size: 20px; }
+    #bottomNav button.on { color: #e75a8a; font-weight: 600; }
+
+    /* period */
+    .period { display: flex; align-items: center; gap: 10px; justify-content: center; margin-bottom: 4px; flex-wrap: wrap; }
+    .seg { display: inline-flex; background: #fff; border: 1.5px solid #ffd9e6; border-radius: 999px; padding: 4px; }
+    .seg button { border: none; background: none; font-family: inherit; font-size: 14px; color: #9b8b92; padding: 7px 15px; border-radius: 999px; cursor: pointer; }
+    .seg button.on { background: linear-gradient(135deg,#ff9ec4,#e75a8a); color: #fff; font-weight: 600; }
+    .rep-label { text-align: center; font-size: 13px; color: #9b8b92; margin: 6px 0 14px; }
+
+    /* KPI */
+    .kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+    .kpi { background: #fff; border: 1px solid #ffd9e6; border-radius: 16px; padding: 14px; box-shadow: 0 6px 18px rgba(231,90,138,.06); }
+    .kpi .k-label { font-size: 12px; color: #9b8b92; margin: 4px 0 2px; }
+    .kpi .k-val { font-size: 20px; font-weight: 700; color: #e75a8a; }
+    .kpi .k-sub { font-size: 11px; color: #9b8b92; }
+
+    /* by service */
+    .bs-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px dashed #ffe0ec; font-size: 14px; }
+    .bs-row:last-child { border-bottom: none; }
+    .bs-row .bs-cnt { color: #9b8b92; font-size: 12px; }
+    .bs-row .bs-sales { font-weight: 600; color: #e75a8a; }
+
+    /* booking rows */
+    .bk { border: 1px solid #ffe0ec; border-radius: 14px; padding: 12px 14px; margin-bottom: 10px; background: #fffafc; }
+    .bk.open { border-color: #ff9ec4; box-shadow: 0 6px 20px rgba(231,90,138,.12); }
+    .bk-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; cursor: pointer; }
+    .bk-time { color: #e75a8a; font-weight: 700; }
+    .bk-svc { font-size: 13px; color: #5a4a52; margin-top: 2px; }
+    .bk-money { display: flex; gap: 16px; margin-top: 8px; font-size: 12px; color: #9b8b92; }
+    .bk-money b { display: block; font-size: 14px; color: #5a4a52; font-weight: 700; }
+    .bk-money .rem b { color: #c0392b; }
+    .bk-money .dep b { color: #1e8e4e; }
+    .bdg { font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 999px; white-space: nowrap; }
+    .bdg-pending { background: #fff0f6; color: #e75a8a; }
+    .bdg-confirmed { background: #fff4e5; color: #b9770a; }
+    .bdg-done { background: #eafbf0; color: #1e8e4e; }
+    .bdg-noshow, .bdg-cancelled { background: #fdecec; color: #c0392b; }
+    .tag-manual { background: #eef4ff; color: #3b6cb7; margin-right: 6px; }
+    .bk-edit { margin-top: 12px; padding-top: 12px; border-top: 1px dashed #f3dbe6; }
+    .bk-edit .lbl { font-size: 12px; color: #9b8b92; margin: 10px 0 4px; }
+    .bk-edit select, .bk-edit input { width: 100%; padding: 9px 11px; border: 1.5px solid #ffd9e6; border-radius: 10px; font-family: inherit; font-size: 13px; color: #5a4a52; background: #fff; }
+    .svc-grid2 { display: grid; grid-template-columns: 1fr 100px; gap: 8px; }
+    .st-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+    .st-pills button { font-family: inherit; font-size: 12px; font-weight: 600; border-radius: 999px; padding: 8px 12px; cursor: pointer; border: 1.5px solid #ffd9e6; background: #fff; color: #9b8b92; }
+    .st-pills button.on-done { background: #1e8e4e; color: #fff; border-color: #1e8e4e; }
+    .st-pills button.on-confirmed { background: #f5a623; color: #fff; border-color: #f5a623; }
+    .st-pills button.on-noshow { background: #c0392b; color: #fff; border-color: #c0392b; }
+    .muted-empty { text-align: center; color: #c4b5bc; font-size: 13px; padding: 18px 0; }
   </style>
 </head>
 <body>
@@ -68,6 +126,60 @@
 
     <!-- PANEL -->
     <div id="panel" class="hide">
+
+      <!-- ============ TAB: รายงานยอดขาย ============ -->
+      <div id="tab-report" class="tabview">
+        <div class="period">
+          <div class="seg" id="rangeSeg">
+            <button class="on" data-range="today" type="button">วันนี้</button>
+            <button data-range="month" type="button">เดือนนี้</button>
+            <button data-range="day" type="button">เลือกวัน</button>
+          </div>
+          <input type="date" id="repDate" class="hide" />
+        </div>
+        <p class="rep-label" id="repLabel"></p>
+
+        <div class="kpis" id="kpis"></div>
+
+        <div class="card">
+          <h2>แยกตามบริการ (ที่เสร็จแล้ว)</h2>
+          <div id="byService"></div>
+        </div>
+
+        <button class="btn" id="openWalkin" type="button">➕ เพิ่มคิวเอง (Walk-in)</button>
+        <div style="height:14px"></div>
+
+        <div class="card hide" id="walkinCard">
+          <h2>เพิ่มคิวเอง</h2>
+          <p class="note" style="margin-top:0">ลูกค้าที่ไม่ได้จองผ่านเว็บ/ไม่ได้โอนมัดจำ · ไม่ต้องแนบสลิป</p>
+          <label>ชื่อลูกค้า (ไม่บังคับ)</label>
+          <input type="text" id="wkName" placeholder="เช่น Walk-in / ชื่อเพื่อน" />
+          <div class="svc-grid2" style="margin-top:8px">
+            <div><label>บริการ</label><select id="wkService"></select></div>
+            <div><label>ราคา</label><input type="number" id="wkPrice" min="0" /></div>
+          </div>
+          <div class="svc-grid" style="grid-template-columns:1fr 1fr;margin-top:8px">
+            <div><label>วันที่</label><input type="date" id="wkDate" /></div>
+            <div><label>เวลา</label><select id="wkTime"></select></div>
+          </div>
+          <div class="svc-grid" style="grid-template-columns:1fr 1fr;margin-top:8px">
+            <div><label>มัดจำ (ใส่ 0 ได้)</label><input type="number" id="wkDeposit" min="0" value="0" /></div>
+            <div><label>สถานะ</label><select id="wkStatus"><option value="done">✅ เสร็จแล้ว</option><option value="confirmed">⏳ รอรับบริการ</option></select></div>
+          </div>
+          <div style="height:14px"></div>
+          <button class="btn" id="wkSave" type="button">บันทึกคิว</button>
+          <p class="msg hide" id="wkMsg"></p>
+        </div>
+
+        <div class="card">
+          <h2>รายการคิว</h2>
+          <p class="note" style="margin-top:0">แตะแต่ละรายการเพื่อเปลี่ยนสถานะ/แก้บริการ</p>
+          <div id="bookingList"></div>
+        </div>
+      </div>
+
+      <!-- ============ TAB: ตั้งค่าร้าน ============ -->
+      <div id="tab-settings" class="tabview hide">
       <!-- บริการ -->
       <div class="card">
         <h2>บริการ</h2>
@@ -149,8 +261,15 @@
         <button class="btn" id="saveBtn" type="button">💾 บันทึกการเปลี่ยนแปลง</button>
         <p class="note" style="text-align:center">บันทึกแล้วระบบจะอัปเดตค่าใหม่ให้อัตโนมัติภายใน 1-2 นาที</p>
       </div>
+      </div><!-- /tab-settings -->
     </div>
   </div>
+
+  <!-- bottom nav -->
+  <nav id="bottomNav" class="hide">
+    <button data-tab="report" class="on" type="button"><span class="nic">📊</span>รายงาน</button>
+    <button data-tab="settings" type="button"><span class="nic">⚙️</span>ตั้งค่า</button>
+  </nav>
 
   <script src="admin.js"></script>
 </body>

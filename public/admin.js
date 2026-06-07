@@ -21,7 +21,10 @@ async function login() {
   settings = (await res.json()).settings;
   $('#loginCard').classList.add('hide');
   $('#panel').classList.remove('hide');
+  $('#bottomNav').classList.remove('hide');
   render();
+  setupBackoffice();
+  loadReport();
 }
 
 // ---------- render ----------
@@ -244,4 +247,249 @@ async function save() {
 
 function escapeAttr(s) {
   return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+// ===================== หลังบ้าน: รายงาน + จัดการคิว =====================
+let boSetup = false;
+let currentRange = 'today';
+let openId = null;
+
+const STLABEL = { pending: '🌸 รอยืนยัน', confirmed: '⏳ รอรับบริการ', done: '✅ เสร็จแล้ว', noshow: '🚫 ไม่มา', cancelled: '🚫 ยกเลิก' };
+
+function todayStr() { return new Date().toLocaleDateString('en-CA'); }
+function baht(n) { return '฿' + (Number(n) || 0).toLocaleString(); }
+function shortName(name) { return String(name).split(/\s*(?:ไม่จำกัด|\/)/)[0].trim() || name; }
+function thaiDateFull(d) {
+  try { return new Date(d + 'T00:00:00').toLocaleDateString('th-TH', { weekday: 'short', day: 'numeric', month: 'short', year: '2-digit' }); } catch { return d; }
+}
+function thaiMonthLabel(d) {
+  try { return new Date(d + 'T00:00:00').toLocaleDateString('th-TH', { month: 'long', year: 'numeric' }); } catch { return d; }
+}
+function genSlots() {
+  const bh = settings.businessHours;
+  const toMin = (h) => { const [a, b] = h.split(':').map(Number); return a * 60 + b; };
+  const pad = (n) => String(n).padStart(2, '0');
+  const out = [];
+  for (let t = toMin(bh.open); t < toMin(bh.close); t += bh.slotMinutes) out.push(`${pad(Math.floor(t / 60))}:${pad(t % 60)}`);
+  return out;
+}
+
+function setupBackoffice() {
+  if (boSetup) return;
+  boSetup = true;
+
+  document.querySelectorAll('#bottomNav button').forEach((b) => {
+    b.addEventListener('click', () => switchTab(b.dataset.tab));
+  });
+
+  $('#rangeSeg').querySelectorAll('button').forEach((b) => {
+    b.addEventListener('click', () => {
+      $('#rangeSeg').querySelectorAll('button').forEach((x) => x.classList.remove('on'));
+      b.classList.add('on');
+      currentRange = b.dataset.range;
+      if (currentRange === 'day') {
+        $('#repDate').classList.remove('hide');
+        if (!$('#repDate').value) $('#repDate').value = todayStr();
+      } else {
+        $('#repDate').classList.add('hide');
+      }
+      loadReport();
+    });
+  });
+  $('#repDate').addEventListener('change', () => { currentRange = 'day'; loadReport(); });
+
+  $('#openWalkin').addEventListener('click', () => {
+    const card = $('#walkinCard');
+    card.classList.toggle('hide');
+    if (!card.classList.contains('hide')) initWalkinForm();
+  });
+  $('#wkService').addEventListener('change', autoPrice);
+  $('#wkSave').addEventListener('click', saveWalkin);
+}
+
+function switchTab(tab) {
+  $('#tab-report').classList.toggle('hide', tab !== 'report');
+  $('#tab-settings').classList.toggle('hide', tab !== 'settings');
+  document.querySelectorAll('#bottomNav button').forEach((b) => b.classList.toggle('on', b.dataset.tab === tab));
+  window.scrollTo({ top: 0 });
+  if (tab === 'report') loadReport();
+}
+
+function rangeQuery() {
+  if (currentRange === 'month') return `month=${todayStr().slice(0, 7)}`;
+  if (currentRange === 'day') return `date=${$('#repDate').value || todayStr()}`;
+  return `date=${todayStr()}`;
+}
+function rangeLabel() {
+  if (currentRange === 'month') return `เดือนนี้ · ${thaiMonthLabel(todayStr())}`;
+  if (currentRange === 'day') return thaiDateFull($('#repDate').value || todayStr());
+  return `วันนี้ · ${thaiDateFull(todayStr())}`;
+}
+
+async function loadReport() {
+  const q = rangeQuery();
+  $('#repLabel').textContent = rangeLabel();
+  const h = { 'x-admin-password': password };
+  try {
+    const [repRes, listRes] = await Promise.all([
+      fetch(`/api/admin/report?${q}`, { headers: h }),
+      fetch(`/api/admin/bookings?${q}`, { headers: h }),
+    ]);
+    const rep = await repRes.json();
+    const { bookings } = await listRes.json();
+    renderKpis(rep);
+    renderByService(rep.byService);
+    renderBookings(bookings || []);
+  } catch (e) {
+    $('#kpis').innerHTML = '<div class="muted-empty">โหลดข้อมูลไม่สำเร็จ</div>';
+  }
+}
+
+function renderKpis(r) {
+  $('#kpis').innerHTML = `
+    <div class="kpi"><div class="k-label">💰 ยอดขาย (เสร็จแล้ว)</div><div class="k-val">${baht(r.totalSales)}</div></div>
+    <div class="kpi"><div class="k-label">📅 คิวเสร็จแล้ว</div><div class="k-val">${r.doneCount} คิว</div><div class="k-sub">รอรับ ${r.counts.confirmed} · รอยืนยัน ${r.counts.pending}</div></div>
+    <div class="kpi"><div class="k-label">🎫 มัดจำรับล่วงหน้า</div><div class="k-val">${baht(r.depositTotal)}</div></div>
+    <div class="kpi"><div class="k-label">🏪 รับหน้าร้าน</div><div class="k-val">${baht(r.onSiteTotal)}</div></div>`;
+}
+
+function renderByService(list) {
+  const wrap = $('#byService');
+  if (!list || !list.length) { wrap.innerHTML = '<div class="muted-empty">ยังไม่มีคิวที่เสร็จในช่วงนี้</div>'; return; }
+  wrap.innerHTML = list.map((s) =>
+    `<div class="bs-row"><span>${escapeAttr(s.name)} <span class="bs-cnt">· ${s.count} คิว</span></span><span class="bs-sales">${baht(s.sales)}</span></div>`).join('');
+}
+
+function renderBookings(list) {
+  const wrap = $('#bookingList');
+  if (!list.length) { wrap.innerHTML = '<div class="muted-empty">ไม่มีคิวในช่วงนี้</div>'; return; }
+  wrap.innerHTML = '';
+  list.forEach((b) => {
+    const remain = (Number(b.price) || 0) - (Number(b.depositAmount) || 0);
+    const el = document.createElement('div');
+    el.className = 'bk' + (openId === b.id ? ' open' : '');
+    const manualTag = b.source === 'manual' ? '<span class="bdg tag-manual">🚶 เพิ่มเอง</span>' : '';
+    el.innerHTML = `
+      <div class="bk-top">
+        <div>
+          <span class="bk-time">${b.time}</span> &nbsp;${escapeAttr(b.name || '')}
+          <div class="bk-svc">${manualTag}${escapeAttr(b.serviceName || '')} · ฿${(Number(b.price) || 0).toLocaleString()}</div>
+        </div>
+        <span class="bdg bdg-${b.status}">${STLABEL[b.status] || b.status}</span>
+      </div>
+      <div class="bk-money">
+        <div>ราคาเต็ม<b>฿${(Number(b.price) || 0).toLocaleString()}</b></div>
+        <div class="dep">มัดจำ<b>฿${(Number(b.depositAmount) || 0).toLocaleString()}</b></div>
+        <div class="rem">เก็บหน้าร้าน<b>฿${remain.toLocaleString()}</b></div>
+      </div>
+      ${openId === b.id ? editPanel(b) : ''}`;
+    el.querySelector('.bk-top').addEventListener('click', () => {
+      openId = (openId === b.id) ? null : b.id;
+      renderBookings(list);
+    });
+    if (openId === b.id) wireEdit(el, b);
+    wrap.appendChild(el);
+  });
+}
+
+function editPanel(b) {
+  const opts = settings.services.map((s) =>
+    `<option value="${s.id}" ${s.id === b.serviceId ? 'selected' : ''}>${escapeAttr(shortName(s.name))} — ฿${s.price.toLocaleString()}</option>`).join('');
+  return `
+    <div class="bk-edit">
+      <div class="lbl">บริการจริงที่ทำ (แก้ได้):</div>
+      <div class="svc-grid2">
+        <select class="ed-svc">${opts}</select>
+        <input type="number" class="ed-price" value="${Number(b.price) || 0}" min="0" />
+      </div>
+      <div class="lbl">กดเพื่อบันทึก + เปลี่ยนสถานะ:</div>
+      <div class="st-pills">
+        <button class="ed-st ${b.status === 'confirmed' ? 'on-confirmed' : ''}" data-st="confirmed">⏳ รอรับบริการ</button>
+        <button class="ed-st ${b.status === 'done' ? 'on-done' : ''}" data-st="done">✅ เสร็จแล้ว</button>
+        <button class="ed-st ${b.status === 'noshow' ? 'on-noshow' : ''}" data-st="noshow">🚫 ไม่มา/ยกเลิก</button>
+      </div>
+      <p class="msg hide ed-msg"></p>
+    </div>`;
+}
+
+function wireEdit(el, b) {
+  const svcSel = el.querySelector('.ed-svc');
+  const priceInp = el.querySelector('.ed-price');
+  svcSel.addEventListener('change', () => {
+    const s = settings.services.find((x) => x.id === svcSel.value);
+    if (s) priceInp.value = s.price;
+  });
+  el.querySelectorAll('.ed-st').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const msg = el.querySelector('.ed-msg');
+      const label = btn.textContent;
+      btn.textContent = '...';
+      try {
+        const res = await fetch(`/api/admin/bookings/${b.id}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'x-admin-password': password },
+          body: JSON.stringify({ serviceId: svcSel.value, price: Number(priceInp.value), status: btn.dataset.st }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'บันทึกไม่สำเร็จ');
+        openId = null;
+        loadReport();
+      } catch (e) {
+        btn.textContent = label;
+        msg.className = 'msg err ed-msg';
+        msg.textContent = e.message;
+        msg.classList.remove('hide');
+      }
+    });
+  });
+}
+
+// ---------- เพิ่มคิวเอง ----------
+function initWalkinForm() {
+  $('#wkService').innerHTML = settings.services.map((s) =>
+    `<option value="${s.id}">${escapeAttr(shortName(s.name))} — ฿${s.price.toLocaleString()}</option>`).join('');
+  $('#wkTime').innerHTML = genSlots().map((t) => `<option value="${t}">${t} น.</option>`).join('');
+  if (!$('#wkDate').value) $('#wkDate').value = todayStr();
+  autoPrice();
+}
+function autoPrice() {
+  const s = settings.services.find((x) => x.id === $('#wkService').value);
+  if (s) $('#wkPrice').value = s.price;
+}
+async function saveWalkin() {
+  const body = {
+    name: $('#wkName').value.trim(),
+    serviceId: $('#wkService').value,
+    date: $('#wkDate').value,
+    time: $('#wkTime').value,
+    price: Number($('#wkPrice').value),
+    depositAmount: Number($('#wkDeposit').value),
+    status: $('#wkStatus').value,
+  };
+  const msg = $('#wkMsg');
+  const btn = $('#wkSave');
+  btn.disabled = true;
+  btn.textContent = 'กำลังบันทึก...';
+  msg.classList.add('hide');
+  try {
+    const res = await fetch('/api/admin/bookings', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-admin-password': password },
+      body: JSON.stringify(body),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'บันทึกไม่สำเร็จ');
+    msg.className = 'msg ok';
+    msg.textContent = '✅ เพิ่มคิวเรียบร้อย';
+    msg.classList.remove('hide');
+    $('#wkName').value = '';
+    loadReport();
+  } catch (e) {
+    msg.className = 'msg err';
+    msg.textContent = e.message;
+    msg.classList.remove('hide');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'บันทึกคิว';
+  }
 }
