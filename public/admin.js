@@ -409,6 +409,16 @@ function editPanel(b) {
         <button class="ed-st ${b.status === 'noshow' ? 'on-noshow' : ''}" data-st="noshow">🚫 ไม่มา/ยกเลิก</button>
       </div>
       <p class="msg hide ed-msg"></p>
+
+      <div class="lbl">🔄 เลื่อนนัด (เปลี่ยนวัน-เวลา):</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <input type="date" class="ed-date" value="${b.date}" />
+        <select class="ed-time"></select>
+      </div>
+      <div style="height:8px"></div>
+      <button class="btn-ghost ed-reschedule" type="button" style="width:100%">🔄 ยืนยันเลื่อนนัด + แจ้งอีเมล</button>
+      <p class="note" style="text-align:center">ระบบจะส่งวัน-เวลาใหม่ให้ลูกค้า + ร้านอัตโนมัติ</p>
+      <p class="msg hide ed-rmsg"></p>
     </div>`;
 }
 
@@ -419,6 +429,42 @@ function wireEdit(el, b) {
     const s = settings.services.find((x) => x.id === svcSel.value);
     if (s) priceInp.value = s.price;
   });
+
+  // เลื่อนนัด
+  const timeSel = el.querySelector('.ed-time');
+  if (timeSel) {
+    timeSel.innerHTML = genSlots().map((t) => `<option value="${t}" ${t === b.time ? 'selected' : ''}>${t} น.</option>`).join('');
+  }
+  const rBtn = el.querySelector('.ed-reschedule');
+  if (rBtn) {
+    rBtn.addEventListener('click', async () => {
+      const dateInp = el.querySelector('.ed-date');
+      const rmsg = el.querySelector('.ed-rmsg');
+      const label = rBtn.textContent;
+      rBtn.disabled = true;
+      rBtn.textContent = 'กำลังเลื่อนนัด...';
+      rmsg.classList.add('hide');
+      try {
+        const res = await fetch(`/api/admin/bookings/${b.id}/reschedule`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'x-admin-password': password },
+          body: JSON.stringify({ date: dateInp.value, time: timeSel.value }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'เลื่อนนัดไม่สำเร็จ');
+        openId = null;
+        loadReport();
+        if (data.emailWarning) alert('⚠️ ' + data.emailWarning);
+        else alert('✅ เลื่อนนัดเรียบร้อย ส่งอีเมลแจ้งลูกค้า/ร้านแล้ว');
+      } catch (e) {
+        rBtn.disabled = false;
+        rBtn.textContent = label;
+        rmsg.className = 'msg err ed-rmsg';
+        rmsg.textContent = e.message;
+        rmsg.classList.remove('hide');
+      }
+    });
+  }
   el.querySelectorAll('.ed-st').forEach((btn) => {
     btn.addEventListener('click', async () => {
       const msg = el.querySelector('.ed-msg');

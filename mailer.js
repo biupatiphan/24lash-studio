@@ -236,6 +236,70 @@ export async function sendConfirmationEmails(booking) {
   });
 }
 
+// อีเมลถึงลูกค้าเมื่อร้านเลื่อนนัด — แจ้งวัน-เวลาใหม่ + ปุ่มปฏิทิน
+function rescheduledCustomerHtml(booking) {
+  const SHOP = getSettings().shop;
+  return `
+  <div style="font-family:'Prompt',Arial,sans-serif;max-width:520px;margin:auto;background:#fff;border-radius:16px;overflow:hidden;border:1px solid #ffd9e6">
+    <div style="background:linear-gradient(135deg,#ff9ec4,#ffc2d8);padding:24px;text-align:center;color:#fff">
+      <h1 style="margin:0;font-size:22px">${SHOP.name}</h1>
+      <p style="margin:6px 0 0">เลื่อนนัดหมายใหม่แล้ว 🔄</p>
+    </div>
+    <div style="padding:24px;color:#5a4a52">
+      <p>สวัสดีค่ะคุณ <b>${booking.name}</b> 🌸</p>
+      <p>ทางร้านได้เลื่อนนัดหมายของคุณเป็นวัน-เวลาใหม่ดังนี้ค่ะ</p>
+      <table style="width:100%;border-collapse:collapse;margin:16px 0">
+        ${row('บริการ', booking.serviceName)}
+        ${row('📅 วันใหม่', booking.dateLabel)}
+        ${row('⏰ เวลาใหม่', `${booking.time} - ${booking.endTime} น.`)}
+        ${row('รหัสการจอง', booking.id)}
+      </table>
+      <p style="background:#fff0f6;padding:12px 16px;border-radius:12px;font-size:14px;text-align:center">กดปุ่มด้านล่างเพื่ออัปเดตนัดในปฏิทินของคุณได้เลยค่ะ</p>
+      ${gcalButton(booking)}
+      <p style="font-size:13px;color:#9b8b92">หากวัน-เวลานี้ไม่สะดวก กรุณาติดต่อร้าน ${SHOP.phone || ''}</p>
+    </div>
+  </div>`;
+}
+
+// อีเมลถึงร้านเมื่อมีการเลื่อนนัด (ไม่แนบ .ics กัน Gmail กลืน — ใช้ปุ่มปฏิทินแทน)
+function shopRescheduleHtml(booking) {
+  return `
+  <div style="font-family:'Prompt',Arial,sans-serif;max-width:520px;margin:auto">
+    <h2 style="color:#e75a8a">🔄 เลื่อนนัดแล้ว</h2>
+    <table style="width:100%;border-collapse:collapse">
+      ${row('ลูกค้า', booking.name)}
+      ${row('เบอร์โทร', booking.phone || '-')}
+      ${row('บริการ', booking.serviceName)}
+      ${row('📅 วันใหม่', booking.dateLabel)}
+      ${row('⏰ เวลาใหม่', `${booking.time} - ${booking.endTime} น.`)}
+      ${row('รหัสการจอง', booking.id)}
+    </table>
+    <p style="background:#fff0f6;padding:12px 16px;border-radius:12px;font-size:14px;text-align:center">📅 กดปุ่มด้านล่างเพื่ออัปเดตนัดลง Google Calendar ของร้าน</p>
+    ${gcalButton(booking)}
+  </div>`;
+}
+
+// ส่งอีเมลแจ้งเลื่อนนัด: ลูกค้า (ถ้ามีอีเมล) + ร้าน
+export async function sendRescheduleEmails(booking) {
+  const SHOP = getSettings().shop;
+  const sender = { name: MAIL.fromName, email: MAIL.senderEmail };
+
+  if (booking.email) {
+    await sendViaBrevo({
+      sender,
+      to: [{ email: booking.email, name: booking.name }],
+      subject: `🔄 เลื่อนนัดใหม่ ${SHOP.name} - ${booking.dateLabel} ${booking.time} น.`,
+      htmlContent: rescheduledCustomerHtml(booking),
+    });
+  }
+  await sendViaBrevo({
+    sender,
+    to: [{ email: MAIL.ownerEmail, name: SHOP.name }],
+    subject: `🔄 เลื่อนนัด: ${booking.name} - ${booking.dateLabel} ${booking.time} น.`,
+    htmlContent: shopRescheduleHtml(booking),
+  });
+}
+
 export async function verifyMail() {
   if (!MAIL.apiKey) return 'ยังไม่ได้ตั้งค่า BREVO_API_KEY';
   try {

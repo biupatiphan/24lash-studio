@@ -11,7 +11,7 @@ import {
 } from './settings.js';
 import { commitFile } from './github.js';
 import * as store from './store.js';
-import { sendBookingEmails, sendConfirmationEmails, verifyMail, googleCalUrl } from './mailer.js';
+import { sendBookingEmails, sendConfirmationEmails, sendRescheduleEmails, verifyMail, googleCalUrl } from './mailer.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -522,6 +522,57 @@ app.post('/api/admin/bookings/:id', (req, res) => {
 
   const updated = store.update(req.params.id, fields);
   res.json({ ok: true, booking: updated });
+});
+
+// เลื่อนนัด: เปลี่ยนวัน-เวลา (เช็คว่าว่างจริง) + ส่งอีเมลแจ้งลูกค้า/ร้าน
+app.post('/api/admin/bookings/:id/reschedule', async (req, res) => {
+  if (!checkAdmin(req)) return res.status(401).json({ error: 'รหัสผ่านไม่ถูกต้อง' });
+  const b = store.getAll().find((x) => x.id === req.params.id);
+  if (!b) return res.status(404).json({ error: 'ไม่พบคิวนี้' });
+
+  const { date, time } = req.body;
+  if (!date || !DATE_RE.test(date)) return res.status(400).json({ error: 'วันที่ไม่ถูกต้อง' });
+  if (!time || !HHMM_RE.test(time)) return res.status(400).json({ error: 'เวลาไม่ถูกต้อง' });
+
+  const s = getSettings();
+  const svc = getService(b.serviceId) || s.services[0];
+  const start = toMin(time);
+  const end = start + svc.duration;
+  const day = new Date(`${date}T00:00:00`).getDay();
+
+  if (s.closedWeekdays.includes(day) || s.closedDates.includes(date)) {
+    return res.status(400).json({ error: 'วันนั้นร้านปิด เลือกวันอื่นค่ะ' });
+  }
+  if (end > toMin(s.businessHours.close)) {
+    return res.status(400).json({ error: 'เวลาที่เลือกเลยเวลาปิดร้าน' });
+  }
+  const blocked = (s.blockedTimes || []).some((bl) => bl.date === date && start < toMin(bl.end) && end > toMin(bl.start));
+  if (blocked) return res.status(400).json({ error: 'ช่วงเวลานี้ร้านปิด เลือกเวลาอื่นค่ะ' });
+
+  // ชนกับคิวอื่น (ไม่นับตัวเอง)
+  const conflict = store.getByDate(date).some((x) => x.id !== b.id && start < x.endMinutes && end > x.startMinutes);
+  if (conflict) return res.status(409).json({ error: 'เวลานี้มีคิวอื่นอยู่แล้ว เลือกเวลาอื่นค่ะ' });
+
+  const updated = store.update(b.id, {
+    date,
+    time,
+    dateLabel: thaiDateLabel(date),
+    startMinutes: start,
+    endMinutes: end,
+    endTime: toHHMM(end),
+    startISO: bangkokISO(date, start),
+    endISO: bangkokISO(date, end),
+  });
+
+  let emailWarning = null;
+  try {
+    await sendRescheduleEmails(updated);
+  } catch (e) {
+    console.error('ส่งอีเมลเลื่อนนัดล้มเหลว:', e.message);
+    emailWarning = 'เลื่อนนัดแล้ว แต่ส่งอีเมลไม่สำเร็จ: ' + e.message;
+  }
+
+  res.json({ ok: true, booking: updated, emailWarning });
 });
 
 app.get('/api/health', async (req, res) => {
