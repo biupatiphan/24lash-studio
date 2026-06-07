@@ -124,6 +124,25 @@
     font-family:inherit;font-weight:600;font-size:14px;padding:12px 18px;cursor:pointer;}
   .wktag{background:#eef4ff;color:#3b6cb7;}
 
+  /* pink date picker */
+  .dp{position:relative;}
+  .dp-field{width:100%;text-align:left;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;
+    font-family:inherit;font-size:14px;color:var(--ink);background:#fff;cursor:pointer;}
+  .dp-pop{position:absolute;z-index:30;top:calc(100% + 6px);left:0;width:288px;max-width:88vw;background:#fff;
+    border:1.5px solid var(--line);border-radius:16px;padding:14px;box-shadow:0 12px 34px rgba(231,90,138,.2);}
+  .dp-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+  .dp-head span{font-weight:600;color:var(--pink);font-size:15px;}
+  .dp-head button{border:none;background:var(--pink-soft);color:var(--pink);width:32px;height:32px;border-radius:50%;
+    font-size:18px;cursor:pointer;line-height:1;}
+  .dp-wd{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:4px;}
+  .dp-wd span{text-align:center;font-size:11px;color:var(--muted);padding:4px 0;}
+  .dp-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;}
+  .dp-day{text-align:center;padding:8px 0;border-radius:10px;font-size:13px;cursor:pointer;color:var(--ink);}
+  .dp-day:hover{background:var(--pink-soft);}
+  .dp-day.sel{background:linear-gradient(135deg,var(--pink2),var(--pink));color:#fff;font-weight:600;}
+  .dp-day.empty{visibility:hidden;cursor:default;}
+  .dp-day.today{box-shadow:inset 0 0 0 1.5px var(--pink3);}
+
   .foot{text-align:center;font-size:12px;color:var(--muted);margin-top:20px;line-height:1.7;}
   .total-bar{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,var(--pink2),var(--pink));color:#fff;border-radius:16px;padding:14px 18px;margin-top:6px;}
   .total-bar .t-lbl{font-size:13px;opacity:.95;}
@@ -244,7 +263,20 @@
           </select>
         </div>
         <div><label>ราคา (แก้ได้)</label><input type="text" value="550" /></div>
-        <div><label>วันที่</label><input type="date" id="addDate" value="2026-06-08" /></div>
+        <div><label>วันที่</label>
+          <div class="dp" id="dpWrap">
+            <button type="button" class="dp-field" id="dpField">📅 <span id="dpLabel">วันนี้</span></button>
+            <div class="dp-pop" id="dpPop" hidden>
+              <div class="dp-head">
+                <button type="button" id="dpPrev">‹</button>
+                <span id="dpMonth"></span>
+                <button type="button" id="dpNext">›</button>
+              </div>
+              <div class="dp-wd"><span>อา</span><span>จ</span><span>อ</span><span>พ</span><span>พฤ</span><span>ศ</span><span>ส</span></div>
+              <div class="dp-grid" id="dpGrid"></div>
+            </div>
+          </div>
+        </div>
         <div><label>เวลา</label><select id="addTime"></select></div>
         <div><label>มัดจำ (ใส่ 0 ได้)</label><input type="text" value="0" /></div>
         <div><label>สถานะ</label><select><option>✅ เสร็จแล้ว</option><option>⏳ รอรับบริการ</option></select></div>
@@ -380,6 +412,46 @@
     const m = text.match(/฿\s*([\d,]+)/);
     return m ? m[1].replace(/,/g, '') : '';
   }
+  // ปฏิทินชมพู (custom date picker) สำหรับช่องวันที่
+  (function pinkCal() {
+    const field = document.getElementById('dpField');
+    const pop = document.getElementById('dpPop');
+    const label = document.getElementById('dpLabel');
+    const monthEl = document.getElementById('dpMonth');
+    const grid = document.getElementById('dpGrid');
+    if (!field) return;
+    const TH = ['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'];
+    const THS = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+    let sel = new Date();
+    let view = new Date(sel.getFullYear(), sel.getMonth(), 1);
+    const same = (a, b) => a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
+    const setLabel = () => { label.textContent = `${sel.getDate()} ${THS[sel.getMonth()]} ${sel.getFullYear() + 543}`; };
+    function render() {
+      monthEl.textContent = `${TH[view.getMonth()]} ${view.getFullYear() + 543}`;
+      grid.innerHTML = '';
+      const first = new Date(view.getFullYear(), view.getMonth(), 1).getDay();
+      const days = new Date(view.getFullYear(), view.getMonth() + 1, 0).getDate();
+      const today = new Date();
+      for (let i = 0; i < first; i++) { const e = document.createElement('div'); e.className = 'dp-day empty'; grid.appendChild(e); }
+      for (let d = 1; d <= days; d++) {
+        const cell = document.createElement('div');
+        cell.className = 'dp-day';
+        cell.textContent = d;
+        const dd = new Date(view.getFullYear(), view.getMonth(), d);
+        if (same(dd, today)) cell.classList.add('today');
+        if (same(dd, sel)) cell.classList.add('sel');
+        cell.addEventListener('click', () => { sel = dd; setLabel(); render(); pop.hidden = true; });
+        grid.appendChild(cell);
+      }
+    }
+    field.addEventListener('click', (e) => { e.stopPropagation(); pop.hidden = !pop.hidden; if (!pop.hidden) render(); });
+    document.getElementById('dpPrev').addEventListener('click', (e) => { e.stopPropagation(); view = new Date(view.getFullYear(), view.getMonth() - 1, 1); render(); });
+    document.getElementById('dpNext').addEventListener('click', (e) => { e.stopPropagation(); view = new Date(view.getFullYear(), view.getMonth() + 1, 1); render(); });
+    pop.addEventListener('click', (e) => e.stopPropagation());
+    document.addEventListener('click', () => { pop.hidden = true; });
+    setLabel();
+  })();
+
   // ช่องเวลา → สร้างช่วงเวลาตามเวลาทำการร้าน (ของจริงจะดึงจากหลังบ้าน)
   (function fillTimes() {
     const open = 9 * 60, close = 23 * 60, step = 120; // 09:00–23:00 ทุก 2 ชม.
