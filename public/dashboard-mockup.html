@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MOCKUP · รายงานยอดขาย · 24Lash</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --pink:#e75a8a; --pink2:#ff9ec4; --pink3:#ffc2d8; --pink-soft:#fff0f6;
+    --ink:#5a4a52; --muted:#9b8b92; --line:#ffd9e6; --green:#1e8e4e; --red:#c0392b;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:linear-gradient(135deg,#fff0f6,#ffe7f0);font-family:'Prompt',sans-serif;color:var(--ink);min-height:100vh;}
+  .wrap{max-width:720px;margin:0 auto;padding:18px 16px 60px;}
+
+  /* mockup ribbon */
+  .ribbon{background:#5a4a52;color:#fff;text-align:center;font-size:12px;letter-spacing:.5px;padding:6px;border-radius:10px;margin-bottom:14px;opacity:.85;}
+
+  h1{font-family:'Mali',sans-serif;color:var(--pink);font-size:24px;text-align:center;margin:6px 0 2px;}
+  .sub{text-align:center;font-size:13px;color:var(--muted);margin:0 0 18px;}
+
+  /* date / period switch */
+  .toolbar{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;}
+  .seg{display:inline-flex;background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:4px;}
+  .seg button{border:none;background:none;font-family:inherit;font-size:14px;color:var(--muted);padding:7px 16px;border-radius:999px;cursor:pointer;}
+  .seg button.on{background:linear-gradient(135deg,var(--pink2),var(--pink));color:#fff;font-weight:600;}
+  .datepick{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:8px 14px;font-size:14px;color:var(--ink);}
+  .datepick .nav{color:var(--pink);font-weight:700;cursor:pointer;}
+
+  /* KPI cards */
+  .kpis{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;}
+  .kpi{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:0 6px 24px rgba(231,90,138,.08);}
+  .kpi .ic{width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:10px;}
+  .kpi .lbl{font-size:13px;color:var(--muted);}
+  .kpi .val{font-family:'Mali',sans-serif;font-size:24px;font-weight:700;color:var(--ink);line-height:1.2;margin-top:2px;}
+  .kpi .delta{font-size:12px;margin-top:4px;}
+  .up{color:var(--green);} .down{color:var(--red);}
+  .bg1{background:#fff0f6;} .bg2{background:#eafbf0;} .bg3{background:#fff7e9;} .bg4{background:#eef4ff;}
+
+  .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:16px;box-shadow:0 6px 24px rgba(231,90,138,.08);}
+  .card h2{font-size:16px;color:var(--pink);margin:0 0 4px;}
+  .card .cap{font-size:12px;color:var(--muted);margin:0 0 16px;}
+
+  /* bar chart */
+  .bars{display:flex;align-items:flex-end;gap:10px;height:160px;padding-top:10px;}
+  .bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end;}
+  .bar{width:70%;max-width:34px;border-radius:8px 8px 4px 4px;background:linear-gradient(180deg,var(--pink2),var(--pink));position:relative;transition:.3s;}
+  .bar.today{background:linear-gradient(180deg,#ffd24d,#ff9ec4);}
+  .bar .tip{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:10px;color:var(--muted);white-space:nowrap;}
+  .bar-col .day{font-size:12px;color:var(--muted);}
+
+  /* donut + legend */
+  .donut-wrap{display:flex;gap:18px;align-items:center;flex-wrap:wrap;}
+  .donut{width:150px;height:150px;border-radius:50%;
+    background:conic-gradient(#ff9ec4 0 40%,#e75a8a 0 70%,#ffc2d8 0 86%,#c97aa0 0 95%,#ffd9e6 0 100%);
+    position:relative;flex-shrink:0;margin:0 auto;}
+  .donut::after{content:"";position:absolute;inset:26px;background:#fff;border-radius:50%;}
+  .donut .center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  .donut .center b{font-family:'Mali';font-size:20px;color:var(--ink);}
+  .donut .center span{font-size:11px;color:var(--muted);}
+  .legend{flex:1;min-width:200px;}
+  .lg-row{display:flex;align-items:center;gap:8px;font-size:13px;padding:6px 0;border-bottom:1px dashed #f3dbe6;}
+  .lg-row:last-child{border-bottom:none;}
+  .dot{width:11px;height:11px;border-radius:3px;flex-shrink:0;}
+  .lg-name{flex:1;}
+  .lg-cnt{color:var(--muted);font-size:12px;margin-right:10px;}
+  .lg-rev{font-weight:600;}
+
+  /* booking table */
+  .blist{display:flex;flex-direction:column;gap:10px;}
+  .brow{border:1px solid #ffe0ec;border-radius:14px;padding:12px 14px;background:#fffafc;}
+  .brow .top{display:flex;justify-content:space-between;align-items:center;gap:8px;}
+  .brow .time{font-weight:600;color:var(--pink);font-size:14px;}
+  .brow .who{font-size:14px;color:var(--ink);}
+  .brow .svc{font-size:13px;color:var(--muted);margin-top:2px;}
+  .money{display:flex;gap:14px;margin-top:10px;padding-top:10px;border-top:1px dashed #f3dbe6;flex-wrap:wrap;}
+  .money div{font-size:12px;color:var(--muted);}
+  .money b{display:block;font-size:15px;color:var(--ink);font-family:'Mali';}
+  .badge{font-size:11px;font-weight:600;padding:5px 10px;border-radius:999px;white-space:nowrap;}
+  .b-done{background:#eafbf0;color:var(--green);}
+  .b-wait{background:#fff4e5;color:#b9770a;}
+  .b-pend{background:#fdeef2;color:var(--pink);}
+  .remain b{color:var(--red);}
+  .dep b{color:var(--green);}
+
+  .foot{text-align:center;font-size:12px;color:var(--muted);margin-top:20px;line-height:1.7;}
+  .total-bar{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,var(--pink2),var(--pink));color:#fff;border-radius:16px;padding:14px 18px;margin-top:6px;}
+  .total-bar .t-lbl{font-size:13px;opacity:.95;}
+  .total-bar .t-val{font-family:'Mali';font-size:22px;font-weight:700;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="ribbon">🔍 ตัวอย่างหน้าจอ (MOCKUP) · ข้อมูลสมมติไว้ดูดีไซน์เท่านั้น</div>
+
+  <h1>📊 รายงานยอดขาย</h1>
+  <p class="sub">24Lash Studio · ภาพรวมรายได้และคิว</p>
+
+  <!-- toolbar -->
+  <div class="toolbar">
+    <div class="seg">
+      <button class="on">วันนี้</button>
+      <button>เดือนนี้</button>
+      <button>ย้อนหลัง</button>
+    </div>
+    <div class="datepick">
+      <span class="nav">‹</span>
+      <span>เสาร์ 6 มิ.ย. 2569</span>
+      <span class="nav">›</span>
+    </div>
+  </div>
+
+  <!-- KPI -->
+  <div class="kpis">
+    <div class="kpi">
+      <div class="ic bg1">💰</div>
+      <div class="lbl">ยอดขายวันนี้ (ราคาเต็ม)</div>
+      <div class="val">฿4,785</div>
+      <div class="delta up">▲ 12% จากเมื่อวาน</div>
+    </div>
+    <div class="kpi">
+      <div class="ic bg2">📅</div>
+      <div class="lbl">คิววันนี้</div>
+      <div class="val">8 คิว</div>
+      <div class="delta">เสร็จแล้ว 5 · รออีก 3</div>
+    </div>
+    <div class="kpi">
+      <div class="ic bg3">🎫</div>
+      <div class="lbl">มัดจำรับล่วงหน้า</div>
+      <div class="val">฿1,800</div>
+      <div class="delta">โอนเข้าแล้ว 8 ราย</div>
+    </div>
+    <div class="kpi">
+      <div class="ic bg4">🏪</div>
+      <div class="lbl">ยอดเก็บหน้าร้าน (คงเหลือ)</div>
+      <div class="val">฿2,985</div>
+      <div class="delta">จากงานที่เสร็จแล้ว</div>
+    </div>
+  </div>
+
+  <!-- weekly chart -->
+  <div class="card">
+    <h2>ยอดขาย 7 วันล่าสุด</h2>
+    <p class="cap">หน่วย: บาท · แท่งเหลือง = วันนี้</p>
+    <div class="bars">
+      <div class="bar-col"><div class="bar" style="height:42%"><span class="tip">2,400</span></div><div class="day">จ</div></div>
+      <div class="bar-col"><div class="bar" style="height:58%"><span class="tip">3,300</span></div><div class="day">อ</div></div>
+      <div class="bar-col"><div class="bar" style="height:35%"><span class="tip">1,990</span></div><div class="day">พ</div></div>
+      <div class="bar-col"><div class="bar" style="height:70%"><span class="tip">3,980</span></div><div class="day">พฤ</div></div>
+      <div class="bar-col"><div class="bar" style="height:62%"><span class="tip">3,550</span></div><div class="day">ศ</div></div>
+      <div class="bar-col"><div class="bar today" style="height:84%"><span class="tip">4,785</span></div><div class="day">ส</div></div>
+      <div class="bar-col"><div class="bar" style="height:20%"><span class="tip">ปิด</span></div><div class="day">อา</div></div>
+    </div>
+  </div>
+
+  <!-- by service donut -->
+  <div class="card">
+    <h2>แยกตามบริการ</h2>
+    <p class="cap">เดือนนี้ · มิถุนายน 2569</p>
+    <div class="donut-wrap">
+      <div class="donut">
+        <div class="center"><b>฿86,400</b><span>42 คิว</span></div>
+      </div>
+      <div class="legend">
+        <div class="lg-row"><span class="dot" style="background:#ff9ec4"></span><span class="lg-name">Classic Lash</span><span class="lg-cnt">18 คิว</span><span class="lg-rev">฿10,782</span></div>
+        <div class="lg-row"><span class="dot" style="background:#e75a8a"></span><span class="lg-name">Volume Lash</span><span class="lg-cnt">12 คิว</span><span class="lg-rev">฿11,880</span></div>
+        <div class="lg-row"><span class="dot" style="background:#ffc2d8"></span><span class="lg-name">Hybrid Lash</span><span class="lg-cnt">7 คิว</span><span class="lg-rev">฿5,950</span></div>
+        <div class="lg-row"><span class="dot" style="background:#c97aa0"></span><span class="lg-name">Refill</span><span class="lg-cnt">3 คิว</span><span class="lg-rev">฿1,470</span></div>
+        <div class="lg-row"><span class="dot" style="background:#ffd9e6"></span><span class="lg-name">Removal</span><span class="lg-cnt">2 คิว</span><span class="lg-rev">฿400</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- bookings today -->
+  <div class="card">
+    <h2>รายการวันนี้</h2>
+    <p class="cap">แตะแต่ละรายการเพื่อดู/แก้สถานะ · ราคาเต็ม = มัดจำ + คงเหลือ</p>
+    <div class="blist">
+
+      <div class="brow">
+        <div class="top">
+          <div><span class="time">10:00</span> &nbsp; <span class="who">คุณมายด์</span><div class="svc">Classic Lash · ฿599</div></div>
+          <span class="badge b-done">✅ เสร็จแล้ว</span>
+        </div>
+        <div class="money">
+          <div>ราคาเต็ม<b>฿599</b></div>
+          <div class="dep">มัดจำ (จ่ายแล้ว)<b>฿200</b></div>
+          <div class="remain">เก็บหน้าร้าน<b>฿399</b></div>
+        </div>
+      </div>
+
+      <div class="brow">
+        <div class="top">
+          <div><span class="time">11:30</span> &nbsp; <span class="who">คุณฟ้า</span><div class="svc">Volume Lash · ฿990</div></div>
+          <span class="badge b-done">✅ เสร็จแล้ว</span>
+        </div>
+        <div class="money">
+          <div>ราคาเต็ม<b>฿990</b></div>
+          <div class="dep">มัดจำ (จ่ายแล้ว)<b>฿300</b></div>
+          <div class="remain">เก็บหน้าร้าน<b>฿690</b></div>
+        </div>
+      </div>
+
+      <div class="brow">
+        <div class="top">
+          <div><span class="time">13:30</span> &nbsp; <span class="who">คุณนุ่น</span><div class="svc">Hybrid Lash · ฿850</div></div>
+          <span class="badge b-wait">⏳ รอรับบริการ</span>
+        </div>
+        <div class="money">
+          <div>ราคาเต็ม<b>฿850</b></div>
+          <div class="dep">มัดจำ (จ่ายแล้ว)<b>฿300</b></div>
+          <div class="remain">เก็บหน้าร้าน<b>฿550</b></div>
+        </div>
+      </div>
+
+      <div class="brow">
+        <div class="top">
+          <div><span class="time">15:00</span> &nbsp; <span class="who">คุณเบล</span><div class="svc">Classic Lash · ฿599</div></div>
+          <span class="badge b-pend">🌸 รอยืนยัน</span>
+        </div>
+        <div class="money">
+          <div>ราคาเต็ม<b>฿599</b></div>
+          <div class="dep">มัดจำ (จ่ายแล้ว)<b>฿200</b></div>
+          <div class="remain">เก็บหน้าร้าน<b>฿399</b></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="total-bar">
+      <span class="t-lbl">รวมราคาเต็มวันนี้ (8 คิว)</span>
+      <span class="t-val">฿4,785</span>
+    </div>
+  </div>
+
+  <p class="foot">
+    💡 <b>โหมดย้อนหลัง</b> จะเลือกดูเป็นวัน / เดือน / ช่วงวันที่ก็ได้<br>
+    เก็บประวัติทุกคิวถาวร · ดาวน์โหลดเป็นไฟล์ Excel ได้ (ออปชัน)
+  </p>
+</div>
+</body>
+</html>
