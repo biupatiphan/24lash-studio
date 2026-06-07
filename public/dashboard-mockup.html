@@ -48,7 +48,7 @@
   .bars{display:flex;align-items:flex-end;gap:10px;height:160px;padding-top:10px;}
   .bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end;}
   .bar{width:70%;max-width:34px;border-radius:8px 8px 4px 4px;background:linear-gradient(180deg,var(--pink2),var(--pink));position:relative;transition:.3s;}
-  .bar.today{background:linear-gradient(180deg,#ffd24d,#ff9ec4);}
+  .bar.today{background:linear-gradient(180deg,#3ddc84,#1e8e4e);box-shadow:0 0 0 2px rgba(30,142,78,.18);}
   .bar .tip{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:10px;color:var(--muted);white-space:nowrap;}
   .bar-col .day{font-size:12px;color:var(--muted);}
 
@@ -85,6 +85,17 @@
   .b-pend{background:#fdeef2;color:var(--pink);}
   .remain b{color:var(--red);}
   .dep b{color:var(--green);}
+
+  /* status change control */
+  .brow.open{border-color:var(--pink);box-shadow:0 6px 20px rgba(231,90,138,.14);}
+  .status-actions{margin-top:12px;padding-top:12px;border-top:1px dashed #f3dbe6;}
+  .status-actions .hint{font-size:12px;color:var(--muted);margin-bottom:8px;}
+  .pills{display:flex;gap:8px;flex-wrap:wrap;}
+  .pill-btn{font-family:inherit;font-size:13px;font-weight:600;border-radius:999px;padding:9px 14px;cursor:pointer;border:1.5px solid var(--line);background:#fff;color:var(--muted);}
+  .pill-btn.sel-wait{background:#fff4e5;color:#b9770a;border-color:#ffe0b2;}
+  .pill-btn.sel-done{background:var(--green);color:#fff;border-color:var(--green);}
+  .pill-btn.sel-cancel{background:#fdecec;color:var(--red);border-color:#f5c6c6;}
+  .tap-cue{font-size:11px;color:var(--pink);margin-top:6px;}
 
   .foot{text-align:center;font-size:12px;color:var(--muted);margin-top:20px;line-height:1.7;}
   .total-bar{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,var(--pink2),var(--pink));color:#fff;border-radius:16px;padding:14px 18px;margin-top:6px;}
@@ -144,7 +155,7 @@
   <!-- weekly chart -->
   <div class="card">
     <h2>ยอดขาย 7 วันล่าสุด</h2>
-    <p class="cap">หน่วย: บาท · แท่งเหลือง = วันนี้</p>
+    <p class="cap">หน่วย: บาท · แท่งเขียว = วันนี้</p>
     <div class="bars">
       <div class="bar-col"><div class="bar" style="height:42%"><span class="tip">2,400</span></div><div class="day">จ</div></div>
       <div class="bar-col"><div class="bar" style="height:58%"><span class="tip">3,300</span></div><div class="day">อ</div></div>
@@ -204,7 +215,7 @@
         </div>
       </div>
 
-      <div class="brow">
+      <div class="brow open">
         <div class="top">
           <div><span class="time">13:30</span> &nbsp; <span class="who">คุณนุ่น</span><div class="svc">Hybrid Lash · ฿850</div></div>
           <span class="badge b-wait">⏳ รอรับบริการ</span>
@@ -213,6 +224,15 @@
           <div>ราคาเต็ม<b>฿850</b></div>
           <div class="dep">มัดจำ (จ่ายแล้ว)<b>฿300</b></div>
           <div class="remain">เก็บหน้าร้าน<b>฿550</b></div>
+        </div>
+        <div class="status-actions">
+          <div class="hint">เปลี่ยนสถานะคิวนี้:</div>
+          <div class="pills">
+            <button class="pill-btn sel-wait">⏳ รอรับบริการ</button>
+            <button class="pill-btn">✅ เสร็จแล้ว</button>
+            <button class="pill-btn">🚫 ไม่มา/ยกเลิก</button>
+          </div>
+          <div class="tap-cue">↑ ตัวอย่าง: แตะ "✅ เสร็จแล้ว" เมื่อทำให้ลูกค้าเสร็จ — ยอด ฿850 จะถูกนับเป็นรายได้จริงทันที</div>
         </div>
       </div>
 
