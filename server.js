@@ -417,6 +417,9 @@ app.get('/api/health', async (req, res) => {
   res.json({ ok: true, mail: await verifyMail() });
 });
 
+// โหลดข้อมูลจองจาก GitHub (ถาวร) ก่อนเปิดรับ request
+await store.init();
+
 app.listen(PORT, () => {
   console.log(`\n🌸 ${getSettings().shop.name} กำลังทำงานที่ http://localhost:${PORT}\n`);
 });

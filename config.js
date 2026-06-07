@@ -28,4 +28,6 @@ export const GITHUB = {
   token: process.env.GITHUB_TOKEN || '',
   repo: process.env.GITHUB_REPO || 'biupatiphan/24lash-studio',
   branch: process.env.GITHUB_BRANCH || 'main',
+  // branch แยกสำหรับเก็บข้อมูลจอง/ยอดขาย — commit ที่นี่ "ไม่" ทำให้ Render redeploy
+  dataBranch: process.env.GITHUB_DATA_BRANCH || 'data',
 };
