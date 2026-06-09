@@ -174,6 +174,13 @@
       "duration": 60,
       "price": 935,
       "popular": false
+    },
+    {
+      "id": "svc-26",
+      "name": "เคลมฟรี",
+      "duration": 60,
+      "price": 0,
+      "popular": false
     }
   ],
   "businessHours": {
