@@ -181,6 +181,13 @@
       "duration": 60,
       "price": 0,
       "popular": false
+    },
+    {
+      "id": "classic-3",
+      "name": "Classic โปรเก่าสำหรับลูกค้าที่จองเดือนพค.",
+      "duration": 60,
+      "price": 499,
+      "popular": false
     }
   ],
   "businessHours": {
