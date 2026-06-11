@@ -161,8 +161,8 @@ body {
 .s-gallery { margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--pink-200, #ffd9e6); }
 .s-gh { font-size: 13px; font-weight: 600; color: var(--rose); margin-bottom: 8px; }
 .s-scroll { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
-.s-photo { flex: 0 0 110px; height: 140px; border-radius: 12px; background-size: cover; background-position: center;
-  border: 1px solid var(--pink-100); cursor: pointer; }
+.s-photo { flex: 0 0 110px; width: 110px; height: 140px; border-radius: 12px; object-fit: cover; display: block;
+  background: var(--pink-50); border: 1px solid var(--pink-100); cursor: pointer; }
 
 /* lightbox */
 #lightbox { position: fixed; inset: 0; background: rgba(90,74,82,.82); display: none; align-items: center; justify-content: center;

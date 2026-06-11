@@ -54,7 +54,11 @@ function renderServices() {
     const gallery = (s.id === state.serviceId && pics.length)
       ? `<div class="s-gallery">
            <div class="s-gh">📸 ตัวอย่างผลงาน — แตะดูรูปใหญ่</div>
-           <div class="s-scroll">${pics.map((u) => `<div class="s-photo" style="background-image:url('${u}')" data-full="${u}"></div>`).join('')}</div>
+           <div class="s-scroll">${pics.map((u) => {
+             const thumb = u.thumb || u.full || u;
+             const full = u.full || u.thumb || u;
+             return `<img class="s-photo" loading="lazy" decoding="async" src="${thumb}" data-full="${full}" alt="ตัวอย่างผลงาน" />`;
+           }).join('')}</div>
          </div>`
       : '';
     el.innerHTML = `

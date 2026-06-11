@@ -588,11 +588,14 @@ app.post('/api/admin/services/:id/photos', async (req, res) => {
   if (!checkAdmin(req)) return res.status(401).json({ error: 'รหัสผ่านไม่ถูกต้อง' });
   if (!getService(req.params.id)) return res.status(404).json({ error: 'ไม่พบบริการนี้' });
   try {
-    const raw = String(req.body.image || '').replace(/^data:image\/\w+;base64,/, '');
+    const strip = (v) => String(v || '').replace(/^data:image\/\w+;base64,/, '');
+    const raw = strip(req.body.image);
     if (!raw) return res.status(400).json({ error: 'ไม่พบรูปภาพ' });
-    const buffer = Buffer.from(raw, 'base64');
-    if (buffer.length > 3 * 1024 * 1024) return res.status(400).json({ error: 'ไฟล์ใหญ่เกินไป' });
-    const photo = await photos.addPhoto(req.params.id, buffer, 'jpg');
+    const fullBuf = Buffer.from(raw, 'base64');
+    const thumbRaw = strip(req.body.thumb);
+    const thumbBuf = thumbRaw ? Buffer.from(thumbRaw, 'base64') : fullBuf;
+    if (fullBuf.length > 3 * 1024 * 1024) return res.status(400).json({ error: 'ไฟล์ใหญ่เกินไป' });
+    const photo = await photos.addPhoto(req.params.id, fullBuf, thumbBuf, 'jpg');
     res.json({ ok: true, photo, photos: photos.getForService(req.params.id) });
   } catch (e) {
     console.error('อัปรูปล้มเหลว:', e.message);

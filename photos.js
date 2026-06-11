@@ -53,13 +53,15 @@ export function publicUrl(p) {
 }
 
 export function getForService(serviceId) {
-  return (index[serviceId] || []).map((ph) => ({ id: ph.id, url: publicUrl(ph.path) }));
+  return (index[serviceId] || []).map((ph) => ({ id: ph.id, url: publicUrl(ph.path), thumb: publicUrl(ph.thumb || ph.path) }));
 }
 
-// แผนผังทั้งหมดสำหรับ /api/config : { serviceId: [url, ...] }
+// แผนผังทั้งหมดสำหรับ /api/config : { serviceId: [{full, thumb}, ...] }
 export function asUrlMap() {
   const out = {};
-  for (const sid of Object.keys(index)) out[sid] = (index[sid] || []).map((ph) => publicUrl(ph.path));
+  for (const sid of Object.keys(index)) {
+    out[sid] = (index[sid] || []).map((ph) => ({ full: publicUrl(ph.path), thumb: publicUrl(ph.thumb || ph.path) }));
+  }
   return out;
 }
 
@@ -70,14 +72,16 @@ export function adminMap() {
   return out;
 }
 
-export async function addPhoto(serviceId, buffer, ext = 'jpg') {
+export async function addPhoto(serviceId, fullBuffer, thumbBuffer, ext = 'jpg') {
   const id = crypto.randomBytes(5).toString('hex');
-  const filePath = `photos/${serviceId}/${id}.${ext}`;
-  await commitBinary(filePath, buffer, `Add photo for ${serviceId}`, BRANCH);
+  const fullPath = `photos/${serviceId}/${id}.${ext}`;
+  const thumbPath = `photos/${serviceId}/${id}_t.${ext}`;
+  await commitBinary(fullPath, fullBuffer, `Add photo for ${serviceId}`, BRANCH);
+  await commitBinary(thumbPath, thumbBuffer || fullBuffer, `Add photo thumb for ${serviceId}`, BRANCH);
   if (!index[serviceId]) index[serviceId] = [];
-  index[serviceId].push({ id, path: filePath });
+  index[serviceId].push({ id, path: fullPath, thumb: thumbPath });
   scheduleFlush();
-  return { id, url: publicUrl(filePath) };
+  return { id, url: publicUrl(fullPath), thumb: publicUrl(thumbPath) };
 }
 
 export function removePhoto(serviceId, photoId) {

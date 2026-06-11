@@ -119,7 +119,7 @@ function renderThumbs(sid) {
   const list = photosMap[sid] || [];
   if (!list.length) { wrap.innerHTML = '<span class="no-photo">ยังไม่มีรูป</span>'; return; }
   wrap.innerHTML = list.map((p) =>
-    `<div class="thumb" style="background-image:url('${p.url}')"><button type="button" data-del="${p.id}" data-sid="${sid}">×</button></div>`).join('');
+    `<div class="thumb" style="background-image:url('${p.thumb || p.url}')"><button type="button" data-del="${p.id}" data-sid="${sid}">×</button></div>`).join('');
   wrap.querySelectorAll('[data-del]').forEach((b) => {
     b.addEventListener('click', () => deletePhoto(b.dataset.sid, b.dataset.del));
   });
@@ -149,11 +149,12 @@ async function uploadPhoto(sid, file) {
   const wrap = document.getElementById('thumbs-' + sid);
   if (wrap) wrap.innerHTML = '<span class="no-photo">กำลังอัป...</span>';
   try {
-    const dataUrl = await compressImage(file);
+    const full = await compressImage(file, 1200, 0.78);  // รูปใหญ่ (ดูเต็มจอ)
+    const thumb = await compressImage(file, 420, 0.6);   // รูปเล็ก (โชว์ในแถบ โหลดเร็ว)
     const res = await fetch(`/api/admin/services/${sid}/photos`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'x-admin-password': password },
-      body: JSON.stringify({ image: dataUrl }),
+      body: JSON.stringify({ image: full, thumb }),
     });
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || 'อัปไม่สำเร็จ');
