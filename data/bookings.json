@@ -70,8 +70,8 @@
     "name": "คุณข้าวเม่า",
     "email": "nathaon44521@gmail.com",
     "phone": "0622285020",
-    "serviceId": "wet-look-3d-4d",
-    "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceId": "monako",
+    "serviceName": "โปรนักเรียน/นักศึกษา : Monako",
     "date": "2026-06-11",
     "dateLabel": "วันพฤหัสบดีที่ 11 มิถุนายน 2569",
     "time": "17:00",
@@ -80,12 +80,12 @@
     "endMinutes": 1080,
     "startISO": "2026-06-11T17:00:00+07:00",
     "endISO": "2026-06-11T18:00:00+07:00",
-    "price": 629,
+    "price": 594,
     "depositAmount": 200,
     "status": "done",
     "source": "online",
     "createdAt": "2026-06-09T08:58:37.602Z",
-    "updatedAt": "2026-06-11T13:37:47.979Z"
+    "updatedAt": "2026-06-11T13:39:48.669Z"
   },
   {
     "id": "BK447324",
