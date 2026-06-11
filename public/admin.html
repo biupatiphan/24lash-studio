@@ -139,6 +139,9 @@
     .st-pills button.on-confirmed { background: #f5a623; color: #fff; border-color: #f5a623; }
     .st-pills button.on-noshow { background: #c0392b; color: #fff; border-color: #c0392b; }
     .muted-empty { text-align: center; color: #c4b5bc; font-size: 13px; padding: 18px 0; }
+    .bk-filter { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+    .fchip { font-family: inherit; font-size: 12px; border: 1.5px solid #ffd9e6; background: #fff; color: #9b8b92; border-radius: 999px; padding: 7px 12px; cursor: pointer; }
+    .fchip.on { background: linear-gradient(135deg,#ff9ec4,#e75a8a); color: #fff; border-color: #e75a8a; font-weight: 600; }
   </style>
 </head>
 <body>
@@ -215,6 +218,13 @@
         <div class="card">
           <h2>รายการคิว</h2>
           <p class="note" style="margin-top:0">แตะแต่ละรายการเพื่อเปลี่ยนสถานะ/แก้บริการ</p>
+          <div class="bk-filter" id="bkFilter">
+            <button class="fchip on" data-st="all" type="button">ทั้งหมด</button>
+            <button class="fchip" data-st="pending" type="button">🌸 รอยืนยัน</button>
+            <button class="fchip" data-st="confirmed" type="button">⏳ รอรับบริการ</button>
+            <button class="fchip" data-st="done" type="button">✅ เสร็จแล้ว</button>
+            <button class="fchip" data-st="noshow" type="button">🚫 ไม่มา</button>
+          </div>
           <div id="bookingList"></div>
         </div>
       </div>

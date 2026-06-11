@@ -343,6 +343,8 @@ function escapeAttr(s) {
 let boSetup = false;
 let currentRange = 'today';
 let openId = null;
+let bookingsCache = [];
+let statusFilter = 'all';
 
 const STLABEL = { pending: '🌸 รอยืนยัน', confirmed: '⏳ รอรับบริการ', done: '✅ เสร็จแล้ว', noshow: '🚫 ไม่มา', cancelled: '🚫 ยกเลิก' };
 
@@ -396,6 +398,17 @@ function setupBackoffice() {
   });
   $('#wkService').addEventListener('change', autoPrice);
   $('#wkSave').addEventListener('click', saveWalkin);
+
+  // filter รายการคิวตามสถานะ
+  $('#bkFilter').querySelectorAll('.fchip').forEach((b) => {
+    b.addEventListener('click', () => {
+      $('#bkFilter').querySelectorAll('.fchip').forEach((x) => x.classList.remove('on'));
+      b.classList.add('on');
+      statusFilter = b.dataset.st;
+      openId = null;
+      renderBookings();
+    });
+  });
 }
 
 function switchTab(tab) {
@@ -433,7 +446,8 @@ async function loadReport() {
     renderKpis(rep);
     renderSalesBars(bookings || []);
     renderByService(rep.byService);
-    renderBookings(bookings || []);
+    bookingsCache = bookings || [];
+    renderBookings();
   } catch (e) {
     $('#kpis').innerHTML = '<div class="muted-empty">โหลดข้อมูลไม่สำเร็จ</div>';
   }
@@ -524,9 +538,11 @@ function renderByService(list) {
   wrap.innerHTML = donut + rows;
 }
 
-function renderBookings(list) {
+function renderBookings() {
   const wrap = $('#bookingList');
-  if (!list.length) { wrap.innerHTML = '<div class="muted-empty">ไม่มีคิวในช่วงนี้</div>'; return; }
+  const list = statusFilter === 'all' ? bookingsCache : bookingsCache.filter((b) => b.status === statusFilter);
+  if (!bookingsCache.length) { wrap.innerHTML = '<div class="muted-empty">ไม่มีคิวในช่วงนี้</div>'; return; }
+  if (!list.length) { wrap.innerHTML = '<div class="muted-empty">ไม่มีคิวสถานะนี้ในช่วงที่เลือก</div>'; return; }
   wrap.innerHTML = '';
   list.forEach((b) => {
     const remain = (Number(b.price) || 0) - (Number(b.depositAmount) || 0);
@@ -554,7 +570,7 @@ function renderBookings(list) {
       ${openId === b.id ? editPanel(b) : ''}`;
     el.querySelector('.bk-top').addEventListener('click', () => {
       openId = (openId === b.id) ? null : b.id;
-      renderBookings(list);
+      renderBookings();
     });
     if (openId === b.id) wireEdit(el, b);
     wrap.appendChild(el);
