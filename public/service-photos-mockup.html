@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MOCKUP · รูปตัวอย่างบริการ · 24Lash</title>
+<link href="https://fonts.googleapis.com/css2?family=Mali:wght@500;600;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{ --pink:#e75a8a; --pink2:#ff9ec4; --pink3:#ffc2d8; --soft:#fff0f6; --ink:#5a4a52; --muted:#9b8b92; --line:#ffd9e6; }
+  *{box-sizing:border-box;}
+  body{margin:0;background:linear-gradient(135deg,#fff0f6,#ffe7f0);font-family:'Prompt',sans-serif;color:var(--ink);min-height:100vh;}
+  .wrap{max-width:460px;margin:0 auto;padding:18px 14px 60px;}
+  .logo{text-align:center;font-family:'Mali',sans-serif;color:var(--pink);font-size:26px;font-weight:700;margin:6px 0 2px;}
+  .sub{text-align:center;font-size:12px;color:var(--muted);margin:0 0 8px;}
+  .mock-tag{display:block;text-align:center;font-size:11px;color:#b9770a;background:#fff4e5;border:1px dashed #ffcf8a;border-radius:999px;padding:4px 10px;margin:0 auto 16px;width:fit-content;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 6px 24px rgba(231,90,138,.08);}
+  .card h2{font-size:17px;color:var(--pink);margin:0 0 14px;}
+  .svc{border:2px solid var(--pink3);border-radius:14px;padding:12px 14px;margin-bottom:10px;cursor:pointer;background:var(--soft);transition:.18s;}
+  .svc:hover{border-color:var(--pink2);}
+  .svc.on{border-color:var(--pink);background:#fff;box-shadow:0 0 0 3px rgba(231,90,138,.18);}
+  .svc-top{display:flex;justify-content:space-between;align-items:center;gap:8px;}
+  .svc-name{font-weight:500;font-size:14px;}
+  .svc-meta{font-size:12px;color:var(--muted);margin-top:2px;}
+  .svc-price{font-weight:600;color:var(--pink);white-space:nowrap;}
+  .badge-hit{display:inline-block;font-size:10px;font-weight:700;color:#fff;background:linear-gradient(135deg,#ffb347,#ff7b54);padding:2px 7px;border-radius:999px;margin-right:5px;}
+
+  /* gallery */
+  .gallery{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);animation:fade .25s;}
+  @keyframes fade{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:none;}}
+  .ghead{font-size:13px;font-weight:600;color:var(--pink);margin-bottom:10px;}
+  .gscroll{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch;}
+  .gphoto{flex:0 0 120px;height:150px;border-radius:14px;position:relative;overflow:hidden;cursor:pointer;border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  .gphoto .eye{font-size:40px;}
+  .gphoto .cap{position:absolute;left:0;right:0;bottom:0;background:rgba(255,255,255,.85);color:var(--ink);font-size:12px;font-weight:600;text-align:center;padding:5px 4px;}
+  .gnote{font-size:11px;color:var(--muted);margin-top:8px;text-align:center;}
+  .empty-note{font-size:12px;color:var(--muted);text-align:center;padding:8px 0;}
+
+  /* lightbox */
+  .lb{position:fixed;inset:0;background:rgba(90,74,82,.7);display:none;align-items:center;justify-content:center;z-index:50;padding:24px;}
+  .lb.show{display:flex;}
+  .lb-inner{max-width:340px;width:100%;background:#fff;border-radius:20px;overflow:hidden;}
+  .lb-img{height:300px;display:flex;align-items:center;justify-content:center;font-size:90px;}
+  .lb-cap{padding:14px;text-align:center;}
+  .lb-cap b{color:var(--pink);font-size:16px;}
+  .lb-close{display:block;width:100%;border:none;background:var(--soft);color:var(--pink);font-family:inherit;font-weight:600;font-size:15px;padding:13px;cursor:pointer;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="logo">🌸 Lashbkk24</div>
+  <div class="sub">จองคิวต่อขนตาออนไลน์</div>
+  <span class="mock-tag">MOCKUP · ตัวอย่างหน้าตา (ยังไม่ใช่ของจริง)</span>
+
+  <div class="card">
+    <h2>เลือกบริการ</h2>
+    <div id="list"></div>
+  </div>
+</div>
+
+<div class="lb" id="lb">
+  <div class="lb-inner">
+    <div class="lb-img" id="lbImg"></div>
+    <div class="lb-cap"><b id="lbName"></b><div style="font-size:13px;color:#9b8b92;margin-top:4px" id="lbSvc"></div></div>
+    <button class="lb-close" id="lbClose">ปิด</button>
+  </div>
+</div>
+
+<script>
+  // ตัวอย่างพื้นหลังรูป (แทนรูปจริงที่ร้านจะอัปในหลังบ้าน)
+  const SHADES = [
+    'linear-gradient(135deg,#ffd9e6,#ff9ec4)',
+    'linear-gradient(135deg,#ffe7d1,#ffb37a)',
+    'linear-gradient(135deg,#f3d9ff,#c77dff)',
+    'linear-gradient(135deg,#d9f0ff,#7ec8e3)',
+  ];
+  const SERVICES = [
+    { name:'Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี', dur:60, price:629, hit:true,
+      photos:['สไตล์ธรรมชาติ','ตาหวาน','ตาฟุ้งสาว'] },
+    { name:'Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี', dur:60, price:539,
+      photos:['เส้นเดี่ยวธรรมชาติ','ตาเรียวยาว'] },
+    { name:'Volume Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี', dur:120, price:999,
+      photos:['ฟูหนา 5D','ตาแมว','ตากลมโต','หางตายาว'] },
+    { name:'Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี', dur:60, price:799,
+      photos:['เว็ทลุคเปียก','มัดช่อ','เงาสวย'] },
+    { name:'Removal (ถอดขนตา) เริ่มต้น 50-150', dur:20, price:150, photos:[] },
+  ];
+
+  const list = document.getElementById('list');
+  let openIdx = 2; // เปิดตัวอย่างไว้ที่ Volume ให้เห็นเลย
+
+  function render(){
+    list.innerHTML = '';
+    SERVICES.forEach((s, i) => {
+      const el = document.createElement('div');
+      el.className = 'svc' + (i===openIdx ? ' on' : '');
+      const hit = s.hit ? '<span class="badge-hit">🔥 ยอดฮิต</span>' : '';
+      let gallery = '';
+      if (i===openIdx) {
+        if (s.photos.length) {
+          const photos = s.photos.map((p,j) =>
+            `<div class="gphoto photo" data-name="${p}" data-svc="${s.name}" style="background:${SHADES[j%SHADES.length]}">
+               <span class="eye">👁️</span><span class="cap">${p}</span>
+             </div>`).join('');
+          gallery = `<div class="gallery">
+            <div class="ghead">📸 ตัวอย่างผลงาน — แตะรูปเพื่อดูใหญ่</div>
+            <div class="gscroll">${photos}</div>
+            <div class="gnote">รูปจากผลงานจริงของร้าน (ร้านอัปเพิ่ม/ลบได้ในหลังบ้าน)</div>
+          </div>`;
+        } else {
+          gallery = `<div class="gallery"><div class="empty-note">— บริการนี้ยังไม่มีรูปตัวอย่าง —</div></div>`;
+        }
+      }
+      el.innerHTML = `
+        <div class="svc-top">
+          <div>
+            <div class="svc-name">${hit}${s.name}</div>
+            <div class="svc-meta">ใช้เวลา ~${s.dur} นาที</div>
+          </div>
+          <div class="svc-price">${s.price.toLocaleString()} ฿</div>
+        </div>${gallery}`;
+      el.querySelector('.svc-top').addEventListener('click', () => {
+        openIdx = (openIdx===i) ? -1 : i;
+        render();
+      });
+      list.appendChild(el);
+    });
+    document.querySelectorAll('.photo').forEach(p => {
+      p.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openLb(p.dataset.name, p.dataset.svc, p.style.background);
+      });
+    });
+  }
+
+  function openLb(name, svc, bg){
+    document.getElementById('lbImg').style.background = bg;
+    document.getElementById('lbImg').textContent = '👁️';
+    document.getElementById('lbName').textContent = name;
+    document.getElementById('lbSvc').textContent = svc;
+    document.getElementById('lb').classList.add('show');
+  }
+  document.getElementById('lbClose').addEventListener('click', ()=>document.getElementById('lb').classList.remove('show'));
+  document.getElementById('lb').addEventListener('click', (e)=>{ if(e.target.id==='lb') e.currentTarget.classList.remove('show'); });
+
+  render();
+</script>
+</body>
+</html>
