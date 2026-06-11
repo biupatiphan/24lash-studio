@@ -381,9 +381,20 @@ function renderSalesBars(list) {
     const v = byDay[d] || 0;
     const h = Math.round((v / max) * 100);
     const lbl = (d === 1 || d % 5 === 0 || d === days) ? d : '';
-    bars += `<div class="bar-col" title="วันที่ ${d} · ${baht(v)}"><div class="bar ${d === todayD ? 'bar-today' : ''}" style="height:${h}%"></div><span class="bar-x">${lbl}</span></div>`;
+    const val = v > 0 ? `<span class="bar-v">${compactBaht(v)}</span>` : '';
+    bars += `<div class="bar-col" title="วันที่ ${d} · ${baht(v)}">${val}<div class="bar ${d === todayD ? 'bar-today' : ''}" style="height:${h}%"></div><span class="bar-x">${lbl}</span></div>`;
   }
   $('#salesBars').innerHTML = bars;
+}
+
+// ย่อยอดให้สั้น กันเลขล้นบนแท่ง: 594 -> "594", 1093 -> "1.1k", 1350 -> "1.4k"
+function compactBaht(n) {
+  n = Number(n) || 0;
+  if (n >= 1000) {
+    const k = n / 1000;
+    return (k % 1 === 0 ? k.toFixed(0) : k.toFixed(1)) + 'k';
+  }
+  return String(n);
 }
 
 const DONUT_COLORS = ['#e75a8a', '#ff9ec4', '#ffc2d8', '#ff7b54', '#ffb347', '#c77dff', '#7ec8e3', '#8ad6a0', '#f78fb3', '#b5a0e0'];
