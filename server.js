@@ -538,9 +538,11 @@ app.post('/api/admin/bookings/:id/reschedule', async (req, res) => {
   if (!time || !HHMM_RE.test(time)) return res.status(400).json({ error: 'เวลาไม่ถูกต้อง' });
 
   const s = getSettings();
-  const svc = getService(b.serviceId) || s.services[0];
+  // ใช้ระยะเวลาเดิมของคิวเป็นหลัก (กันเพี้ยนถ้าบริการถูกลบไปแล้ว) fallback ไปที่บริการ/ค่าเริ่มต้น
+  const svc = getService(b.serviceId);
+  const duration = (b.endMinutes - b.startMinutes) || (svc && svc.duration) || 60;
   const start = toMin(time);
-  const end = start + svc.duration;
+  const end = start + duration;
   const day = new Date(`${date}T00:00:00`).getDay();
 
   if (s.closedWeekdays.includes(day) || s.closedDates.includes(date)) {

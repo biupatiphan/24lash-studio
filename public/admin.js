@@ -472,8 +472,13 @@ function renderBookings(list) {
 }
 
 function editPanel(b) {
-  const opts = settings.services.map((s) =>
+  let opts = settings.services.map((s) =>
     `<option value="${s.id}" ${s.id === b.serviceId ? 'selected' : ''}>${escapeAttr(shortName(s.name))} — ฿${s.price.toLocaleString()}</option>`).join('');
+  // ถ้าบริการเดิมของคิวถูกลบไปแล้ว — ใส่ option ของมันไว้ (ล็อกไว้ไม่ให้เด้งไปบริการอื่นตอนกดบันทึก)
+  const exists = settings.services.some((s) => s.id === b.serviceId);
+  if (!exists) {
+    opts = `<option value="${escapeAttr(b.serviceId || '')}" selected>${escapeAttr(shortName(b.serviceName || 'บริการเดิม'))} — ฿${(Number(b.price) || 0).toLocaleString()} (บริการเดิม)</option>` + opts;
+  }
   return `
     <div class="bk-edit">
       <div class="lbl">ข้อมูลลูกค้า (เพิ่ม/แก้ได้):</div>
