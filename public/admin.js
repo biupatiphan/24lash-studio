@@ -257,6 +257,7 @@ let openId = null;
 const STLABEL = { pending: '🌸 รอยืนยัน', confirmed: '⏳ รอรับบริการ', done: '✅ เสร็จแล้ว', noshow: '🚫 ไม่มา', cancelled: '🚫 ยกเลิก' };
 
 function todayStr() { return new Date().toLocaleDateString('en-CA'); }
+function yesterdayStr() { const d = new Date(); d.setDate(d.getDate() - 1); return d.toLocaleDateString('en-CA'); }
 function baht(n) { return '฿' + (Number(n) || 0).toLocaleString(); }
 function shortName(name) { return String(name).split(/\s*(?:ไม่จำกัด|\/)/)[0].trim() || name; }
 function thaiDateFull(d) {
@@ -316,11 +317,13 @@ function switchTab(tab) {
 }
 
 function rangeQuery() {
+  if (currentRange === 'yesterday') return `date=${yesterdayStr()}`;
   if (currentRange === 'month') return `month=${todayStr().slice(0, 7)}`;
   if (currentRange === 'day') return `date=${$('#repDate').value || todayStr()}`;
   return `date=${todayStr()}`;
 }
 function rangeLabel() {
+  if (currentRange === 'yesterday') return `เมื่อวาน · ${thaiDateFull(yesterdayStr())}`;
   if (currentRange === 'month') return `เดือนนี้ · ${thaiMonthLabel(todayStr())}`;
   if (currentRange === 'day') return thaiDateFull($('#repDate').value || todayStr());
   return `วันนี้ · ${thaiDateFull(todayStr())}`;
