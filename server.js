@@ -503,7 +503,7 @@ app.post('/api/admin/bookings/:id', (req, res) => {
   if (!current) return res.status(404).json({ error: 'ไม่พบคิวนี้' });
 
   const fields = {};
-  const { serviceId, price, depositAmount, status, name } = req.body;
+  const { serviceId, price, depositAmount, status, name, phone } = req.body;
 
   // เปลี่ยนบริการ -> คำนวณชื่อ/ระยะเวลา/เวลาสิ้นสุด/ราคาใหม่
   if (serviceId && serviceId !== current.serviceId) {
@@ -520,6 +520,7 @@ app.post('/api/admin/bookings/:id', (req, res) => {
   if (price !== undefined && Number.isFinite(Number(price))) fields.price = Math.round(Number(price));
   if (depositAmount !== undefined && Number.isFinite(Number(depositAmount))) fields.depositAmount = Math.round(Number(depositAmount));
   if (name !== undefined) fields.name = String(name).trim();
+  if (phone !== undefined) fields.phone = String(phone).trim();
   if (status && Object.values(store.STATUS).includes(status)) fields.status = status;
 
   const updated = store.update(req.params.id, fields);

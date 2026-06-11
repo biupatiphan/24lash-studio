@@ -415,6 +415,14 @@ function editPanel(b) {
     `<option value="${s.id}" ${s.id === b.serviceId ? 'selected' : ''}>${escapeAttr(shortName(s.name))} — ฿${s.price.toLocaleString()}</option>`).join('');
   return `
     <div class="bk-edit">
+      <div class="lbl">ข้อมูลลูกค้า (เพิ่ม/แก้ได้):</div>
+      <input type="text" class="ed-name" value="${escapeAttr(b.name || '')}" placeholder="ชื่อลูกค้า" />
+      <div style="height:6px"></div>
+      <input type="tel" class="ed-phone" value="${escapeAttr(b.phone || '')}" placeholder="เบอร์โทร" />
+      <div style="height:8px"></div>
+      <button class="btn-ghost ed-contact" type="button" style="width:100%">💾 บันทึกชื่อ/เบอร์</button>
+      <p class="msg hide ed-cmsg"></p>
+
       <div class="lbl">บริการจริงที่ทำ (แก้ได้):</div>
       <div class="svc-grid2">
         <select class="ed-svc">${opts}</select>
@@ -447,6 +455,34 @@ function wireEdit(el, b) {
     const s = settings.services.find((x) => x.id === svcSel.value);
     if (s) priceInp.value = s.price;
   });
+
+  // บันทึกชื่อ/เบอร์ (เก็บ panel เปิดไว้)
+  const contactBtn = el.querySelector('.ed-contact');
+  if (contactBtn) {
+    contactBtn.addEventListener('click', async () => {
+      const cmsg = el.querySelector('.ed-cmsg');
+      const label = contactBtn.textContent;
+      contactBtn.disabled = true;
+      contactBtn.textContent = 'กำลังบันทึก...';
+      cmsg.classList.add('hide');
+      try {
+        const res = await fetch(`/api/admin/bookings/${b.id}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'x-admin-password': password },
+          body: JSON.stringify({ name: el.querySelector('.ed-name').value.trim(), phone: el.querySelector('.ed-phone').value.trim() }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'บันทึกไม่สำเร็จ');
+        loadReport(); // panel ยังเปิดอยู่ (openId เดิม) จะแสดงค่าใหม่
+      } catch (e) {
+        contactBtn.disabled = false;
+        contactBtn.textContent = label;
+        cmsg.className = 'msg err ed-cmsg';
+        cmsg.textContent = e.message;
+        cmsg.classList.remove('hide');
+      }
+    });
+  }
 
   // เลื่อนนัด
   const timeSel = el.querySelector('.ed-time');
