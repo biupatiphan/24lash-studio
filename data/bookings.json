@@ -331,9 +331,9 @@
   },
   {
     "id": "WK056883",
-    "name": "อ๋อมแอ๋ม",
+    "name": "อ๋อมแอ๋ม/IG",
     "email": "",
-    "phone": "",
+    "phone": "0967015357",
     "serviceId": "wet-look-5d-10d",
     "serviceName": "Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-06-30",
@@ -348,7 +348,8 @@
     "depositAmount": 200,
     "status": "confirmed",
     "source": "manual",
-    "createdAt": "2026-06-11T04:12:10.418Z"
+    "createdAt": "2026-06-11T04:12:10.418Z",
+    "updatedAt": "2026-06-11T07:35:11.977Z"
   },
   {
     "id": "BK652336",
