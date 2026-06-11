@@ -188,6 +188,13 @@
       "duration": 60,
       "price": 499,
       "popular": false
+    },
+    {
+      "id": "wetlook-5d-10d",
+      "name": "Wetlook 5D-10D (ลูกค้าที่จองมาโปรเก่า)",
+      "duration": 60,
+      "price": 699,
+      "popular": false
     }
   ],
   "businessHours": {
