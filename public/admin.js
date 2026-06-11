@@ -363,17 +363,34 @@ function renderByService(list) {
     wrap.innerHTML = '<div class="muted-empty">ยังไม่มีคิวที่เสร็จในช่วงนี้ — กราฟจะขึ้นเมื่อมีคิวกด "✅ เสร็จแล้ว"</div>';
     return;
   }
-  const total = list.reduce((t, s) => t + (Number(s.sales) || 0), 0) || 1;
-  let acc = 0;
-  const stops = list.map((s, i) => {
-    const from = (acc / total) * 360;
-    acc += Number(s.sales) || 0;
-    const to = (acc / total) * 360;
-    return `${DONUT_COLORS[i % DONUT_COLORS.length]} ${from}deg ${to}deg`;
-  }).join(', ');
-  const rows = list.map((s, i) =>
-    `<div class="bs-row"><span><span class="bs-dot" style="background:${DONUT_COLORS[i % DONUT_COLORS.length]}"></span>${escapeAttr(s.name)} <span class="bs-cnt">· ${s.count} คิว</span></span><span class="bs-sales">${baht(s.sales)}</span></div>`).join('');
-  wrap.innerHTML = `<div class="donut-wrap"><div class="donut" style="background:conic-gradient(${stops})"></div></div>${rows}`;
+  const segs = list.map((s, i) => ({ ...s, color: DONUT_COLORS[i % DONUT_COLORS.length] }));
+  const total = segs.reduce((t, s) => t + (Number(s.sales) || 0), 0);
+
+  let donut = '';
+  const paid = segs.filter((s) => (Number(s.sales) || 0) > 0);
+  if (total > 0 && paid.length) {
+    const GAP = paid.length > 1 ? 4 : 0; // เส้นคั่นขาวระหว่างชิ้น
+    let acc = 0;
+    const parts = [];
+    paid.forEach((s) => {
+      const from = (acc / total) * 360;
+      acc += Number(s.sales) || 0;
+      const to = (acc / total) * 360;
+      const cut = Math.max(from, to - GAP);
+      parts.push(`${s.color} ${from}deg ${cut}deg`);
+      if (GAP) parts.push(`#ffffff ${cut}deg ${to}deg`);
+    });
+    donut = `<div class="donut-wrap">
+      <div class="donut" style="background:conic-gradient(${parts.join(',')})"></div>
+      <div class="donut-center"><div class="dc-val">${baht(total)}</div><div class="dc-lbl">ยอดขายรวม</div></div>
+    </div>`;
+  }
+
+  const rows = segs.map((s) => {
+    const pct = total > 0 ? Math.round((Number(s.sales) || 0) / total * 100) : 0;
+    return `<div class="bs-row"><span><span class="bs-dot" style="background:${s.color}"></span>${escapeAttr(s.name)} <span class="bs-cnt">· ${s.count} คิว</span></span><span class="bs-sales">${baht(s.sales)}${total > 0 ? ` · ${pct}%` : ''}</span></div>`;
+  }).join('');
+  wrap.innerHTML = donut + rows;
 }
 
 function renderBookings(list) {
