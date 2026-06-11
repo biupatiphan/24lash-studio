@@ -349,5 +349,26 @@
     "status": "confirmed",
     "source": "manual",
     "createdAt": "2026-06-11T04:12:10.418Z"
+  },
+  {
+    "id": "BK652336",
+    "name": "K.พอน",
+    "email": "maythapatcha@gmail.com",
+    "phone": "0988964928",
+    "serviceId": "svc-26",
+    "serviceName": "เคลมฟรี",
+    "date": "2026-06-12",
+    "dateLabel": "วันศุกร์ที่ 12 มิถุนายน 2569",
+    "time": "19:00",
+    "endTime": "20:00",
+    "startMinutes": 1140,
+    "endMinutes": 1200,
+    "startISO": "2026-06-12T19:00:00+07:00",
+    "endISO": "2026-06-12T20:00:00+07:00",
+    "price": 0,
+    "depositAmount": 200,
+    "status": "pending",
+    "source": "online",
+    "createdAt": "2026-06-11T06:20:07.501Z"
   }
 ]
