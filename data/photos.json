@@ -37,5 +37,12 @@
       "path": "photos/wet-wispy/c83bd3c15c.jpg",
       "thumb": "photos/wet-wispy/c83bd3c15c_t.jpg"
     }
+  ],
+  "anime": [
+    {
+      "id": "e5a6b4a230",
+      "path": "photos/anime/e5a6b4a230.jpg",
+      "thumb": "photos/anime/e5a6b4a230_t.jpg"
+    }
   ]
 }
