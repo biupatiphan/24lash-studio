@@ -45,23 +45,51 @@ function renderServices() {
     .map((s, i) => ({ s, i }))
     .sort((a, b) => (b.s.popular ? 1 : 0) - (a.s.popular ? 1 : 0) || a.i - b.i)
     .map((x) => x.s);
+  const photoMap = state.config.photos || {};
   ordered.forEach((s) => {
     const el = document.createElement('div');
-    el.className = 'service' + (s.popular ? ' popular' : '');
+    el.className = 'service' + (s.popular ? ' popular' : '') + (s.id === state.serviceId ? ' selected' : '');
     el.dataset.id = s.id;
+    const pics = photoMap[s.id] || [];
+    const gallery = (s.id === state.serviceId && pics.length)
+      ? `<div class="s-gallery">
+           <div class="s-gh">📸 ตัวอย่างผลงาน — แตะดูรูปใหญ่</div>
+           <div class="s-scroll">${pics.map((u) => `<div class="s-photo" style="background-image:url('${u}')" data-full="${u}"></div>`).join('')}</div>
+         </div>`
+      : '';
     el.innerHTML = `
-      <div>
-        <div class="s-name">${s.popular ? '<span class="s-badge">🔥 ยอดฮิต</span> ' : ''}${s.name}</div>
-        <div class="s-meta">ใช้เวลา ~${s.duration} นาที</div>
-      </div>
-      <div class="s-price">${s.price.toLocaleString()} ฿</div>`;
-    el.addEventListener('click', () => {
+      <div class="s-row">
+        <div>
+          <div class="s-name">${s.popular ? '<span class="s-badge">🔥 ยอดฮิต</span> ' : ''}${s.name}</div>
+          <div class="s-meta">ใช้เวลา ~${s.duration} นาที</div>
+        </div>
+        <div class="s-price">${s.price.toLocaleString()} ฿</div>
+      </div>${gallery}`;
+    el.querySelector('.s-row').addEventListener('click', () => {
       state.serviceId = s.id;
-      $$('.service').forEach((x) => x.classList.toggle('selected', x.dataset.id === s.id));
+      renderServices();
       if (state.date) loadSlots(); // โหลดเวลาใหม่ตามระยะเวลาบริการ
     });
     wrap.appendChild(el);
   });
+
+  wrap.querySelectorAll('.s-photo').forEach((p) => {
+    p.addEventListener('click', (e) => { e.stopPropagation(); openLightbox(p.dataset.full); });
+  });
+}
+
+// ---------- lightbox ดูรูปใหญ่ ----------
+function openLightbox(url) {
+  let lb = $('#lightbox');
+  if (!lb) {
+    lb = document.createElement('div');
+    lb.id = 'lightbox';
+    lb.innerHTML = '<img id="lbImg" alt="ตัวอย่างผลงาน" /><button id="lbX" type="button">✕</button>';
+    document.body.appendChild(lb);
+    lb.addEventListener('click', (e) => { if (e.target.id !== 'lbImg') lb.classList.remove('show'); });
+  }
+  $('#lbImg').src = url;
+  lb.classList.add('show');
 }
 
 // ---------- calendar ----------

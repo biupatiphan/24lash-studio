@@ -51,6 +51,25 @@ export async function commitFile(filePath, content, message, branch = GITHUB.bra
   return putRes.json();
 }
 
+// commit ไฟล์ binary (รูปภาพ) — รับ Buffer แล้วแปลงเป็น base64 ตรงๆ
+export async function commitBinary(filePath, buffer, message, branch = GITHUB.branch) {
+  if (!githubEnabled()) throw new Error('ยังไม่ได้ตั้งค่า GITHUB_TOKEN');
+  const url = `${API}/repos/${GITHUB.repo}/contents/${filePath}`;
+  const headers = ghHeaders();
+  let sha;
+  const getRes = await fetch(`${url}?ref=${encodeURIComponent(branch)}`, { headers });
+  if (getRes.ok) sha = (await getRes.json()).sha;
+  else if (getRes.status !== 404) throw new Error(`GitHub อ่านไฟล์ ${getRes.status}: ${await getRes.text()}`);
+
+  const putRes = await fetch(url, {
+    method: 'PUT',
+    headers: { ...headers, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message, content: buffer.toString('base64'), branch, sha }),
+  });
+  if (!putRes.ok) throw new Error(`GitHub commit รูป ${putRes.status}: ${await putRes.text()}`);
+  return putRes.json();
+}
+
 // อ่านเนื้อหาไฟล์จาก branch ที่ระบุ — คืน string หรือ null ถ้าไม่มีไฟล์
 export async function readFile(filePath, branch = GITHUB.branch) {
   if (!githubEnabled()) return null;

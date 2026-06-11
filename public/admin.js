@@ -3,6 +3,7 @@ const WEEKDAY_NAMES = ['อาทิตย์', 'จันทร์', 'อัง
 
 let password = '';
 let settings = null;
+let photosMap = {}; // { serviceId: [{id,url}] }
 
 // ---------- login ----------
 $('#loginBtn').addEventListener('click', login);
@@ -19,6 +20,10 @@ async function login() {
   }
   password = pw;
   settings = (await res.json()).settings;
+  try {
+    const pr = await fetch('/api/admin/photos', { headers: { 'x-admin-password': pw } });
+    if (pr.ok) photosMap = (await pr.json()).photos || {};
+  } catch { /* ไม่มีรูปก็ไม่เป็นไร */ }
   $('#loginCard').classList.add('hide');
   $('#panel').classList.remove('hide');
   $('#bottomNav').classList.remove('hide');
@@ -60,8 +65,23 @@ function renderServices() {
         <div><label>ราคา (บาท)</label><input type="number" data-i="${i}" data-k="price" min="0" value="${s.price}" /></div>
         <button class="btn-del" data-del="${i}" type="button">ลบ</button>
       </div>
-      <div class="pop-toggle ${s.popular ? 'on' : ''}" data-pop="${i}">${s.popular ? '🔥 ยอดฮิต (กดเพื่อเอาออก)' : '☆ ตั้งเป็นยอดฮิต'}</div>`;
+      <div class="pop-toggle ${s.popular ? 'on' : ''}" data-pop="${i}">${s.popular ? '🔥 ยอดฮิต (กดเพื่อเอาออก)' : '☆ ตั้งเป็นยอดฮิต'}</div>
+      ${s.id
+        ? `<div class="photos-box">
+             <div class="lbl-sm">📸 รูปตัวอย่าง (ให้ลูกค้าดูตอนเลือกบริการ)</div>
+             <div class="thumbs" id="thumbs-${s.id}"></div>
+             <label class="btn-upload">+ อัปรูป<input type="file" accept="image/*" data-up="${s.id}" hidden /></label>
+           </div>`
+        : `<div class="photo-hint">💡 กดบันทึกก่อน แล้วเปิดหน้านี้ใหม่จึงจะอัปรูปได้</div>`}`;
     wrap.appendChild(el);
+    if (s.id) renderThumbs(s.id);
+  });
+
+  wrap.querySelectorAll('[data-up]').forEach((inp) => {
+    inp.addEventListener('change', (e) => {
+      if (e.target.files[0]) uploadPhoto(inp.dataset.up, e.target.files[0]);
+      e.target.value = '';
+    });
   });
 
   wrap.querySelectorAll('[data-pop]').forEach((el) => {
@@ -90,6 +110,75 @@ function renderServices() {
       renderServices();
     });
   });
+}
+
+// ---------- รูปตัวอย่างบริการ ----------
+function renderThumbs(sid) {
+  const wrap = document.getElementById('thumbs-' + sid);
+  if (!wrap) return;
+  const list = photosMap[sid] || [];
+  if (!list.length) { wrap.innerHTML = '<span class="no-photo">ยังไม่มีรูป</span>'; return; }
+  wrap.innerHTML = list.map((p) =>
+    `<div class="thumb" style="background-image:url('${p.url}')"><button type="button" data-del="${p.id}" data-sid="${sid}">×</button></div>`).join('');
+  wrap.querySelectorAll('[data-del]').forEach((b) => {
+    b.addEventListener('click', () => deletePhoto(b.dataset.sid, b.dataset.del));
+  });
+}
+
+// ย่อรูปในเบราว์เซอร์ก่อนอัป (กันไฟล์ใหญ่)
+function compressImage(file, maxDim = 1000, quality = 0.72) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      let { width, height } = img;
+      if (width > height && width > maxDim) { height = Math.round(height * maxDim / width); width = maxDim; }
+      else if (height > maxDim) { width = Math.round(width * maxDim / height); height = maxDim; }
+      const c = document.createElement('canvas');
+      c.width = width; c.height = height;
+      c.getContext('2d').drawImage(img, 0, 0, width, height);
+      resolve(c.toDataURL('image/jpeg', quality));
+    };
+    img.onerror = reject;
+    img.src = url;
+  });
+}
+
+async function uploadPhoto(sid, file) {
+  const wrap = document.getElementById('thumbs-' + sid);
+  if (wrap) wrap.innerHTML = '<span class="no-photo">กำลังอัป...</span>';
+  try {
+    const dataUrl = await compressImage(file);
+    const res = await fetch(`/api/admin/services/${sid}/photos`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-admin-password': password },
+      body: JSON.stringify({ image: dataUrl }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'อัปไม่สำเร็จ');
+    photosMap[sid] = data.photos;
+    renderThumbs(sid);
+  } catch (e) {
+    alert('อัปรูปไม่สำเร็จ: ' + e.message);
+    renderThumbs(sid);
+  }
+}
+
+async function deletePhoto(sid, photoId) {
+  if (!confirm('ลบรูปนี้?')) return;
+  try {
+    const res = await fetch(`/api/admin/services/${sid}/photos/${photoId}`, {
+      method: 'DELETE',
+      headers: { 'x-admin-password': password },
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'ลบไม่สำเร็จ');
+    photosMap[sid] = data.photos;
+    renderThumbs(sid);
+  } catch (e) {
+    alert(e.message);
+  }
 }
 
 $('#addService').addEventListener('click', () => {

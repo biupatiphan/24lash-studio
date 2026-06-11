@@ -11,12 +11,13 @@ import {
 } from './settings.js';
 import { commitFile } from './github.js';
 import * as store from './store.js';
+import * as photos from './photos.js';
 import { sendBookingEmails, sendConfirmationEmails, sendRescheduleEmails, verifyMail, googleCalUrl } from './mailer.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
 
-app.use(express.json());
+app.use(express.json({ limit: '6mb' })); // เผื่อรูป base64 ที่ย่อแล้ว
 app.use(express.static(path.join(__dirname, 'public')));
 
 const upload = multer({
@@ -219,6 +220,7 @@ app.get('/api/config', (req, res) => {
     businessHours: s.businessHours,
     closedWeekdays: s.closedWeekdays,
     closedDates: s.closedDates,
+    photos: photos.asUrlMap(),
   });
 });
 
@@ -580,12 +582,50 @@ app.post('/api/admin/bookings/:id/reschedule', async (req, res) => {
   res.json({ ok: true, booking: updated, emailWarning });
 });
 
+// ---------- หลังบ้าน: รูปตัวอย่างบริการ ----------
+// อัปรูป (รับ base64 ที่ย่อขนาดจากเบราว์เซอร์แล้ว)
+app.post('/api/admin/services/:id/photos', async (req, res) => {
+  if (!checkAdmin(req)) return res.status(401).json({ error: 'รหัสผ่านไม่ถูกต้อง' });
+  if (!getService(req.params.id)) return res.status(404).json({ error: 'ไม่พบบริการนี้' });
+  try {
+    const raw = String(req.body.image || '').replace(/^data:image\/\w+;base64,/, '');
+    if (!raw) return res.status(400).json({ error: 'ไม่พบรูปภาพ' });
+    const buffer = Buffer.from(raw, 'base64');
+    if (buffer.length > 3 * 1024 * 1024) return res.status(400).json({ error: 'ไฟล์ใหญ่เกินไป' });
+    const photo = await photos.addPhoto(req.params.id, buffer, 'jpg');
+    res.json({ ok: true, photo, photos: photos.getForService(req.params.id) });
+  } catch (e) {
+    console.error('อัปรูปล้มเหลว:', e.message);
+    res.status(500).json({ error: 'อัปรูปไม่สำเร็จ: ' + e.message });
+  }
+});
+
+// ดูรูปของบริการ (สำหรับหลังบ้าน)
+app.get('/api/admin/services/:id/photos', (req, res) => {
+  if (!checkAdmin(req)) return res.status(401).json({ error: 'รหัสผ่านไม่ถูกต้อง' });
+  res.json({ photos: photos.getForService(req.params.id) });
+});
+
+// รูปทั้งหมด (พร้อม id) สำหรับหลังบ้าน
+app.get('/api/admin/photos', (req, res) => {
+  if (!checkAdmin(req)) return res.status(401).json({ error: 'รหัสผ่านไม่ถูกต้อง' });
+  res.json({ photos: photos.adminMap() });
+});
+
+// ลบรูป
+app.delete('/api/admin/services/:id/photos/:photoId', (req, res) => {
+  if (!checkAdmin(req)) return res.status(401).json({ error: 'รหัสผ่านไม่ถูกต้อง' });
+  photos.removePhoto(req.params.id, req.params.photoId);
+  res.json({ ok: true, photos: photos.getForService(req.params.id) });
+});
+
 app.get('/api/health', async (req, res) => {
   res.json({ ok: true, mail: await verifyMail() });
 });
 
-// โหลดข้อมูลจองจาก GitHub (ถาวร) ก่อนเปิดรับ request
+// โหลดข้อมูลจอง + รูปตัวอย่าง จาก GitHub (ถาวร) ก่อนเปิดรับ request
 await store.init();
+await photos.init();
 
 app.listen(PORT, () => {
   console.log(`\n🌸 ${getSettings().shop.name} กำลังทำงานที่ http://localhost:${PORT}\n`);
