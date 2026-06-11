@@ -523,6 +523,7 @@ function autoPrice() {
 async function saveWalkin() {
   const body = {
     name: $('#wkName').value.trim(),
+    phone: $('#wkPhone').value.trim(),
     serviceId: $('#wkService').value,
     date: $('#wkDate').value,
     time: $('#wkTime').value,
@@ -547,6 +548,7 @@ async function saveWalkin() {
     msg.textContent = '✅ เพิ่มคิวเรียบร้อย';
     msg.classList.remove('hide');
     $('#wkName').value = '';
+    $('#wkPhone').value = '';
     loadReport();
   } catch (e) {
     msg.className = 'msg err';

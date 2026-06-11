@@ -474,7 +474,7 @@ app.get('/api/admin/report', (req, res) => {
 app.post('/api/admin/bookings', (req, res) => {
   if (!checkAdmin(req)) return res.status(401).json({ error: 'รหัสผ่านไม่ถูกต้อง' });
   try {
-    const { name, serviceId, date, time, price, depositAmount, status } = req.body;
+    const { name, phone, serviceId, date, time, price, depositAmount, status } = req.body;
     if (!serviceId || !getService(serviceId)) return res.status(400).json({ error: 'กรุณาเลือกบริการ' });
     if (!date || !DATE_RE.test(date)) return res.status(400).json({ error: 'วันที่ไม่ถูกต้อง' });
     if (!time || !HHMM_RE.test(time)) return res.status(400).json({ error: 'เวลาไม่ถูกต้อง' });
@@ -484,7 +484,7 @@ app.post('/api/admin/bookings', (req, res) => {
     const booking = makeBooking({
       id: 'WK' + crypto.randomBytes(3).toString('hex').toUpperCase(),
       name: name || 'Walk-in',
-      email: '', phone: '',
+      email: '', phone: phone || '',
       serviceId, date, time,
       price, depositAmount: depositAmount === undefined ? 0 : depositAmount,
       status: st, source: 'manual',
