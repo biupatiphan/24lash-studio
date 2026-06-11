@@ -341,6 +341,7 @@ async function loadReport() {
     const rep = await repRes.json();
     const { bookings } = await listRes.json();
     renderKpis(rep);
+    renderSalesBars(bookings || []);
     renderByService(rep.byService);
     renderBookings(bookings || []);
   } catch (e) {
@@ -354,6 +355,35 @@ function renderKpis(r) {
     <div class="kpi"><div class="k-label">📅 คิวเสร็จแล้ว</div><div class="k-val">${r.doneCount} คิว</div><div class="k-sub">รอรับ ${r.counts.confirmed} · รอยืนยัน ${r.counts.pending}</div></div>
     <div class="kpi"><div class="k-label">🎫 มัดจำรับล่วงหน้า</div><div class="k-val">${baht(r.depositTotal)}</div></div>
     <div class="kpi"><div class="k-label">🏪 รับหน้าร้าน</div><div class="k-val">${baht(r.onSiteTotal)}</div></div>`;
+}
+
+// กราฟแท่งยอดขายรายวัน — โชว์เฉพาะตอนดู "เดือนนี้"
+function renderSalesBars(list) {
+  const card = $('#salesBarsCard');
+  if (currentRange !== 'month') { card.classList.add('hide'); return; }
+  card.classList.remove('hide');
+
+  const ym = todayStr().slice(0, 7);
+  const [y, m] = ym.split('-').map(Number);
+  const days = new Date(y, m, 0).getDate();
+  const byDay = {};
+  list.forEach((b) => {
+    if (b.status === 'done' && (b.date || '').startsWith(ym)) {
+      const d = Number(b.date.slice(8, 10));
+      byDay[d] = (byDay[d] || 0) + (Number(b.price) || 0);
+    }
+  });
+  const max = Math.max(1, ...Object.values(byDay));
+  const todayD = Number(todayStr().slice(8, 10));
+
+  let bars = '';
+  for (let d = 1; d <= days; d++) {
+    const v = byDay[d] || 0;
+    const h = Math.round((v / max) * 100);
+    const lbl = (d === 1 || d % 5 === 0 || d === days) ? d : '';
+    bars += `<div class="bar-col" title="วันที่ ${d} · ${baht(v)}"><div class="bar ${d === todayD ? 'bar-today' : ''}" style="height:${h}%"></div><span class="bar-x">${lbl}</span></div>`;
+  }
+  $('#salesBars').innerHTML = bars;
 }
 
 const DONUT_COLORS = ['#e75a8a', '#ff9ec4', '#ffc2d8', '#ff7b54', '#ffb347', '#c77dff', '#7ec8e3', '#8ad6a0', '#f78fb3', '#b5a0e0'];
