@@ -29,6 +29,7 @@ async function init() {
   renderCalendar();
   renderBankInfo();
   bindEvents();
+  setTimeout(preloadPhotos, 600); // พรีโหลดรูปหลังหน้าโหลดเสร็จ
 }
 
 function startOfMonth(d) { return new Date(d.getFullYear(), d.getMonth(), 1); }
@@ -78,10 +79,25 @@ function getGallery(serviceId) {
       return `<img class="s-photo" loading="lazy" decoding="async" src="${thumb}" data-full="${full}" alt="ตัวอย่างผลงาน" />`;
     }).join('')}</div>`;
   div.querySelectorAll('.s-photo').forEach((p) => {
+    // ค่อยๆ โผล่เมื่อโหลดเสร็จ (กันขาววับ) — ถ้าแคชไว้แล้วถือว่าพร้อมเลย
+    if (p.complete && p.naturalWidth) p.classList.add('loaded');
+    else {
+      p.addEventListener('load', () => p.classList.add('loaded'));
+      p.addEventListener('error', () => p.classList.add('loaded'));
+    }
     p.addEventListener('click', (e) => { e.stopPropagation(); openLightbox(p.dataset.full); });
   });
   galleryCache[serviceId] = div;
   return div;
+}
+
+// พรีโหลดรูปย่อทั้งหมดไว้เงียบๆ หลังเปิดหน้า → กดเลือกบริการแล้วรูปขึ้นทันที
+function preloadPhotos() {
+  const map = state.config.photos || {};
+  Object.values(map).forEach((arr) => (arr || []).forEach((u) => {
+    const img = new Image();
+    img.src = u.thumb || u.full || u;
+  }));
 }
 
 function selectService(id, cardEl) {
