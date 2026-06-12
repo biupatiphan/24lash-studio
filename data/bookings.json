@@ -378,8 +378,8 @@
     "name": "เอิงเอย",
     "email": "jitpisut4890@gmail.com",
     "phone": "0641655663",
-    "serviceId": "wet-look-3d-4d",
-    "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceId": "wet-look-5d-10d",
+    "serviceName": "Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-06-12",
     "dateLabel": "วันศุกร์ที่ 12 มิถุนายน 2569",
     "time": "21:00",
@@ -388,12 +388,12 @@
     "endMinutes": 1320,
     "startISO": "2026-06-12T21:00:00+07:00",
     "endISO": "2026-06-12T22:00:00+07:00",
-    "price": 629,
+    "price": 799,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-06-11T16:32:01.679Z",
-    "updatedAt": "2026-06-11T17:00:44.053Z"
+    "updatedAt": "2026-06-12T15:53:45.522Z"
   },
   {
     "id": "BKF7A5C1",
