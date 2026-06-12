@@ -368,10 +368,10 @@
     "endISO": "2026-06-12T20:00:00+07:00",
     "price": 0,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "noshow",
     "source": "online",
     "createdAt": "2026-06-11T06:20:07.501Z",
-    "updatedAt": "2026-06-11T09:21:35.181Z"
+    "updatedAt": "2026-06-12T15:49:17.562Z"
   },
   {
     "id": "BK3F0E0A",
