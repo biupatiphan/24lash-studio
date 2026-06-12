@@ -45,22 +45,11 @@ function renderServices() {
     .map((s, i) => ({ s, i }))
     .sort((a, b) => (b.s.popular ? 1 : 0) - (a.s.popular ? 1 : 0) || a.i - b.i)
     .map((x) => x.s);
-  const photoMap = state.config.photos || {};
+  // สร้างการ์ดครั้งเดียว (ไม่ rebuild ทั้งหมดตอนสลับ)
   ordered.forEach((s) => {
     const el = document.createElement('div');
-    el.className = 'service' + (s.popular ? ' popular' : '') + (s.id === state.serviceId ? ' selected' : '');
+    el.className = 'service' + (s.popular ? ' popular' : '');
     el.dataset.id = s.id;
-    const pics = photoMap[s.id] || [];
-    const gallery = (s.id === state.serviceId && pics.length)
-      ? `<div class="s-gallery">
-           <div class="s-gh">📸 ตัวอย่างผลงาน — แตะดูรูปใหญ่</div>
-           <div class="s-scroll">${pics.map((u) => {
-             const thumb = u.thumb || u.full || u;
-             const full = u.full || u.thumb || u;
-             return `<img class="s-photo" loading="lazy" decoding="async" src="${thumb}" data-full="${full}" alt="ตัวอย่างผลงาน" />`;
-           }).join('')}</div>
-         </div>`
-      : '';
     el.innerHTML = `
       <div class="s-row">
         <div>
@@ -68,18 +57,42 @@ function renderServices() {
           <div class="s-meta">ใช้เวลา ~${s.duration} นาที</div>
         </div>
         <div class="s-price">${s.price.toLocaleString()} ฿</div>
-      </div>${gallery}`;
-    el.querySelector('.s-row').addEventListener('click', () => {
-      state.serviceId = s.id;
-      renderServices();
-      if (state.date) loadSlots(); // โหลดเวลาใหม่ตามระยะเวลาบริการ
-    });
+      </div>`;
+    el.querySelector('.s-row').addEventListener('click', () => selectService(s.id, el));
     wrap.appendChild(el);
   });
+}
 
-  wrap.querySelectorAll('.s-photo').forEach((p) => {
+// แคชแกลเลอรีที่สร้างแล้ว (รูปจะไม่ถูกโหลดซ้ำเมื่อสลับบริการไปมา)
+const galleryCache = {};
+function getGallery(serviceId) {
+  if (galleryCache[serviceId] !== undefined) return galleryCache[serviceId];
+  const pics = (state.config.photos || {})[serviceId] || [];
+  if (!pics.length) { galleryCache[serviceId] = null; return null; }
+  const div = document.createElement('div');
+  div.className = 's-gallery';
+  div.innerHTML = `<div class="s-gh">📸 ตัวอย่างผลงาน — แตะดูรูปใหญ่</div>
+    <div class="s-scroll">${pics.map((u) => {
+      const thumb = u.thumb || u.full || u;
+      const full = u.full || u.thumb || u;
+      return `<img class="s-photo" loading="lazy" decoding="async" src="${thumb}" data-full="${full}" alt="ตัวอย่างผลงาน" />`;
+    }).join('')}</div>`;
+  div.querySelectorAll('.s-photo').forEach((p) => {
     p.addEventListener('click', (e) => { e.stopPropagation(); openLightbox(p.dataset.full); });
   });
+  galleryCache[serviceId] = div;
+  return div;
+}
+
+function selectService(id, cardEl) {
+  if (state.serviceId === id) return; // กดอันเดิมซ้ำ ไม่ต้องทำอะไร
+  state.serviceId = id;
+  // ย้ายแกลเลอรีออกจากการ์ดเดิม + อัปเดตไฮไลต์
+  document.querySelectorAll('.service .s-gallery').forEach((g) => g.remove());
+  $$('.service').forEach((x) => x.classList.toggle('selected', x.dataset.id === id));
+  const g = getGallery(id);
+  if (g) cardEl.appendChild(g);
+  if (state.date) loadSlots(); // โหลดเวลาใหม่ตามระยะเวลาบริการ
 }
 
 // ---------- lightbox ดูรูปใหญ่ ----------
