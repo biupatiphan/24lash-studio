@@ -51,5 +51,12 @@
       "path": "photos/whispy-volume/2351642c8a.jpg",
       "thumb": "photos/whispy-volume/2351642c8a_t.jpg"
     }
+  ],
+  "mega-volume": [
+    {
+      "id": "1b26dbb393",
+      "path": "photos/mega-volume/1b26dbb393.jpg",
+      "thumb": "photos/mega-volume/1b26dbb393_t.jpg"
+    }
   ]
 }
