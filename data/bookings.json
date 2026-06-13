@@ -454,12 +454,12 @@
     "endMinutes": 1200,
     "startISO": "2026-06-13T19:00:00+07:00",
     "endISO": "2026-06-13T20:00:00+07:00",
-    "price": 799,
+    "price": 932,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-06-13T05:37:18.465Z",
-    "updatedAt": "2026-06-13T05:46:48.057Z"
+    "updatedAt": "2026-06-13T14:24:25.075Z"
   },
   {
     "id": "BK6EFD3A",
