@@ -448,17 +448,17 @@
     "serviceName": "Wet Wispy ไม่จำกัดเส้นและความยาว/เคลมฟรี",
     "date": "2026-06-13",
     "dateLabel": "วันเสาร์ที่ 13 มิถุนายน 2569",
-    "time": "17:00",
-    "endTime": "18:00",
-    "startMinutes": 1020,
-    "endMinutes": 1080,
-    "startISO": "2026-06-13T17:00:00+07:00",
-    "endISO": "2026-06-13T18:00:00+07:00",
+    "time": "19:00",
+    "endTime": "20:00",
+    "startMinutes": 1140,
+    "endMinutes": 1200,
+    "startISO": "2026-06-13T19:00:00+07:00",
+    "endISO": "2026-06-13T20:00:00+07:00",
     "price": 799,
     "depositAmount": 200,
     "status": "confirmed",
     "source": "online",
     "createdAt": "2026-06-13T05:37:18.465Z",
-    "updatedAt": "2026-06-13T05:40:26.759Z"
+    "updatedAt": "2026-06-13T05:46:48.057Z"
   }
 ]
