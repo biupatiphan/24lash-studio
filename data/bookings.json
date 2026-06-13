@@ -481,5 +481,26 @@
     "status": "pending",
     "source": "online",
     "createdAt": "2026-06-13T09:08:59.111Z"
+  },
+  {
+    "id": "WKB161DF",
+    "name": "K.amm (walk-in) google",
+    "email": "",
+    "phone": "",
+    "serviceId": "whispy-classic",
+    "serviceName": "Whispy Classic ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "date": "2026-06-13",
+    "dateLabel": "วันเสาร์ที่ 13 มิถุนายน 2569",
+    "time": "13:00",
+    "endTime": "14:00",
+    "startMinutes": 780,
+    "endMinutes": 840,
+    "startISO": "2026-06-13T13:00:00+07:00",
+    "endISO": "2026-06-13T14:00:00+07:00",
+    "price": 629,
+    "depositAmount": 0,
+    "status": "done",
+    "source": "manual",
+    "createdAt": "2026-06-13T09:51:02.214Z"
   }
 ]
