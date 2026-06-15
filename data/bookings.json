@@ -524,5 +524,26 @@
     "status": "pending",
     "source": "online",
     "createdAt": "2026-06-13T15:05:35.558Z"
+  },
+  {
+    "id": "BK5E2066",
+    "name": "เจลลี่",
+    "email": "wachi_jn@hotmail.com",
+    "phone": "0610108181",
+    "serviceId": "classic",
+    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "date": "2026-06-16",
+    "dateLabel": "วันอังคารที่ 16 มิถุนายน 2569",
+    "time": "13:00",
+    "endTime": "14:00",
+    "startMinutes": 780,
+    "endMinutes": 840,
+    "startISO": "2026-06-16T13:00:00+07:00",
+    "endISO": "2026-06-16T14:00:00+07:00",
+    "price": 539,
+    "depositAmount": 200,
+    "status": "pending",
+    "source": "online",
+    "createdAt": "2026-06-15T05:43:13.089Z"
   }
 ]
