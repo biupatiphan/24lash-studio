@@ -397,6 +397,9 @@ function setupBackoffice() {
     if (!card.classList.contains('hide')) initWalkinForm();
   });
   $('#wkService').addEventListener('change', autoPrice);
+  $('#wkTime').addEventListener('change', () => {
+    $('#wkTimeCustomWrap').classList.toggle('hide', $('#wkTime').value !== '__custom__');
+  });
   $('#wkSave').addEventListener('click', saveWalkin);
 
   // filter รายการคิวตามสถานะ
@@ -720,7 +723,9 @@ function wireEdit(el, b) {
 function initWalkinForm() {
   $('#wkService').innerHTML = settings.services.map((s) =>
     `<option value="${s.id}">${escapeAttr(shortName(s.name))} — ฿${s.price.toLocaleString()}</option>`).join('');
-  $('#wkTime').innerHTML = genSlots().map((t) => `<option value="${t}">${t} น.</option>`).join('');
+  $('#wkTime').innerHTML = genSlots().map((t) => `<option value="${t}">${t} น.</option>`).join('')
+    + '<option value="__custom__">⏰ กำหนดเวลาเอง…</option>';
+  $('#wkTimeCustomWrap').classList.add('hide');
   if (!$('#wkDate').value) $('#wkDate').value = todayStr();
   autoPrice();
 }
@@ -729,12 +734,14 @@ function autoPrice() {
   if (s) $('#wkPrice').value = s.price;
 }
 async function saveWalkin() {
+  const time = $('#wkTime').value === '__custom__' ? $('#wkTimeCustom').value : $('#wkTime').value;
+  if (!time) { alert('กรุณาเลือกหรือกำหนดเวลา'); return; }
   const body = {
     name: $('#wkName').value.trim(),
     phone: $('#wkPhone').value.trim(),
     serviceId: $('#wkService').value,
     date: $('#wkDate').value,
-    time: $('#wkTime').value,
+    time,
     price: Number($('#wkPrice').value),
     depositAmount: Number($('#wkDeposit').value),
     status: $('#wkStatus').value,
