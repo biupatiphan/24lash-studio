@@ -585,10 +585,10 @@
     "endISO": "2026-06-16T20:00:00+07:00",
     "price": 0,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-06-16T05:40:48.858Z",
-    "updatedAt": "2026-06-16T05:41:06.530Z"
+    "updatedAt": "2026-06-16T15:24:36.841Z"
   },
   {
     "id": "WKE3B098",
