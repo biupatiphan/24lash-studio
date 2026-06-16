@@ -620,6 +620,10 @@ function editPanel(b) {
       <button class="btn-ghost ed-reschedule" type="button" style="width:100%">🔄 ยืนยันเลื่อนนัด + แจ้งอีเมล</button>
       <p class="note" style="text-align:center">ระบบจะส่งวัน-เวลาใหม่ให้ลูกค้า + ร้านอัตโนมัติ</p>
       <p class="msg hide ed-rmsg"></p>
+      ${(b.status === 'noshow' || b.status === 'cancelled') ? `
+        <div style="margin-top:14px;padding-top:12px;border-top:1px dashed #f3dbe6">
+          <button class="btn-del ed-delete" type="button" style="width:100%">🗑️ ลบคิวนี้ถาวร</button>
+        </div>` : ''}
     </div>`;
 }
 
@@ -655,6 +659,30 @@ function wireEdit(el, b) {
         cmsg.className = 'msg err ed-cmsg';
         cmsg.textContent = e.message;
         cmsg.classList.remove('hide');
+      }
+    });
+  }
+
+  // ลบคิว (เฉพาะไม่มา/ยกเลิก)
+  const delBtn = el.querySelector('.ed-delete');
+  if (delBtn) {
+    delBtn.addEventListener('click', async () => {
+      if (!confirm('ลบคิวนี้ถาวร? (กู้คืนไม่ได้)')) return;
+      delBtn.disabled = true;
+      delBtn.textContent = 'กำลังลบ...';
+      try {
+        const res = await fetch(`/api/admin/bookings/${b.id}`, {
+          method: 'DELETE',
+          headers: { 'x-admin-password': password },
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'ลบไม่สำเร็จ');
+        openId = null;
+        loadReport();
+      } catch (e) {
+        delBtn.disabled = false;
+        delBtn.textContent = '🗑️ ลบคิวนี้ถาวร';
+        alert(e.message);
       }
     });
   }

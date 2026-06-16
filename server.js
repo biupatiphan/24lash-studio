@@ -633,6 +633,18 @@ app.delete('/api/admin/services/:id/photos/:photoId', (req, res) => {
   res.json({ ok: true, photos: photos.getForService(req.params.id) });
 });
 
+// ลบคิว — อนุญาตเฉพาะคิวที่ "ไม่มา/ยกเลิก"
+app.delete('/api/admin/bookings/:id', (req, res) => {
+  if (!checkAdmin(req)) return res.status(401).json({ error: 'รหัสผ่านไม่ถูกต้อง' });
+  const b = store.getAll().find((x) => x.id === req.params.id);
+  if (!b) return res.status(404).json({ error: 'ไม่พบคิวนี้' });
+  if (b.status !== store.STATUS.NOSHOW && b.status !== store.STATUS.CANCELLED) {
+    return res.status(400).json({ error: 'ลบได้เฉพาะคิวที่ "ไม่มา/ยกเลิก" เท่านั้น' });
+  }
+  store.remove(req.params.id);
+  res.json({ ok: true });
+});
+
 app.get('/api/health', async (req, res) => {
   res.json({ ok: true, mail: await verifyMail() });
 });

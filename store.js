@@ -109,6 +109,16 @@ export function update(id, fields) {
   return b;
 }
 
+// ลบคิวตามรหัส
+export function remove(id) {
+  const i = cache.findIndex((x) => x.id === id);
+  if (i < 0) return false;
+  cache.splice(i, 1);
+  writeLocal();
+  scheduleFlush();
+  return true;
+}
+
 // ตรวจว่าช่วงเวลาทับซ้อนกับการจองที่มีอยู่หรือไม่
 export function isSlotTaken(date, startMinutes, endMinutes) {
   return getByDate(date).some((b) => startMinutes < b.endMinutes && endMinutes > b.startMinutes);
