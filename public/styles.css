@@ -34,8 +34,13 @@ body {
 }
 
 /* Header */
-.header { text-align: center; padding: 18px 0 8px; }
+.header { text-align: center; padding: 18px 0 8px; position: relative; }
 .logo { display: inline-flex; align-items: center; gap: 12px; }
+.lang-switch { position: absolute; top: 14px; right: 12px; display: flex; gap: 3px;
+  background: rgba(255,255,255,.65); border: 1px solid var(--pink-200, #ffd9e6); border-radius: 999px; padding: 3px; }
+.lang-switch button { border: none; background: none; font-family: inherit; font-size: 12px; font-weight: 600;
+  color: #9b8b92; padding: 5px 11px; border-radius: 999px; cursor: pointer; line-height: 1; }
+.lang-switch button.on { background: linear-gradient(135deg,#ff9ec4,#e75a8a); color: #fff; }
 .logo-mark {
   font-size: 34px;
   filter: drop-shadow(0 4px 8px rgba(255,111,163,.4));

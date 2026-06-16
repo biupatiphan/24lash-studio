@@ -12,6 +12,78 @@ const state = {
 };
 
 const THAI_MONTHS = ['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'];
+const EN_MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const WEEKDAYS = { th: ['อา','จ','อ','พ','พฤ','ศ','ส'], en: ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'] };
+
+// ---------- i18n ----------
+let lang = localStorage.getItem('lang') === 'en' ? 'en' : 'th';
+const I18N = {
+  th: {
+    tagline:'จองคิวต่อขนตาออนไลน์','step.datetime':'เลือกวัน-เวลา','step.deposit':'ชำระมัดจำ','step.done':'เสร็จสิ้น',
+    'h.service':'เลือกบริการ','h.date':'เลือกวันที่','h.time':'เลือกเวลา','h.info':'ข้อมูลของคุณ',
+    'f.name':'ชื่อ / ชื่อเล่น','ph.name':'เช่น คุณมายด์','f.email':'อีเมล','note.email':'เราจะส่งคำเชิญ Google Calendar ไปที่อีเมลนี้','f.phone':'เบอร์โทรศัพท์',
+    'btn.next':'ถัดไป · ชำระมัดจำ','h.summary':'สรุปการจอง','h.pay':'ชำระเงินมัดจำ','depositWord':'มัดจำ','baht':'บาท',
+    'note.pay':'โอนแล้วแนบสลิปด้านล่างเพื่อยืนยันการจองค่ะ 💕','h.attach':'แนบหลักฐานการโอน','upload.text':'แตะเพื่อเลือกรูปสลิป (หรือ PDF)',
+    'btn.back':'‹ ย้อนกลับ','btn.confirm':'ยืนยันการจอง','success.title':'ส่งคำขอจองแล้ว!',
+    'success.note':'📩 เราได้รับการจองและสลิปของคุณแล้ว กำลัง <b>รอร้านยืนยัน</b><br>เมื่อร้านยืนยัน จะส่งอีเมลยืนยัน + คำเชิญปฏิทินไปที่อีเมลของคุณอีกครั้งค่ะ',
+    'btn.again':'จองคิวอีกครั้ง','overlay':'กำลังดำเนินการ...',
+    popular:'🔥 ยอดฮิต',gallery:'📸 ตัวอย่างผลงาน — แตะดูรูปใหญ่',galleryAlt:'ตัวอย่างผลงาน',
+    'slot.pickDate':'กรุณาเลือกวันที่ก่อนค่ะ','slot.loading':'กำลังโหลดเวลาว่าง...','slot.closed':'วันนี้ร้านปิดทำการค่ะ','slot.pick':'เลือกเวลาที่ต้องการ','slot.full':'วันนี้คิวเต็มแล้ว ลองเลือกวันอื่นนะคะ 🥺',
+    'pay.promptpay':'พร้อมเพย์','pay.bank':'ธนาคาร','pay.accName':'ชื่อบัญชี','pay.accNo':'เลขบัญชี',copy:'คัดลอก',copied:'คัดลอกแล้ว!',
+    'v.service':'กรุณาเลือกบริการค่ะ','v.date':'กรุณาเลือกวันที่ค่ะ','v.time':'กรุณาเลือกเวลาค่ะ','v.name':'กรุณากรอกชื่อค่ะ','v.email':'กรุณากรอกอีเมลให้ถูกต้องค่ะ','v.phone':'กรุณากรอกเบอร์โทรให้ถูกต้องค่ะ',
+    'sum.service':'บริการ','sum.date':'วันที่','sum.time':'เวลา','sum.name':'ชื่อ','sum.phone':'เบอร์โทร','sum.price':'ราคาบริการ',
+    timeSuffix:' น.',changeFile:'เปลี่ยนไฟล์',slipAlt:'สลิป','err.generic':'เกิดข้อผิดพลาด','err.slip':'กรุณาแนบหลักฐานการโอนมัดจำค่ะ',
+    'succ.id':'รหัสการจอง','succ.service':'บริการ','succ.date':'วันที่','succ.time':'เวลา','succ.deposit':'มัดจำที่ชำระ',
+    metaPre:'ใช้เวลา ~',min:'นาที',thanks:'ขอบคุณคุณ {name} ที่จองคิวกับเรานะคะ 💕',
+  },
+  en: {
+    tagline:'Online Lash Booking','step.datetime':'Date & Time','step.deposit':'Deposit','step.done':'Done',
+    'h.service':'Choose a service','h.date':'Choose a date','h.time':'Choose a time','h.info':'Your details',
+    'f.name':'Name / Nickname','ph.name':'e.g. Mind','f.email':'Email','note.email':"We'll send a Google Calendar invite to this email",'f.phone':'Phone number',
+    'btn.next':'Next · Deposit','h.summary':'Booking summary','h.pay':'Pay deposit','depositWord':'Deposit','baht':'THB',
+    'note.pay':'After the transfer, attach your slip below to confirm 💕','h.attach':'Attach payment slip','upload.text':'Tap to choose slip image (or PDF)',
+    'btn.back':'‹ Back','btn.confirm':'Confirm booking','success.title':'Booking request sent!',
+    'success.note':"📩 We've received your booking and slip. <b>Waiting for shop confirmation.</b><br>Once confirmed, we'll email you a confirmation + calendar invite.",
+    'btn.again':'Book again','overlay':'Processing...',
+    popular:'🔥 Popular',gallery:'📸 Our work — tap to enlarge',galleryAlt:'Our work',
+    'slot.pickDate':'Please choose a date first','slot.loading':'Loading available times...','slot.closed':'Closed on this day','slot.pick':'Choose a time','slot.full':'Fully booked — please try another day 🥺',
+    'pay.promptpay':'PromptPay','pay.bank':'Bank','pay.accName':'Account name','pay.accNo':'Account no.',copy:'Copy',copied:'Copied!',
+    'v.service':'Please choose a service','v.date':'Please choose a date','v.time':'Please choose a time','v.name':'Please enter your name','v.email':'Please enter a valid email','v.phone':'Please enter a valid phone number',
+    'sum.service':'Service','sum.date':'Date','sum.time':'Time','sum.name':'Name','sum.phone':'Phone','sum.price':'Price',
+    timeSuffix:'',changeFile:'Change file',slipAlt:'slip','err.generic':'Something went wrong','err.slip':'Please attach the deposit payment slip',
+    'succ.id':'Booking ID','succ.service':'Service','succ.date':'Date','succ.time':'Time','succ.deposit':'Deposit paid',
+    metaPre:'approx. ',min:'min',thanks:'Thank you {name} for booking with us 💕',
+  },
+};
+function t(k) { const o = I18N[lang] || I18N.th; return (k in o) ? o[k] : (I18N.th[k] ?? k); }
+function fmtDate(dateStr) {
+  const d = new Date(`${dateStr}T00:00:00`);
+  return lang === 'en'
+    ? d.toLocaleDateString('en-GB', { weekday:'short', day:'numeric', month:'short', year:'numeric' })
+    : d.toLocaleDateString('th-TH', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
+}
+function applyLang() {
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+  document.querySelectorAll('[data-i18n-html]').forEach((el) => { el.innerHTML = t(el.dataset.i18nHtml); });
+  document.querySelectorAll('[data-i18n-ph]').forEach((el) => { el.placeholder = t(el.dataset.i18nPh); });
+  document.querySelectorAll('#langSwitch button').forEach((b) => b.classList.toggle('on', b.dataset.lang === lang));
+  $('#calWeekdays').innerHTML = WEEKDAYS[lang].map((w) => `<span>${w}</span>`).join('');
+  if (!state.config) return;
+  Object.keys(galleryCache).forEach((k) => delete galleryCache[k]); // ล้างแคชเพื่อให้หัวข้อแกลเลอรีเป็นภาษาใหม่
+  renderServices();
+  if (state.serviceId) {
+    const card = document.querySelector(`.service[data-id="${state.serviceId}"]`);
+    document.querySelectorAll('.service').forEach((x) => x.classList.toggle('selected', x.dataset.id === state.serviceId));
+    const g = getGallery(state.serviceId);
+    if (card && g) card.appendChild(g);
+  }
+  renderCalendar();
+  renderBankInfo();
+  if (state.date) loadSlots(); else $('#slotHint').textContent = t('slot.pickDate');
+  if ($('#screen2').classList.contains('active')) renderSummary();
+}
+function setLang(l) { lang = l === 'en' ? 'en' : 'th'; localStorage.setItem('lang', lang); applyLang(); }
 
 // ---------- init ----------
 async function init() {
@@ -29,6 +101,7 @@ async function init() {
   renderCalendar();
   renderBankInfo();
   bindEvents();
+  applyLang(); // ใช้ภาษาที่จำไว้ (ค่าเริ่มต้น ไทย)
   setTimeout(preloadPhotos, 600); // พรีโหลดรูปหลังหน้าโหลดเสร็จ
 }
 
@@ -54,8 +127,8 @@ function renderServices() {
     el.innerHTML = `
       <div class="s-row">
         <div>
-          <div class="s-name">${s.popular ? '<span class="s-badge">🔥 ยอดฮิต</span> ' : ''}${s.name}</div>
-          <div class="s-meta">ใช้เวลา ~${s.duration} นาที</div>
+          <div class="s-name">${s.popular ? `<span class="s-badge">${t('popular')}</span> ` : ''}${s.name}</div>
+          <div class="s-meta">${t('metaPre')}${s.duration} ${t('min')}</div>
         </div>
         <div class="s-price">${s.price.toLocaleString()} ฿</div>
       </div>`;
@@ -72,11 +145,11 @@ function getGallery(serviceId) {
   if (!pics.length) { galleryCache[serviceId] = null; return null; }
   const div = document.createElement('div');
   div.className = 's-gallery';
-  div.innerHTML = `<div class="s-gh">📸 ตัวอย่างผลงาน — แตะดูรูปใหญ่</div>
+  div.innerHTML = `<div class="s-gh">${t('gallery')}</div>
     <div class="s-scroll">${pics.map((u) => {
       const thumb = u.thumb || u.full || u;
       const full = u.full || u.thumb || u;
-      return `<img class="s-photo" loading="lazy" decoding="async" src="${thumb}" data-full="${full}" alt="ตัวอย่างผลงาน" />`;
+      return `<img class="s-photo" loading="lazy" decoding="async" src="${thumb}" data-full="${full}" alt="${t('galleryAlt')}" />`;
     }).join('')}</div>`;
   div.querySelectorAll('.s-photo').forEach((p) => {
     // ค่อยๆ โผล่เมื่อโหลดเสร็จ (กันขาววับ) — ถ้าแคชไว้แล้วถือว่าพร้อมเลย
@@ -117,7 +190,7 @@ function openLightbox(url) {
   if (!lb) {
     lb = document.createElement('div');
     lb.id = 'lightbox';
-    lb.innerHTML = '<img id="lbImg" alt="ตัวอย่างผลงาน" /><button id="lbX" type="button">✕</button>';
+    lb.innerHTML = `<img id="lbImg" alt="${t('galleryAlt')}" /><button id="lbX" type="button">✕</button>`;
     document.body.appendChild(lb);
     lb.addEventListener('click', (e) => { if (e.target.id !== 'lbImg') lb.classList.remove('show'); });
   }
@@ -128,7 +201,9 @@ function openLightbox(url) {
 // ---------- calendar ----------
 function renderCalendar() {
   const m = state.calMonth;
-  $('#calLabel').textContent = `${THAI_MONTHS[m.getMonth()]} ${m.getFullYear() + 543}`;
+  $('#calLabel').textContent = lang === 'en'
+    ? `${EN_MONTHS[m.getMonth()]} ${m.getFullYear()}`
+    : `${THAI_MONTHS[m.getMonth()]} ${m.getFullYear() + 543}`;
   const grid = $('#calGrid');
   grid.innerHTML = '';
 
@@ -176,18 +251,18 @@ function renderCalendar() {
 async function loadSlots() {
   const hint = $('#slotHint');
   const wrap = $('#slots');
-  if (!state.date) { hint.textContent = 'กรุณาเลือกวันที่ก่อนค่ะ'; wrap.innerHTML = ''; return; }
+  if (!state.date) { hint.textContent = t('slot.pickDate'); wrap.innerHTML = ''; return; }
   const svc = state.serviceId || (state.config.services[0] && state.config.services[0].id);
 
-  hint.textContent = 'กำลังโหลดเวลาว่าง...';
+  hint.textContent = t('slot.loading');
   wrap.innerHTML = '';
   const res = await fetch(`/api/availability?date=${state.date}&serviceId=${svc}`);
   const data = await res.json();
 
-  if (data.closed) { hint.textContent = 'วันนี้ร้านปิดทำการค่ะ'; return; }
+  if (data.closed) { hint.textContent = t('slot.closed'); return; }
 
   const any = data.slots.some((s) => s.available);
-  hint.textContent = any ? 'เลือกเวลาที่ต้องการ' : 'วันนี้คิวเต็มแล้ว ลองเลือกวันอื่นนะคะ 🥺';
+  hint.textContent = any ? t('slot.pick') : t('slot.full');
 
   data.slots.forEach((s) => {
     const el = document.createElement('div');
@@ -208,14 +283,14 @@ async function loadSlots() {
 function renderBankInfo() {
   const p = state.config.payment;
   const rows = [];
-  if (p.promptpayId) rows.push(['พร้อมเพย์', p.promptpayId, true]);
-  if (p.bankName) rows.push(['ธนาคาร', p.bankName, false]);
-  if (p.bankAccountName) rows.push(['ชื่อบัญชี', p.bankAccountName, false]);
-  if (p.bankAccountNumber) rows.push(['เลขบัญชี', p.bankAccountNumber, true]);
+  if (p.promptpayId) rows.push([t('pay.promptpay'), p.promptpayId, true]);
+  if (p.bankName) rows.push([t('pay.bank'), p.bankName, false]);
+  if (p.bankAccountName) rows.push([t('pay.accName'), p.bankAccountName, false]);
+  if (p.bankAccountNumber) rows.push([t('pay.accNo'), p.bankAccountNumber, true]);
   $('#bankInfo').innerHTML = rows
     .map(([k, v, copyable]) => {
       const val = copyable
-        ? `<b>${v}</b><button type="button" class="copy-btn" data-copy="${String(v).replace(/"/g, '&quot;')}">คัดลอก</button>`
+        ? `<b>${v}</b><button type="button" class="copy-btn" data-copy="${String(v).replace(/"/g, '&quot;')}">${t('copy')}</button>`
         : `<b>${v}</b>`;
       return `<div class="brow"><span>${k}</span><span class="bval">${val}</span></div>`;
     })
@@ -234,7 +309,7 @@ function renderBankInfo() {
         document.body.removeChild(ta);
       }
       const old = btn.textContent;
-      btn.textContent = 'คัดลอกแล้ว!';
+      btn.textContent = t('copied');
       btn.classList.add('copied');
       setTimeout(() => {
         btn.textContent = old;
@@ -257,9 +332,9 @@ function goStep(n) {
 }
 
 function validateStep1() {
-  if (!state.serviceId) return 'กรุณาเลือกบริการค่ะ';
-  if (!state.date) return 'กรุณาเลือกวันที่ค่ะ';
-  if (!state.time) return 'กรุณาเลือกเวลาค่ะ';
+  if (!state.serviceId) return t('v.service');
+  if (!state.date) return t('v.date');
+  if (!state.time) return t('v.time');
 
   const name = $('#name').value.trim();
   const email = $('#email').value.trim();
@@ -268,23 +343,21 @@ function validateStep1() {
   $('#name').classList.toggle('invalid', !name);
   $('#email').classList.toggle('invalid', !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email));
   $('#phone').classList.toggle('invalid', !/^[0-9+\-\s]{8,}$/.test(phone));
-  if (!name) bad = 'กรุณากรอกชื่อค่ะ';
-  else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) bad = 'กรุณากรอกอีเมลให้ถูกต้องค่ะ';
-  else if (!/^[0-9+\-\s]{8,}$/.test(phone)) bad = 'กรุณากรอกเบอร์โทรให้ถูกต้องค่ะ';
+  if (!name) bad = t('v.name');
+  else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) bad = t('v.email');
+  else if (!/^[0-9+\-\s]{8,}$/.test(phone)) bad = t('v.phone');
   return bad;
 }
 
 function renderSummary() {
   const svc = state.config.services.find((s) => s.id === state.serviceId);
-  const dateLabel = new Date(`${state.date}T00:00:00`)
-    .toLocaleDateString('th-TH', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
   const rows = [
-    ['บริการ', svc.name],
-    ['วันที่', dateLabel],
-    ['เวลา', `${state.time} น.`],
-    ['ชื่อ', $('#name').value.trim()],
-    ['เบอร์โทร', $('#phone').value.trim()],
-    ['ราคาบริการ', `${svc.price.toLocaleString()} บาท`],
+    [t('sum.service'), svc.name],
+    [t('sum.date'), fmtDate(state.date)],
+    [t('sum.time'), `${state.time}${t('timeSuffix')}`],
+    [t('sum.name'), $('#name').value.trim()],
+    [t('sum.phone'), $('#phone').value.trim()],
+    [t('sum.price'), `${svc.price.toLocaleString()} ${t('baht')}`],
   ];
   $('#summary').innerHTML = rows
     .map(([k, v]) => `<div class="srow"><span>${k}</span><b>${v}</b></div>`)
@@ -319,21 +392,26 @@ function bindEvents() {
     if (!file) { preview.innerHTML = ''; return; }
     if (file.type.startsWith('image/')) {
       const url = URL.createObjectURL(file);
-      preview.innerHTML = `<img src="${url}" alt="สลิป" />`;
+      preview.innerHTML = `<img src="${url}" alt="${t('slipAlt')}" />`;
     } else {
       preview.innerHTML = `<div class="file-chip">📄 ${file.name}</div>`;
     }
-    $('#uploadInner').querySelector('.up-text').textContent = 'เปลี่ยนไฟล์';
+    $('#uploadInner').querySelector('.up-text').textContent = t('changeFile');
   });
 
   $('#submitBtn').addEventListener('click', submitBooking);
   $('#bookAgain').addEventListener('click', () => location.reload());
+
+  $('#langSwitch').addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (b) setLang(b.dataset.lang);
+  });
 }
 
 // ---------- submit ----------
 async function submitBooking() {
   $('#submitErr').textContent = '';
-  if (!state.slipFile) { $('#submitErr').textContent = 'กรุณาแนบหลักฐานการโอนมัดจำค่ะ'; return; }
+  if (!state.slipFile) { $('#submitErr').textContent = t('err.slip'); return; }
 
   const fd = new FormData();
   fd.append('name', $('#name').value.trim());
@@ -349,7 +427,7 @@ async function submitBooking() {
   try {
     const res = await fetch('/api/bookings', { method: 'POST', body: fd });
     const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'เกิดข้อผิดพลาด');
+    if (!res.ok) throw new Error(data.error || t('err.generic'));
     showSuccess(data.booking, data.emailWarning);
     goStep(3);
   } catch (e) {
@@ -361,13 +439,13 @@ async function submitBooking() {
 }
 
 function showSuccess(b, warning) {
-  $('#successSub').textContent = `ขอบคุณคุณ ${b.name} ที่จองคิวกับเรานะคะ 💕`;
+  $('#successSub').textContent = t('thanks').replace('{name}', b.name);
   const rows = [
-    ['รหัสการจอง', b.id],
-    ['บริการ', b.serviceName],
-    ['วันที่', b.dateLabel],
-    ['เวลา', `${b.time} - ${b.endTime} น.`],
-    ['มัดจำที่ชำระ', `${b.depositAmount} บาท`],
+    [t('succ.id'), b.id],
+    [t('succ.service'), b.serviceName],
+    [t('succ.date'), state.date ? fmtDate(state.date) : b.dateLabel],
+    [t('succ.time'), `${b.time} - ${b.endTime}${t('timeSuffix')}`],
+    [t('succ.deposit'), `${b.depositAmount} ${t('baht')}`],
   ];
   $('#successCard').innerHTML = rows
     .map(([k, v]) => `<div class="srow"><span>${k}</span><b>${v}</b></div>`)
