@@ -77,8 +77,8 @@
 
     /* period */
     .period { display: flex; align-items: center; gap: 10px; justify-content: center; margin-bottom: 4px; flex-wrap: wrap; }
-    .seg { display: inline-flex; background: #fff; border: 1.5px solid #ffd9e6; border-radius: 999px; padding: 4px; }
-    .seg button { border: none; background: none; font-family: inherit; font-size: 14px; color: #9b8b92; padding: 7px 15px; border-radius: 999px; cursor: pointer; }
+    .seg { display: inline-flex; flex-wrap: wrap; justify-content: center; background: #fff; border: 1.5px solid #ffd9e6; border-radius: 22px; padding: 4px; gap: 2px; }
+    .seg button { border: none; background: none; font-family: inherit; font-size: 14px; color: #9b8b92; padding: 7px 13px; border-radius: 999px; cursor: pointer; }
     .seg button.on { background: linear-gradient(135deg,#ff9ec4,#e75a8a); color: #fff; font-weight: 600; }
     .rep-label { text-align: center; font-size: 13px; color: #9b8b92; margin: 6px 0 14px; }
 
@@ -166,8 +166,9 @@
       <div id="tab-report" class="tabview">
         <div class="period">
           <div class="seg" id="rangeSeg">
-            <button class="on" data-range="today" type="button">วันนี้</button>
             <button data-range="yesterday" type="button">เมื่อวาน</button>
+            <button class="on" data-range="today" type="button">วันนี้</button>
+            <button data-range="tomorrow" type="button">พรุ่งนี้</button>
             <button data-range="month" type="button">เดือนนี้</button>
             <button data-range="day" type="button">เลือกวัน</button>
           </div>
