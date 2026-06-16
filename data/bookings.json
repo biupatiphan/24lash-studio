@@ -633,5 +633,26 @@
     "source": "online",
     "createdAt": "2026-06-16T05:40:48.858Z",
     "updatedAt": "2026-06-16T05:41:06.530Z"
+  },
+  {
+    "id": "WKE3B098",
+    "name": "Doga",
+    "email": "",
+    "phone": "",
+    "serviceId": "classic",
+    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "date": "2026-06-16",
+    "dateLabel": "วันอังคารที่ 16 มิถุนายน 2569",
+    "time": "17:00",
+    "endTime": "18:00",
+    "startMinutes": 1020,
+    "endMinutes": 1080,
+    "startISO": "2026-06-16T17:00:00+07:00",
+    "endISO": "2026-06-16T18:00:00+07:00",
+    "price": 539,
+    "depositAmount": 0,
+    "status": "confirmed",
+    "source": "manual",
+    "createdAt": "2026-06-16T07:18:54.488Z"
   }
 ]
