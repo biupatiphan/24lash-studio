@@ -739,6 +739,7 @@ async function saveWalkin() {
   const body = {
     name: $('#wkName').value.trim(),
     phone: $('#wkPhone').value.trim(),
+    email: $('#wkEmail').value.trim(),
     serviceId: $('#wkService').value,
     date: $('#wkDate').value,
     time,
@@ -759,11 +760,12 @@ async function saveWalkin() {
     });
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || 'บันทึกไม่สำเร็จ');
-    msg.className = 'msg ok';
-    msg.textContent = '✅ เพิ่มคิวเรียบร้อย';
+    msg.className = data.emailWarning ? 'msg err' : 'msg ok';
+    msg.textContent = data.emailWarning ? '⚠️ ' + data.emailWarning : (body.email ? '✅ เพิ่มคิวแล้ว + ส่งอีเมลให้ลูกค้าแล้ว' : '✅ เพิ่มคิวเรียบร้อย');
     msg.classList.remove('hide');
     $('#wkName').value = '';
     $('#wkPhone').value = '';
+    $('#wkEmail').value = '';
     loadReport();
   } catch (e) {
     msg.className = 'msg err';

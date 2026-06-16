@@ -12,7 +12,7 @@ import {
 import { commitFile } from './github.js';
 import * as store from './store.js';
 import * as photos from './photos.js';
-import { sendBookingEmails, sendConfirmationEmails, sendRescheduleEmails, verifyMail, googleCalUrl } from './mailer.js';
+import { sendBookingEmails, sendConfirmationEmails, sendRescheduleEmails, sendWalkinEmail, verifyMail, googleCalUrl } from './mailer.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -473,10 +473,10 @@ app.get('/api/admin/report', (req, res) => {
 });
 
 // เพิ่มคิวเอง (walk-in / นัดปากเปล่า) — ไม่ต้องแนบสลิป/ส่งเมล
-app.post('/api/admin/bookings', (req, res) => {
+app.post('/api/admin/bookings', async (req, res) => {
   if (!checkAdmin(req)) return res.status(401).json({ error: 'รหัสผ่านไม่ถูกต้อง' });
   try {
-    const { name, phone, serviceId, date, time, price, depositAmount, status } = req.body;
+    const { name, phone, email, serviceId, date, time, price, depositAmount, status } = req.body;
     if (!serviceId || !getService(serviceId)) return res.status(400).json({ error: 'กรุณาเลือกบริการ' });
     if (!date || !DATE_RE.test(date)) return res.status(400).json({ error: 'วันที่ไม่ถูกต้อง' });
     if (!time || !HHMM_RE.test(time)) return res.status(400).json({ error: 'เวลาไม่ถูกต้อง' });
@@ -486,13 +486,24 @@ app.post('/api/admin/bookings', (req, res) => {
     const booking = makeBooking({
       id: 'WK' + crypto.randomBytes(3).toString('hex').toUpperCase(),
       name: name || 'Walk-in',
-      email: '', phone: phone || '',
+      email: (email || '').trim(), phone: phone || '',
       serviceId, date, time,
       price, depositAmount: depositAmount === undefined ? 0 : depositAmount,
       status: st, source: 'manual',
     });
     store.add(booking);
-    res.json({ ok: true, booking });
+
+    // ส่งรายละเอียดให้ลูกค้าถ้ากรอกอีเมล
+    let emailWarning = null;
+    if (booking.email) {
+      try {
+        await sendWalkinEmail(booking);
+      } catch (e) {
+        console.error('ส่งอีเมล walk-in ล้มเหลว:', e.message);
+        emailWarning = 'บันทึกคิวแล้ว แต่ส่งอีเมลไม่สำเร็จ: ' + e.message;
+      }
+    }
+    res.json({ ok: true, booking, emailWarning });
   } catch (e) {
     res.status(400).json({ error: e.message });
   }

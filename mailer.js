@@ -300,6 +300,46 @@ export async function sendRescheduleEmails(booking) {
   });
 }
 
+// อีเมลถึงลูกค้าสำหรับคิวที่ร้านเพิ่มเอง (walk-in) — รายละเอียดการจอง + ปุ่มปฏิทิน
+function walkinCustomerHtml(booking) {
+  const SHOP = getSettings().shop;
+  const remain = (Number(booking.price) || 0) - (Number(booking.depositAmount) || 0);
+  return `
+  <div style="font-family:'Prompt',Arial,sans-serif;max-width:520px;margin:auto;background:#fff;border-radius:16px;overflow:hidden;border:1px solid #ffd9e6">
+    <div style="background:linear-gradient(135deg,#ff9ec4,#ffc2d8);padding:24px;text-align:center;color:#fff">
+      <h1 style="margin:0;font-size:22px">${SHOP.name}</h1>
+      <p style="margin:6px 0 0">รายละเอียดการจองของคุณ 🌸</p>
+    </div>
+    <div style="padding:24px;color:#5a4a52">
+      <p>สวัสดีค่ะคุณ <b>${booking.name}</b> 💕</p>
+      <p>นี่คือรายละเอียดนัดหมายของคุณค่ะ</p>
+      <table style="width:100%;border-collapse:collapse;margin:16px 0">
+        ${row('บริการ', booking.serviceName)}
+        ${row('วันที่', booking.dateLabel)}
+        ${row('เวลา', `${booking.time} - ${booking.endTime} น.`)}
+        ${row('ราคา', `${(Number(booking.price) || 0).toLocaleString()} บาท`)}
+        ${Number(booking.depositAmount) > 0 ? row('มัดจำที่ชำระ', `${booking.depositAmount} บาท`) : ''}
+        ${Number(booking.depositAmount) > 0 ? row('ยอดคงเหลือ', `${remain.toLocaleString()} บาท`) : ''}
+        ${row('รหัสการจอง', booking.id)}
+      </table>
+      <p style="background:#fff0f6;padding:12px 16px;border-radius:12px;font-size:14px;text-align:center">กดปุ่มด้านล่างเพื่อเพิ่มนัดลงปฏิทินของคุณได้เลยค่ะ</p>
+      ${gcalButton(booking)}
+      <p style="font-size:13px;color:#9b8b92">หากต้องการเปลี่ยนแปลงนัดหมาย กรุณาติดต่อร้าน ${SHOP.phone || ''}</p>
+    </div>
+  </div>`;
+}
+
+export async function sendWalkinEmail(booking) {
+  if (!booking.email) return;
+  const SHOP = getSettings().shop;
+  await sendViaBrevo({
+    sender: { name: MAIL.fromName, email: MAIL.senderEmail },
+    to: [{ email: booking.email, name: booking.name }],
+    subject: `🌸 รายละเอียดการจอง ${SHOP.name} - ${booking.dateLabel} ${booking.time} น.`,
+    htmlContent: walkinCustomerHtml(booking),
+  });
+}
+
 export async function verifyMail() {
   if (!MAIL.apiKey) return 'ยังไม่ได้ตั้งค่า BREVO_API_KEY';
   try {
