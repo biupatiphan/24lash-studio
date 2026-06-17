@@ -135,7 +135,11 @@ function renderServices() {
         <div class="s-price">${s.price.toLocaleString()} ฿</div>
       </div>`;
     if (state.serviceIds.includes(s.id)) el.classList.add('selected');
-    el.querySelector('.s-row').addEventListener('click', () => toggleService(s.id, el));
+    // กดที่การ์ดตรงไหนก็เลือก/ยกเลิกได้ ยกเว้นโซนรูปตัวอย่าง (ที่ใช้เปิดดูรูปใหญ่)
+    el.addEventListener('click', (e) => {
+      if (e.target.closest('.s-gallery')) return;
+      toggleService(s.id, el);
+    });
     wrap.appendChild(el);
   });
 }
