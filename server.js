@@ -141,7 +141,11 @@ function sanitizeSettings(input) {
       if (!Number.isFinite(duration) || duration <= 0) throw new Error(`ระยะเวลาของ "${name}" ไม่ถูกต้อง`);
       if (!Number.isFinite(price) || price < 0) throw new Error(`ราคาของ "${name}" ไม่ถูกต้อง`);
       const id = (s.id && slug(s.id)) || slug(name) || `svc-${i + 1}`;
-      return { id, name, duration, price, popular: !!s.popular };
+      // ประเภท: main(ทรงต่อขนตา เลือกได้ทรงเดียว) | addon(บริการเสริม เพิ่มได้)
+      const type = (s.type === 'addon' || s.type === 'main')
+        ? s.type
+        : (/ถอด|removal|ล่าง|lower/i.test(name) ? 'addon' : 'main');
+      return { id, name, duration, price, popular: !!s.popular, type };
     });
   if (!services.length) throw new Error('ต้องมีบริการอย่างน้อย 1 รายการ');
   // กัน id ซ้ำ

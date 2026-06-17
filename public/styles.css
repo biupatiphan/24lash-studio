@@ -133,6 +133,7 @@ body {
 }
 .service .s-row { display: flex; justify-content: space-between; align-items: center; }
 .service:hover { border-color: var(--pink-300); }
+.service.disabled { opacity: .45; filter: grayscale(.7); pointer-events: none; }
 .service.selected {
   border-color: var(--rose);
   background: var(--pink-100);

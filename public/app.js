@@ -142,6 +142,7 @@ function renderServices() {
     });
     wrap.appendChild(el);
   });
+  refreshServiceStates();
 }
 
 // แคชแกลเลอรีที่สร้างแล้ว (รูปจะไม่ถูกโหลดซ้ำเมื่อสลับบริการไปมา)
@@ -180,7 +181,34 @@ function preloadPhotos() {
   }));
 }
 
-// เลือกได้หลายบริการ — แตะเพื่อสลับเลือก/ยกเลิก
+const MAX_SERVICES = 3;
+// ประเภทบริการ: main(ทรง เลือกได้ทรงเดียว) / addon(เสริม) — เดาจากชื่อถ้ายังไม่กำหนด
+function svcType(s) {
+  if (!s) return 'main';
+  if (s.type === 'addon' || s.type === 'main') return s.type;
+  return /ถอด|removal|ล่าง|lower/i.test(s.name || '') ? 'addon' : 'main';
+}
+function isMainId(id) {
+  return svcType(state.config.services.find((s) => s.id === id)) === 'main';
+}
+
+// อัปเดตสถานะกดได้/เทาของแต่ละการ์ดตามกฎ
+function refreshServiceStates() {
+  const hasMain = state.serviceIds.some(isMainId);
+  const full = state.serviceIds.length >= MAX_SERVICES;
+  document.querySelectorAll('.service').forEach((card) => {
+    const id = card.dataset.id;
+    const selected = state.serviceIds.includes(id);
+    let disabled = false;
+    if (!selected) {
+      if (full) disabled = true;                       // เลือกครบ 3 แล้ว
+      else if (isMainId(id) && hasMain) disabled = true; // มีทรงอยู่แล้ว เลือกทรงอื่นไม่ได้
+    }
+    card.classList.toggle('disabled', disabled);
+  });
+}
+
+// เลือกได้หลายบริการ — แตะเพื่อสลับเลือก/ยกเลิก (1 ทรง + เสริม, สูงสุด 3)
 function toggleService(id, cardEl) {
   const i = state.serviceIds.indexOf(id);
   if (i >= 0) {
@@ -189,11 +217,14 @@ function toggleService(id, cardEl) {
     const g = cardEl.querySelector('.s-gallery');
     if (g) g.remove();
   } else {
+    if (state.serviceIds.length >= MAX_SERVICES) return;            // ครบ 3 แล้ว
+    if (isMainId(id) && state.serviceIds.some(isMainId)) return;    // มีทรงอยู่แล้ว
     state.serviceIds.push(id);
     cardEl.classList.add('selected');
     const g = getGallery(id);
     if (g) cardEl.appendChild(g);
   }
+  refreshServiceStates();
   updateTotalBar();
   if (state.date) loadSlots(); // โหลดเวลาใหม่ตามระยะเวลารวม
 }

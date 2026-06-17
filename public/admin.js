@@ -1,5 +1,10 @@
 const $ = (s) => document.querySelector(s);
 const WEEKDAY_NAMES = ['อาทิตย์', 'จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์', 'เสาร์'];
+// ประเภทบริการ: main(ทรง) / addon(เสริม) — ถ้ายังไม่กำหนด เดาจากชื่อ
+function svcType(s) {
+  if (s.type === 'addon' || s.type === 'main') return s.type;
+  return /ถอด|removal|ล่าง|lower/i.test(s.name || '') ? 'addon' : 'main';
+}
 
 let password = '';
 let settings = null;
@@ -66,6 +71,10 @@ function renderServices() {
         <button class="btn-del" data-del="${i}" type="button">ลบ</button>
       </div>
       <div class="pop-toggle ${s.popular ? 'on' : ''}" data-pop="${i}">${s.popular ? '🔥 ยอดฮิต (กดเพื่อเอาออก)' : '☆ ตั้งเป็นยอดฮิต'}</div>
+      <div class="type-row">
+        <div class="type-opt ${svcType(s) === 'main' ? 'on' : ''}" data-type="main" data-ti="${i}">🎀 ทรงต่อขนตา</div>
+        <div class="type-opt ${svcType(s) === 'addon' ? 'on' : ''}" data-type="addon" data-ti="${i}">➕ บริการเสริม</div>
+      </div>
       ${s.id
         ? `<div class="photos-box">
              <div class="lbl-sm">📸 รูปตัวอย่าง (ให้ลูกค้าดูตอนเลือกบริการ)</div>
@@ -81,6 +90,13 @@ function renderServices() {
     inp.addEventListener('change', (e) => {
       if (e.target.files[0]) uploadPhoto(inp.dataset.up, e.target.files[0]);
       e.target.value = '';
+    });
+  });
+
+  wrap.querySelectorAll('[data-type]').forEach((el) => {
+    el.addEventListener('click', () => {
+      settings.services[Number(el.dataset.ti)].type = el.dataset.type;
+      renderServices();
     });
   });
 
