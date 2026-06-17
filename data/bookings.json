@@ -699,5 +699,26 @@
     "source": "manual",
     "createdAt": "2026-06-16T10:01:58.373Z",
     "updatedAt": "2026-06-16T17:23:15.605Z"
+  },
+  {
+    "id": "BK477848",
+    "name": "คุณข้าวเม่า",
+    "email": "nathaon42290@gmail.com",
+    "phone": "0622285020",
+    "serviceId": "svc-26",
+    "serviceName": "เคลมฟรี",
+    "date": "2026-06-18",
+    "dateLabel": "วันพฤหัสบดีที่ 18 มิถุนายน 2569",
+    "time": "17:00",
+    "endTime": "18:00",
+    "startMinutes": 1020,
+    "endMinutes": 1080,
+    "startISO": "2026-06-18T17:00:00+07:00",
+    "endISO": "2026-06-18T18:00:00+07:00",
+    "price": 0,
+    "depositAmount": 200,
+    "status": "pending",
+    "source": "online",
+    "createdAt": "2026-06-17T10:17:16.939Z"
   }
 ]
