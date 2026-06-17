@@ -23,7 +23,7 @@ const I18N = {
     'h.service':'เลือกบริการ','h.date':'เลือกวันที่','h.time':'เลือกเวลา','h.info':'ข้อมูลของคุณ',
     'f.name':'ชื่อ / ชื่อเล่น','ph.name':'เช่น คุณมายด์','f.email':'อีเมล','note.email':'เราจะส่งคำเชิญ Google Calendar ไปที่อีเมลนี้','f.phone':'เบอร์โทรศัพท์',
     'btn.next':'ถัดไป · ชำระมัดจำ','h.summary':'สรุปการจอง','h.pay':'ชำระเงินมัดจำ','depositWord':'มัดจำ','baht':'บาท',
-    'note.pay':'โอนแล้วแนบสลิปด้านล่างเพื่อยืนยันการจองค่ะ 💕','h.attach':'แนบหลักฐานการโอน','upload.text':'แตะเพื่อเลือกรูปสลิป (หรือ PDF)',
+    'note.pay':'โอนแล้วแนบสลิปด้านล่างเพื่อยืนยันการจองค่ะ 💕','note.free':'บริการนี้ไม่ต้องมัดจำ กดยืนยันได้เลยค่ะ 💕','h.attach':'แนบหลักฐานการโอน','upload.text':'แตะเพื่อเลือกรูปสลิป (หรือ PDF)',
     'btn.back':'‹ ย้อนกลับ','btn.confirm':'ยืนยันการจอง','success.title':'ส่งคำขอจองแล้ว!',
     'success.note':'📩 เราได้รับการจองและสลิปของคุณแล้ว กำลัง <b>รอร้านยืนยัน</b><br>เมื่อร้านยืนยัน จะส่งอีเมลยืนยัน + คำเชิญปฏิทินไปที่อีเมลของคุณอีกครั้งค่ะ',
     'btn.again':'จองคิวอีกครั้ง','overlay':'กำลังดำเนินการ...',
@@ -41,7 +41,7 @@ const I18N = {
     'h.service':'Choose a service','h.date':'Choose a date','h.time':'Choose a time','h.info':'Your details',
     'f.name':'Name / Nickname','ph.name':'e.g. Mind','f.email':'Email','note.email':"We'll send a Google Calendar invite to this email",'f.phone':'Phone number',
     'btn.next':'Next · Deposit','h.summary':'Booking summary','h.pay':'Pay deposit','depositWord':'Deposit','baht':'THB',
-    'note.pay':'After the transfer, attach your slip below to confirm 💕','h.attach':'Attach payment slip','upload.text':'Tap to choose slip image (or PDF)',
+    'note.pay':'After the transfer, attach your slip below to confirm 💕','note.free':'No deposit required for this service. Just confirm! 💕','h.attach':'Attach payment slip','upload.text':'Tap to choose slip image (or PDF)',
     'btn.back':'‹ Back','btn.confirm':'Confirm booking','success.title':'Booking request sent!',
     'success.note':"📩 We've received your booking and slip. <b>Waiting for shop confirmation.</b><br>Once confirmed, we'll email you a confirmation + calendar invite.",
     'btn.again':'Book again','overlay':'Processing...',
@@ -349,6 +349,18 @@ function validateStep1() {
   return bad;
 }
 
+// บริการราคา 0 = ไม่ต้องมัดจำ
+function isFreeService() {
+  const svc = state.config.services.find((s) => s.id === state.serviceId);
+  return !!svc && Number(svc.price) === 0;
+}
+// ซ่อน/แสดงส่วนจ่ายมัดจำ + แนบสลิป ตามว่าบริการฟรีหรือไม่
+function updatePayUI() {
+  const free = isFreeService();
+  ['#payTitle', '#payBox', '#attachTitle', '#uploadLabel', '#preview'].forEach((sel) => $(sel).classList.toggle('hide', free));
+  $('#freeNote').classList.toggle('hide', !free);
+}
+
 function renderSummary() {
   const svc = state.config.services.find((s) => s.id === state.serviceId);
   const rows = [
@@ -379,6 +391,7 @@ function bindEvents() {
     const err = validateStep1();
     if (err) { alert(err); return; }
     renderSummary();
+    updatePayUI();
     goStep(2);
   });
 
@@ -411,7 +424,8 @@ function bindEvents() {
 // ---------- submit ----------
 async function submitBooking() {
   $('#submitErr').textContent = '';
-  if (!state.slipFile) { $('#submitErr').textContent = t('err.slip'); return; }
+  const free = isFreeService();
+  if (!free && !state.slipFile) { $('#submitErr').textContent = t('err.slip'); return; }
 
   const fd = new FormData();
   fd.append('name', $('#name').value.trim());
@@ -420,7 +434,7 @@ async function submitBooking() {
   fd.append('date', state.date);
   fd.append('time', state.time);
   fd.append('serviceId', state.serviceId);
-  fd.append('slip', state.slipFile);
+  if (state.slipFile) fd.append('slip', state.slipFile);
 
   $('#overlay').classList.add('show');
   $('#submitBtn').disabled = true;

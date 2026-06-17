@@ -278,12 +278,14 @@ app.post('/api/bookings', upload.single('slip'), async (req, res) => {
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
       return res.status(400).json({ error: 'รูปแบบอีเมลไม่ถูกต้อง' });
     }
-    if (!req.file) {
-      return res.status(400).json({ error: 'กรุณาแนบหลักฐานการโอนมัดจำ' });
-    }
-
     const svc = getService(serviceId);
     if (!svc) return res.status(400).json({ error: 'ไม่พบบริการที่เลือก' });
+
+    // บริการราคา 0 (เช่น เคลมฟรี) ไม่ต้องมัดจำ/แนบสลิป
+    const isFree = Number(svc.price) === 0;
+    if (!isFree && !req.file) {
+      return res.status(400).json({ error: 'กรุณาแนบหลักฐานการโอนมัดจำ' });
+    }
 
     const startMinutes = toMin(time);
     const endMinutes = startMinutes + svc.duration;
@@ -303,6 +305,7 @@ app.post('/api/bookings', upload.single('slip'), async (req, res) => {
     const booking = makeBooking({
       id: 'BK' + crypto.randomBytes(3).toString('hex').toUpperCase(),
       name, email, phone, serviceId, date, time,
+      depositAmount: isFree ? 0 : getSettings().payment.depositAmount,
       status: 'pending',
     });
 

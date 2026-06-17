@@ -65,7 +65,7 @@ function pendingCustomerHtml(booking) {
         ${row('บริการ', booking.serviceName)}
         ${row('วันที่', booking.dateLabel)}
         ${row('เวลา', `${booking.time} - ${booking.endTime} น.`)}
-        ${row('ค่ามัดจำ', `${booking.depositAmount} บาท`)}
+        ${row('ค่ามัดจำ', Number(booking.depositAmount) > 0 ? `${booking.depositAmount} บาท` : 'ไม่ต้องมัดจำ')}
         ${row('รหัสการจอง', booking.id)}
       </table>
       <p style="background:#fff0f6;padding:12px 16px;border-radius:12px;font-size:14px">⏳ สถานะ: <b>รอร้านยืนยัน</b></p>
@@ -75,7 +75,7 @@ function pendingCustomerHtml(booking) {
 }
 
 // อีเมลถึงร้าน — แจ้งจองใหม่ + แนบสลิป + ปุ่มยืนยัน
-function ownerNotifyHtml(booking, confirmUrl) {
+function ownerNotifyHtml(booking, confirmUrl, hasSlip) {
   return `
   <div style="font-family:'Prompt',Arial,sans-serif;max-width:520px;margin:auto">
     <h2 style="color:#e75a8a">📥 มีการจองใหม่! (รอยืนยัน)</h2>
@@ -89,7 +89,7 @@ function ownerNotifyHtml(booking, confirmUrl) {
       ${row('ค่ามัดจำ', `${booking.depositAmount} บาท`)}
       ${row('รหัสการจอง', booking.id)}
     </table>
-    <p style="font-size:14px;color:#5a4a52">สลิปการโอนแนบมาในอีเมลนี้แล้ว — ตรวจสอบแล้วกดปุ่มด้านล่างเพื่อ <b>ยืนยันการจองและเพิ่มลงปฏิทิน</b></p>
+    <p style="font-size:14px;color:#5a4a52">${hasSlip ? 'สลิปการโอนแนบมาในอีเมลนี้แล้ว — ' : 'บริการนี้ไม่มีมัดจำ — '}ตรวจสอบแล้วกดปุ่มด้านล่างเพื่อ <b>ยืนยันการจองและเพิ่มลงปฏิทิน</b></p>
     <div style="text-align:center;margin:24px 0">
       <a href="${confirmUrl}" style="display:inline-block;background:#e75a8a;color:#fff;text-decoration:none;font-weight:600;font-size:16px;padding:14px 32px;border-radius:999px">✅ ยืนยันการจอง + เพิ่มลงปฏิทิน</a>
     </div>
@@ -202,7 +202,7 @@ export async function sendBookingEmails(booking, slip, confirmUrl) {
     sender,
     to: [{ email: MAIL.ownerEmail, name: SHOP.name }],
     subject: `📥 จองใหม่ (รอยืนยัน): ${booking.name} - ${booking.dateLabel} ${booking.time} น.`,
-    htmlContent: ownerNotifyHtml(booking, confirmUrl),
+    htmlContent: ownerNotifyHtml(booking, confirmUrl, !!slip),
     attachment: slipAttachment.length ? slipAttachment : undefined,
   });
 }

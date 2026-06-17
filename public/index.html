@@ -87,14 +87,14 @@
       <h2 class="card-title" data-i18n="h.summary">สรุปการจอง</h2>
       <div class="summary" id="summary"></div>
 
-      <h2 class="card-title" data-i18n="h.pay">ชำระเงินมัดจำ</h2>
-      <div class="pay-box">
+      <h2 class="card-title" id="payTitle" data-i18n="h.pay">ชำระเงินมัดจำ</h2>
+      <div class="pay-box" id="payBox">
         <p class="deposit-amount"><span data-i18n="depositWord">มัดจำ</span> <b id="depositAmt">300</b> <span data-i18n="baht">บาท</span></p>
         <div class="bank-info" id="bankInfo"></div>
         <p class="pay-note" data-i18n="note.pay">โอนแล้วแนบสลิปด้านล่างเพื่อยืนยันการจองค่ะ 💕</p>
       </div>
 
-      <h2 class="card-title" data-i18n="h.attach">แนบหลักฐานการโอน</h2>
+      <h2 class="card-title" id="attachTitle" data-i18n="h.attach">แนบหลักฐานการโอน</h2>
       <label class="upload" id="uploadLabel">
         <input type="file" id="slip" accept="image/*,application/pdf" hidden />
         <div class="upload-inner" id="uploadInner">
@@ -103,6 +103,8 @@
         </div>
       </label>
       <div class="preview" id="preview"></div>
+
+      <p class="pay-note hide" id="freeNote" data-i18n="note.free">บริการนี้ไม่ต้องมัดจำ กดยืนยันได้เลยค่ะ 💕</p>
 
       <div class="row-btns">
         <button class="btn-ghost" id="backTo1" type="button" data-i18n="btn.back">‹ ย้อนกลับ</button>
