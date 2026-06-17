@@ -3,7 +3,7 @@ const $$ = (s) => document.querySelectorAll(s);
 
 const state = {
   config: null,
-  serviceId: null,
+  serviceIds: [],
   date: null,
   time: null,
   endTime: null,
@@ -20,7 +20,7 @@ let lang = localStorage.getItem('lang') === 'en' ? 'en' : 'th';
 const I18N = {
   th: {
     tagline:'จองคิวต่อขนตาออนไลน์','step.datetime':'เลือกวัน-เวลา','step.deposit':'ชำระมัดจำ','step.done':'เสร็จสิ้น',
-    'h.service':'เลือกบริการ','h.date':'เลือกวันที่','h.time':'เลือกเวลา','h.info':'ข้อมูลของคุณ',
+    'h.service':'เลือกบริการ',multiHint:'เลือกได้มากกว่า 1 บริการ (เช่น ถอด + ต่อบน + ต่อล่าง)','h.date':'เลือกวันที่','h.time':'เลือกเวลา','h.info':'ข้อมูลของคุณ',
     'f.name':'ชื่อ / ชื่อเล่น','ph.name':'เช่น คุณมายด์','f.email':'อีเมล','note.email':'เราจะส่งคำเชิญ Google Calendar ไปที่อีเมลนี้','f.phone':'เบอร์โทรศัพท์',
     'btn.next':'ถัดไป · ชำระมัดจำ','h.summary':'สรุปการจอง','h.pay':'ชำระเงินมัดจำ','depositWord':'มัดจำ','baht':'บาท',
     'note.pay':'โอนแล้วแนบสลิปด้านล่างเพื่อยืนยันการจองค่ะ 💕','note.free':'บริการนี้ไม่ต้องมัดจำ กดยืนยันได้เลยค่ะ 💕','h.attach':'แนบหลักฐานการโอน','upload.text':'แตะเพื่อเลือกรูปสลิป (หรือ PDF)',
@@ -38,7 +38,7 @@ const I18N = {
   },
   en: {
     tagline:'Online Lash Booking','step.datetime':'Date & Time','step.deposit':'Deposit','step.done':'Done',
-    'h.service':'Choose a service','h.date':'Choose a date','h.time':'Choose a time','h.info':'Your details',
+    'h.service':'Choose a service',multiHint:'You can choose more than one service (e.g. removal + upper + lower)','h.date':'Choose a date','h.time':'Choose a time','h.info':'Your details',
     'f.name':'Name / Nickname','ph.name':'e.g. Mind','f.email':'Email','note.email':"We'll send a Google Calendar invite to this email",'f.phone':'Phone number',
     'btn.next':'Next · Deposit','h.summary':'Booking summary','h.pay':'Pay deposit','depositWord':'Deposit','baht':'THB',
     'note.pay':'After the transfer, attach your slip below to confirm 💕','note.free':'No deposit required for this service. Just confirm! 💕','h.attach':'Attach payment slip','upload.text':'Tap to choose slip image (or PDF)',
@@ -72,12 +72,14 @@ function applyLang() {
   if (!state.config) return;
   Object.keys(galleryCache).forEach((k) => delete galleryCache[k]); // ล้างแคชเพื่อให้หัวข้อแกลเลอรีเป็นภาษาใหม่
   renderServices();
-  if (state.serviceId) {
-    const card = document.querySelector(`.service[data-id="${state.serviceId}"]`);
-    document.querySelectorAll('.service').forEach((x) => x.classList.toggle('selected', x.dataset.id === state.serviceId));
-    const g = getGallery(state.serviceId);
-    if (card && g) card.appendChild(g);
-  }
+  state.serviceIds.forEach((id) => {
+    const card = document.querySelector(`.service[data-id="${id}"]`);
+    if (!card) return;
+    card.classList.add('selected');
+    const g = getGallery(id);
+    if (g) card.appendChild(g);
+  });
+  updateTotalBar();
   renderCalendar();
   renderBankInfo();
   if (state.date) loadSlots(); else $('#slotHint').textContent = t('slot.pickDate');
@@ -132,7 +134,8 @@ function renderServices() {
         </div>
         <div class="s-price">${s.price.toLocaleString()} ฿</div>
       </div>`;
-    el.querySelector('.s-row').addEventListener('click', () => selectService(s.id, el));
+    if (state.serviceIds.includes(s.id)) el.classList.add('selected');
+    el.querySelector('.s-row').addEventListener('click', () => toggleService(s.id, el));
     wrap.appendChild(el);
   });
 }
@@ -173,15 +176,39 @@ function preloadPhotos() {
   }));
 }
 
-function selectService(id, cardEl) {
-  if (state.serviceId === id) return; // กดอันเดิมซ้ำ ไม่ต้องทำอะไร
-  state.serviceId = id;
-  // ย้ายแกลเลอรีออกจากการ์ดเดิม + อัปเดตไฮไลต์
-  document.querySelectorAll('.service .s-gallery').forEach((g) => g.remove());
-  $$('.service').forEach((x) => x.classList.toggle('selected', x.dataset.id === id));
-  const g = getGallery(id);
-  if (g) cardEl.appendChild(g);
-  if (state.date) loadSlots(); // โหลดเวลาใหม่ตามระยะเวลาบริการ
+// เลือกได้หลายบริการ — แตะเพื่อสลับเลือก/ยกเลิก
+function toggleService(id, cardEl) {
+  const i = state.serviceIds.indexOf(id);
+  if (i >= 0) {
+    state.serviceIds.splice(i, 1);
+    cardEl.classList.remove('selected');
+    const g = cardEl.querySelector('.s-gallery');
+    if (g) g.remove();
+  } else {
+    state.serviceIds.push(id);
+    cardEl.classList.add('selected');
+    const g = getGallery(id);
+    if (g) cardEl.appendChild(g);
+  }
+  updateTotalBar();
+  if (state.date) loadSlots(); // โหลดเวลาใหม่ตามระยะเวลารวม
+}
+
+// แถบสรุปบริการที่เลือก (จำนวน · เวลารวม · ราคารวม)
+function selectedServices() {
+  return state.serviceIds.map((id) => state.config.services.find((s) => s.id === id)).filter(Boolean);
+}
+function updateTotalBar() {
+  const el = $('#svcTotal');
+  if (!el) return;
+  const svcs = selectedServices();
+  if (!svcs.length) { el.classList.add('hide'); el.innerHTML = ''; return; }
+  const price = svcs.reduce((tt, s) => tt + s.price, 0);
+  const dur = svcs.reduce((tt, s) => tt + s.duration, 0);
+  el.classList.remove('hide');
+  el.innerHTML = lang === 'en'
+    ? `✓ ${svcs.length} selected · ~${dur} min · <b>฿${price.toLocaleString()}</b>`
+    : `✓ เลือก ${svcs.length} รายการ · รวม ~${dur} นาที · <b>฿${price.toLocaleString()}</b>`;
 }
 
 // ---------- lightbox ดูรูปใหญ่ ----------
@@ -252,11 +279,11 @@ async function loadSlots() {
   const hint = $('#slotHint');
   const wrap = $('#slots');
   if (!state.date) { hint.textContent = t('slot.pickDate'); wrap.innerHTML = ''; return; }
-  const svc = state.serviceId || (state.config.services[0] && state.config.services[0].id);
+  const idsParam = state.serviceIds.length ? state.serviceIds.join(',') : (state.config.services[0] && state.config.services[0].id);
 
   hint.textContent = t('slot.loading');
   wrap.innerHTML = '';
-  const res = await fetch(`/api/availability?date=${state.date}&serviceId=${svc}`);
+  const res = await fetch(`/api/availability?date=${state.date}&serviceIds=${encodeURIComponent(idsParam)}`);
   const data = await res.json();
 
   if (data.closed) { hint.textContent = t('slot.closed'); return; }
@@ -332,7 +359,7 @@ function goStep(n) {
 }
 
 function validateStep1() {
-  if (!state.serviceId) return t('v.service');
+  if (!state.serviceIds.length) return t('v.service');
   if (!state.date) return t('v.date');
   if (!state.time) return t('v.time');
 
@@ -349,10 +376,10 @@ function validateStep1() {
   return bad;
 }
 
-// บริการราคา 0 = ไม่ต้องมัดจำ
+// ราคารวม 0 = ไม่ต้องมัดจำ
 function isFreeService() {
-  const svc = state.config.services.find((s) => s.id === state.serviceId);
-  return !!svc && Number(svc.price) === 0;
+  const svcs = selectedServices();
+  return svcs.length > 0 && svcs.reduce((tt, s) => tt + s.price, 0) === 0;
 }
 // ซ่อน/แสดงส่วนจ่ายมัดจำ + แนบสลิป ตามว่าบริการฟรีหรือไม่
 function updatePayUI() {
@@ -362,14 +389,15 @@ function updatePayUI() {
 }
 
 function renderSummary() {
-  const svc = state.config.services.find((s) => s.id === state.serviceId);
+  const svcs = selectedServices();
+  const totalPrice = svcs.reduce((tt, s) => tt + s.price, 0);
   const rows = [
-    [t('sum.service'), svc.name],
+    [t('sum.service'), svcs.map((s) => s.name).join(' + ')],
     [t('sum.date'), fmtDate(state.date)],
     [t('sum.time'), `${state.time}${t('timeSuffix')}`],
     [t('sum.name'), $('#name').value.trim()],
     [t('sum.phone'), $('#phone').value.trim()],
-    [t('sum.price'), `${svc.price.toLocaleString()} ${t('baht')}`],
+    [t('sum.price'), `${totalPrice.toLocaleString()} ${t('baht')}`],
   ];
   $('#summary').innerHTML = rows
     .map(([k, v]) => `<div class="srow"><span>${k}</span><b>${v}</b></div>`)
@@ -433,7 +461,7 @@ async function submitBooking() {
   fd.append('phone', $('#phone').value.trim());
   fd.append('date', state.date);
   fd.append('time', state.time);
-  fd.append('serviceId', state.serviceId);
+  fd.append('serviceIds', JSON.stringify(state.serviceIds));
   if (state.slipFile) fd.append('slip', state.slipFile);
 
   $('#overlay').classList.add('show');

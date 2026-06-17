@@ -61,17 +61,22 @@ function bangkokISO(dateStr, minutes) {
 }
 
 // สร้าง object การจองแบบเต็มจากข้อมูลหลัก (ใช้ทั้งตอนจองและตอนยืนยัน)
-function makeBooking({ id, name, email, phone, serviceId, date, time, status, price, depositAmount, source }) {
-  const svc = getService(serviceId);
+// รองรับหลายบริการ: ส่ง serviceIds (array) หรือ serviceId (เดี่ยว) ก็ได้
+function makeBooking({ id, name, email, phone, serviceId, serviceIds, date, time, status, price, depositAmount, source }) {
+  const ids = (Array.isArray(serviceIds) && serviceIds.length) ? serviceIds : [serviceId];
+  const svcs = ids.map((sid) => getService(sid)).filter(Boolean);
+  const totalDuration = svcs.reduce((t, s) => t + s.duration, 0);
+  const totalPrice = svcs.reduce((t, s) => t + s.price, 0);
   const startMinutes = toMin(time);
-  const endMinutes = startMinutes + svc.duration;
+  const endMinutes = startMinutes + totalDuration;
   return {
     id,
     name: String(name).trim(),
     email: String(email || '').trim(),
     phone: String(phone || '').trim(),
-    serviceId,
-    serviceName: svc.name,
+    serviceId: ids[0],
+    serviceIds: ids,
+    serviceName: svcs.map((s) => s.name).join(' + '),
     date,
     dateLabel: thaiDateLabel(date),
     time,
@@ -80,7 +85,7 @@ function makeBooking({ id, name, email, phone, serviceId, date, time, status, pr
     endMinutes,
     startISO: bangkokISO(date, startMinutes),
     endISO: bangkokISO(date, endMinutes),
-    price: Number.isFinite(Number(price)) ? Math.round(Number(price)) : svc.price,
+    price: Number.isFinite(Number(price)) ? Math.round(Number(price)) : totalPrice,
     depositAmount: Number.isFinite(Number(depositAmount)) ? Math.round(Number(depositAmount)) : getSettings().payment.depositAmount,
     status,
     source: source || 'online',
@@ -226,11 +231,14 @@ app.get('/api/config', (req, res) => {
 
 // คืนช่วงเวลาที่ว่าง/ไม่ว่างของวันนั้น สำหรับบริการที่เลือก
 app.get('/api/availability', (req, res) => {
-  const { date, serviceId } = req.query;
+  const { date, serviceId, serviceIds } = req.query;
   if (!date) return res.status(400).json({ error: 'ต้องระบุวันที่' });
 
   const s = getSettings();
-  const svc = getService(serviceId) || s.services[0];
+  // รองรับหลายบริการ: ?serviceIds=a,b,c (รวมเวลา) หรือ ?serviceId=a (เดี่ยว)
+  const ids = serviceIds ? String(serviceIds).split(',').filter(Boolean) : (serviceId ? [serviceId] : []);
+  const chosen = ids.map((id) => getService(id)).filter(Boolean);
+  const totalDuration = chosen.length ? chosen.reduce((t, x) => t + x.duration, 0) : (s.services[0] ? s.services[0].duration : 60);
   const day = new Date(`${date}T00:00:00`).getDay();
   const closeMin = toMin(s.businessHours.close);
 
@@ -254,7 +262,7 @@ app.get('/api/availability', (req, res) => {
 
   const slots = generateSlots().map((time) => {
     const start = toMin(time);
-    const end = start + svc.duration;
+    const end = start + totalDuration;
     let available = end <= closeMin && !store.isSlotTaken(date, start, end);
     // ตัดช่วงเวลาที่ร้านปิดเฉพาะกิจ (จองทับช่วงไม่ว่างไม่ได้)
     if (blocks.some((bl) => start < bl.end && end > bl.start)) available = false;
@@ -264,31 +272,38 @@ app.get('/api/availability', (req, res) => {
     return { time, available };
   });
 
-  res.json({ closed: false, serviceDuration: svc.duration, slots });
+  res.json({ closed: false, serviceDuration: totalDuration, slots });
 });
 
 // สร้างการจอง + ส่งอีเมล + ปฏิทิน
 app.post('/api/bookings', upload.single('slip'), async (req, res) => {
   try {
-    const { name, email, phone, date, time, serviceId } = req.body;
+    const { name, email, phone, date, time } = req.body;
+    // รองรับหลายบริการ: serviceIds (JSON array string) หรือ serviceId เดี่ยว
+    let ids = [];
+    try { ids = JSON.parse(req.body.serviceIds || '[]'); } catch { ids = []; }
+    if (!Array.isArray(ids) || !ids.length) ids = req.body.serviceId ? [req.body.serviceId] : [];
 
-    if (!name || !email || !phone || !date || !time || !serviceId) {
+    if (!name || !email || !phone || !date || !time || !ids.length) {
       return res.status(400).json({ error: 'กรอกข้อมูลไม่ครบถ้วน' });
     }
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
       return res.status(400).json({ error: 'รูปแบบอีเมลไม่ถูกต้อง' });
     }
-    const svc = getService(serviceId);
-    if (!svc) return res.status(400).json({ error: 'ไม่พบบริการที่เลือก' });
+    const svcs = ids.map((id) => getService(id)).filter(Boolean);
+    if (!svcs.length) return res.status(400).json({ error: 'ไม่พบบริการที่เลือก' });
 
-    // บริการราคา 0 (เช่น เคลมฟรี) ไม่ต้องมัดจำ/แนบสลิป
-    const isFree = Number(svc.price) === 0;
+    const totalPrice = svcs.reduce((tt, s) => tt + s.price, 0);
+    const totalDuration = svcs.reduce((tt, s) => tt + s.duration, 0);
+
+    // ราคารวม 0 (เช่น เคลมฟรีล้วน) ไม่ต้องมัดจำ/แนบสลิป
+    const isFree = totalPrice === 0;
     if (!isFree && !req.file) {
       return res.status(400).json({ error: 'กรุณาแนบหลักฐานการโอนมัดจำ' });
     }
 
     const startMinutes = toMin(time);
-    const endMinutes = startMinutes + svc.duration;
+    const endMinutes = startMinutes + totalDuration;
 
     if (store.isSlotTaken(date, startMinutes, endMinutes)) {
       return res.status(409).json({ error: 'ช่วงเวลานี้เพิ่งถูกจองไปแล้ว กรุณาเลือกเวลาอื่นค่ะ' });
@@ -304,7 +319,7 @@ app.post('/api/bookings', upload.single('slip'), async (req, res) => {
 
     const booking = makeBooking({
       id: 'BK' + crypto.randomBytes(3).toString('hex').toUpperCase(),
-      name, email, phone, serviceId, date, time,
+      name, email, phone, serviceIds: ids, date, time,
       depositAmount: isFree ? 0 : getSettings().payment.depositAmount,
       status: 'pending',
     });
@@ -317,7 +332,7 @@ app.post('/api/bookings', upload.single('slip'), async (req, res) => {
       name: booking.name,
       email: booking.email,
       phone: booking.phone,
-      serviceId: booking.serviceId,
+      serviceIds: booking.serviceIds,
       date: booking.date,
       time: booking.time,
     });
@@ -355,7 +370,8 @@ app.post('/api/bookings', upload.single('slip'), async (req, res) => {
 // ร้านกดลิงก์จากอีเมลเพื่อยืนยันการจอง -> ส่งอีเมลยืนยัน + ปฏิทินให้ทั้งสองฝ่าย
 app.get('/api/bookings/confirm', async (req, res) => {
   const payload = verifyToken(req.query.token);
-  if (!payload || !getService(payload.serviceId)) {
+  const tokenIds = payload ? (payload.serviceIds || (payload.serviceId ? [payload.serviceId] : [])) : [];
+  if (!payload || !tokenIds.some((id) => getService(id))) {
     return res.status(400).send(resultPage('ลิงก์ไม่ถูกต้อง', 'ลิงก์ยืนยันไม่ถูกต้องหรือเสียหาย กรุณาตรวจสอบอีเมลอีกครั้งค่ะ', false));
   }
 
