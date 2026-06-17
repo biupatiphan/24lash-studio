@@ -739,10 +739,10 @@
     "endISO": "2026-06-17T22:00:00+07:00",
     "price": 629,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-06-17T11:46:18.585Z",
-    "updatedAt": "2026-06-17T12:08:21.079Z"
+    "updatedAt": "2026-06-17T15:23:43.876Z"
   },
   {
     "id": "WKC6CA89",
