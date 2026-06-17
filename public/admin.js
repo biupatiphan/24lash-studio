@@ -345,6 +345,7 @@ let currentRange = 'today';
 let openId = null;
 let bookingsCache = [];
 let statusFilter = 'all';
+let searchQuery = '';
 
 const STLABEL = { pending: '🌸 รอยืนยัน', confirmed: '⏳ รอรับบริการ', done: '✅ เสร็จแล้ว', noshow: '🚫 ไม่มา', cancelled: '🚫 ยกเลิก' };
 
@@ -402,6 +403,13 @@ function setupBackoffice() {
     $('#wkTimeCustomWrap').classList.toggle('hide', $('#wkTime').value !== '__custom__');
   });
   $('#wkSave').addEventListener('click', saveWalkin);
+
+  // ค้นหาในรายการคิว
+  $('#bkSearch').addEventListener('input', () => {
+    searchQuery = $('#bkSearch').value.trim().toLowerCase();
+    openId = null;
+    renderBookings();
+  });
 
   // filter รายการคิวตามสถานะ
   $('#bkFilter').querySelectorAll('.fchip').forEach((b) => {
@@ -546,9 +554,13 @@ function renderByService(list) {
 
 function renderBookings() {
   const wrap = $('#bookingList');
-  const list = statusFilter === 'all' ? bookingsCache : bookingsCache.filter((b) => b.status === statusFilter);
+  let list = statusFilter === 'all' ? bookingsCache : bookingsCache.filter((b) => b.status === statusFilter);
+  if (searchQuery) {
+    const q = searchQuery;
+    list = list.filter((b) => (b.id || '').toLowerCase().includes(q) || (b.name || '').toLowerCase().includes(q) || (b.phone || '').toLowerCase().includes(q));
+  }
   if (!bookingsCache.length) { wrap.innerHTML = '<div class="muted-empty">ไม่มีคิวในช่วงนี้</div>'; return; }
-  if (!list.length) { wrap.innerHTML = '<div class="muted-empty">ไม่มีคิวสถานะนี้ในช่วงที่เลือก</div>'; return; }
+  if (!list.length) { wrap.innerHTML = `<div class="muted-empty">${searchQuery ? 'ไม่พบคิวที่ค้นหา' : 'ไม่มีคิวสถานะนี้ในช่วงที่เลือก'}</div>`; return; }
   wrap.innerHTML = '';
   list.forEach((b) => {
     const remain = (Number(b.price) || 0) - (Number(b.depositAmount) || 0);
@@ -561,7 +573,7 @@ function renderBookings() {
     el.innerHTML = `
       <div class="bk-top">
         <div>
-          <span class="bk-date">📅 ${thaiDate(b.date)}</span>
+          <span class="bk-date">📅 ${thaiDate(b.date)} · <span class="bk-id">#${b.id}</span></span>
           <div><span class="bk-time">${b.time}</span> &nbsp;${escapeAttr(b.name || '')}</div>
           <div class="bk-svc">${manualTag}${escapeAttr(b.serviceName || '')} · ฿${(Number(b.price) || 0).toLocaleString()}</div>
           ${phoneLine}

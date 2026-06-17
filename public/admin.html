@@ -114,6 +114,7 @@
     .bk.open { border-color: #ff9ec4; box-shadow: 0 6px 20px rgba(231,90,138,.12); }
     .bk-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; cursor: pointer; }
     .bk-date { font-size: 12px; color: #9b8b92; font-weight: 600; }
+    .bk-id { font-weight: 700; color: #c98aa6; letter-spacing: .3px; }
     .bk-time { color: #e75a8a; font-weight: 700; }
     .bk-svc { font-size: 13px; color: #5a4a52; margin-top: 2px; }
     .bk-phone { font-size: 13px; margin-top: 3px; }
@@ -225,6 +226,7 @@
         <div class="card">
           <h2>รายการคิว</h2>
           <p class="note" style="margin-top:0">แตะแต่ละรายการเพื่อเปลี่ยนสถานะ/แก้บริการ</p>
+          <input type="text" id="bkSearch" placeholder="🔍 ค้นหา รหัส / ชื่อ / เบอร์โทร" style="margin-bottom:10px" />
           <div class="bk-filter" id="bkFilter">
             <button class="fchip on" data-st="all" type="button">ทั้งหมด</button>
             <button class="fchip" data-st="pending" type="button">🌸 รอยืนยัน</button>
