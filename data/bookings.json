@@ -837,5 +837,29 @@
     "status": "done",
     "source": "manual",
     "createdAt": "2026-06-18T15:55:15.710Z"
+  },
+  {
+    "id": "WK1FA1B6",
+    "name": "Walk-in",
+    "email": "",
+    "phone": "",
+    "serviceId": "wet-look-3d-4d",
+    "serviceIds": [
+      "wet-look-3d-4d"
+    ],
+    "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "date": "2026-06-18",
+    "dateLabel": "วันพฤหัสบดีที่ 18 มิถุนายน 2569",
+    "time": "12:00",
+    "endTime": "13:00",
+    "startMinutes": 720,
+    "endMinutes": 780,
+    "startISO": "2026-06-18T12:00:00+07:00",
+    "endISO": "2026-06-18T13:00:00+07:00",
+    "price": 599,
+    "depositAmount": 200,
+    "status": "confirmed",
+    "source": "manual",
+    "createdAt": "2026-06-18T15:55:27.463Z"
   }
 ]
