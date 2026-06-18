@@ -882,9 +882,10 @@
     "endISO": "2026-06-20T13:00:00+07:00",
     "price": 599,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "noshow",
     "source": "manual",
-    "createdAt": "2026-06-18T15:57:11.837Z"
+    "createdAt": "2026-06-18T15:57:11.837Z",
+    "updatedAt": "2026-06-18T15:57:28.985Z"
   },
   {
     "id": "WK8BDF94",
