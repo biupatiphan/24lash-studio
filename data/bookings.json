@@ -864,31 +864,6 @@
     "createdAt": "2026-06-18T15:55:27.463Z"
   },
   {
-    "id": "WKE021CE",
-    "name": "K.mila /IG / Infill wetlook 5D-10D",
-    "email": "",
-    "phone": "",
-    "serviceId": "wet-look-3d-4d",
-    "serviceIds": [
-      "wet-look-3d-4d"
-    ],
-    "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
-    "date": "2026-06-20",
-    "dateLabel": "วันเสาร์ที่ 20 มิถุนายน 2569",
-    "time": "12:00",
-    "endTime": "13:00",
-    "startMinutes": 720,
-    "endMinutes": 780,
-    "startISO": "2026-06-20T12:00:00+07:00",
-    "endISO": "2026-06-20T13:00:00+07:00",
-    "price": 599,
-    "depositAmount": 0,
-    "status": "noshow",
-    "source": "manual",
-    "createdAt": "2026-06-18T15:57:11.837Z",
-    "updatedAt": "2026-06-18T15:57:28.985Z"
-  },
-  {
     "id": "WK8BDF94",
     "name": "Walk-in",
     "email": "",
