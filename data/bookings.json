@@ -673,10 +673,10 @@
     "endISO": "2026-06-20T14:00:00+07:00",
     "price": 799,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-06-16T09:28:30.386Z",
-    "updatedAt": "2026-06-19T11:22:30.478Z"
+    "updatedAt": "2026-06-20T07:45:38.673Z"
   },
   {
     "id": "WKAF593A",
