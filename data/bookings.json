@@ -909,10 +909,10 @@
     "endISO": "2026-06-20T16:20:00+07:00",
     "price": 679,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-06-19T08:09:59.290Z",
-    "updatedAt": "2026-06-19T08:26:58.792Z"
+    "updatedAt": "2026-06-20T09:11:32.597Z"
   },
   {
     "id": "BK902D3C",
