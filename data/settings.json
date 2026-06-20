@@ -5,196 +5,224 @@
       "name": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
       "price": 539,
-      "popular": false
+      "popular": false,
+      "type": "main"
     },
     {
       "id": "volume",
       "name": "Volume Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 120,
       "price": 999,
-      "popular": false
+      "popular": false,
+      "type": "main"
     },
     {
       "id": "hybrid",
       "name": "Hybrid Lash  ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
       "price": 629,
-      "popular": false
+      "popular": false,
+      "type": "main"
     },
     {
       "id": "refill",
       "name": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
       "price": 629,
-      "popular": true
+      "popular": true,
+      "type": "main"
     },
     {
       "id": "removal",
       "name": "Removal (ถอดขนตา) เริ่มต้น 50-150",
       "duration": 20,
       "price": 150,
-      "popular": false
+      "popular": false,
+      "type": "addon"
     },
     {
       "id": "whispy-classic",
       "name": "Whispy Classic ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
       "price": 629,
-      "popular": false
+      "popular": false,
+      "type": "main"
     },
     {
       "id": "whispy-volume",
       "name": "Whispy Volume ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
       "price": 799,
-      "popular": false
+      "popular": false,
+      "type": "main"
     },
     {
       "id": "wet-look-3d-4d",
       "name": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
       "price": 629,
-      "popular": false
+      "popular": false,
+      "type": "main"
     },
     {
       "id": "wet-look-5d-10d",
       "name": "Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
       "price": 799,
-      "popular": false
+      "popular": false,
+      "type": "main"
     },
     {
       "id": "u-shape-lashes",
       "name": "U shape Lashes ขนตาแกนยู / ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
       "price": 529,
-      "popular": false
+      "popular": false,
+      "type": "main"
     },
     {
       "id": "yy-shape-lashes-y",
       "name": "YY shape Lashes ขนตาแกนY/ไม่จำกัดเส้นและความยาว/เคลมฟรี",
       "duration": 60,
-      "price": 529,
-      "popular": false
+      "price": 629,
+      "popular": false,
+      "type": "main"
     },
     {
       "id": "ww-shape-lashes-ww",
       "name": "WW shape Lashes ขนตาแกนWW/ ไม่จำกัดเส้นและความยาว/เคลมฟรี",
       "duration": 60,
       "price": 529,
-      "popular": false
+      "popular": false,
+      "type": "main"
     },
     {
       "id": "foxy-lashes",
       "name": "Foxy Lashes ขนตาทรงฟ็อกซี่อาย/ ไม่จำกัดเส้นและความยาว/เคลมฟรี",
       "duration": 90,
       "price": 899,
-      "popular": false
+      "popular": false,
+      "type": "main"
     },
     {
       "id": "wet-wispy",
       "name": "Wet Wispy ไม่จำกัดเส้นและความยาว/เคลมฟรี",
       "duration": 60,
       "price": 799,
-      "popular": false
+      "popular": false,
+      "type": "main"
     },
     {
       "id": "mega-volume",
       "name": "Mega Volume ไม่จำกัดเส้นและความยาว/เคลมฟรี",
       "duration": 60,
       "price": 1199,
-      "popular": false
+      "popular": false,
+      "type": "main"
     },
     {
       "id": "anime",
       "name": "Anime ไม่จำกัดเส้นและความยาว/เคลมฟรี",
       "duration": 60,
       "price": 629,
-      "popular": false
+      "popular": false,
+      "type": "main"
     },
     {
       "id": "classic-2",
       "name": "โปรนักเรียน/นักศึกษา : classic",
       "duration": 60,
       "price": 509,
-      "popular": false
+      "popular": false,
+      "type": "main"
     },
     {
       "id": "monako",
       "name": "โปรนักเรียน/นักศึกษา : Monako",
       "duration": 60,
       "price": 594,
-      "popular": false
+      "popular": false,
+      "type": "main"
     },
     {
       "id": "wetlook-3d-4d",
       "name": "โปรนักเรียน/นักศึกษา : Wetlook 3D-4D",
       "duration": 60,
       "price": 594,
-      "popular": false
+      "popular": false,
+      "type": "main"
     },
     {
       "id": "anime-2",
       "name": "โปรนักเรียน/นักศึกษา : Anime",
       "duration": 60,
       "price": 594,
-      "popular": false
+      "popular": false,
+      "type": "main"
     },
     {
       "id": "whispy-classic-2",
       "name": "โปรนักเรียน/นักศึกษา : whispy classic",
       "duration": 60,
       "price": 594,
-      "popular": false
+      "popular": false,
+      "type": "main"
     },
     {
       "id": "wet-whispy",
       "name": "โปรนักเรียน/นักศึกษา : wet whispy",
       "duration": 60,
       "price": 594,
-      "popular": false
+      "popular": false,
+      "type": "main"
     },
     {
       "id": "wet-look-5d-10d-2",
       "name": "โปรนักเรียน/นักศึกษา : wet-look 5D 10D",
       "duration": 60,
       "price": 764,
-      "popular": false
+      "popular": false,
+      "type": "main"
     },
     {
       "id": "whispy-volume-2",
       "name": "โปรนักเรียน/นักศึกษา : whispy Volume",
       "duration": 60,
       "price": 764,
-      "popular": false
+      "popular": false,
+      "type": "main"
     },
     {
       "id": "volume-2",
       "name": "โปรนักเรียน/นักศึกษา : Volume",
       "duration": 60,
       "price": 935,
-      "popular": false
+      "popular": false,
+      "type": "main"
     },
     {
       "id": "svc-26",
       "name": "เคลมฟรี",
       "duration": 60,
       "price": 0,
-      "popular": false
+      "popular": false,
+      "type": "main"
     },
     {
       "id": "classic-3",
       "name": "Classic โปรเก่าสำหรับลูกค้าที่จองเดือนพค.",
       "duration": 60,
       "price": 499,
-      "popular": false
+      "popular": false,
+      "type": "main"
     },
     {
       "id": "wetlook-5d-10d",
       "name": "Wetlook 5D-10D (ลูกค้าที่จองมาโปรเก่า)",
       "duration": 60,
       "price": 699,
-      "popular": false
+      "popular": false,
+      "type": "main"
     }
   ],
   "businessHours": {
