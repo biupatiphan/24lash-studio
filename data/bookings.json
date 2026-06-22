@@ -1020,11 +1020,11 @@
     "name": "K.rungy",
     "email": "",
     "phone": "",
-    "serviceId": "classic",
+    "serviceId": "yy-shape-lashes-y",
     "serviceIds": [
       "classic"
     ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "YY shape Lashes ขนตาแกนY/ไม่จำกัดเส้นและความยาว/เคลมฟรี",
     "date": "2026-06-22",
     "dateLabel": "วันจันทร์ที่ 22 มิถุนายน 2569",
     "time": "19:00",
@@ -1033,12 +1033,12 @@
     "endMinutes": 1200,
     "startISO": "2026-06-22T19:00:00+07:00",
     "endISO": "2026-06-22T20:00:00+07:00",
-    "price": 539,
+    "price": 629,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
     "createdAt": "2026-06-22T11:49:27.017Z",
-    "updatedAt": "2026-06-22T11:59:08.355Z"
+    "updatedAt": "2026-06-22T14:28:25.230Z"
   },
   {
     "id": "BKD09A01",
