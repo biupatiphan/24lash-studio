@@ -1063,5 +1063,29 @@
     "status": "pending",
     "source": "online",
     "createdAt": "2026-06-22T13:28:34.929Z"
+  },
+  {
+    "id": "WK8CB77A",
+    "name": "Walk in (removal 300",
+    "email": "",
+    "phone": "",
+    "serviceId": "removal",
+    "serviceIds": [
+      "removal"
+    ],
+    "serviceName": "Removal (ถอดขนตา) เริ่มต้น 50-150",
+    "date": "2026-06-22",
+    "dateLabel": "วันจันทร์ที่ 22 มิถุนายน 2569",
+    "time": "21:00",
+    "endTime": "21:20",
+    "startMinutes": 1260,
+    "endMinutes": 1280,
+    "startISO": "2026-06-22T21:00:00+07:00",
+    "endISO": "2026-06-22T21:20:00+07:00",
+    "price": 300,
+    "depositAmount": 0,
+    "status": "done",
+    "source": "manual",
+    "createdAt": "2026-06-22T14:29:22.305Z"
   }
 ]
