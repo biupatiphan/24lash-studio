@@ -1208,9 +1208,10 @@
     "endISO": "2026-06-24T18:00:00+07:00",
     "price": 539,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "noshow",
     "source": "manual",
-    "createdAt": "2026-06-24T07:52:03.068Z"
+    "createdAt": "2026-06-24T07:52:03.068Z",
+    "updatedAt": "2026-06-24T08:59:49.266Z"
   },
   {
     "id": "BK70F474",
