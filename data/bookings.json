@@ -1187,5 +1187,29 @@
     "source": "online",
     "createdAt": "2026-06-24T03:24:11.870Z",
     "updatedAt": "2026-06-24T03:25:23.935Z"
+  },
+  {
+    "id": "WK55CAAD",
+    "name": "K.may",
+    "email": "",
+    "phone": "",
+    "serviceId": "classic",
+    "serviceIds": [
+      "classic"
+    ],
+    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "date": "2026-06-24",
+    "dateLabel": "วันพุธที่ 24 มิถุนายน 2569",
+    "time": "17:00",
+    "endTime": "18:00",
+    "startMinutes": 1020,
+    "endMinutes": 1080,
+    "startISO": "2026-06-24T17:00:00+07:00",
+    "endISO": "2026-06-24T18:00:00+07:00",
+    "price": 539,
+    "depositAmount": 0,
+    "status": "confirmed",
+    "source": "manual",
+    "createdAt": "2026-06-24T07:52:03.068Z"
   }
 ]
