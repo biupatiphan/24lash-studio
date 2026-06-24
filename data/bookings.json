@@ -1118,11 +1118,11 @@
     "name": "Satjapron piluk",
     "email": "satjapronzon@gmail.com",
     "phone": "0931354686",
-    "serviceId": "classic",
+    "serviceId": "u-shape-lashes",
     "serviceIds": [
       "classic"
     ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "U shape Lashes ขนตาแกนยู / ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-06-24",
     "dateLabel": "วันพุธที่ 24 มิถุนายน 2569",
     "time": "11:00",
@@ -1131,12 +1131,12 @@
     "endMinutes": 720,
     "startISO": "2026-06-24T11:00:00+07:00",
     "endISO": "2026-06-24T12:00:00+07:00",
-    "price": 539,
+    "price": 629,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-06-23T16:10:59.554Z",
-    "updatedAt": "2026-06-23T16:43:25.868Z"
+    "updatedAt": "2026-06-24T05:02:30.090Z"
   },
   {
     "id": "WK3AA3FF",
