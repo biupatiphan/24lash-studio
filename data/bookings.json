@@ -1143,11 +1143,11 @@
     "name": "K.anjani/IG (walk-in )",
     "email": "",
     "phone": "",
-    "serviceId": "wet-look-3d-4d",
+    "serviceId": "wet-look-5d-10d",
     "serviceIds": [
       "wet-look-3d-4d"
     ],
-    "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-06-24",
     "dateLabel": "วันพุธที่ 24 มิถุนายน 2569",
     "time": "13:00",
@@ -1156,11 +1156,12 @@
     "endMinutes": 840,
     "startISO": "2026-06-24T13:00:00+07:00",
     "endISO": "2026-06-24T14:00:00+07:00",
-    "price": 629,
+    "price": 799,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
-    "createdAt": "2026-06-23T17:01:15.174Z"
+    "createdAt": "2026-06-23T17:01:15.174Z",
+    "updatedAt": "2026-06-24T07:40:03.473Z"
   },
   {
     "id": "BK48CEAA",
