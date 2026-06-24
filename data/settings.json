@@ -232,7 +232,9 @@
   },
   "closedWeekdays": [],
   "closedDates": [
-    "2026-06-09"
+    "2026-06-01",
+    "2026-06-29",
+    "2026-06-30"
   ],
   "blockedTimes": [],
   "shop": {
