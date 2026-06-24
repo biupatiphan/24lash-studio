@@ -1262,5 +1262,29 @@
     "source": "online",
     "createdAt": "2026-06-24T09:01:33.942Z",
     "updatedAt": "2026-06-24T09:02:36.651Z"
+  },
+  {
+    "id": "WK78F1FD",
+    "name": "K.lola",
+    "email": "",
+    "phone": "",
+    "serviceId": "svc-26",
+    "serviceIds": [
+      "svc-26"
+    ],
+    "serviceName": "เคลมฟรี",
+    "date": "2026-06-24",
+    "dateLabel": "วันพุธที่ 24 มิถุนายน 2569",
+    "time": "21:00",
+    "endTime": "22:00",
+    "startMinutes": 1260,
+    "endMinutes": 1320,
+    "startISO": "2026-06-24T21:00:00+07:00",
+    "endISO": "2026-06-24T22:00:00+07:00",
+    "price": 0,
+    "depositAmount": 0,
+    "status": "done",
+    "source": "manual",
+    "createdAt": "2026-06-24T09:36:19.596Z"
   }
 ]
