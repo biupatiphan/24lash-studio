@@ -1312,5 +1312,29 @@
     "source": "online",
     "createdAt": "2026-06-24T15:45:29.456Z",
     "updatedAt": "2026-06-24T15:59:40.201Z"
+  },
+  {
+    "id": "BKA53D6C",
+    "name": "พราว",
+    "email": "prawthanwa@gmail.com",
+    "phone": "0850033265",
+    "serviceId": "classic",
+    "serviceIds": [
+      "classic"
+    ],
+    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "date": "2026-06-26",
+    "dateLabel": "วันศุกร์ที่ 26 มิถุนายน 2569",
+    "time": "19:00",
+    "endTime": "20:00",
+    "startMinutes": 1140,
+    "endMinutes": 1200,
+    "startISO": "2026-06-26T19:00:00+07:00",
+    "endISO": "2026-06-26T20:00:00+07:00",
+    "price": 539,
+    "depositAmount": 200,
+    "status": "pending",
+    "source": "online",
+    "createdAt": "2026-06-25T09:09:18.132Z"
   }
 ]
