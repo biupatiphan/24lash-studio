@@ -1060,9 +1060,10 @@
     "endISO": "2026-06-26T12:00:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "pending",
+    "status": "done",
     "source": "online",
-    "createdAt": "2026-06-22T13:28:34.929Z"
+    "createdAt": "2026-06-22T13:28:34.929Z",
+    "updatedAt": "2026-06-26T16:58:35.611Z"
   },
   {
     "id": "WK8CB77A",
