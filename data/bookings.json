@@ -1349,20 +1349,20 @@
       "wet-look-5d-10d"
     ],
     "serviceName": "Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
-    "date": "2026-06-27",
-    "dateLabel": "วันเสาร์ที่ 27 มิถุนายน 2569",
+    "date": "2026-07-02",
+    "dateLabel": "วันพฤหัสบดีที่ 2 กรกฎาคม 2569",
     "time": "15:00",
     "endTime": "16:00",
     "startMinutes": 900,
     "endMinutes": 960,
-    "startISO": "2026-06-27T15:00:00+07:00",
-    "endISO": "2026-06-27T16:00:00+07:00",
+    "startISO": "2026-07-02T15:00:00+07:00",
+    "endISO": "2026-07-02T16:00:00+07:00",
     "price": 799,
     "depositAmount": 200,
     "status": "confirmed",
     "source": "manual",
     "createdAt": "2026-06-26T17:00:15.824Z",
-    "updatedAt": "2026-06-27T03:50:50.550Z"
+    "updatedAt": "2026-06-27T13:31:11.415Z"
   },
   {
     "id": "BKB65D65",
