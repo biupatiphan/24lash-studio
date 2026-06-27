@@ -1413,5 +1413,29 @@
     "source": "online",
     "createdAt": "2026-06-27T04:40:20.860Z",
     "updatedAt": "2026-06-27T04:40:57.236Z"
+  },
+  {
+    "id": "WK3329C6",
+    "name": "Walk in (removal100฿)",
+    "email": "",
+    "phone": "",
+    "serviceId": "wet-look-5d-10d",
+    "serviceIds": [
+      "wet-look-5d-10d"
+    ],
+    "serviceName": "Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "date": "2026-06-27",
+    "dateLabel": "วันเสาร์ที่ 27 มิถุนายน 2569",
+    "time": "11:00",
+    "endTime": "12:00",
+    "startMinutes": 660,
+    "endMinutes": 720,
+    "startISO": "2026-06-27T11:00:00+07:00",
+    "endISO": "2026-06-27T12:00:00+07:00",
+    "price": 899,
+    "depositAmount": 0,
+    "status": "done",
+    "source": "manual",
+    "createdAt": "2026-06-27T06:24:17.618Z"
   }
 ]
