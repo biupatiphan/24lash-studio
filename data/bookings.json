@@ -1373,19 +1373,19 @@
       "svc-26"
     ],
     "serviceName": "เคลมฟรี",
-    "date": "2026-06-27",
-    "dateLabel": "วันเสาร์ที่ 27 มิถุนายน 2569",
-    "time": "17:00",
-    "endTime": "18:00",
-    "startMinutes": 1020,
-    "endMinutes": 1080,
-    "startISO": "2026-06-27T17:00:00+07:00",
-    "endISO": "2026-06-27T18:00:00+07:00",
+    "date": "2026-06-28",
+    "dateLabel": "วันอาทิตย์ที่ 28 มิถุนายน 2569",
+    "time": "15:00",
+    "endTime": "16:00",
+    "startMinutes": 900,
+    "endMinutes": 960,
+    "startISO": "2026-06-28T15:00:00+07:00",
+    "endISO": "2026-06-28T16:00:00+07:00",
     "price": 0,
     "depositAmount": 0,
     "status": "noshow",
     "source": "online",
     "createdAt": "2026-06-27T00:23:15.505Z",
-    "updatedAt": "2026-06-27T03:47:58.143Z"
+    "updatedAt": "2026-06-27T03:50:38.578Z"
   }
 ]
