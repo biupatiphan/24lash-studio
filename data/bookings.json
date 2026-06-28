@@ -1443,11 +1443,11 @@
     "name": "นินิว",
     "email": "tp.neww@gmail.com",
     "phone": "0866633006",
-    "serviceId": "anime",
+    "serviceId": "wet-look-3d-4d",
     "serviceIds": [
       "anime"
     ],
-    "serviceName": "Anime ไม่จำกัดเส้นและความยาว/เคลมฟรี",
+    "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-06-28",
     "dateLabel": "วันอาทิตย์ที่ 28 มิถุนายน 2569",
     "time": "13:00",
@@ -1458,10 +1458,10 @@
     "endISO": "2026-06-28T14:00:00+07:00",
     "price": 629,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-06-28T03:16:54.924Z",
-    "updatedAt": "2026-06-28T03:26:22.201Z"
+    "updatedAt": "2026-06-28T07:35:32.503Z"
   },
   {
     "id": "BK4BA720",
