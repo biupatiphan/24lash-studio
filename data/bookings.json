@@ -1457,12 +1457,12 @@
     "endMinutes": 980,
     "startISO": "2026-06-28T15:00:00+07:00",
     "endISO": "2026-06-28T16:20:00+07:00",
-    "price": 689,
+    "price": 679,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-06-28T05:34:45.701Z",
-    "updatedAt": "2026-06-28T05:37:54.445Z"
+    "updatedAt": "2026-06-28T09:45:30.571Z"
   },
   {
     "id": "BK685B00",
