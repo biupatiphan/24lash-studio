@@ -1365,31 +1365,6 @@
     "updatedAt": "2026-06-27T13:31:11.415Z"
   },
   {
-    "id": "BKB65D65",
-    "name": "เตย",
-    "email": "113ratchada@gmail.com",
-    "phone": "0849785564",
-    "serviceId": "svc-26",
-    "serviceIds": [
-      "svc-26"
-    ],
-    "serviceName": "เคลมฟรี",
-    "date": "2026-06-28",
-    "dateLabel": "วันอาทิตย์ที่ 28 มิถุนายน 2569",
-    "time": "15:00",
-    "endTime": "16:00",
-    "startMinutes": 900,
-    "endMinutes": 960,
-    "startISO": "2026-06-28T15:00:00+07:00",
-    "endISO": "2026-06-28T16:00:00+07:00",
-    "price": 0,
-    "depositAmount": 0,
-    "status": "noshow",
-    "source": "online",
-    "createdAt": "2026-06-27T00:23:15.505Z",
-    "updatedAt": "2026-06-27T03:50:38.578Z"
-  },
-  {
     "id": "BK979A8B",
     "name": "หลิน",
     "email": "c.sarintip@gmail.com",
