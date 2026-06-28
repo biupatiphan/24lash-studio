@@ -1369,11 +1369,11 @@
     "name": "หลิน",
     "email": "c.sarintip@gmail.com",
     "phone": "0949955936",
-    "serviceId": "hybrid",
+    "serviceId": "wet-wispy",
     "serviceIds": [
       "hybrid"
     ],
-    "serviceName": "Hybrid Lash  ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Wet Wispy ไม่จำกัดเส้นและความยาว/เคลมฟรี",
     "date": "2026-06-28",
     "dateLabel": "วันอาทิตย์ที่ 28 มิถุนายน 2569",
     "time": "17:00",
@@ -1382,12 +1382,12 @@
     "endMinutes": 1080,
     "startISO": "2026-06-28T17:00:00+07:00",
     "endISO": "2026-06-28T18:00:00+07:00",
-    "price": 629,
+    "price": 799,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-06-27T04:40:20.860Z",
-    "updatedAt": "2026-06-27T04:40:57.236Z"
+    "updatedAt": "2026-06-28T11:30:05.188Z"
   },
   {
     "id": "WK3329C6",
