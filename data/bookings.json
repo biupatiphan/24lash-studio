@@ -1463,9 +1463,10 @@
     "endISO": "2026-07-02T20:20:00+07:00",
     "price": 689,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "confirmed",
     "source": "online",
-    "createdAt": "2026-06-28T07:20:42.666Z"
+    "createdAt": "2026-06-28T07:20:42.666Z",
+    "updatedAt": "2026-06-29T15:08:35.225Z"
   },
   {
     "id": "WKC509BD",
