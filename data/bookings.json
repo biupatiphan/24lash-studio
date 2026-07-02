@@ -1689,5 +1689,29 @@
     "status": "confirmed",
     "source": "manual",
     "createdAt": "2026-07-02T15:23:21.823Z"
+  },
+  {
+    "id": "BKB92ABB",
+    "name": "Joo",
+    "email": "wj9545@naver.com",
+    "phone": "82+1020528216",
+    "serviceId": "svc-26",
+    "serviceIds": [
+      "svc-26"
+    ],
+    "serviceName": "เคลมฟรี",
+    "date": "2026-07-03",
+    "dateLabel": "วันศุกร์ที่ 3 กรกฎาคม 2569",
+    "time": "21:00",
+    "endTime": "22:00",
+    "startMinutes": 1260,
+    "endMinutes": 1320,
+    "startISO": "2026-07-03T21:00:00+07:00",
+    "endISO": "2026-07-03T22:00:00+07:00",
+    "price": 0,
+    "depositAmount": 0,
+    "status": "pending",
+    "source": "online",
+    "createdAt": "2026-07-02T15:31:05.027Z"
   }
 ]
