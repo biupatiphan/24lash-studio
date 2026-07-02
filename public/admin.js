@@ -416,13 +416,14 @@ function setupBackoffice() {
   });
   $('#repDate').addEventListener('change', () => { currentRange = 'day'; loadReport(); });
   $('#repMonth').addEventListener('change', () => { currentRange = 'monthPick'; loadReport(); });
+  const markMonthChip = () => $('#rangeSeg').querySelectorAll('button').forEach((x) => x.classList.toggle('on', x.dataset.range === 'month'));
   $('#rangeFromBtn').addEventListener('click', () => openPinkCal(rangeFrom, (d) => {
     rangeFrom = d; if (rangeTo && rangeFrom > rangeTo) rangeTo = rangeFrom;
-    updateRangeLabels(); currentRange = 'month'; loadReport();
+    updateRangeLabels(); currentRange = 'month'; markMonthChip(); loadReport();
   }));
   $('#rangeToBtn').addEventListener('click', () => openPinkCal(rangeTo, (d) => {
     rangeTo = d; if (rangeFrom && rangeTo < rangeFrom) rangeFrom = rangeTo;
-    updateRangeLabels(); currentRange = 'month'; loadReport();
+    updateRangeLabels(); currentRange = 'month'; markMonthChip(); loadReport();
   }));
   $('#pcPrev').addEventListener('click', () => { pcView.setMonth(pcView.getMonth() - 1); renderPinkCal(); });
   $('#pcNext').addEventListener('click', () => { pcView.setMonth(pcView.getMonth() + 1); renderPinkCal(); });

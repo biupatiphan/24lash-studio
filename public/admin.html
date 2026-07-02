@@ -83,10 +83,11 @@
     .seg { display: inline-flex; flex-wrap: wrap; justify-content: center; background: #fff; border: 1.5px solid #ffd9e6; border-radius: 22px; padding: 4px; gap: 2px; }
     .seg button { border: none; background: none; font-family: inherit; font-size: 13px; color: #9b8b92; padding: 6px 11px; border-radius: 999px; cursor: pointer; }
     /* range pills (แบบ B) */
-    .rngB { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
-    .rngB .pill { flex: 1; border: 1.5px solid #ffd9e6; border-radius: 14px; padding: 8px 10px; background: #fffafc; text-align: center; cursor: pointer; font-family: inherit; }
-    .rngB .pill .lb { display: block; font-size: 10px; color: #9b8b92; }
-    .rngB .pill .dt { font-size: 14px; color: #5a4a52; font-weight: 600; }
+    .rngB { display: flex; align-items: stretch; gap: 8px; margin-top: 10px; }
+    .rngB .pill { flex: 1; min-width: 0; border: 1.5px solid #ffd9e6; border-radius: 14px; padding: 8px 8px; background: #fffafc; text-align: center; cursor: pointer; font-family: inherit; display: flex; flex-direction: column; justify-content: center; gap: 2px; }
+    .rngB .pill .lb { font-size: 10px; color: #9b8b92; }
+    .rngB .pill .dt { font-size: 14px; color: #5a4a52; font-weight: 600; white-space: nowrap; }
+    .rngB .arrow { display: flex; align-items: center; }
     .rngB .arrow { color: #e75a8a; font-weight: 700; }
     /* pink calendar modal */
     .pc-overlay { position: fixed; inset: 0; background: rgba(90,74,82,.5); display: flex; align-items: center; justify-content: center; z-index: 80; padding: 20px; }
