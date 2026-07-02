@@ -398,16 +398,23 @@ function setupBackoffice() {
       $('#rangeSeg').querySelectorAll('button').forEach((x) => x.classList.remove('on'));
       b.classList.add('on');
       currentRange = b.dataset.range;
-      if (currentRange === 'day') {
-        $('#repDate').classList.remove('hide');
-        if (!$('#repDate').value) $('#repDate').value = todayStr();
-      } else {
-        $('#repDate').classList.add('hide');
+      // โชว์ช่องกรอกให้ตรงโหมด
+      $('#repDate').classList.toggle('hide', currentRange !== 'day');
+      $('#repMonth').classList.toggle('hide', currentRange !== 'monthPick');
+      $('#repRange').classList.toggle('hide', currentRange !== 'range');
+      if (currentRange === 'day' && !$('#repDate').value) $('#repDate').value = todayStr();
+      if (currentRange === 'monthPick' && !$('#repMonth').value) $('#repMonth').value = todayStr().slice(0, 7);
+      if (currentRange === 'range') {
+        if (!$('#repFrom').value) $('#repFrom').value = todayStr().slice(0, 8) + '01';
+        if (!$('#repTo').value) $('#repTo').value = todayStr();
       }
       loadReport();
     });
   });
   $('#repDate').addEventListener('change', () => { currentRange = 'day'; loadReport(); });
+  $('#repMonth').addEventListener('change', () => { currentRange = 'monthPick'; loadReport(); });
+  $('#repFrom').addEventListener('change', () => { currentRange = 'range'; loadReport(); });
+  $('#repTo').addEventListener('change', () => { currentRange = 'range'; loadReport(); });
 
   $('#openWalkin').addEventListener('click', () => {
     const card = $('#walkinCard');
@@ -451,6 +458,8 @@ function rangeQuery() {
   if (currentRange === 'yesterday') return `date=${yesterdayStr()}`;
   if (currentRange === 'tomorrow') return `date=${tomorrowStr()}`;
   if (currentRange === 'month') return `month=${todayStr().slice(0, 7)}`;
+  if (currentRange === 'monthPick') return `month=${$('#repMonth').value || todayStr().slice(0, 7)}`;
+  if (currentRange === 'range') return `from=${$('#repFrom').value || todayStr()}&to=${$('#repTo').value || todayStr()}`;
   if (currentRange === 'day') return `date=${$('#repDate').value || todayStr()}`;
   return `date=${todayStr()}`;
 }
@@ -458,6 +467,8 @@ function rangeLabel() {
   if (currentRange === 'yesterday') return `เมื่อวาน · ${thaiDateFull(yesterdayStr())}`;
   if (currentRange === 'tomorrow') return `พรุ่งนี้ · ${thaiDateFull(tomorrowStr())}`;
   if (currentRange === 'month') return `เดือนนี้ · ${thaiMonthLabel(todayStr())}`;
+  if (currentRange === 'monthPick') return thaiMonthLabel(($('#repMonth').value || todayStr().slice(0, 7)) + '-01');
+  if (currentRange === 'range') return `${thaiDateFull($('#repFrom').value || todayStr())} – ${thaiDateFull($('#repTo').value || todayStr())}`;
   if (currentRange === 'day') return thaiDateFull($('#repDate').value || todayStr());
   return `วันนี้ · ${thaiDateFull(todayStr())}`;
 }
@@ -491,33 +502,41 @@ function renderKpis(r) {
     <div class="kpi"><div class="k-label">🏪 รับหน้าร้าน</div><div class="k-val">${baht(r.onSiteTotal)}</div></div>`;
 }
 
-// กราฟแท่งยอดขายรายวัน — โชว์เฉพาะตอนดู "เดือนนี้"
+// กราฟแท่งยอดขายรายวัน — โชว์ตอนดูแบบหลายวัน (เดือนนี้/เลือกเดือน/ช่วงวันที่)
 function renderSalesBars(list) {
   const card = $('#salesBarsCard');
-  if (currentRange !== 'month') { card.classList.add('hide'); return; }
+  // สร้างรายการวันที่ที่จะแสดงเป็นแท่ง
+  const dates = [];
+  if (currentRange === 'month' || currentRange === 'monthPick') {
+    const ym = currentRange === 'monthPick' ? ($('#repMonth').value || todayStr().slice(0, 7)) : todayStr().slice(0, 7);
+    const [y, m] = ym.split('-').map(Number);
+    const n = new Date(y, m, 0).getDate();
+    for (let d = 1; d <= n; d++) dates.push(`${ym}-${String(d).padStart(2, '0')}`);
+  } else if (currentRange === 'range') {
+    let from = $('#repFrom').value, to = $('#repTo').value;
+    if (from && to) {
+      if (from > to) { const t = from; from = to; to = t; }
+      let cur = new Date(from + 'T00:00:00'); const end = new Date(to + 'T00:00:00'); let guard = 0;
+      while (cur <= end && guard < 120) { dates.push(cur.toLocaleDateString('en-CA')); cur.setDate(cur.getDate() + 1); guard++; }
+    }
+  }
+  if (dates.length < 2) { card.classList.add('hide'); return; }
   card.classList.remove('hide');
 
-  const ym = todayStr().slice(0, 7);
-  const [y, m] = ym.split('-').map(Number);
-  const days = new Date(y, m, 0).getDate();
-  const byDay = {};
-  list.forEach((b) => {
-    if (b.status === 'done' && (b.date || '').startsWith(ym)) {
-      const d = Number(b.date.slice(8, 10));
-      byDay[d] = (byDay[d] || 0) + (Number(b.price) || 0);
-    }
-  });
-  const max = Math.max(1, ...Object.values(byDay));
-  const todayD = Number(todayStr().slice(8, 10));
+  const byDate = {};
+  list.forEach((b) => { if (b.status === 'done') byDate[b.date] = (byDate[b.date] || 0) + (Number(b.price) || 0); });
+  const max = Math.max(1, ...dates.map((d) => byDate[d] || 0));
+  const today = todayStr();
+  const last = dates.length - 1;
 
-  let bars = '';
-  for (let d = 1; d <= days; d++) {
-    const v = byDay[d] || 0;
+  const bars = dates.map((date, i) => {
+    const v = byDate[date] || 0;
     const h = Math.round((v / max) * 100);
-    const lbl = (d === 1 || d % 5 === 0 || d === days) ? d : '';
+    const dnum = Number(date.slice(8, 10));
+    const lbl = (i === 0 || i === last || i % 5 === 0) ? dnum : '';
     const val = v > 0 ? `<span class="bar-v">${compactBaht(v)}</span>` : '';
-    bars += `<div class="bar-col" title="วันที่ ${d} · ${baht(v)}">${val}<div class="bar ${d === todayD ? 'bar-today' : ''}" style="height:${h}%"></div><span class="bar-x">${lbl}</span></div>`;
-  }
+    return `<div class="bar-col" title="${thaiDate(date)} · ${baht(v)}">${val}<div class="bar ${date === today ? 'bar-today' : ''}" style="height:${h}%"></div><span class="bar-x">${lbl}</span></div>`;
+  }).join('');
   $('#salesBars').innerHTML = bars;
 }
 

@@ -175,15 +175,21 @@
             <button data-range="tomorrow" type="button">พรุ่งนี้</button>
             <button data-range="month" type="button">เดือนนี้</button>
             <button data-range="day" type="button">เลือกวัน</button>
+            <button data-range="monthPick" type="button">เลือกเดือน</button>
+            <button data-range="range" type="button">ช่วงวันที่</button>
           </div>
           <input type="date" id="repDate" class="hide" />
+          <input type="month" id="repMonth" class="hide" />
+          <span id="repRange" class="hide" style="display:flex;gap:6px;align-items:center;justify-content:center;flex-wrap:wrap">
+            <input type="date" id="repFrom" /> <span style="color:#9b8b92;font-size:13px">ถึง</span> <input type="date" id="repTo" />
+          </span>
         </div>
         <p class="rep-label" id="repLabel"></p>
 
         <div class="kpis" id="kpis"></div>
 
         <div class="card hide" id="salesBarsCard">
-          <h2>ยอดขายรายวัน (เดือนนี้)</h2>
+          <h2>ยอดขายรายวัน</h2>
           <div class="bars" id="salesBars"></div>
           <p class="note" style="text-align:center;margin-top:8px">แท่งเขียว = วันนี้ · แตะค้างที่แท่งเพื่อดูยอด</p>
         </div>
