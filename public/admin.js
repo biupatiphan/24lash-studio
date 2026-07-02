@@ -647,6 +647,7 @@ function editPanel(b) {
         <input type="date" class="ed-date" value="${b.date}" />
         <select class="ed-time"></select>
       </div>
+      <input type="time" class="ed-time-custom hide" style="margin-top:8px" />
       <div style="height:8px"></div>
       <button class="btn-ghost ed-reschedule" type="button" style="width:100%">🔄 ยืนยันเลื่อนนัด + แจ้งอีเมล</button>
       <p class="note" style="text-align:center">ระบบจะส่งวัน-เวลาใหม่ให้ลูกค้า + ร้านอัตโนมัติ</p>
@@ -720,14 +721,28 @@ function wireEdit(el, b) {
 
   // เลื่อนนัด
   const timeSel = el.querySelector('.ed-time');
+  const timeCustom = el.querySelector('.ed-time-custom');
   if (timeSel) {
-    timeSel.innerHTML = genSlots().map((t) => `<option value="${t}" ${t === b.time ? 'selected' : ''}>${t} น.</option>`).join('');
+    const slots = genSlots();
+    timeSel.innerHTML = slots.map((t) => `<option value="${t}" ${t === b.time ? 'selected' : ''}>${t} น.</option>`).join('')
+      + '<option value="__custom__">⏰ กำหนดเวลาเอง…</option>';
+    // ถ้าเวลาปัจจุบันไม่อยู่ใน slot -> เลือกกำหนดเอง + เติมค่าเดิม
+    if (!slots.includes(b.time)) {
+      timeSel.value = '__custom__';
+      timeCustom.value = b.time;
+      timeCustom.classList.remove('hide');
+    }
+    timeSel.addEventListener('change', () => {
+      timeCustom.classList.toggle('hide', timeSel.value !== '__custom__');
+    });
   }
   const rBtn = el.querySelector('.ed-reschedule');
   if (rBtn) {
     rBtn.addEventListener('click', async () => {
       const dateInp = el.querySelector('.ed-date');
       const rmsg = el.querySelector('.ed-rmsg');
+      const newTime = timeSel.value === '__custom__' ? timeCustom.value : timeSel.value;
+      if (!newTime) { rmsg.className = 'msg err ed-rmsg'; rmsg.textContent = 'กรุณาเลือกหรือกำหนดเวลา'; rmsg.classList.remove('hide'); return; }
       const label = rBtn.textContent;
       rBtn.disabled = true;
       rBtn.textContent = 'กำลังเลื่อนนัด...';
@@ -736,7 +751,7 @@ function wireEdit(el, b) {
         const res = await fetch(`/api/admin/bookings/${b.id}/reschedule`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'x-admin-password': password },
-          body: JSON.stringify({ date: dateInp.value, time: timeSel.value }),
+          body: JSON.stringify({ date: dateInp.value, time: newTime }),
         });
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || 'เลื่อนนัดไม่สำเร็จ');
