@@ -81,7 +81,26 @@
     /* period */
     .period { display: flex; align-items: center; gap: 10px; justify-content: center; margin-bottom: 4px; flex-wrap: wrap; }
     .seg { display: inline-flex; flex-wrap: wrap; justify-content: center; background: #fff; border: 1.5px solid #ffd9e6; border-radius: 22px; padding: 4px; gap: 2px; }
-    .seg button { border: none; background: none; font-family: inherit; font-size: 14px; color: #9b8b92; padding: 7px 13px; border-radius: 999px; cursor: pointer; }
+    .seg button { border: none; background: none; font-family: inherit; font-size: 13px; color: #9b8b92; padding: 6px 11px; border-radius: 999px; cursor: pointer; }
+    /* range pills (แบบ B) */
+    .rngB { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
+    .rngB .pill { flex: 1; border: 1.5px solid #ffd9e6; border-radius: 14px; padding: 8px 10px; background: #fffafc; text-align: center; cursor: pointer; font-family: inherit; }
+    .rngB .pill .lb { display: block; font-size: 10px; color: #9b8b92; }
+    .rngB .pill .dt { font-size: 14px; color: #5a4a52; font-weight: 600; }
+    .rngB .arrow { color: #e75a8a; font-weight: 700; }
+    /* pink calendar modal */
+    .pc-overlay { position: fixed; inset: 0; background: rgba(90,74,82,.5); display: flex; align-items: center; justify-content: center; z-index: 80; padding: 20px; }
+    .pc-card { background: #fff; border-radius: 20px; padding: 16px; width: 300px; max-width: 90vw; box-shadow: 0 16px 50px rgba(231,90,138,.25); }
+    .pc-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .pc-head span { font-weight: 600; color: #e75a8a; font-size: 15px; }
+    .pc-head button { border: none; background: #fff0f6; color: #e75a8a; width: 34px; height: 34px; border-radius: 50%; font-size: 18px; cursor: pointer; }
+    .pc-wd { display: grid; grid-template-columns: repeat(7,1fr); gap: 2px; margin-bottom: 4px; }
+    .pc-wd span { text-align: center; font-size: 11px; color: #9b8b92; }
+    .pc-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 2px; }
+    .pc-day { text-align: center; padding: 9px 0; border-radius: 10px; font-size: 13px; cursor: pointer; color: #5a4a52; }
+    .pc-day.sel { background: linear-gradient(135deg,#ff9ec4,#e75a8a); color: #fff; font-weight: 600; }
+    .pc-day.empty { visibility: hidden; }
+    .pc-day.today { box-shadow: inset 0 0 0 1.5px #ffc2d8; }
     .seg button.on { background: linear-gradient(135deg,#ff9ec4,#e75a8a); color: #fff; font-weight: 600; }
     .rep-label { text-align: center; font-size: 13px; color: #9b8b92; margin: 6px 0 14px; }
 
@@ -176,13 +195,14 @@
             <button data-range="month" type="button">เดือนนี้</button>
             <button data-range="day" type="button">เลือกวัน</button>
             <button data-range="monthPick" type="button">เลือกเดือน</button>
-            <button data-range="range" type="button">ช่วงวันที่</button>
           </div>
           <input type="date" id="repDate" class="hide" />
           <input type="month" id="repMonth" class="hide" />
-          <span id="repRange" class="hide" style="display:flex;gap:6px;align-items:center;justify-content:center;flex-wrap:wrap">
-            <input type="date" id="repFrom" /> <span style="color:#9b8b92;font-size:13px">ถึง</span> <input type="date" id="repTo" />
-          </span>
+          <div id="repRange" class="rngB hide">
+            <button class="pill" id="rangeFromBtn" type="button"><span class="lb">จาก</span><span class="dt" id="rangeFromLbl"></span></button>
+            <span class="arrow">→</span>
+            <button class="pill" id="rangeToBtn" type="button"><span class="lb">ถึง</span><span class="dt" id="rangeToLbl"></span></button>
+          </div>
         </div>
         <p class="rep-label" id="repLabel"></p>
 
@@ -339,6 +359,19 @@
     <button data-tab="report" class="on" type="button"><span class="nic">📊</span>รายงาน</button>
     <button data-tab="settings" type="button"><span class="nic">⚙️</span>ตั้งค่า</button>
   </nav>
+
+  <!-- ปฏิทินชมพู (สำหรับเลือกช่วงวันที่) -->
+  <div class="pc-overlay hide" id="pcOverlay">
+    <div class="pc-card">
+      <div class="pc-head">
+        <button type="button" id="pcPrev">‹</button>
+        <span id="pcMonth"></span>
+        <button type="button" id="pcNext">›</button>
+      </div>
+      <div class="pc-wd"><span>อา</span><span>จ</span><span>อ</span><span>พ</span><span>พฤ</span><span>ศ</span><span>ส</span></div>
+      <div class="pc-grid" id="pcGrid"></div>
+    </div>
+  </div>
 
   <script src="admin.js"></script>
 </body>

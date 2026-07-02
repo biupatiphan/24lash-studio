@@ -362,6 +362,8 @@ let openId = null;
 let bookingsCache = [];
 let statusFilter = 'all';
 let searchQuery = '';
+let rangeFrom = '';
+let rangeTo = '';
 
 const STLABEL = { pending: '🌸 รอยืนยัน', confirmed: '⏳ รอรับบริการ', done: '✅ เสร็จแล้ว', noshow: '🚫 ไม่มา', cancelled: '🚫 ยกเลิก' };
 
@@ -401,20 +403,30 @@ function setupBackoffice() {
       // โชว์ช่องกรอกให้ตรงโหมด
       $('#repDate').classList.toggle('hide', currentRange !== 'day');
       $('#repMonth').classList.toggle('hide', currentRange !== 'monthPick');
-      $('#repRange').classList.toggle('hide', currentRange !== 'range');
+      $('#repRange').classList.toggle('hide', currentRange !== 'month');
       if (currentRange === 'day' && !$('#repDate').value) $('#repDate').value = todayStr();
       if (currentRange === 'monthPick' && !$('#repMonth').value) $('#repMonth').value = todayStr().slice(0, 7);
-      if (currentRange === 'range') {
-        if (!$('#repFrom').value) $('#repFrom').value = todayStr().slice(0, 8) + '01';
-        if (!$('#repTo').value) $('#repTo').value = todayStr();
+      if (currentRange === 'month') { // เดือนนี้ = 1 ค่ำเดือน → วันนี้ (แก้ช่วงได้)
+        rangeFrom = todayStr().slice(0, 8) + '01';
+        rangeTo = todayStr();
+        updateRangeLabels();
       }
       loadReport();
     });
   });
   $('#repDate').addEventListener('change', () => { currentRange = 'day'; loadReport(); });
   $('#repMonth').addEventListener('change', () => { currentRange = 'monthPick'; loadReport(); });
-  $('#repFrom').addEventListener('change', () => { currentRange = 'range'; loadReport(); });
-  $('#repTo').addEventListener('change', () => { currentRange = 'range'; loadReport(); });
+  $('#rangeFromBtn').addEventListener('click', () => openPinkCal(rangeFrom, (d) => {
+    rangeFrom = d; if (rangeTo && rangeFrom > rangeTo) rangeTo = rangeFrom;
+    updateRangeLabels(); currentRange = 'month'; loadReport();
+  }));
+  $('#rangeToBtn').addEventListener('click', () => openPinkCal(rangeTo, (d) => {
+    rangeTo = d; if (rangeFrom && rangeTo < rangeFrom) rangeFrom = rangeTo;
+    updateRangeLabels(); currentRange = 'month'; loadReport();
+  }));
+  $('#pcPrev').addEventListener('click', () => { pcView.setMonth(pcView.getMonth() - 1); renderPinkCal(); });
+  $('#pcNext').addEventListener('click', () => { pcView.setMonth(pcView.getMonth() + 1); renderPinkCal(); });
+  $('#pcOverlay').addEventListener('click', (e) => { if (e.target.id === 'pcOverlay') e.currentTarget.classList.add('hide'); });
 
   $('#openWalkin').addEventListener('click', () => {
     const card = $('#walkinCard');
@@ -457,20 +469,58 @@ function switchTab(tab) {
 function rangeQuery() {
   if (currentRange === 'yesterday') return `date=${yesterdayStr()}`;
   if (currentRange === 'tomorrow') return `date=${tomorrowStr()}`;
-  if (currentRange === 'month') return `month=${todayStr().slice(0, 7)}`;
+  if (currentRange === 'month') return `from=${rangeFrom || todayStr()}&to=${rangeTo || todayStr()}`;
   if (currentRange === 'monthPick') return `month=${$('#repMonth').value || todayStr().slice(0, 7)}`;
-  if (currentRange === 'range') return `from=${$('#repFrom').value || todayStr()}&to=${$('#repTo').value || todayStr()}`;
   if (currentRange === 'day') return `date=${$('#repDate').value || todayStr()}`;
   return `date=${todayStr()}`;
 }
 function rangeLabel() {
   if (currentRange === 'yesterday') return `เมื่อวาน · ${thaiDateFull(yesterdayStr())}`;
   if (currentRange === 'tomorrow') return `พรุ่งนี้ · ${thaiDateFull(tomorrowStr())}`;
-  if (currentRange === 'month') return `เดือนนี้ · ${thaiMonthLabel(todayStr())}`;
+  if (currentRange === 'month') return `${thaiDateFull(rangeFrom || todayStr())} – ${thaiDateFull(rangeTo || todayStr())}`;
   if (currentRange === 'monthPick') return thaiMonthLabel(($('#repMonth').value || todayStr().slice(0, 7)) + '-01');
-  if (currentRange === 'range') return `${thaiDateFull($('#repFrom').value || todayStr())} – ${thaiDateFull($('#repTo').value || todayStr())}`;
   if (currentRange === 'day') return thaiDateFull($('#repDate').value || todayStr());
   return `วันนี้ · ${thaiDateFull(todayStr())}`;
+}
+function updateRangeLabels() {
+  $('#rangeFromLbl').textContent = thaiDate(rangeFrom || todayStr());
+  $('#rangeToLbl').textContent = thaiDate(rangeTo || todayStr());
+}
+
+// ---------- ปฏิทินชมพู (เลือกช่วงวันที่) ----------
+let pcView = new Date();
+let pcSel = '';
+let pcOnPick = null;
+const PC_MONTHS = ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'];
+function openPinkCal(dateStr, onPick) {
+  pcSel = dateStr || todayStr();
+  pcView = new Date(pcSel + 'T00:00:00');
+  pcView.setDate(1);
+  pcOnPick = onPick;
+  $('#pcOverlay').classList.remove('hide');
+  renderPinkCal();
+}
+function renderPinkCal() {
+  $('#pcMonth').textContent = `${PC_MONTHS[pcView.getMonth()]} ${pcView.getFullYear() + 543}`;
+  const grid = $('#pcGrid');
+  const y = pcView.getFullYear(); const m = pcView.getMonth();
+  const first = new Date(y, m, 1).getDay();
+  const days = new Date(y, m + 1, 0).getDate();
+  const today = todayStr();
+  let html = '';
+  for (let i = 0; i < first; i++) html += '<div class="pc-day empty"></div>';
+  for (let d = 1; d <= days; d++) {
+    const ds = `${y}-${String(m + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+    const cls = 'pc-day' + (ds === pcSel ? ' sel' : '') + (ds === today ? ' today' : '');
+    html += `<div class="${cls}" data-d="${ds}">${d}</div>`;
+  }
+  grid.innerHTML = html;
+  grid.querySelectorAll('[data-d]').forEach((el) => {
+    el.addEventListener('click', () => {
+      $('#pcOverlay').classList.add('hide');
+      if (pcOnPick) pcOnPick(el.dataset.d);
+    });
+  });
 }
 
 async function loadReport() {
@@ -507,13 +557,13 @@ function renderSalesBars(list) {
   const card = $('#salesBarsCard');
   // สร้างรายการวันที่ที่จะแสดงเป็นแท่ง
   const dates = [];
-  if (currentRange === 'month' || currentRange === 'monthPick') {
-    const ym = currentRange === 'monthPick' ? ($('#repMonth').value || todayStr().slice(0, 7)) : todayStr().slice(0, 7);
+  if (currentRange === 'monthPick') {
+    const ym = $('#repMonth').value || todayStr().slice(0, 7);
     const [y, m] = ym.split('-').map(Number);
     const n = new Date(y, m, 0).getDate();
     for (let d = 1; d <= n; d++) dates.push(`${ym}-${String(d).padStart(2, '0')}`);
-  } else if (currentRange === 'range') {
-    let from = $('#repFrom').value, to = $('#repTo').value;
+  } else if (currentRange === 'month') {
+    let from = rangeFrom, to = rangeTo;
     if (from && to) {
       if (from > to) { const t = from; from = to; to = t; }
       let cur = new Date(from + 'T00:00:00'); const end = new Date(to + 'T00:00:00'); let guard = 0;
