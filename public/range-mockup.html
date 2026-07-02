@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MOCKUP · ดีไซน์ช่วงวันที่</title>
+<link href="https://fonts.googleapis.com/css2?family=Mali:wght@500;600;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{ --pink:#e75a8a; --pink2:#ff9ec4; --pink3:#ffc2d8; --soft:#fff0f6; --ink:#5a4a52; --muted:#9b8b92; --line:#ffd9e6; }
+  *{box-sizing:border-box;}
+  body{margin:0;background:linear-gradient(135deg,#fff0f6,#ffe7f0);font-family:'Prompt',sans-serif;color:var(--ink);min-height:100vh;}
+  .wrap{max-width:440px;margin:0 auto;padding:16px 14px 60px;}
+  h1{font-family:'Mali',sans-serif;color:var(--pink);font-size:22px;text-align:center;margin:8px 0 2px;}
+  .mock-tag{display:block;text-align:center;font-size:11px;color:#b9770a;background:#fff4e5;border:1px dashed #ffcf8a;border-radius:999px;padding:4px 10px;margin:6px auto 18px;width:fit-content;}
+  .opt-label{font-size:13px;color:var(--pink);font-weight:600;margin:22px 0 8px;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 6px 20px rgba(231,90,138,.08);}
+
+  /* segmented (เล็กลง) */
+  .seg{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;background:var(--soft);border-radius:14px;padding:5px;margin-bottom:14px;}
+  .seg button{border:none;background:none;font-family:inherit;font-size:12.5px;color:var(--muted);padding:7px 11px;border-radius:999px;cursor:pointer;}
+  .seg button.on{background:linear-gradient(135deg,var(--pink2),var(--pink));color:#fff;font-weight:600;}
+
+  /* ===== แบบ A: ช่องเล็กเรียงข้างกัน ===== */
+  .rngA{display:flex;align-items:flex-end;gap:8px;}
+  .rngA .f{flex:1;}
+  .rngA label{display:block;font-size:11px;color:var(--muted);margin-bottom:3px;}
+  .rngA input{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:9px 10px;font-family:inherit;font-size:13px;color:var(--ink);background:#fffafc;}
+  .rngA .arrow{color:var(--pink);font-weight:700;padding-bottom:9px;}
+
+  /* ===== แบบ B: ปุ่มปฏิทินชมพู (โชว์วันแบบสั้น) ===== */
+  .rngB{display:flex;align-items:center;gap:8px;}
+  .rngB .pill{flex:1;border:1.5px solid var(--line);border-radius:999px;padding:10px 12px;background:#fffafc;text-align:center;cursor:pointer;}
+  .rngB .pill .lb{font-size:10px;color:var(--muted);display:block;}
+  .rngB .pill .dt{font-size:14px;color:var(--ink);font-weight:600;}
+  .rngB .arrow{color:var(--pink);font-weight:700;}
+
+  .note{font-size:12px;color:var(--muted);margin-top:10px;text-align:center;}
+  .before{opacity:.9;}
+  .before .big{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:15px;text-align:center;font-size:15px;color:var(--ink);background:#fffafc;margin-bottom:8px;}
+  .before .mid{text-align:center;color:var(--muted);font-size:13px;margin-bottom:8px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🎨 ดีไซน์ "ช่วงวันที่" ใหม่</h1>
+  <span class="mock-tag">MOCKUP · เลือกแบบที่ชอบ</span>
+
+  <div class="opt-label">❌ แบบเดิม (ใหญ่ เทอะทะ)</div>
+  <div class="card before">
+    <div class="big">2 ก.ค. 2569</div>
+    <div class="mid">ถึง</div>
+    <div class="big">2 ก.ค. 2569</div>
+  </div>
+
+  <div class="opt-label">✅ แบบ A — ช่องเล็กเรียงข้างกัน (เรียบง่าย)</div>
+  <div class="card">
+    <div class="rngA">
+      <div class="f"><label>จาก</label><input type="date" value="2026-07-01" /></div>
+      <span class="arrow">→</span>
+      <div class="f"><label>ถึง</label><input type="date" value="2026-07-05" /></div>
+    </div>
+    <div class="note">ใช้ปฏิทินมาตรฐานของมือถือ · กระชับ ไม่เปลือง</div>
+  </div>
+
+  <div class="opt-label">✅ แบบ B — ปุ่มปฏิทินชมพู (โชว์วันสั้น เข้าธีม)</div>
+  <div class="card">
+    <div class="rngB">
+      <div class="pill"><span class="lb">จาก</span><span class="dt">1 ก.ค. 69</span></div>
+      <span class="arrow">→</span>
+      <div class="pill"><span class="lb">ถึง</span><span class="dt">5 ก.ค. 69</span></div>
+    </div>
+    <div class="note">แตะแล้วเด้งปฏิทินชมพู (โทนเดียวกับหน้าจองลูกค้า)</div>
+  </div>
+
+  <div class="opt-label">ตัวอย่างปุ่มช่วงเวลา (เล็กลงด้วย)</div>
+  <div class="card">
+    <div class="seg">
+      <button>เมื่อวาน</button><button class="on">วันนี้</button><button>พรุ่งนี้</button>
+      <button>เดือนนี้</button><button>เลือกวัน</button><button>เลือกเดือน</button><button>ช่วงวันที่</button>
+    </div>
+    <div class="note">ปุ่มเล็กลง อ่านง่ายขึ้น</div>
+  </div>
+</div>
+</body>
+</html>
