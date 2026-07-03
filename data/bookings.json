@@ -1746,11 +1746,11 @@
     "name": "K.Geemin / IG",
     "email": "",
     "phone": "",
-    "serviceId": "classic",
+    "serviceId": "u-shape-lashes",
     "serviceIds": [
       "classic"
     ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "U shape Lashes ขนตาแกนยู / ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-07-03",
     "dateLabel": "วันศุกร์ที่ 3 กรกฎาคม 2569",
     "time": "17:00",
@@ -1759,11 +1759,12 @@
     "endMinutes": 1080,
     "startISO": "2026-07-03T17:00:00+07:00",
     "endISO": "2026-07-03T18:00:00+07:00",
-    "price": 539,
+    "price": 729,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
-    "createdAt": "2026-07-03T05:02:11.477Z"
+    "createdAt": "2026-07-03T05:02:11.477Z",
+    "updatedAt": "2026-07-03T10:10:04.426Z"
   },
   {
     "id": "BK0067FC",
