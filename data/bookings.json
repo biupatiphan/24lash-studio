@@ -1711,10 +1711,10 @@
     "endISO": "2026-07-03T16:00:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "pending",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-02T15:31:05.027Z",
-    "updatedAt": "2026-07-03T01:44:04.454Z"
+    "updatedAt": "2026-07-03T10:09:41.508Z"
   },
   {
     "id": "BK89197A",
