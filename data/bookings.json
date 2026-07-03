@@ -1740,5 +1740,29 @@
     "source": "online",
     "createdAt": "2026-07-03T05:00:20.459Z",
     "updatedAt": "2026-07-03T05:01:12.436Z"
+  },
+  {
+    "id": "WK163293",
+    "name": "K.Geemin / IG",
+    "email": "",
+    "phone": "",
+    "serviceId": "classic",
+    "serviceIds": [
+      "classic"
+    ],
+    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "date": "2026-07-03",
+    "dateLabel": "วันศุกร์ที่ 3 กรกฎาคม 2569",
+    "time": "17:00",
+    "endTime": "18:00",
+    "startMinutes": 1020,
+    "endMinutes": 1080,
+    "startISO": "2026-07-03T17:00:00+07:00",
+    "endISO": "2026-07-03T18:00:00+07:00",
+    "price": 539,
+    "depositAmount": 0,
+    "status": "confirmed",
+    "source": "manual",
+    "createdAt": "2026-07-03T05:02:11.477Z"
   }
 ]
