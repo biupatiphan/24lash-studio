@@ -129,98 +129,10 @@
       "type": "main"
     },
     {
-      "id": "classic-2",
-      "name": "โปรนักเรียน/นักศึกษา : classic",
-      "duration": 60,
-      "price": 509,
-      "popular": false,
-      "type": "main"
-    },
-    {
-      "id": "monako",
-      "name": "โปรนักเรียน/นักศึกษา : Monako",
-      "duration": 60,
-      "price": 594,
-      "popular": false,
-      "type": "main"
-    },
-    {
-      "id": "wetlook-3d-4d",
-      "name": "โปรนักเรียน/นักศึกษา : Wetlook 3D-4D",
-      "duration": 60,
-      "price": 594,
-      "popular": false,
-      "type": "main"
-    },
-    {
-      "id": "anime-2",
-      "name": "โปรนักเรียน/นักศึกษา : Anime",
-      "duration": 60,
-      "price": 594,
-      "popular": false,
-      "type": "main"
-    },
-    {
-      "id": "whispy-classic-2",
-      "name": "โปรนักเรียน/นักศึกษา : whispy classic",
-      "duration": 60,
-      "price": 594,
-      "popular": false,
-      "type": "main"
-    },
-    {
-      "id": "wet-whispy",
-      "name": "โปรนักเรียน/นักศึกษา : wet whispy",
-      "duration": 60,
-      "price": 594,
-      "popular": false,
-      "type": "main"
-    },
-    {
-      "id": "wet-look-5d-10d-2",
-      "name": "โปรนักเรียน/นักศึกษา : wet-look 5D 10D",
-      "duration": 60,
-      "price": 764,
-      "popular": false,
-      "type": "main"
-    },
-    {
-      "id": "whispy-volume-2",
-      "name": "โปรนักเรียน/นักศึกษา : whispy Volume",
-      "duration": 60,
-      "price": 764,
-      "popular": false,
-      "type": "main"
-    },
-    {
-      "id": "volume-2",
-      "name": "โปรนักเรียน/นักศึกษา : Volume",
-      "duration": 60,
-      "price": 935,
-      "popular": false,
-      "type": "main"
-    },
-    {
       "id": "svc-26",
       "name": "เคลมฟรี",
       "duration": 60,
       "price": 0,
-      "popular": false,
-      "type": "main"
-    },
-    {
-      "id": "classic-3",
-      "name": "Classic โปรเก่าสำหรับลูกค้าที่จองเดือนพค.",
-      "duration": 60,
-      "price": 499,
-      "popular": false,
-      "type": "main"
-    },
-    {
-      "id": "wetlook-5d-10d",
-      "name": "Wetlook 5D-10D (ลูกค้าที่จองมาโปรเก่า)",
-      "duration": 60,
-      "price": 699,
       "popular": false,
       "type": "main"
     }
