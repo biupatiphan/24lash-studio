@@ -1671,24 +1671,25 @@
     "name": "Whatsapp",
     "email": "",
     "phone": "",
-    "serviceId": "whispy-volume",
+    "serviceId": "volume",
     "serviceIds": [
       "whispy-volume"
     ],
-    "serviceName": "Whispy Volume ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Volume Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-07-03",
     "dateLabel": "วันศุกร์ที่ 3 กรกฎาคม 2569",
     "time": "09:00",
-    "endTime": "10:00",
+    "endTime": "11:00",
     "startMinutes": 540,
-    "endMinutes": 600,
+    "endMinutes": 660,
     "startISO": "2026-07-03T09:00:00+07:00",
-    "endISO": "2026-07-03T10:00:00+07:00",
-    "price": 799,
+    "endISO": "2026-07-03T11:00:00+07:00",
+    "price": 999,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
-    "createdAt": "2026-07-02T15:23:21.823Z"
+    "createdAt": "2026-07-02T15:23:21.823Z",
+    "updatedAt": "2026-07-03T04:54:18.552Z"
   },
   {
     "id": "BKB92ABB",
