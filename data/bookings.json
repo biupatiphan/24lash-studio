@@ -1577,19 +1577,20 @@
       "svc-26"
     ],
     "serviceName": "เคลมฟรี",
-    "date": "2026-07-04",
-    "dateLabel": "วันเสาร์ที่ 4 กรกฎาคม 2569",
+    "date": "2026-07-07",
+    "dateLabel": "วันอังคารที่ 7 กรกฎาคม 2569",
     "time": "21:00",
     "endTime": "22:00",
     "startMinutes": 1260,
     "endMinutes": 1320,
-    "startISO": "2026-07-04T21:00:00+07:00",
-    "endISO": "2026-07-04T22:00:00+07:00",
+    "startISO": "2026-07-07T21:00:00+07:00",
+    "endISO": "2026-07-07T22:00:00+07:00",
     "price": 0,
     "depositAmount": 0,
     "status": "pending",
     "source": "online",
-    "createdAt": "2026-07-01T02:21:44.693Z"
+    "createdAt": "2026-07-01T02:21:44.693Z",
+    "updatedAt": "2026-07-04T10:07:00.998Z"
   },
   {
     "id": "WK2C0ADF",
