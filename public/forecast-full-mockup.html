@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MOCKUP · หน้ารายงาน + Forecast</title>
+<link href="https://fonts.googleapis.com/css2?family=Mali:wght@500;600;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{ --pink:#e75a8a; --pink2:#ff9ec4; --pink3:#ffc2d8; --soft:#fff0f6; --ink:#5a4a52; --muted:#9b8b92; --line:#ffd9e6; --green:#1e8e4e; --red:#c0392b; }
+  *{box-sizing:border-box;}
+  body{margin:0;background:linear-gradient(135deg,#fff0f6,#ffe7f0);font-family:'Prompt',sans-serif;color:var(--ink);min-height:100vh;padding-bottom:78px;}
+  .wrap{max-width:640px;margin:0 auto;padding:18px 16px;}
+  h1{font-family:'Mali',sans-serif;color:var(--pink);font-size:24px;text-align:center;margin:6px 0 2px;}
+  .sub{text-align:center;font-size:13px;color:var(--muted);margin:0 0 16px;}
+  .mock-tag{display:block;text-align:center;font-size:11px;color:#b9770a;background:#fff4e5;border:1px dashed #ffcf8a;border-radius:999px;padding:4px 10px;margin:0 auto 14px;width:fit-content;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;margin-bottom:16px;box-shadow:0 6px 24px rgba(231,90,138,.08);}
+  .card h2{font-size:17px;color:var(--pink);margin:0 0 14px;}
+
+  .period{display:flex;justify-content:center;margin-bottom:4px;}
+  .seg{display:inline-flex;flex-wrap:wrap;justify-content:center;background:#fff;border:1.5px solid var(--line);border-radius:22px;padding:4px;gap:2px;}
+  .seg button{border:none;background:none;font-family:inherit;font-size:13px;color:var(--muted);padding:6px 11px;border-radius:999px;cursor:pointer;}
+  .seg button.on{background:linear-gradient(135deg,var(--pink2),var(--pink));color:#fff;font-weight:600;}
+  .rep-label{text-align:center;font-size:13px;color:var(--muted);margin:8px 0 14px;}
+
+  /* forecast (แบบ A) */
+  .fc{background:linear-gradient(135deg,#fff,#fff6fa);border:1.5px solid var(--pink3);border-radius:20px;padding:18px;margin-bottom:16px;box-shadow:0 10px 30px rgba(231,90,138,.12);}
+  .fc-top{display:flex;align-items:center;gap:8px;}
+  .fc-top .ic{font-size:20px;}
+  .fc-top .t{font-size:14px;font-weight:600;color:var(--pink);}
+  .fc-val{font-size:34px;font-weight:800;color:var(--pink);font-family:'Mali',sans-serif;line-height:1.1;margin:8px 0 2px;}
+  .fc-sub{font-size:12px;color:var(--muted);}
+  .bar{height:14px;background:var(--soft);border-radius:999px;overflow:hidden;margin:14px 0 8px;border:1px solid var(--line);}
+  .bar > span{display:block;height:100%;width:46%;background:linear-gradient(90deg,#3ddc84,#1e8e4e);border-radius:999px;}
+  .legend{display:flex;justify-content:space-between;font-size:12.5px;}
+  .legend .done{color:var(--green);font-weight:600;}
+  .legend .left{color:var(--pink);font-weight:600;}
+
+  .kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
+  .kpi{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:0 6px 18px rgba(231,90,138,.06);}
+  .kpi .l{font-size:12px;color:var(--muted);}
+  .kpi .v{font-size:20px;font-weight:700;color:var(--pink);margin-top:2px;}
+  .kpi .s{font-size:11px;color:var(--muted);}
+
+  .donut-wrap{position:relative;display:flex;justify-content:center;margin:4px 0 16px;}
+  .donut{width:150px;height:150px;border-radius:50%;background:conic-gradient(#e75a8a 0deg 100deg,#fff 100deg 104deg,#ff7b54 104deg 190deg,#fff 190deg 194deg,#ffc2d8 194deg 300deg,#fff 300deg 304deg,#ff9ec4 304deg 360deg);}
+  .donut::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:88px;height:88px;background:#fff;border-radius:50%;}
+  .donut-c{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;}
+  .donut-c b{color:var(--pink);font-size:18px;}.donut-c span{font-size:11px;color:var(--muted);display:block;}
+  .bs{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed #ffe0ec;font-size:13.5px;}
+  .bs:last-child{border:none;}.bs .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;}
+
+  .btn{width:100%;background:linear-gradient(135deg,var(--pink2),var(--pink));color:#fff;border:none;border-radius:999px;font-family:inherit;font-weight:600;font-size:15px;padding:14px;cursor:pointer;margin-bottom:16px;box-shadow:0 6px 20px rgba(231,90,138,.2);}
+  .bk{border:1px solid #ffe0ec;border-radius:14px;padding:12px 14px;margin-bottom:10px;background:#fffafc;}
+  .bk-top{display:flex;justify-content:space-between;}
+  .bk-time{color:var(--pink);font-weight:700;}
+  .bk-svc{font-size:13px;margin-top:2px;}
+  .bdg{font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px;white-space:nowrap;}
+  .b-done{background:#eafbf0;color:var(--green);}.b-wait{background:#fff4e5;color:#b9770a;}.b-pend{background:#fff0f6;color:var(--pink);}
+
+  .nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:#fff;border-top:1px solid var(--line);}
+  .nav button{flex:1;border:none;background:none;font-family:inherit;font-size:12px;color:var(--muted);padding:10px 4px 14px;display:flex;flex-direction:column;align-items:center;gap:2px;}
+  .nav button .i{font-size:20px;}.nav button.on{color:var(--pink);font-weight:600;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="mock-tag">MOCKUP · หน้าจริง + Forecast แบบ A</span>
+  <h1>🌸 ระบบจองคิว</h1>
+  <p class="sub">แก้ไขบริการ · วันเปิด-ปิด · เวลา · ข้อมูลร้าน</p>
+
+  <div class="period">
+    <div class="seg">
+      <button>เมื่อวาน</button><button class="on">วันนี้</button><button>พรุ่งนี้</button>
+      <button>เดือนนี้</button><button>เลือกวัน</button><button>เลือกเดือน</button>
+    </div>
+  </div>
+  <p class="rep-label">วันนี้ · เสาร์ 4 ก.ค. 69</p>
+
+  <!-- 🔮 FORECAST -->
+  <div class="fc">
+    <div class="fc-top"><span class="ic">🔮</span><span class="t">คาดว่าจะได้ทั้งวันนี้</span></div>
+    <div class="fc-val">฿6,200</div>
+    <div class="fc-sub">จากคิวทั้งหมดวันนี้ 13 คิว (รอยืนยัน+รอรับ+เสร็จแล้ว)</div>
+    <div class="bar"><span></span></div>
+    <div class="legend">
+      <span class="done">✅ ทำแล้ว ฿2,856</span>
+      <span class="left">⏳ รออีก ฿3,344 (8 คิว)</span>
+    </div>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="l">💰 ยอดขาย (เสร็จแล้ว)</div><div class="v">฿2,856</div></div>
+    <div class="kpi"><div class="l">📅 คิวเสร็จแล้ว</div><div class="v">5 คิว</div><div class="s">รอรับ 3 · รอยืนยัน 1</div></div>
+    <div class="kpi"><div class="l">🎫 มัดจำรับล่วงหน้า</div><div class="v">฿1,400</div></div>
+    <div class="kpi"><div class="l">🏪 รับหน้าร้าน</div><div class="v">฿2,056</div></div>
+  </div>
+
+  <div class="card">
+    <h2>แยกตามบริการ (ที่เสร็จแล้ว)</h2>
+    <div class="donut-wrap"><div class="donut"></div><div class="donut-c"><b>฿2,856</b><span>ยอดขายรวม</span></div></div>
+    <div class="bs"><span><span class="dot" style="background:#e75a8a"></span>Wet Look 5D-10D · 1 คิว</span><span style="color:var(--pink);font-weight:600">฿799 · 28%</span></div>
+    <div class="bs"><span><span class="dot" style="background:#ff7b54"></span>Volume Lash · 1 คิว</span><span style="color:var(--pink);font-weight:600">฿999 · 35%</span></div>
+    <div class="bs"><span><span class="dot" style="background:#ffc2d8"></span>Classic Lash · 1 คิว</span><span style="color:var(--pink);font-weight:600">฿599 · 21%</span></div>
+    <div class="bs"><span><span class="dot" style="background:#ff9ec4"></span>Anime · 1 คิว</span><span style="color:var(--pink);font-weight:600">฿459 · 16%</span></div>
+  </div>
+
+  <button class="btn">➕ เพิ่มคิวเอง (Walk-in)</button>
+
+  <div class="card">
+    <h2>รายการคิว</h2>
+    <div class="bk"><div class="bk-top"><div><span class="bk-time">11:00</span> คุณมายด์<div class="bk-svc">Volume Lash · ฿999</div></div><span class="bdg b-done">✅ เสร็จแล้ว</span></div></div>
+    <div class="bk"><div class="bk-top"><div><span class="bk-time">13:30</span> คุณนุ่น<div class="bk-svc">Wet Look 5D-10D · ฿799</div></div><span class="bdg b-wait">⏳ รอรับบริการ</span></div></div>
+    <div class="bk"><div class="bk-top"><div><span class="bk-time">15:00</span> คุณเบล<div class="bk-svc">Classic Lash · ฿599</div></div><span class="bdg b-pend">🌸 รอยืนยัน</span></div></div>
+  </div>
+</div>
+
+<nav class="nav"><button class="on"><span class="i">📊</span>รายงาน</button><button><span class="i">⚙️</span>ตั้งค่า</button></nav>
+</body>
+</html>
