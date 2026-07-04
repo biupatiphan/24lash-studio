@@ -1562,10 +1562,10 @@
     "endISO": "2026-07-04T12:00:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-06-30T13:43:01.891Z",
-    "updatedAt": "2026-06-30T15:15:48.773Z"
+    "updatedAt": "2026-07-04T04:21:31.260Z"
   },
   {
     "id": "BK4532CD",
