@@ -107,6 +107,19 @@
     .seg button.on { background: linear-gradient(135deg,#ff9ec4,#e75a8a); color: #fff; font-weight: 600; }
     .rep-label { text-align: center; font-size: 13px; color: #9b8b92; margin: 6px 0 14px; }
 
+    /* forecast card */
+    .fc { background: linear-gradient(135deg,#fff,#fff6fa); border: 1.5px solid #ffc2d8; border-radius: 20px; padding: 18px; margin-bottom: 16px; box-shadow: 0 10px 30px rgba(231,90,138,.12); }
+    .fc-top { display: flex; align-items: center; gap: 8px; }
+    .fc-top .ic { font-size: 20px; }
+    .fc-top .t { font-size: 14px; font-weight: 600; color: #e75a8a; }
+    .fc-val { font-size: 34px; font-weight: 800; color: #e75a8a; font-family: 'Mali',sans-serif; line-height: 1.1; margin: 8px 0 2px; }
+    .fc-sub { font-size: 12px; color: #9b8b92; }
+    .fc-bar { height: 14px; background: #fff0f6; border-radius: 999px; overflow: hidden; margin: 14px 0 8px; border: 1px solid #ffd9e6; }
+    .fc-bar > span { display: block; height: 100%; background: linear-gradient(90deg,#3ddc84,#1e8e4e); border-radius: 999px; transition: width .4s; }
+    .fc-legend { display: flex; justify-content: space-between; font-size: 12.5px; }
+    .fc-legend .done { color: #1e8e4e; font-weight: 600; }
+    .fc-legend .left { color: #e75a8a; font-weight: 600; }
+
     /* KPI */
     .kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
     .kpi { background: #fff; border: 1px solid #ffd9e6; border-radius: 16px; padding: 14px; box-shadow: 0 6px 18px rgba(231,90,138,.06); }
@@ -208,6 +221,14 @@
           </div>
         </div>
         <p class="rep-label" id="repLabel"></p>
+
+        <div class="fc hide" id="forecastCard">
+          <div class="fc-top"><span class="ic">🔮</span><span class="t">ยอดขายที่คิดว่าจะได้วันนี้</span></div>
+          <div class="fc-val" id="fcVal">฿0</div>
+          <div class="fc-sub" id="fcSub"></div>
+          <div class="fc-bar"><span id="fcBar" style="width:0%"></span></div>
+          <div class="fc-legend"><span class="done" id="fcDone"></span><span class="left" id="fcLeft"></span></div>
+        </div>
 
         <div class="kpis" id="kpis"></div>
 

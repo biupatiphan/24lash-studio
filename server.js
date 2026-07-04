@@ -484,6 +484,9 @@ app.get('/api/admin/report', (req, res) => {
     doneCount: done.length,
     depositTotal: sum(depositList, (b) => b.depositAmount),
     onSiteTotal: sum(done, (b) => (Number(b.price) || 0) - (Number(b.depositAmount) || 0)),
+    // คาดการณ์: ราคารวมของทุกคิวที่ยังอยู่ (ไม่นับ ไม่มา/ยกเลิก)
+    forecast: sum(depositList, (b) => b.price),
+    forecastCount: depositList.length,
     counts: {
       pending: list.filter((b) => b.status === store.STATUS.PENDING).length,
       confirmed: list.filter((b) => b.status === store.STATUS.CONFIRMED).length,
