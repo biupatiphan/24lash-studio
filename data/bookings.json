@@ -1072,11 +1072,11 @@
     "name": "ปูเป้",
     "email": "Wacharaporn.2545@gmail.com",
     "phone": "0640786334",
-    "serviceId": "wet-look-3d-4d",
+    "serviceId": "wet-look-5d-10d",
     "serviceIds": [
       "wet-look-3d-4d"
     ],
-    "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-07-04",
     "dateLabel": "วันเสาร์ที่ 4 กรกฎาคม 2569",
     "time": "12:00",
@@ -1085,12 +1085,12 @@
     "endMinutes": 780,
     "startISO": "2026-07-04T12:00:00+07:00",
     "endISO": "2026-07-04T13:00:00+07:00",
-    "price": 629,
+    "price": 799,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-06-23T15:47:04.142Z",
-    "updatedAt": "2026-07-02T14:41:42.946Z"
+    "updatedAt": "2026-07-04T06:10:38.127Z"
   },
   {
     "id": "BKB11953",
