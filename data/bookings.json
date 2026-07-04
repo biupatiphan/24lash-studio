@@ -1787,10 +1787,10 @@
     "endISO": "2026-07-04T18:20:00+07:00",
     "price": 779,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-03T09:59:01.297Z",
-    "updatedAt": "2026-07-04T04:21:44.629Z"
+    "updatedAt": "2026-07-04T10:06:44.400Z"
   },
   {
     "id": "BKFC7CEC",
