@@ -1887,9 +1887,10 @@
     "endISO": "2026-07-04T19:00:00+07:00",
     "price": 629,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
-    "createdAt": "2026-07-04T07:42:07.549Z"
+    "createdAt": "2026-07-04T07:42:07.549Z",
+    "updatedAt": "2026-07-04T12:00:55.869Z"
   },
   {
     "id": "WKB39E8B",
