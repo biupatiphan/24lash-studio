@@ -529,8 +529,8 @@
     "name": "หวานจัง",
     "email": "phathrasmpha@gmail.com",
     "phone": "0984781372",
-    "serviceId": "anime",
-    "serviceName": "Anime ไม่จำกัดเส้นและความยาว/เคลมฟรี",
+    "serviceId": "wet-look-3d-4d",
+    "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-07-04",
     "dateLabel": "วันเสาร์ที่ 4 กรกฎาคม 2569",
     "time": "09:00",
@@ -541,10 +541,10 @@
     "endISO": "2026-07-04T10:00:00+07:00",
     "price": 629,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-06-16T02:06:04.584Z",
-    "updatedAt": "2026-07-04T02:30:41.663Z"
+    "updatedAt": "2026-07-04T04:21:29.655Z"
   },
   {
     "id": "BK551310",
