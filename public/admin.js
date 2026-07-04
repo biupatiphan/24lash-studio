@@ -546,18 +546,20 @@ async function loadReport() {
   }
 }
 
-// การ์ดคาดการณ์ยอดวันนี้ (โชว์เฉพาะ "วันนี้")
+// การ์ดคาดการณ์ยอด (โชว์เฉพาะ "วันนี้" และ "พรุ่งนี้")
 function renderForecast(r) {
   const card = $('#forecastCard');
-  if (currentRange !== 'today') { card.classList.add('hide'); return; }
+  if (currentRange !== 'today' && currentRange !== 'tomorrow') { card.classList.add('hide'); return; }
   card.classList.remove('hide');
+  const when = currentRange === 'tomorrow' ? 'พรุ่งนี้' : 'วันนี้';
+  card.querySelector('.t').textContent = `ยอดขายที่คิดว่าจะได้${when}`;
   const forecast = Number(r.forecast) || 0;
   const done = Number(r.totalSales) || 0;
   const remaining = Math.max(0, forecast - done);
   const pct = forecast > 0 ? Math.round((done / forecast) * 100) : 0;
   const remainCount = (r.forecastCount || 0) - (r.doneCount || 0);
   $('#fcVal').textContent = baht(forecast);
-  $('#fcSub').textContent = `จากคิวทั้งหมดวันนี้ ${r.forecastCount || 0} คิว (ไม่นับ ไม่มา/ยกเลิก)`;
+  $('#fcSub').textContent = `จากคิวทั้งหมด${when} ${r.forecastCount || 0} คิว (ไม่นับ ไม่มา/ยกเลิก)`;
   $('#fcBar').style.width = pct + '%';
   $('#fcDone').textContent = `✅ ทำแล้ว ${baht(done)}`;
   $('#fcLeft').textContent = `⏳ รออีก ${baht(remaining)} (${remainCount} คิว)`;
