@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MOCKUP · คาดการณ์ยอดวันนี้</title>
+<link href="https://fonts.googleapis.com/css2?family=Mali:wght@500;600;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{ --pink:#e75a8a; --pink2:#ff9ec4; --pink3:#ffc2d8; --soft:#fff0f6; --ink:#5a4a52; --muted:#9b8b92; --line:#ffd9e6; --green:#1e8e4e; }
+  *{box-sizing:border-box;}
+  body{margin:0;background:linear-gradient(135deg,#fff0f6,#ffe7f0);font-family:'Prompt',sans-serif;color:var(--ink);min-height:100vh;}
+  .wrap{max-width:440px;margin:0 auto;padding:16px 14px 60px;}
+  h1{font-family:'Mali',sans-serif;color:var(--pink);font-size:22px;text-align:center;margin:8px 0 2px;}
+  .mock-tag{display:block;text-align:center;font-size:11px;color:#b9770a;background:#fff4e5;border:1px dashed #ffcf8a;border-radius:999px;padding:4px 10px;margin:6px auto 18px;width:fit-content;}
+  .opt-label{font-size:13px;color:var(--pink);font-weight:600;margin:22px 0 8px;}
+
+  /* KPI ปกติ (อ้างอิง) */
+  .kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;}
+  .kpi{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:0 6px 18px rgba(231,90,138,.06);}
+  .kpi .l{font-size:12px;color:var(--muted);}
+  .kpi .v{font-size:20px;font-weight:700;color:var(--pink);margin-top:2px;}
+
+  /* ===== การ์ด forecast ===== */
+  .fc{background:linear-gradient(135deg,#fff,#fff6fa);border:1.5px solid var(--pink3);border-radius:20px;padding:18px;box-shadow:0 10px 30px rgba(231,90,138,.12);}
+  .fc-top{display:flex;align-items:center;gap:8px;}
+  .fc-top .ic{font-size:20px;}
+  .fc-top .t{font-size:14px;font-weight:600;color:var(--pink);}
+  .fc-val{font-size:34px;font-weight:800;color:var(--pink);font-family:'Mali',sans-serif;line-height:1.1;margin:8px 0 2px;}
+  .fc-sub{font-size:12px;color:var(--muted);}
+  .bar{height:14px;background:var(--soft);border-radius:999px;overflow:hidden;margin:14px 0 8px;border:1px solid var(--line);}
+  .bar > span{display:block;height:100%;width:46%;background:linear-gradient(90deg,#3ddc84,#1e8e4e);border-radius:999px;}
+  .legend{display:flex;justify-content:space-between;font-size:12.5px;}
+  .legend .done{color:var(--green);font-weight:600;}
+  .legend .left{color:var(--pink);font-weight:600;}
+  .fc-note{font-size:11px;color:var(--muted);text-align:center;margin-top:12px;line-height:1.6;}
+
+  /* แบบ B: การ์ด KPI เพิ่ม 1 ช่อง */
+  .kpi.fc-mini{background:linear-gradient(135deg,#fff6fa,#ffeaf3);border-color:var(--pink3);}
+  .kpi.fc-mini .l{color:var(--pink);}
+  .kpi.fc-mini .v{color:var(--pink);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🔮 คาดการณ์ยอดวันนี้</h1>
+  <span class="mock-tag">MOCKUP · เลือกแบบที่ชอบ</span>
+
+  <div class="opt-label">✅ แบบ A — การ์ดใหญ่ (เด่น + มีแถบความคืบหน้า)</div>
+  <div class="fc">
+    <div class="fc-top"><span class="ic">🔮</span><span class="t">คาดว่าจะได้ทั้งวันนี้</span></div>
+    <div class="fc-val">฿6,200</div>
+    <div class="fc-sub">จากคิวทั้งหมดวันนี้ 13 คิว (รอยืนยัน+รอรับ+เสร็จแล้ว)</div>
+    <div class="bar"><span></span></div>
+    <div class="legend">
+      <span class="done">✅ ทำแล้ว ฿2,856</span>
+      <span class="left">⏳ รออีก ฿3,344</span>
+    </div>
+    <div class="fc-note">คิดจากราคาบริการของทุกคิวที่ยังอยู่ (ไม่นับ "ไม่มา/ยกเลิก")<br>เป็นตัวเลขคาดการณ์ — ยอดจริงนับตอนกด "เสร็จแล้ว"</div>
+  </div>
+
+  <div class="opt-label">✅ แบบ B — เพิ่มเป็นการ์ด KPI อีก 1 ช่อง (กะทัดรัด)</div>
+  <div class="kpis">
+    <div class="kpi"><div class="l">💰 ยอดขาย (เสร็จแล้ว)</div><div class="v">฿2,856</div></div>
+    <div class="kpi fc-mini"><div class="l">🔮 คาดทั้งวัน</div><div class="v">฿6,200</div><div class="fc-sub" style="margin-top:2px">รวม 13 คิว</div></div>
+    <div class="kpi"><div class="l">🎫 มัดจำรับล่วงหน้า</div><div class="v">฿1,400</div></div>
+    <div class="kpi"><div class="l">🏪 รับหน้าร้าน</div><div class="v">฿2,056</div></div>
+  </div>
+  <div class="fc-note">การ์ด "🔮 คาดทั้งวัน" แทรกเป็นช่องที่ 2 ในกลุ่ม KPI เดิม</div>
+
+  <div class="opt-label" style="margin-top:26px">📌 หมายเหตุ</div>
+  <div class="fc-note" style="text-align:left">
+    • forecast จะโชว์เฉพาะตอนกดดู <b>"วันนี้"</b> เท่านั้น (วันอื่น/เดือน ไม่ขึ้น)<br>
+    • ตัวเลขนี้ = ราคาบริการรวมของทุกคิววันนี้ที่ยังไม่ถูกยกเลิก → ช่วยให้ร้านเห็นว่า "ถ้าลูกค้ามาครบวันนี้จะได้ประมาณเท่าไหร่"
+  </div>
+</div>
+</body>
+</html>
