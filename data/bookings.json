@@ -1839,9 +1839,10 @@
     "endISO": "2026-07-05T16:00:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
-    "createdAt": "2026-07-04T04:47:59.849Z"
+    "createdAt": "2026-07-04T04:47:59.849Z",
+    "updatedAt": "2026-07-05T10:53:45.081Z"
   },
   {
     "id": "BKEE9114",
