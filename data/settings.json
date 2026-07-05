@@ -135,6 +135,14 @@
       "price": 0,
       "popular": false,
       "type": "main"
+    },
+    {
+      "id": "svc-18",
+      "name": "โปรนักศึกษา",
+      "duration": 60,
+      "price": 594,
+      "popular": false,
+      "type": "main"
     }
   ],
   "businessHours": {
