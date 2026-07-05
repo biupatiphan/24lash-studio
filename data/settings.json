@@ -143,6 +143,14 @@
       "price": 594,
       "popular": false,
       "type": "main"
+    },
+    {
+      "id": "svc-19",
+      "name": "ต่อขนตาล่าง",
+      "duration": 15,
+      "price": 150,
+      "popular": false,
+      "type": "addon"
     }
   ],
   "businessHours": {
