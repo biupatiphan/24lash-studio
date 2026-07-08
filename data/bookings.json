@@ -2183,20 +2183,20 @@
       "removal"
     ],
     "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
-    "date": "2026-07-09",
-    "dateLabel": "วันพฤหัสบดีที่ 9 กรกฎาคม 2569",
-    "time": "11:00",
-    "endTime": "12:20",
-    "startMinutes": 660,
-    "endMinutes": 740,
-    "startISO": "2026-07-09T11:00:00+07:00",
-    "endISO": "2026-07-09T12:20:00+07:00",
+    "date": "2026-07-08",
+    "dateLabel": "วันพุธที่ 8 กรกฎาคม 2569",
+    "time": "17:00",
+    "endTime": "18:20",
+    "startMinutes": 1020,
+    "endMinutes": 1100,
+    "startISO": "2026-07-08T17:00:00+07:00",
+    "endISO": "2026-07-08T18:20:00+07:00",
     "price": 749,
     "depositAmount": 200,
     "status": "confirmed",
     "source": "online",
     "createdAt": "2026-07-07T04:20:01.796Z",
-    "updatedAt": "2026-07-08T05:02:31.769Z"
+    "updatedAt": "2026-07-08T06:26:23.065Z"
   },
   {
     "id": "BKD7C986",
@@ -2243,9 +2243,8 @@
     "endISO": "2026-07-11T12:00:00+07:00",
     "price": 599,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "pending",
     "source": "online",
-    "createdAt": "2026-07-07T13:32:52.241Z",
-    "updatedAt": "2026-07-08T05:03:46.408Z"
+    "createdAt": "2026-07-07T13:32:52.241Z"
   }
 ]
