@@ -2252,11 +2252,11 @@
     "name": "Walk-in",
     "email": "",
     "phone": "",
-    "serviceId": "classic",
+    "serviceId": "wet-look-5d-10d",
     "serviceIds": [
       "classic"
     ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-07-08",
     "dateLabel": "วันพุธที่ 8 กรกฎาคม 2569",
     "time": "18:00",
@@ -2265,10 +2265,11 @@
     "endMinutes": 1140,
     "startISO": "2026-07-08T18:00:00+07:00",
     "endISO": "2026-07-08T19:00:00+07:00",
-    "price": 599,
+    "price": 899,
     "depositAmount": 0,
-    "status": "done",
+    "status": "confirmed",
     "source": "manual",
-    "createdAt": "2026-07-08T06:58:18.791Z"
+    "createdAt": "2026-07-08T06:58:18.791Z",
+    "updatedAt": "2026-07-08T09:04:40.939Z"
   }
 ]
