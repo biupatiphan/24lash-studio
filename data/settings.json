@@ -143,6 +143,14 @@
       "price": 150,
       "popular": false,
       "type": "addon"
+    },
+    {
+      "id": "whispy-wet",
+      "name": "Whispy Wet",
+      "duration": 60,
+      "price": 799,
+      "popular": false,
+      "type": "main"
     }
   ],
   "businessHours": {
