@@ -12,7 +12,7 @@
       "id": "volume",
       "name": "Volume Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 120,
-      "price": 1290,
+      "price": 1099,
       "popular": false,
       "type": "main"
     },
@@ -28,7 +28,7 @@
       "id": "refill",
       "name": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
-      "price": 799,
+      "price": 750,
       "popular": true,
       "type": "main"
     },
@@ -44,7 +44,7 @@
       "id": "whispy-classic",
       "name": "Whispy Classic ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
-      "price": 799,
+      "price": 699,
       "popular": false,
       "type": "main"
     },
@@ -52,7 +52,7 @@
       "id": "whispy-volume",
       "name": "Whispy Volume ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
-      "price": 999,
+      "price": 950,
       "popular": false,
       "type": "main"
     },
@@ -60,7 +60,7 @@
       "id": "wet-look-3d-4d",
       "name": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
-      "price": 799,
+      "price": 750,
       "popular": false,
       "type": "main"
     },
@@ -108,7 +108,7 @@
       "id": "wet-wispy",
       "name": "Wet Wispy ไม่จำกัดเส้นและความยาว/เคลมฟรี",
       "duration": 60,
-      "price": 799,
+      "price": 699,
       "popular": false,
       "type": "main"
     },
@@ -124,7 +124,7 @@
       "id": "anime",
       "name": "Anime ไม่จำกัดเส้นและความยาว/เคลมฟรี",
       "duration": 60,
-      "price": 799,
+      "price": 750,
       "popular": false,
       "type": "main"
     },
@@ -148,7 +148,7 @@
       "id": "whispy-wet",
       "name": "Whispy Wet",
       "duration": 60,
-      "price": 799,
+      "price": 750,
       "popular": false,
       "type": "main"
     }
