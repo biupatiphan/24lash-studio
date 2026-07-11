@@ -2505,23 +2505,24 @@
     "phone": "",
     "serviceId": "refill",
     "serviceIds": [
-      "refill"
+      "refill",
+      "svc-19"
     ],
-    "serviceName": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี + ต่อขนตาล่าง",
     "date": "2026-07-11",
     "dateLabel": "วันเสาร์ที่ 11 กรกฎาคม 2569",
     "time": "20:00",
-    "endTime": "21:00",
+    "endTime": "21:15",
     "startMinutes": 1200,
-    "endMinutes": 1260,
+    "endMinutes": 1275,
     "startISO": "2026-07-11T20:00:00+07:00",
-    "endISO": "2026-07-11T21:00:00+07:00",
+    "endISO": "2026-07-11T21:15:00+07:00",
     "price": 909,
     "depositAmount": 200,
     "status": "confirmed",
     "source": "manual",
     "createdAt": "2026-07-11T11:33:42.712Z",
-    "updatedAt": "2026-07-11T11:43:03.911Z"
+    "updatedAt": "2026-07-11T11:43:55.138Z"
   },
   {
     "id": "WKF64C17",
