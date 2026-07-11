@@ -2303,25 +2303,25 @@
     "name": "หวาน",
     "email": "phathrasmpha@gmail.com",
     "phone": "0984781372",
-    "serviceId": "svc-26",
+    "serviceId": "svc-19",
     "serviceIds": [
       "svc-26"
     ],
-    "serviceName": "เคลมฟรี",
+    "serviceName": "ต่อขนตาล่าง",
     "date": "2026-07-11",
     "dateLabel": "วันเสาร์ที่ 11 กรกฎาคม 2569",
     "time": "09:00",
-    "endTime": "10:00",
+    "endTime": "09:15",
     "startMinutes": 540,
-    "endMinutes": 600,
+    "endMinutes": 555,
     "startISO": "2026-07-11T09:00:00+07:00",
-    "endISO": "2026-07-11T10:00:00+07:00",
-    "price": 0,
+    "endISO": "2026-07-11T09:15:00+07:00",
+    "price": 150,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-09T06:39:41.723Z",
-    "updatedAt": "2026-07-10T19:19:04.160Z"
+    "updatedAt": "2026-07-11T02:56:52.112Z"
   },
   {
     "id": "BK1EDA55",
