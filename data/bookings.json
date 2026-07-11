@@ -2418,10 +2418,10 @@
     "endISO": "2026-07-11T16:00:00+07:00",
     "price": 750,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-10T11:51:01.166Z",
-    "updatedAt": "2026-07-10T11:51:29.997Z"
+    "updatedAt": "2026-07-11T09:20:13.892Z"
   },
   {
     "id": "WK580179",
