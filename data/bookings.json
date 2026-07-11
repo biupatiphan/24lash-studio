@@ -2531,22 +2531,23 @@
     "phone": "",
     "serviceId": "anime",
     "serviceIds": [
-      "anime"
+      "anime",
+      "svc-19"
     ],
-    "serviceName": "Anime ไม่จำกัดเส้นและความยาว/เคลมฟรี",
+    "serviceName": "Anime ไม่จำกัดเส้นและความยาว/เคลมฟรี + ต่อขนตาล่าง",
     "date": "2026-07-11",
     "dateLabel": "วันเสาร์ที่ 11 กรกฎาคม 2569",
     "time": "22:00",
-    "endTime": "23:00",
+    "endTime": "23:15",
     "startMinutes": 1320,
-    "endMinutes": 1380,
+    "endMinutes": 1395,
     "startISO": "2026-07-11T22:00:00+07:00",
-    "endISO": "2026-07-11T23:00:00+07:00",
+    "endISO": "2026-07-11T23:15:00+07:00",
     "price": 909,
     "depositAmount": 200,
     "status": "confirmed",
     "source": "manual",
     "createdAt": "2026-07-11T11:34:20.619Z",
-    "updatedAt": "2026-07-11T11:43:23.461Z"
+    "updatedAt": "2026-07-11T11:44:19.306Z"
   }
 ]
