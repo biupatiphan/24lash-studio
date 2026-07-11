@@ -503,7 +503,10 @@ app.post('/api/admin/bookings', async (req, res) => {
   if (!checkAdmin(req)) return res.status(401).json({ error: 'รหัสผ่านไม่ถูกต้อง' });
   try {
     const { name, phone, email, serviceId, date, time, price, depositAmount, status } = req.body;
-    if (!serviceId || !getService(serviceId)) return res.status(400).json({ error: 'กรุณาเลือกบริการ' });
+    // รองรับหลายบริการ: serviceIds (array) หรือ serviceId เดี่ยว (เข้ากันได้กับของเดิม)
+    let ids = Array.isArray(req.body.serviceIds) ? req.body.serviceIds.filter(Boolean) : [];
+    if (!ids.length && serviceId) ids = [serviceId];
+    if (!ids.length || !ids.every((sid) => getService(sid))) return res.status(400).json({ error: 'กรุณาเลือกบริการ' });
     if (!date || !DATE_RE.test(date)) return res.status(400).json({ error: 'วันที่ไม่ถูกต้อง' });
     if (!time || !HHMM_RE.test(time)) return res.status(400).json({ error: 'เวลาไม่ถูกต้อง' });
     const allowed = [store.STATUS.CONFIRMED, store.STATUS.DONE];
@@ -513,7 +516,7 @@ app.post('/api/admin/bookings', async (req, res) => {
       id: 'WK' + crypto.randomBytes(3).toString('hex').toUpperCase(),
       name: name || 'Walk-in',
       email: (email || '').trim(), phone: phone || '',
-      serviceId, date, time,
+      serviceIds: ids, date, time,
       price, depositAmount: depositAmount === undefined ? 0 : depositAmount,
       status: st, source: 'manual',
     });
@@ -544,17 +547,27 @@ app.post('/api/admin/bookings/:id', (req, res) => {
   const fields = {};
   const { serviceId, price, depositAmount, status, name, phone } = req.body;
 
-  // เปลี่ยนบริการ -> คำนวณชื่อ/ระยะเวลา/เวลาสิ้นสุด/ราคาใหม่
-  if (serviceId && serviceId !== current.serviceId) {
-    const svc = getService(serviceId);
-    if (!svc) return res.status(400).json({ error: 'ไม่พบบริการที่เลือก' });
-    fields.serviceId = serviceId;
-    fields.serviceName = svc.name;
-    const endMinutes = current.startMinutes + svc.duration;
-    fields.endMinutes = endMinutes;
-    fields.endTime = toHHMM(endMinutes);
-    fields.endISO = bangkokISO(current.date, endMinutes);
-    fields.price = svc.price; // เด้งราคาตามบริการใหม่ (จะถูก override ด้านล่างถ้าส่ง price มา)
+  // รองรับหลายบริการ: serviceIds (array) หรือ serviceId เดี่ยว (เข้ากันได้กับของเดิม)
+  let ids = Array.isArray(req.body.serviceIds) ? req.body.serviceIds.filter(Boolean) : null;
+  if (!ids && serviceId) ids = [serviceId];
+
+  // เปลี่ยนบริการ -> คำนวณชื่อ/ระยะเวลา/เวลาสิ้นสุด/ราคาใหม่ (เฉพาะเมื่อชุดบริการเปลี่ยนจริง)
+  if (ids && ids.length) {
+    const currentIds = (current.serviceIds && current.serviceIds.length) ? current.serviceIds : [current.serviceId];
+    const changed = ids.length !== currentIds.length || ids.some((id, i) => id !== currentIds[i]);
+    if (changed) {
+      const svcs = ids.map((sid) => getService(sid));
+      if (svcs.some((s) => !s)) return res.status(400).json({ error: 'ไม่พบบริการที่เลือก' });
+      const totalDuration = svcs.reduce((t, s) => t + s.duration, 0);
+      fields.serviceId = ids[0];
+      fields.serviceIds = ids;
+      fields.serviceName = svcs.map((s) => s.name).join(' + ');
+      const endMinutes = current.startMinutes + totalDuration;
+      fields.endMinutes = endMinutes;
+      fields.endTime = toHHMM(endMinutes);
+      fields.endISO = bangkokISO(current.date, endMinutes);
+      fields.price = svcs.reduce((t, s) => t + s.price, 0); // เด้งราคารวมตามบริการใหม่ (override ด้านล่างถ้าส่ง price มา)
+    }
   }
   if (price !== undefined && Number.isFinite(Number(price))) fields.price = Math.round(Number(price));
   if (depositAmount !== undefined && Number.isFinite(Number(depositAmount))) fields.depositAmount = Math.round(Number(depositAmount));

@@ -255,9 +255,12 @@
           <input type="tel" id="wkPhone" placeholder="08X-XXX-XXXX" />
           <label>อีเมล (ไม่บังคับ · กรอกแล้วระบบส่งรายละเอียดให้ลูกค้า)</label>
           <input type="email" id="wkEmail" placeholder="you@email.com" />
-          <div class="svc-grid2" style="margin-top:8px">
-            <div><label>บริการ</label><select id="wkService"></select></div>
-            <div><label>ราคา</label><input type="number" id="wkPrice" min="0" /></div>
+          <label style="margin-top:8px">บริการ (เลือกได้หลายรายการ)</label>
+          <div id="wkServices"></div>
+          <button type="button" id="wkAddSvc" style="width:100%;border:0.5px dashed #e59;border-radius:12px;background:transparent;color:#d4537e;padding:9px;font:inherit;cursor:pointer;margin-top:2px">+ เพิ่มบริการ</button>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding:9px 12px;background:#fbeaf0;border-radius:10px">
+            <span id="wkTotalNote" style="font-size:13px;color:#72243e">รวม 1 รายการ</span>
+            <span style="display:flex;align-items:center;gap:6px"><span style="font-size:13px;color:#72243e">ราคารวม ฿</span><input type="number" id="wkPrice" min="0" style="width:82px;margin:0;text-align:right" /></span>
           </div>
           <div class="svc-grid" style="grid-template-columns:1fr 1fr;margin-top:8px">
             <div><label>วันที่</label><input type="date" id="wkDate" /></div>

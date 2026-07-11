@@ -434,7 +434,7 @@ function setupBackoffice() {
     card.classList.toggle('hide');
     if (!card.classList.contains('hide')) initWalkinForm();
   });
-  $('#wkService').addEventListener('change', autoPrice);
+  $('#wkAddSvc').addEventListener('click', () => addWkServiceRow());
   $('#wkTime').addEventListener('change', () => {
     $('#wkTimeCustomWrap').classList.toggle('hide', $('#wkTime').value !== '__custom__');
   });
@@ -701,14 +701,16 @@ function renderBookings() {
   });
 }
 
-function editPanel(b) {
+// ตัวเลือกบริการของแต่ละแถวในหน้าแก้คิว — ถ้าบริการเดิมถูกลบไปแล้ว ใส่ option ล็อกไว้ให้เลือกค้างได้
+function edSvcOptions(selId, b) {
   let opts = settings.services.map((s) =>
-    `<option value="${s.id}" ${s.id === b.serviceId ? 'selected' : ''}>${escapeAttr(shortName(s.name))} — ฿${s.price.toLocaleString()}</option>`).join('');
-  // ถ้าบริการเดิมของคิวถูกลบไปแล้ว — ใส่ option ของมันไว้ (ล็อกไว้ไม่ให้เด้งไปบริการอื่นตอนกดบันทึก)
-  const exists = settings.services.some((s) => s.id === b.serviceId);
-  if (!exists) {
-    opts = `<option value="${escapeAttr(b.serviceId || '')}" selected>${escapeAttr(shortName(b.serviceName || 'บริการเดิม'))} — ฿${(Number(b.price) || 0).toLocaleString()} (บริการเดิม)</option>` + opts;
+    `<option value="${s.id}" ${s.id === selId ? 'selected' : ''}>${escapeAttr(shortName(s.name))} — ฿${s.price.toLocaleString()}</option>`).join('');
+  if (selId && !settings.services.some((s) => s.id === selId)) {
+    opts = `<option value="${escapeAttr(selId)}" selected>${escapeAttr(shortName((b && b.serviceName) || 'บริการเดิม'))} (บริการเดิม)</option>` + opts;
   }
+  return opts;
+}
+function editPanel(b) {
   return `
     <div class="bk-edit">
       <div class="lbl">ข้อมูลลูกค้า (เพิ่ม/แก้ได้):</div>
@@ -719,10 +721,12 @@ function editPanel(b) {
       <button class="btn-ghost ed-contact" type="button" style="width:100%">💾 บันทึกชื่อ/เบอร์</button>
       <p class="msg hide ed-cmsg"></p>
 
-      <div class="lbl">บริการจริงที่ทำ (แก้ได้):</div>
-      <div class="svc-grid2">
-        <select class="ed-svc">${opts}</select>
-        <input type="number" class="ed-price" value="${Number(b.price) || 0}" min="0" />
+      <div class="lbl">บริการจริงที่ทำ (เลือกได้หลายรายการ):</div>
+      <div class="ed-services"></div>
+      <button class="ed-add-svc" type="button" style="width:100%;border:0.5px dashed #e59;border-radius:12px;background:transparent;color:#d4537e;padding:9px;font:inherit;cursor:pointer;margin-top:2px">+ เพิ่มบริการ</button>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding:9px 12px;background:#fbeaf0;border-radius:10px">
+        <span class="ed-total-note" style="font-size:13px;color:#72243e">รวม 1 รายการ</span>
+        <span style="display:flex;align-items:center;gap:6px"><span style="font-size:13px;color:#72243e">ราคารวม ฿</span><input type="number" class="ed-price" value="${Number(b.price) || 0}" min="0" style="width:82px;margin:0;text-align:right" /></span>
       </div>
       <div class="lbl">กดเพื่อบันทึก + เปลี่ยนสถานะ:</div>
       <div class="st-pills">
@@ -749,13 +753,34 @@ function editPanel(b) {
     </div>`;
 }
 
+function edServiceIds(el) {
+  return [...el.querySelectorAll('.ed-services .ed-svc')].map((s) => s.value).filter(Boolean);
+}
+function recalcEdTotal(el) {
+  let total = 0;
+  edServiceIds(el).forEach((id) => { const s = settings.services.find((x) => x.id === id); if (s) total += s.price; });
+  el.querySelector('.ed-price').value = total;
+  el.querySelector('.ed-total-note').textContent = `รวม ${el.querySelectorAll('.ed-services .ed-svc').length} รายการ`;
+}
+function addEdServiceRow(el, b, selId, isFirst) {
+  const wrap = el.querySelector('.ed-services');
+  const row = document.createElement('div');
+  row.className = 'ed-svc-row';
+  row.style.cssText = 'display:flex;gap:8px;align-items:center;margin-bottom:8px';
+  row.innerHTML = `<select class="ed-svc" style="flex:1;margin:0">${edSvcOptions(selId, b)}</select>`
+    + (isFirst ? '' : `<button type="button" class="ed-svc-del" aria-label="ลบบริการนี้" style="width:36px;flex:none;margin:0;padding:0">✕</button>`);
+  wrap.appendChild(row);
+  row.querySelector('.ed-svc').addEventListener('change', () => recalcEdTotal(el));
+  const del = row.querySelector('.ed-svc-del');
+  if (del) del.addEventListener('click', () => { row.remove(); recalcEdTotal(el); });
+}
 function wireEdit(el, b) {
-  const svcSel = el.querySelector('.ed-svc');
   const priceInp = el.querySelector('.ed-price');
-  svcSel.addEventListener('change', () => {
-    const s = settings.services.find((x) => x.id === svcSel.value);
-    if (s) priceInp.value = s.price;
-  });
+  // สร้างแถวบริการจากคิวเดิม (รองรับหลายบริการ) — ไม่แตะราคารวมตอนโหลด เพื่อคงราคาที่บันทึกไว้
+  const ids = (Array.isArray(b.serviceIds) && b.serviceIds.length) ? b.serviceIds : [b.serviceId];
+  ids.forEach((id, i) => addEdServiceRow(el, b, id, i === 0));
+  el.querySelector('.ed-total-note').textContent = `รวม ${ids.length} รายการ`;
+  el.querySelector('.ed-add-svc').addEventListener('click', () => { addEdServiceRow(el, b, '', false); recalcEdTotal(el); });
 
   // บันทึกชื่อ/เบอร์ (เก็บ panel เปิดไว้)
   const contactBtn = el.querySelector('.ed-contact');
@@ -867,7 +892,7 @@ function wireEdit(el, b) {
         const res = await fetch(`/api/admin/bookings/${b.id}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'x-admin-password': password },
-          body: JSON.stringify({ serviceId: svcSel.value, price: Number(priceInp.value), status: btn.dataset.st }),
+          body: JSON.stringify({ serviceIds: edServiceIds(el), price: Number(priceInp.value), status: btn.dataset.st }),
         });
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || 'บันทึกไม่สำเร็จ');
@@ -883,28 +908,61 @@ function wireEdit(el, b) {
   });
 }
 
-// ---------- เพิ่มคิวเอง ----------
+// ---------- เพิ่มคิวเอง (รองรับหลายบริการ) ----------
+function wkSvcOptions(selId) {
+  return settings.services.map((s) =>
+    `<option value="${s.id}"${s.id === selId ? ' selected' : ''}>${escapeAttr(shortName(s.name))} — ฿${s.price.toLocaleString()}</option>`).join('');
+}
+function addWkServiceRow(selId) {
+  const wrap = $('#wkServices');
+  const isFirst = wrap.children.length === 0;
+  const svc = settings.services.find((s) => s.id === selId) || settings.services[0];
+  const sid = svc ? svc.id : '';
+  const row = document.createElement('div');
+  row.className = 'wk-svc-row';
+  row.style.cssText = 'display:flex;gap:8px;align-items:center;margin-bottom:8px';
+  row.innerHTML =
+    `<select class="wk-svc-sel" style="flex:1;margin:0">${wkSvcOptions(sid)}</select>`
+    + `<input type="number" class="wk-svc-price" min="0" style="width:82px;margin:0;text-align:right" value="${svc ? svc.price : 0}" />`
+    + (isFirst ? '' : `<button type="button" class="wk-svc-del" aria-label="ลบบริการนี้" style="width:36px;flex:none;margin:0;padding:0">✕</button>`);
+  wrap.appendChild(row);
+  const sel = row.querySelector('.wk-svc-sel');
+  const priceEl = row.querySelector('.wk-svc-price');
+  sel.addEventListener('change', () => {
+    const s = settings.services.find((x) => x.id === sel.value);
+    if (s) priceEl.value = s.price;
+    recalcWkTotal();
+  });
+  priceEl.addEventListener('input', recalcWkTotal);
+  const del = row.querySelector('.wk-svc-del');
+  if (del) del.addEventListener('click', () => { row.remove(); recalcWkTotal(); });
+  recalcWkTotal();
+}
+function recalcWkTotal() {
+  let total = 0;
+  document.querySelectorAll('#wkServices .wk-svc-price').forEach((el) => { total += Number(el.value) || 0; });
+  $('#wkPrice').value = total;
+  const n = document.querySelectorAll('#wkServices .wk-svc-row').length;
+  $('#wkTotalNote').textContent = `รวม ${n} รายการ`;
+}
 function initWalkinForm() {
-  $('#wkService').innerHTML = settings.services.map((s) =>
-    `<option value="${s.id}">${escapeAttr(shortName(s.name))} — ฿${s.price.toLocaleString()}</option>`).join('');
+  $('#wkServices').innerHTML = '';
+  addWkServiceRow();
   $('#wkTime').innerHTML = genSlots().map((t) => `<option value="${t}">${t} น.</option>`).join('')
     + '<option value="__custom__">⏰ กำหนดเวลาเอง…</option>';
   $('#wkTimeCustomWrap').classList.add('hide');
   if (!$('#wkDate').value) $('#wkDate').value = todayStr();
-  autoPrice();
-}
-function autoPrice() {
-  const s = settings.services.find((x) => x.id === $('#wkService').value);
-  if (s) $('#wkPrice').value = s.price;
 }
 async function saveWalkin() {
   const time = $('#wkTime').value === '__custom__' ? $('#wkTimeCustom').value : $('#wkTime').value;
   if (!time) { alert('กรุณาเลือกหรือกำหนดเวลา'); return; }
+  const serviceIds = [...document.querySelectorAll('#wkServices .wk-svc-sel')].map((el) => el.value).filter(Boolean);
+  if (!serviceIds.length) { alert('กรุณาเลือกบริการ'); return; }
   const body = {
     name: $('#wkName').value.trim(),
     phone: $('#wkPhone').value.trim(),
     email: $('#wkEmail').value.trim(),
-    serviceId: $('#wkService').value,
+    serviceIds,
     date: $('#wkDate').value,
     time,
     price: Number($('#wkPrice').value),
@@ -930,6 +988,8 @@ async function saveWalkin() {
     $('#wkName').value = '';
     $('#wkPhone').value = '';
     $('#wkEmail').value = '';
+    $('#wkServices').innerHTML = '';
+    addWkServiceRow();
     loadReport();
   } catch (e) {
     msg.className = 'msg err';
