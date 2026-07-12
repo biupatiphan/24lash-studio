@@ -2228,11 +2228,11 @@
     "name": "คุณดาเรีย",
     "email": "dariagolubevaa@gmail.com",
     "phone": "0654516090",
-    "serviceId": "classic",
+    "serviceId": "u-shape-lashes",
     "serviceIds": [
-      "classic"
+      "u-shape-lashes"
     ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "U shape Lashes ขนตาแกนยู / ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-07-12",
     "dateLabel": "วันอาทิตย์ที่ 12 กรกฎาคม 2569",
     "time": "17:00",
@@ -2241,12 +2241,12 @@
     "endMinutes": 1080,
     "startISO": "2026-07-12T17:00:00+07:00",
     "endISO": "2026-07-12T18:00:00+07:00",
-    "price": 599,
+    "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-07T13:32:52.241Z",
-    "updatedAt": "2026-07-12T06:07:17.445Z"
+    "updatedAt": "2026-07-12T13:06:14.678Z"
   },
   {
     "id": "WK826206",
