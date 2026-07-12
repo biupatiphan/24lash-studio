@@ -2243,10 +2243,10 @@
     "endISO": "2026-07-12T18:00:00+07:00",
     "price": 599,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "confirmed",
     "source": "online",
     "createdAt": "2026-07-07T13:32:52.241Z",
-    "updatedAt": "2026-07-11T02:56:30.763Z"
+    "updatedAt": "2026-07-12T06:07:17.445Z"
   },
   {
     "id": "WK826206",
