@@ -2670,9 +2670,10 @@
     "endISO": "2026-07-12T19:30:00+07:00",
     "price": 699,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
-    "createdAt": "2026-07-12T07:58:48.439Z"
+    "createdAt": "2026-07-12T07:58:48.439Z",
+    "updatedAt": "2026-07-12T13:06:18.287Z"
   },
   {
     "id": "BKAF24A2",
