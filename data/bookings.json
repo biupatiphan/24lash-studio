@@ -2620,10 +2620,10 @@
     "endISO": "2026-07-12T17:00:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
     "createdAt": "2026-07-12T06:07:43.386Z",
-    "updatedAt": "2026-07-12T07:15:09.453Z"
+    "updatedAt": "2026-07-12T09:47:48.112Z"
   },
   {
     "id": "WK641043",
