@@ -2630,11 +2630,11 @@
     "name": "Walkin",
     "email": "",
     "phone": "",
-    "serviceId": "classic",
+    "serviceId": "yy-shape-lashes-y",
     "serviceIds": [
-      "classic"
+      "yy-shape-lashes-y"
     ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "YY shape Lashes ขนตาแกนY/ไม่จำกัดเส้นและความยาว/เคลมฟรี",
     "date": "2026-07-12",
     "dateLabel": "วันอาทิตย์ที่ 12 กรกฎาคม 2569",
     "time": "14:00",
@@ -2643,12 +2643,12 @@
     "endMinutes": 900,
     "startISO": "2026-07-12T14:00:00+07:00",
     "endISO": "2026-07-12T15:00:00+07:00",
-    "price": 599,
+    "price": 649,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
     "createdAt": "2026-07-12T07:14:16.480Z",
-    "updatedAt": "2026-07-12T07:14:51.495Z"
+    "updatedAt": "2026-07-12T08:30:16.178Z"
   },
   {
     "id": "WKE76EE1",
