@@ -2557,22 +2557,24 @@
     "phone": "",
     "serviceId": "wet-wispy",
     "serviceIds": [
-      "wet-wispy"
+      "wet-wispy",
+      "svc-19"
     ],
-    "serviceName": "Wet Wispy ไม่จำกัดเส้นและความยาว/เคลมฟรี",
+    "serviceName": "Wet Wispy ไม่จำกัดเส้นและความยาว/เคลมฟรี + ต่อขนตาล่าง",
     "date": "2026-07-12",
     "dateLabel": "วันอาทิตย์ที่ 12 กรกฎาคม 2569",
     "time": "13:00",
-    "endTime": "14:00",
+    "endTime": "14:15",
     "startMinutes": 780,
-    "endMinutes": 840,
+    "endMinutes": 855,
     "startISO": "2026-07-12T13:00:00+07:00",
-    "endISO": "2026-07-12T14:00:00+07:00",
-    "price": 699,
+    "endISO": "2026-07-12T14:15:00+07:00",
+    "price": 799,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
-    "createdAt": "2026-07-11T12:33:59.972Z"
+    "createdAt": "2026-07-11T12:33:59.972Z",
+    "updatedAt": "2026-07-12T07:31:16.873Z"
   },
   {
     "id": "BK3A1BF1",
