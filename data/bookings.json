@@ -2744,9 +2744,10 @@
     "endISO": "2026-07-13T18:00:00+07:00",
     "price": 699,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
-    "createdAt": "2026-07-13T09:36:17.704Z"
+    "createdAt": "2026-07-13T09:36:17.704Z",
+    "updatedAt": "2026-07-13T13:47:52.562Z"
   },
   {
     "id": "BK1E7CEF",
