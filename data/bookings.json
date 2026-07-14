@@ -2880,24 +2880,26 @@
     "name": "น้ำหวาน",
     "email": "whanwhansrikajonjit@gmail.com",
     "phone": "0629647426",
-    "serviceId": "wet-look-3d-4d",
+    "serviceId": "wet-look-5d-10d",
     "serviceIds": [
-      "wet-look-3d-4d"
+      "wet-look-5d-10d",
+      "removal"
     ],
-    "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
     "date": "2026-07-14",
     "dateLabel": "วันอังคารที่ 14 กรกฎาคม 2569",
     "time": "21:00",
-    "endTime": "22:00",
+    "endTime": "22:20",
     "startMinutes": 1260,
-    "endMinutes": 1320,
+    "endMinutes": 1340,
     "startISO": "2026-07-14T21:00:00+07:00",
-    "endISO": "2026-07-14T22:00:00+07:00",
-    "price": 699,
+    "endISO": "2026-07-14T22:20:00+07:00",
+    "price": 1049,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "done",
     "source": "online",
-    "createdAt": "2026-07-14T10:14:12.729Z"
+    "createdAt": "2026-07-14T10:14:12.729Z",
+    "updatedAt": "2026-07-14T14:43:13.433Z"
   },
   {
     "id": "WK0EF494",
