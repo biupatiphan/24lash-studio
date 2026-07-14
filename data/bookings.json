@@ -2806,23 +2806,24 @@
     "phone": "0652691792",
     "serviceId": "whispy-classic",
     "serviceIds": [
-      "whispy-classic"
+      "whispy-classic",
+      "svc-19"
     ],
-    "serviceName": "Whispy Classic ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Whispy Classic ไม่จำกัดเส้นและความยาว+เคลมฟรี + ต่อขนตาล่าง",
     "date": "2026-07-14",
     "dateLabel": "วันอังคารที่ 14 กรกฎาคม 2569",
     "time": "17:00",
-    "endTime": "18:00",
+    "endTime": "18:15",
     "startMinutes": 1020,
-    "endMinutes": 1080,
+    "endMinutes": 1095,
     "startISO": "2026-07-14T17:00:00+07:00",
-    "endISO": "2026-07-14T18:00:00+07:00",
-    "price": 699,
+    "endISO": "2026-07-14T18:15:00+07:00",
+    "price": 849,
     "depositAmount": 200,
     "status": "done",
     "source": "online",
     "createdAt": "2026-07-14T03:47:09.383Z",
-    "updatedAt": "2026-07-14T11:11:14.073Z"
+    "updatedAt": "2026-07-14T11:38:40.455Z"
   },
   {
     "id": "BK5FB344",
