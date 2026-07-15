@@ -2922,9 +2922,10 @@
     "endISO": "2026-07-15T16:00:00+07:00",
     "price": 899,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
-    "createdAt": "2026-07-14T14:16:16.738Z"
+    "createdAt": "2026-07-14T14:16:16.738Z",
+    "updatedAt": "2026-07-15T09:12:28.921Z"
   },
   {
     "id": "BK82DABB",
