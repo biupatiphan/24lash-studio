@@ -2596,9 +2596,10 @@
     "endISO": "2026-07-15T22:00:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "pending",
+    "status": "done",
     "source": "online",
-    "createdAt": "2026-07-12T02:31:47.025Z"
+    "createdAt": "2026-07-12T02:31:47.025Z",
+    "updatedAt": "2026-07-15T14:01:47.032Z"
   },
   {
     "id": "WKF126D7",
