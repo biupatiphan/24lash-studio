@@ -2845,10 +2845,10 @@
     "endISO": "2026-07-15T12:00:00+07:00",
     "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-14T06:38:45.799Z",
-    "updatedAt": "2026-07-14T06:47:28.254Z"
+    "updatedAt": "2026-07-15T04:57:56.142Z"
   },
   {
     "id": "BK10FB42",
