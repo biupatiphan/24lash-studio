@@ -3013,16 +3013,17 @@
     "serviceName": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-07-15",
     "dateLabel": "วันพุธที่ 15 กรกฎาคม 2569",
-    "time": "20:00",
-    "endTime": "21:00",
-    "startMinutes": 1200,
-    "endMinutes": 1260,
-    "startISO": "2026-07-15T20:00:00+07:00",
-    "endISO": "2026-07-15T21:00:00+07:00",
+    "time": "18:00",
+    "endTime": "19:00",
+    "startMinutes": 1080,
+    "endMinutes": 1140,
+    "startISO": "2026-07-15T18:00:00+07:00",
+    "endISO": "2026-07-15T19:00:00+07:00",
     "price": 759,
     "depositAmount": 200,
     "status": "confirmed",
     "source": "manual",
-    "createdAt": "2026-07-15T09:16:17.915Z"
+    "createdAt": "2026-07-15T09:16:17.915Z",
+    "updatedAt": "2026-07-15T09:17:03.363Z"
   }
 ]
