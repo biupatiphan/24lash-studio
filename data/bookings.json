@@ -3020,12 +3020,12 @@
     "endMinutes": 1140,
     "startISO": "2026-07-15T18:00:00+07:00",
     "endISO": "2026-07-15T19:00:00+07:00",
-    "price": 759,
+    "price": 733,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
     "createdAt": "2026-07-15T09:16:17.915Z",
-    "updatedAt": "2026-07-15T09:17:03.363Z"
+    "updatedAt": "2026-07-15T12:37:52.820Z"
   },
   {
     "id": "BK2003A3",
