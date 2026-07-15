@@ -3084,22 +3084,23 @@
     "phone": "0936953919",
     "serviceId": "svc-19",
     "serviceIds": [
-      "svc-19"
+      "svc-19",
+      "refill"
     ],
-    "serviceName": "ต่อขนตาล่าง",
+    "serviceName": "ต่อขนตาล่าง + Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-07-16",
     "dateLabel": "วันพฤหัสบดีที่ 16 กรกฎาคม 2569",
     "time": "09:00",
-    "endTime": "09:15",
+    "endTime": "10:15",
     "startMinutes": 540,
-    "endMinutes": 555,
+    "endMinutes": 615,
     "startISO": "2026-07-16T09:00:00+07:00",
-    "endISO": "2026-07-16T09:15:00+07:00",
-    "price": 150,
+    "endISO": "2026-07-16T10:15:00+07:00",
+    "price": 909,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-15T10:58:03.377Z",
-    "updatedAt": "2026-07-15T11:20:05.291Z"
+    "updatedAt": "2026-07-15T12:43:23.840Z"
   }
 ]
