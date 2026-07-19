@@ -3301,5 +3301,29 @@
     "status": "pending",
     "source": "online",
     "createdAt": "2026-07-19T11:10:35.132Z"
+  },
+  {
+    "id": "WKE9CACB",
+    "name": "K.syrup / IG",
+    "email": "",
+    "phone": "",
+    "serviceId": "svc-26",
+    "serviceIds": [
+      "svc-26"
+    ],
+    "serviceName": "เคลมฟรี",
+    "date": "2026-07-21",
+    "dateLabel": "วันอังคารที่ 21 กรกฎาคม 2569",
+    "time": "21:00",
+    "endTime": "22:00",
+    "startMinutes": 1260,
+    "endMinutes": 1320,
+    "startISO": "2026-07-21T21:00:00+07:00",
+    "endISO": "2026-07-21T22:00:00+07:00",
+    "price": 0,
+    "depositAmount": 0,
+    "status": "confirmed",
+    "source": "manual",
+    "createdAt": "2026-07-19T11:19:39.486Z"
   }
 ]
