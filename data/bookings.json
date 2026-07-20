@@ -2066,10 +2066,10 @@
     "endISO": "2026-07-20T14:00:00+07:00",
     "price": 799,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-05T11:51:50.001Z",
-    "updatedAt": "2026-07-05T12:34:13.743Z"
+    "updatedAt": "2026-07-20T07:16:44.706Z"
   },
   {
     "id": "WKF5FF63",
