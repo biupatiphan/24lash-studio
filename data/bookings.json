@@ -3299,10 +3299,10 @@
     "endISO": "2026-07-20T23:00:00+07:00",
     "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-19T11:10:35.132Z",
-    "updatedAt": "2026-07-19T16:27:50.827Z"
+    "updatedAt": "2026-07-20T13:48:51.144Z"
   },
   {
     "id": "WKE9CACB",
