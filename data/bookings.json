@@ -3384,23 +3384,24 @@
     "phone": "0931425359",
     "serviceId": "wet-wispy",
     "serviceIds": [
-      "wet-wispy"
+      "wet-wispy",
+      "svc-19"
     ],
-    "serviceName": "Wet Wispy ไม่จำกัดเส้นและความยาว/เคลมฟรี",
+    "serviceName": "Wet Wispy ไม่จำกัดเส้นและความยาว/เคลมฟรี + ต่อขนตาล่าง",
     "date": "2026-07-20",
     "dateLabel": "วันจันทร์ที่ 20 กรกฎาคม 2569",
     "time": "15:00",
-    "endTime": "16:00",
+    "endTime": "16:15",
     "startMinutes": 900,
-    "endMinutes": 960,
+    "endMinutes": 975,
     "startISO": "2026-07-20T15:00:00+07:00",
-    "endISO": "2026-07-20T16:00:00+07:00",
-    "price": 699,
+    "endISO": "2026-07-20T16:15:00+07:00",
+    "price": 849,
     "depositAmount": 200,
     "status": "confirmed",
     "source": "online",
     "createdAt": "2026-07-20T05:30:24.207Z",
-    "updatedAt": "2026-07-20T05:32:56.336Z"
+    "updatedAt": "2026-07-20T07:47:57.429Z"
   },
   {
     "id": "BK9B763D",
