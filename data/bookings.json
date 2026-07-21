@@ -3565,18 +3565,19 @@
       "removal"
     ],
     "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
-    "date": "2026-07-21",
-    "dateLabel": "วันอังคารที่ 21 กรกฎาคม 2569",
-    "time": "18:00",
-    "endTime": "19:20",
-    "startMinutes": 1080,
-    "endMinutes": 1160,
-    "startISO": "2026-07-21T18:00:00+07:00",
-    "endISO": "2026-07-21T19:20:00+07:00",
+    "date": "2026-07-22",
+    "dateLabel": "วันพุธที่ 22 กรกฎาคม 2569",
+    "time": "22:00",
+    "endTime": "23:20",
+    "startMinutes": 1320,
+    "endMinutes": 1400,
+    "startISO": "2026-07-22T22:00:00+07:00",
+    "endISO": "2026-07-22T23:20:00+07:00",
     "price": 849,
     "depositAmount": 200,
     "status": "confirmed",
     "source": "manual",
-    "createdAt": "2026-07-21T09:04:27.405Z"
+    "createdAt": "2026-07-21T09:04:27.405Z",
+    "updatedAt": "2026-07-21T09:20:33.965Z"
   }
 ]
