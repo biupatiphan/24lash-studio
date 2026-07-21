@@ -3325,9 +3325,10 @@
     "endISO": "2026-07-21T22:00:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
-    "createdAt": "2026-07-19T11:19:39.486Z"
+    "createdAt": "2026-07-19T11:19:39.486Z",
+    "updatedAt": "2026-07-21T14:00:01.057Z"
   },
   {
     "id": "BKC3052B",
