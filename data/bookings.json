@@ -3361,23 +3361,24 @@
     "phone": "0644514628",
     "serviceId": "wet-wispy",
     "serviceIds": [
-      "wet-wispy"
+      "wet-wispy",
+      "removal"
     ],
-    "serviceName": "Wet Wispy ไม่จำกัดเส้นและความยาว/เคลมฟรี",
+    "serviceName": "Wet Wispy ไม่จำกัดเส้นและความยาว/เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
     "date": "2026-07-21",
     "dateLabel": "วันอังคารที่ 21 กรกฎาคม 2569",
     "time": "19:00",
-    "endTime": "20:00",
+    "endTime": "20:20",
     "startMinutes": 1140,
-    "endMinutes": 1200,
+    "endMinutes": 1220,
     "startISO": "2026-07-21T19:00:00+07:00",
-    "endISO": "2026-07-21T20:00:00+07:00",
-    "price": 699,
+    "endISO": "2026-07-21T20:20:00+07:00",
+    "price": 749,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-19T16:25:07.188Z",
-    "updatedAt": "2026-07-19T16:26:22.307Z"
+    "updatedAt": "2026-07-21T12:32:17.902Z"
   },
   {
     "id": "BKA075EF",
