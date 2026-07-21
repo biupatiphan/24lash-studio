@@ -3633,30 +3633,5 @@
     "status": "pending",
     "source": "online",
     "createdAt": "2026-07-21T13:15:18.451Z"
-  },
-  {
-    "id": "WKBB1E9E",
-    "name": "Beam🔦 / Line",
-    "email": "",
-    "phone": "",
-    "serviceId": "whispy-volume",
-    "serviceIds": [
-      "whispy-volume"
-    ],
-    "serviceName": "Whispy Volume ไม่จำกัดเส้นและความยาว+เคลมฟรี",
-    "date": "2026-07-22",
-    "dateLabel": "วันพุธที่ 22 กรกฎาคม 2569",
-    "time": "20:00",
-    "endTime": "21:00",
-    "startMinutes": 1200,
-    "endMinutes": 1260,
-    "startISO": "2026-07-22T20:00:00+07:00",
-    "endISO": "2026-07-22T21:00:00+07:00",
-    "price": 899,
-    "depositAmount": 200,
-    "status": "noshow",
-    "source": "manual",
-    "createdAt": "2026-07-21T14:21:49.549Z",
-    "updatedAt": "2026-07-21T14:23:30.233Z"
   }
 ]
