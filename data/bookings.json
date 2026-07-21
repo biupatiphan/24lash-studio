@@ -3261,23 +3261,24 @@
     "phone": "0869045752",
     "serviceId": "yy-shape-lashes-y",
     "serviceIds": [
-      "yy-shape-lashes-y"
+      "yy-shape-lashes-y",
+      "removal"
     ],
-    "serviceName": "YY shape Lashes ขนตาแกนY/ไม่จำกัดเส้นและความยาว/เคลมฟรี",
+    "serviceName": "YY shape Lashes ขนตาแกนY/ไม่จำกัดเส้นและความยาว/เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
     "date": "2026-07-21",
     "dateLabel": "วันอังคารที่ 21 กรกฎาคม 2569",
     "time": "13:00",
-    "endTime": "14:00",
+    "endTime": "14:20",
     "startMinutes": 780,
-    "endMinutes": 840,
+    "endMinutes": 860,
     "startISO": "2026-07-21T13:00:00+07:00",
-    "endISO": "2026-07-21T14:00:00+07:00",
-    "price": 699,
+    "endISO": "2026-07-21T14:20:00+07:00",
+    "price": 849,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-19T06:40:57.287Z",
-    "updatedAt": "2026-07-19T07:06:19.411Z"
+    "updatedAt": "2026-07-21T07:12:59.701Z"
   },
   {
     "id": "BKAE49D3",
