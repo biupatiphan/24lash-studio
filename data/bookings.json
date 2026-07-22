@@ -3758,5 +3758,29 @@
     "status": "confirmed",
     "source": "manual",
     "createdAt": "2026-07-22T12:02:16.878Z"
+  },
+  {
+    "id": "WK5B6EB4",
+    "name": "Walk-in",
+    "email": "",
+    "phone": "",
+    "serviceId": "classic",
+    "serviceIds": [
+      "classic"
+    ],
+    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "date": "2026-07-22",
+    "dateLabel": "วันพุธที่ 22 กรกฎาคม 2569",
+    "time": "20:00",
+    "endTime": "21:00",
+    "startMinutes": 1200,
+    "endMinutes": 1260,
+    "startISO": "2026-07-22T20:00:00+07:00",
+    "endISO": "2026-07-22T21:00:00+07:00",
+    "price": 699,
+    "depositAmount": 200,
+    "status": "confirmed",
+    "source": "manual",
+    "createdAt": "2026-07-22T12:02:24.777Z"
   }
 ]
