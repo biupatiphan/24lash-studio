@@ -3428,9 +3428,10 @@
     "endISO": "2026-07-22T22:00:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "pending",
+    "status": "done",
     "source": "online",
-    "createdAt": "2026-07-20T06:51:47.348Z"
+    "createdAt": "2026-07-20T06:51:47.348Z",
+    "updatedAt": "2026-07-22T15:26:24.990Z"
   },
   {
     "id": "BK2CAC0A",
