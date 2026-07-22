@@ -3049,10 +3049,10 @@
     "endISO": "2026-07-22T20:00:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-15T09:21:45.049Z",
-    "updatedAt": "2026-07-15T09:35:13.203Z"
+    "updatedAt": "2026-07-22T12:07:42.528Z"
   },
   {
     "id": "WKB2B2FA",
