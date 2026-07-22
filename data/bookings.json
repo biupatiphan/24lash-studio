@@ -3436,11 +3436,11 @@
     "name": "Mine",
     "email": "warocha.chaochai@gmail.com",
     "phone": "0828966699",
-    "serviceId": "classic",
+    "serviceId": "wet-look-3d-4d",
     "serviceIds": [
-      "classic"
+      "wet-look-3d-4d"
     ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-07-22",
     "dateLabel": "วันพุธที่ 22 กรกฎาคม 2569",
     "time": "15:00",
@@ -3449,12 +3449,12 @@
     "endMinutes": 960,
     "startISO": "2026-07-22T15:00:00+07:00",
     "endISO": "2026-07-22T16:00:00+07:00",
-    "price": 599,
+    "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-20T07:19:02.039Z",
-    "updatedAt": "2026-07-20T07:21:57.077Z"
+    "updatedAt": "2026-07-22T09:15:41.164Z"
   },
   {
     "id": "BK3B8542",
