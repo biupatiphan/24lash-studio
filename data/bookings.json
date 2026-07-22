@@ -3124,10 +3124,10 @@
     "endISO": "2026-07-22T11:00:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-16T06:13:26.722Z",
-    "updatedAt": "2026-07-21T07:23:48.320Z"
+    "updatedAt": "2026-07-22T07:55:30.462Z"
   },
   {
     "id": "BK368357",
