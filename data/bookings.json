@@ -3928,9 +3928,10 @@
     "endISO": "2026-07-23T21:00:00+07:00",
     "price": 699,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
-    "createdAt": "2026-07-23T11:44:50.825Z"
+    "createdAt": "2026-07-23T11:44:50.825Z",
+    "updatedAt": "2026-07-23T14:11:05.960Z"
   },
   {
     "id": "BK715AF3",
