@@ -3969,16 +3969,17 @@
     "serviceName": "ต่อขนตาล่าง",
     "date": "2026-07-23",
     "dateLabel": "วันพฤหัสบดีที่ 23 กรกฎาคม 2569",
-    "time": "17:00",
-    "endTime": "17:15",
-    "startMinutes": 1020,
-    "endMinutes": 1035,
-    "startISO": "2026-07-23T17:00:00+07:00",
-    "endISO": "2026-07-23T17:15:00+07:00",
+    "time": "14:00",
+    "endTime": "14:15",
+    "startMinutes": 840,
+    "endMinutes": 855,
+    "startISO": "2026-07-23T14:00:00+07:00",
+    "endISO": "2026-07-23T14:15:00+07:00",
     "price": 150,
     "depositAmount": 150,
     "status": "confirmed",
     "source": "manual",
-    "createdAt": "2026-07-23T14:12:59.306Z"
+    "createdAt": "2026-07-23T14:12:59.306Z",
+    "updatedAt": "2026-07-23T17:12:32.406Z"
   }
 ]
