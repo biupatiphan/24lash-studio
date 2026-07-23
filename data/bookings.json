@@ -3656,10 +3656,10 @@
     "endISO": "2026-07-23T14:00:00+07:00",
     "price": 899,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
     "createdAt": "2026-07-21T14:24:57.598Z",
-    "updatedAt": "2026-07-22T11:55:30.085Z"
+    "updatedAt": "2026-07-23T07:20:06.768Z"
   },
   {
     "id": "BKAE186D",
