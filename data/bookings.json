@@ -3680,12 +3680,12 @@
     "endMinutes": 975,
     "startISO": "2026-07-23T15:00:00+07:00",
     "endISO": "2026-07-23T16:15:00+07:00",
-    "price": 849,
+    "price": 779,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-21T18:43:26.881Z",
-    "updatedAt": "2026-07-21T18:52:14.693Z"
+    "updatedAt": "2026-07-23T10:07:28.786Z"
   },
   {
     "id": "BKE2A0D0",
