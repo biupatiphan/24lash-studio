@@ -4012,11 +4012,11 @@
     "name": "คิม",
     "email": "massarin118@gmail.com",
     "phone": "0912325640",
-    "serviceId": "classic",
+    "serviceId": "yy-shape-lashes-y",
     "serviceIds": [
-      "classic"
+      "yy-shape-lashes-y"
     ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "YY shape Lashes ขนตาแกนY/ไม่จำกัดเส้นและความยาว/เคลมฟรี",
     "date": "2026-07-24",
     "dateLabel": "วันศุกร์ที่ 24 กรกฎาคม 2569",
     "time": "22:00",
@@ -4025,12 +4025,12 @@
     "endMinutes": 1360,
     "startISO": "2026-07-24T22:00:00+07:00",
     "endISO": "2026-07-24T22:40:00+07:00",
-    "price": 599,
+    "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-24T13:24:39.597Z",
-    "updatedAt": "2026-07-24T13:31:21.105Z"
+    "updatedAt": "2026-07-24T14:53:36.813Z"
   },
   {
     "id": "BKFF4C32",
