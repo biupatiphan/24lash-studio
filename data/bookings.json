@@ -2974,10 +2974,10 @@
     "endISO": "2026-07-24T19:00:00+07:00",
     "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-15T09:08:45.095Z",
-    "updatedAt": "2026-07-22T07:04:16.711Z"
+    "updatedAt": "2026-07-24T13:32:50.951Z"
   },
   {
     "id": "WKA291B2",
