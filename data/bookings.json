@@ -3489,26 +3489,25 @@
     "name": "วิว",
     "email": "Sumaetahsv@gmail.com",
     "phone": "0651049506",
-    "serviceId": "classic",
+    "serviceId": "u-shape-lashes",
     "serviceIds": [
-      "classic",
-      "removal"
+      "u-shape-lashes"
     ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
+    "serviceName": "U shape Lashes ขนตาแกนยู / ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-07-24",
     "dateLabel": "วันศุกร์ที่ 24 กรกฎาคม 2569",
     "time": "15:00",
-    "endTime": "16:20",
+    "endTime": "15:40",
     "startMinutes": 900,
-    "endMinutes": 980,
+    "endMinutes": 940,
     "startISO": "2026-07-24T15:00:00+07:00",
-    "endISO": "2026-07-24T16:20:00+07:00",
-    "price": 749,
+    "endISO": "2026-07-24T15:40:00+07:00",
+    "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-20T10:31:05.738Z",
-    "updatedAt": "2026-07-20T10:38:29.553Z"
+    "updatedAt": "2026-07-24T09:17:42.391Z"
   },
   {
     "id": "BK3B7419",
