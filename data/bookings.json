@@ -3865,23 +3865,24 @@
     "phone": "0802381113",
     "serviceId": "whispy-volume",
     "serviceIds": [
-      "whispy-volume"
+      "whispy-volume",
+      "removal"
     ],
-    "serviceName": "Whispy Volume ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Whispy Volume ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
     "date": "2026-07-25",
     "dateLabel": "วันเสาร์ที่ 25 กรกฎาคม 2569",
     "time": "16:00",
-    "endTime": "17:00",
+    "endTime": "17:10",
     "startMinutes": 960,
-    "endMinutes": 1020,
+    "endMinutes": 1030,
     "startISO": "2026-07-25T16:00:00+07:00",
-    "endISO": "2026-07-25T17:00:00+07:00",
-    "price": 899,
+    "endISO": "2026-07-25T17:10:00+07:00",
+    "price": 1049,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-23T05:53:38.802Z",
-    "updatedAt": "2026-07-23T05:59:25.038Z"
+    "updatedAt": "2026-07-25T10:12:40.232Z"
   },
   {
     "id": "WK31B826",
