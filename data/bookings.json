@@ -4066,11 +4066,11 @@
     "name": "บีม",
     "email": "beamnitchakarn@gmail.com",
     "phone": "0881126877",
-    "serviceId": "refill",
+    "serviceId": "wet-wispy",
     "serviceIds": [
-      "refill"
+      "wet-wispy"
     ],
-    "serviceName": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Wet Wispy ไม่จำกัดเส้นและความยาว/เคลมฟรี",
     "date": "2026-07-26",
     "dateLabel": "วันอาทิตย์ที่ 26 กรกฎาคม 2569",
     "time": "18:00",
@@ -4079,12 +4079,12 @@
     "endMinutes": 1120,
     "startISO": "2026-07-26T18:00:00+07:00",
     "endISO": "2026-07-26T18:40:00+07:00",
-    "price": 759,
+    "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-26T03:42:30.036Z",
-    "updatedAt": "2026-07-26T10:44:20.058Z"
+    "updatedAt": "2026-07-26T12:07:28.949Z"
   },
   {
     "id": "BK503CE6",
