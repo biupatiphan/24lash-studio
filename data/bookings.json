@@ -3631,9 +3631,10 @@
     "endISO": "2026-07-26T16:00:00+07:00",
     "price": 759,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "done",
     "source": "online",
-    "createdAt": "2026-07-21T13:15:18.451Z"
+    "createdAt": "2026-07-21T13:15:18.451Z",
+    "updatedAt": "2026-07-26T10:58:37.853Z"
   },
   {
     "id": "WKB5F670",
