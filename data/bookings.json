@@ -4054,9 +4054,10 @@
     "endISO": "2026-07-26T14:20:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "pending",
+    "status": "done",
     "source": "online",
-    "createdAt": "2026-07-26T02:35:00.829Z"
+    "createdAt": "2026-07-26T02:35:00.829Z",
+    "updatedAt": "2026-07-26T08:13:04.037Z"
   },
   {
     "id": "BK5A1DC6",
