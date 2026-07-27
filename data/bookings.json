@@ -4258,10 +4258,10 @@
     "endISO": "2026-07-27T22:00:00+07:00",
     "price": 449,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-27T09:18:14.868Z",
-    "updatedAt": "2026-07-27T09:19:15.007Z"
+    "updatedAt": "2026-07-27T15:10:30.768Z"
   },
   {
     "id": "BK247239",
