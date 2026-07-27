@@ -4207,10 +4207,10 @@
     "endISO": "2026-07-27T13:20:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
     "createdAt": "2026-07-27T05:17:04.474Z",
-    "updatedAt": "2026-07-27T06:07:08.391Z"
+    "updatedAt": "2026-07-27T08:42:07.888Z"
   },
   {
     "id": "BK33256D",
