@@ -4270,22 +4270,23 @@
     "phone": "0814146553",
     "serviceId": "refill",
     "serviceIds": [
-      "refill"
+      "refill",
+      "svc-19"
     ],
-    "serviceName": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี + ต่อขนตาล่าง",
     "date": "2026-07-27",
     "dateLabel": "วันจันทร์ที่ 27 กรกฎาคม 2569",
     "time": "20:00",
-    "endTime": "20:40",
+    "endTime": "20:55",
     "startMinutes": 1200,
-    "endMinutes": 1240,
+    "endMinutes": 1255,
     "startISO": "2026-07-27T20:00:00+07:00",
-    "endISO": "2026-07-27T20:40:00+07:00",
-    "price": 759,
+    "endISO": "2026-07-27T20:55:00+07:00",
+    "price": 909,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-27T10:52:28.766Z",
-    "updatedAt": "2026-07-27T10:53:10.067Z"
+    "updatedAt": "2026-07-27T13:05:40.318Z"
   }
 ]
