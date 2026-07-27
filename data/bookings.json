@@ -4238,31 +4238,6 @@
     "updatedAt": "2026-07-27T08:08:36.655Z"
   },
   {
-    "id": "WK33AA07",
-    "name": "K.aum /IG",
-    "email": "",
-    "phone": "",
-    "serviceId": "volume",
-    "serviceIds": [
-      "volume"
-    ],
-    "serviceName": "Volume Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
-    "date": "2026-07-27",
-    "dateLabel": "วันจันทร์ที่ 27 กรกฎาคม 2569",
-    "time": "18:00",
-    "endTime": "19:00",
-    "startMinutes": 1080,
-    "endMinutes": 1140,
-    "startISO": "2026-07-27T18:00:00+07:00",
-    "endISO": "2026-07-27T19:00:00+07:00",
-    "price": 1099,
-    "depositAmount": 0,
-    "status": "noshow",
-    "source": "manual",
-    "createdAt": "2026-07-27T08:42:34.725Z",
-    "updatedAt": "2026-07-27T09:34:40.515Z"
-  },
-  {
     "id": "BKE568EC",
     "name": "Sutthanuch Chomphusri",
     "email": "queenanila@hotmail.com",
