@@ -4120,23 +4120,24 @@
     "phone": "0949183662",
     "serviceId": "refill",
     "serviceIds": [
-      "refill"
+      "refill",
+      "removal"
     ],
-    "serviceName": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
     "date": "2026-07-27",
     "dateLabel": "วันจันทร์ที่ 27 กรกฎาคม 2569",
     "time": "19:00",
-    "endTime": "19:40",
+    "endTime": "19:50",
     "startMinutes": 1140,
-    "endMinutes": 1180,
+    "endMinutes": 1190,
     "startISO": "2026-07-27T19:00:00+07:00",
-    "endISO": "2026-07-27T19:40:00+07:00",
-    "price": 759,
+    "endISO": "2026-07-27T19:50:00+07:00",
+    "price": 909,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-26T14:19:14.613Z",
-    "updatedAt": "2026-07-26T14:19:40.739Z"
+    "updatedAt": "2026-07-27T12:55:44.690Z"
   },
   {
     "id": "WK05B412",
