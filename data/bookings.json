@@ -4294,11 +4294,11 @@
     "name": "Dream",
     "email": "dreamteerarat@gmail.com",
     "phone": "0930045566",
-    "serviceId": "classic",
+    "serviceId": "whispy-classic",
     "serviceIds": [
-      "classic"
+      "whispy-classic"
     ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Whispy Classic ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-07-28",
     "dateLabel": "วันอังคารที่ 28 กรกฎาคม 2569",
     "time": "11:00",
@@ -4307,12 +4307,12 @@
     "endMinutes": 700,
     "startISO": "2026-07-28T11:00:00+07:00",
     "endISO": "2026-07-28T11:40:00+07:00",
-    "price": 599,
+    "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-27T13:36:40.806Z",
-    "updatedAt": "2026-07-27T13:41:36.437Z"
+    "updatedAt": "2026-07-28T03:56:58.788Z"
   },
   {
     "id": "BK07C554",
