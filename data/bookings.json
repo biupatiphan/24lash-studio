@@ -4346,23 +4346,24 @@
     "phone": "0932421270",
     "serviceId": "refill",
     "serviceIds": [
-      "refill"
+      "refill",
+      "removal"
     ],
-    "serviceName": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
     "date": "2026-07-28",
     "dateLabel": "วันอังคารที่ 28 กรกฎาคม 2569",
     "time": "13:00",
-    "endTime": "13:40",
+    "endTime": "13:50",
     "startMinutes": 780,
-    "endMinutes": 820,
+    "endMinutes": 830,
     "startISO": "2026-07-28T13:00:00+07:00",
-    "endISO": "2026-07-28T13:40:00+07:00",
-    "price": 759,
+    "endISO": "2026-07-28T13:50:00+07:00",
+    "price": 909,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-27T14:13:32.495Z",
-    "updatedAt": "2026-07-27T14:19:20.180Z"
+    "updatedAt": "2026-07-28T07:26:13.878Z"
   },
   {
     "id": "BK37B807",
