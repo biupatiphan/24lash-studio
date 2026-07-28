@@ -4395,24 +4395,25 @@
     "name": "Success",
     "email": "ukabuikesuccess@gmail.com",
     "phone": "+2348057910832",
-    "serviceId": "whispy-volume",
+    "serviceId": "removal",
     "serviceIds": [
-      "whispy-volume"
+      "removal",
+      "volume"
     ],
-    "serviceName": "Whispy Volume ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Removal (ถอดขนตา) เริ่มต้น 50-150 + Volume Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-07-28",
     "dateLabel": "วันอังคารที่ 28 กรกฎาคม 2569",
     "time": "15:00",
-    "endTime": "16:00",
+    "endTime": "16:10",
     "startMinutes": 900,
-    "endMinutes": 960,
+    "endMinutes": 970,
     "startISO": "2026-07-28T15:00:00+07:00",
-    "endISO": "2026-07-28T16:00:00+07:00",
-    "price": 899,
+    "endISO": "2026-07-28T16:10:00+07:00",
+    "price": 1149,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-28T07:16:37.931Z",
-    "updatedAt": "2026-07-28T07:27:17.427Z"
+    "updatedAt": "2026-07-28T08:17:11.255Z"
   }
 ]
