@@ -4421,11 +4421,11 @@
     "name": "ไข่มุก",
     "email": "praparatmettajareonkaimook@gmail.com",
     "phone": "0928217415",
-    "serviceId": "classic",
+    "serviceId": "u-shape-lashes",
     "serviceIds": [
-      "classic"
+      "u-shape-lashes"
     ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "U shape Lashes ขนตาแกนยู / ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-07-28",
     "dateLabel": "วันอังคารที่ 28 กรกฎาคม 2569",
     "time": "17:00",
@@ -4434,12 +4434,12 @@
     "endMinutes": 1060,
     "startISO": "2026-07-28T17:00:00+07:00",
     "endISO": "2026-07-28T17:40:00+07:00",
-    "price": 599,
+    "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-28T08:33:50.753Z",
-    "updatedAt": "2026-07-28T08:41:07.649Z"
+    "updatedAt": "2026-07-28T11:01:50.500Z"
   },
   {
     "id": "BKB1035A",
