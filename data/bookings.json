@@ -4589,12 +4589,12 @@
     "endMinutes": 1255,
     "startISO": "2026-07-29T20:00:00+07:00",
     "endISO": "2026-07-29T20:55:00+07:00",
-    "price": 909,
+    "price": 989,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-28T23:26:20.236Z",
-    "updatedAt": "2026-07-29T03:34:26.418Z"
+    "updatedAt": "2026-07-29T14:21:42.119Z"
   },
   {
     "id": "BK43F9BE",
