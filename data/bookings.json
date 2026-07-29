@@ -4447,11 +4447,11 @@
     "name": "ชาลี",
     "email": "ccharliecapra@gmail.com",
     "phone": "0969068790",
-    "serviceId": "classic",
+    "serviceId": "u-shape-lashes",
     "serviceIds": [
-      "classic"
+      "u-shape-lashes"
     ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "U shape Lashes ขนตาแกนยู / ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-07-29",
     "dateLabel": "วันพุธที่ 29 กรกฎาคม 2569",
     "time": "13:00",
@@ -4460,12 +4460,12 @@
     "endMinutes": 820,
     "startISO": "2026-07-29T13:00:00+07:00",
     "endISO": "2026-07-29T13:40:00+07:00",
-    "price": 599,
+    "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-28T09:57:51.983Z",
-    "updatedAt": "2026-07-28T16:22:29.430Z"
+    "updatedAt": "2026-07-29T07:07:54.257Z"
   },
   {
     "id": "BKCA11F7",
