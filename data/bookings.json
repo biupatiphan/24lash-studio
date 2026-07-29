@@ -4763,12 +4763,12 @@
     "endMinutes": 1120,
     "startISO": "2026-07-29T18:00:00+07:00",
     "endISO": "2026-07-29T18:40:00+07:00",
-    "price": 759,
+    "price": 839,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-29T09:08:53.265Z",
-    "updatedAt": "2026-07-29T09:16:04.376Z"
+    "updatedAt": "2026-07-29T14:21:15.709Z"
   },
   {
     "id": "WKE6B342",
