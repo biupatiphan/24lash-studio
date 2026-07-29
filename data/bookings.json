@@ -4499,23 +4499,24 @@
     "phone": "0643531403",
     "serviceId": "wet-look-3d-4d",
     "serviceIds": [
-      "wet-look-3d-4d"
+      "wet-look-3d-4d",
+      "removal"
     ],
-    "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
     "date": "2026-07-29",
     "dateLabel": "วันพุธที่ 29 กรกฎาคม 2569",
     "time": "12:00",
-    "endTime": "12:40",
+    "endTime": "12:50",
     "startMinutes": 720,
-    "endMinutes": 760,
+    "endMinutes": 770,
     "startISO": "2026-07-29T12:00:00+07:00",
-    "endISO": "2026-07-29T12:40:00+07:00",
-    "price": 699,
+    "endISO": "2026-07-29T12:50:00+07:00",
+    "price": 849,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-28T12:49:18.611Z",
-    "updatedAt": "2026-07-28T12:50:35.236Z"
+    "updatedAt": "2026-07-29T06:15:55.359Z"
   },
   {
     "id": "BK3FB85F",
