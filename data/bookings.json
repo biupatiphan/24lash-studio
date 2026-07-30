@@ -4218,11 +4218,11 @@
     "name": "หมวย",
     "email": "pornthipnoolek@gmail.com",
     "phone": "66956952686",
-    "serviceId": "classic",
+    "serviceId": "u-shape-lashes",
     "serviceIds": [
-      "classic"
+      "u-shape-lashes"
     ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "U shape Lashes ขนตาแกนยู / ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-07-30",
     "dateLabel": "วันพฤหัสบดีที่ 30 กรกฎาคม 2569",
     "time": "15:00",
@@ -4231,12 +4231,12 @@
     "endMinutes": 940,
     "startISO": "2026-07-30T15:00:00+07:00",
     "endISO": "2026-07-30T15:40:00+07:00",
-    "price": 599,
+    "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-27T07:51:03.825Z",
-    "updatedAt": "2026-07-27T08:08:36.655Z"
+    "updatedAt": "2026-07-30T08:54:49.702Z"
   },
   {
     "id": "BKE568EC",
