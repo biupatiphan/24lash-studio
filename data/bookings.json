@@ -4921,5 +4921,29 @@
     "source": "online",
     "createdAt": "2026-07-30T13:03:29.774Z",
     "updatedAt": "2026-07-30T13:11:31.196Z"
+  },
+  {
+    "id": "WK161706",
+    "name": "K.0008/ whatsapp",
+    "email": "",
+    "phone": "",
+    "serviceId": "svc-26",
+    "serviceIds": [
+      "svc-26"
+    ],
+    "serviceName": "เคลมฟรี",
+    "date": "2026-07-30",
+    "dateLabel": "วันพฤหัสบดีที่ 30 กรกฎาคม 2569",
+    "time": "15:00",
+    "endTime": "15:20",
+    "startMinutes": 900,
+    "endMinutes": 920,
+    "startISO": "2026-07-30T15:00:00+07:00",
+    "endISO": "2026-07-30T15:20:00+07:00",
+    "price": 0,
+    "depositAmount": 0,
+    "status": "confirmed",
+    "source": "manual",
+    "createdAt": "2026-07-30T14:28:00.596Z"
   }
 ]
