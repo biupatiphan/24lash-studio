@@ -4626,11 +4626,11 @@
     "name": "ไอรินทร์",
     "email": "irin2550@gmail.com",
     "phone": "0945541422",
-    "serviceId": "classic",
+    "serviceId": "refill",
     "serviceIds": [
-      "classic"
+      "refill"
     ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-07-31",
     "dateLabel": "วันศุกร์ที่ 31 กรกฎาคม 2569",
     "time": "10:00",
@@ -4639,12 +4639,12 @@
     "endMinutes": 640,
     "startISO": "2026-07-31T10:00:00+07:00",
     "endISO": "2026-07-31T10:40:00+07:00",
-    "price": 599,
+    "price": 683,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-29T01:15:23.738Z",
-    "updatedAt": "2026-07-29T03:29:55.100Z"
+    "updatedAt": "2026-07-31T08:40:58.682Z"
   },
   {
     "id": "WKA6DB88",
