@@ -4842,10 +4842,10 @@
     "endISO": "2026-07-31T19:20:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-30T03:18:55.146Z",
-    "updatedAt": "2026-07-30T07:02:22.113Z"
+    "updatedAt": "2026-07-31T11:57:48.942Z"
   },
   {
     "id": "BK343E9B",
