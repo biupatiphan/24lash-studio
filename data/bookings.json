@@ -5052,26 +5052,25 @@
     "name": "Napasnan Pattarasoontornwong",
     "email": "punchslappunch@gmail.com",
     "phone": "0824592287",
-    "serviceId": "removal",
+    "serviceId": "whispy-volume",
     "serviceIds": [
-      "removal",
-      "wet-look-5d-10d"
+      "whispy-volume"
     ],
-    "serviceName": "Removal (ถอดขนตา) เริ่มต้น 50-150 + Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Whispy Volume ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-08-01",
     "dateLabel": "วันเสาร์ที่ 1 สิงหาคม 2569",
     "time": "13:00",
-    "endTime": "14:10",
+    "endTime": "14:00",
     "startMinutes": 780,
-    "endMinutes": 850,
+    "endMinutes": 840,
     "startISO": "2026-08-01T13:00:00+07:00",
-    "endISO": "2026-08-01T14:10:00+07:00",
-    "price": 1049,
+    "endISO": "2026-08-01T14:00:00+07:00",
+    "price": 899,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-31T09:00:38.076Z",
-    "updatedAt": "2026-07-31T09:00:59.872Z"
+    "updatedAt": "2026-08-01T05:56:05.125Z"
   },
   {
     "id": "BK5B2C57",
