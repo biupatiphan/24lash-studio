@@ -4803,24 +4803,23 @@
     "phone": "0634385628",
     "serviceId": "wet-look-5d-10d",
     "serviceIds": [
-      "wet-look-5d-10d",
-      "removal"
+      "wet-look-5d-10d"
     ],
-    "serviceName": "Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
+    "serviceName": "Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-08-01",
     "dateLabel": "วันเสาร์ที่ 1 สิงหาคม 2569",
     "time": "15:00",
-    "endTime": "16:10",
+    "endTime": "16:00",
     "startMinutes": 900,
-    "endMinutes": 970,
+    "endMinutes": 960,
     "startISO": "2026-08-01T15:00:00+07:00",
-    "endISO": "2026-08-01T16:10:00+07:00",
-    "price": 1049,
+    "endISO": "2026-08-01T16:00:00+07:00",
+    "price": 899,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-07-29T15:14:56.917Z",
-    "updatedAt": "2026-07-29T15:15:21.921Z"
+    "updatedAt": "2026-08-01T09:07:03.892Z"
   },
   {
     "id": "BK23328C",
