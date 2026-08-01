@@ -5054,23 +5054,24 @@
     "phone": "0824592287",
     "serviceId": "whispy-volume",
     "serviceIds": [
-      "whispy-volume"
+      "whispy-volume",
+      "removal"
     ],
-    "serviceName": "Whispy Volume ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Whispy Volume ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
     "date": "2026-08-01",
     "dateLabel": "วันเสาร์ที่ 1 สิงหาคม 2569",
     "time": "13:00",
-    "endTime": "14:00",
+    "endTime": "14:10",
     "startMinutes": 780,
-    "endMinutes": 840,
+    "endMinutes": 850,
     "startISO": "2026-08-01T13:00:00+07:00",
-    "endISO": "2026-08-01T14:00:00+07:00",
-    "price": 899,
+    "endISO": "2026-08-01T14:10:00+07:00",
+    "price": 1049,
     "depositAmount": 200,
     "status": "done",
     "source": "online",
     "createdAt": "2026-07-31T09:00:38.076Z",
-    "updatedAt": "2026-08-01T05:56:05.125Z"
+    "updatedAt": "2026-08-01T05:56:17.196Z"
   },
   {
     "id": "BK5B2C57",
