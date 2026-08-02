@@ -5278,24 +5278,25 @@
     "name": "พลอยพรรณ",
     "email": "ploypunlekh@gmail.com",
     "phone": "0845142526",
-    "serviceId": "classic",
+    "serviceId": "wet-wispy",
     "serviceIds": [
-      "classic"
+      "wet-wispy",
+      "removal"
     ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Wet Wispy ไม่จำกัดเส้นและความยาว/เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
     "date": "2026-08-02",
     "dateLabel": "วันอาทิตย์ที่ 2 สิงหาคม 2569",
     "time": "17:00",
-    "endTime": "17:40",
+    "endTime": "17:50",
     "startMinutes": 1020,
-    "endMinutes": 1060,
+    "endMinutes": 1070,
     "startISO": "2026-08-02T17:00:00+07:00",
-    "endISO": "2026-08-02T17:40:00+07:00",
-    "price": 599,
+    "endISO": "2026-08-02T17:50:00+07:00",
+    "price": 749,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-08-02T07:54:15.924Z",
-    "updatedAt": "2026-08-02T07:54:31.195Z"
+    "updatedAt": "2026-08-02T11:06:45.042Z"
   }
 ]
