@@ -5253,25 +5253,26 @@
     "name": "หนุน",
     "email": "hidekosun421@gmail.com",
     "phone": "0825932400",
-    "serviceId": "classic",
+    "serviceId": "u-shape-lashes",
     "serviceIds": [
-      "classic"
+      "u-shape-lashes",
+      "removal"
     ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "U shape Lashes ขนตาแกนยู / ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
     "date": "2026-08-03",
     "dateLabel": "วันจันทร์ที่ 3 สิงหาคม 2569",
     "time": "20:00",
-    "endTime": "20:40",
+    "endTime": "20:50",
     "startMinutes": 1200,
-    "endMinutes": 1240,
+    "endMinutes": 1250,
     "startISO": "2026-08-03T20:00:00+07:00",
-    "endISO": "2026-08-03T20:40:00+07:00",
-    "price": 599,
+    "endISO": "2026-08-03T20:50:00+07:00",
+    "price": 849,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-08-02T05:38:14.998Z",
-    "updatedAt": "2026-08-02T06:55:28.778Z"
+    "updatedAt": "2026-08-03T13:04:00.069Z"
   },
   {
     "id": "BKC4050A",
