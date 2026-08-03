@@ -5355,23 +5355,24 @@
     "phone": "0624432089",
     "serviceId": "refill",
     "serviceIds": [
-      "refill"
+      "refill",
+      "svc-19"
     ],
-    "serviceName": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี + ต่อขนตาล่าง",
     "date": "2026-08-03",
     "dateLabel": "วันจันทร์ที่ 3 สิงหาคม 2569",
     "time": "13:00",
-    "endTime": "13:40",
+    "endTime": "13:55",
     "startMinutes": 780,
-    "endMinutes": 820,
+    "endMinutes": 835,
     "startISO": "2026-08-03T13:00:00+07:00",
-    "endISO": "2026-08-03T13:40:00+07:00",
-    "price": 759,
+    "endISO": "2026-08-03T13:55:00+07:00",
+    "price": 909,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-08-03T04:57:00.533Z",
-    "updatedAt": "2026-08-03T04:57:29.836Z"
+    "updatedAt": "2026-08-03T07:30:28.181Z"
   },
   {
     "id": "BK1CDF1F",
