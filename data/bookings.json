@@ -5304,11 +5304,11 @@
     "name": "โสรญา ยิ่งเชิดเสือ",
     "email": "mew_lineska@windowslive.com",
     "phone": "0990687696",
-    "serviceId": "classic",
+    "serviceId": "u-shape-lashes",
     "serviceIds": [
-      "classic"
+      "u-shape-lashes"
     ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "U shape Lashes ขนตาแกนยู / ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-08-03",
     "dateLabel": "วันจันทร์ที่ 3 สิงหาคม 2569",
     "time": "19:00",
@@ -5317,11 +5317,12 @@
     "endMinutes": 1180,
     "startISO": "2026-08-03T19:00:00+07:00",
     "endISO": "2026-08-03T19:40:00+07:00",
-    "price": 599,
+    "price": 699,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "done",
     "source": "online",
-    "createdAt": "2026-08-03T04:42:39.839Z"
+    "createdAt": "2026-08-03T04:42:39.839Z",
+    "updatedAt": "2026-08-03T12:42:44.342Z"
   },
   {
     "id": "BK7E2DE8",
