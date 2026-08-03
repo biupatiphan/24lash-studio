@@ -4666,10 +4666,10 @@
     "endISO": "2026-08-03T14:00:00+07:00",
     "price": 899,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "noshow",
     "source": "manual",
     "createdAt": "2026-07-29T03:36:59.008Z",
-    "updatedAt": "2026-08-01T10:08:47.860Z"
+    "updatedAt": "2026-08-03T04:51:39.933Z"
   },
   {
     "id": "BK15C4C3",
