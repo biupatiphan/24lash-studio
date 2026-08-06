@@ -5645,17 +5645,17 @@
     "serviceName": "Whispy Wet",
     "date": "2026-08-07",
     "dateLabel": "วันศุกร์ที่ 7 สิงหาคม 2569",
-    "time": "20:00",
-    "endTime": "20:40",
-    "startMinutes": 1200,
-    "endMinutes": 1240,
-    "startISO": "2026-08-07T20:00:00+07:00",
-    "endISO": "2026-08-07T20:40:00+07:00",
+    "time": "10:00",
+    "endTime": "10:40",
+    "startMinutes": 600,
+    "endMinutes": 640,
+    "startISO": "2026-08-07T10:00:00+07:00",
+    "endISO": "2026-08-07T10:40:00+07:00",
     "price": 699,
     "depositAmount": 200,
     "status": "pending",
     "source": "online",
     "createdAt": "2026-08-06T11:48:28.207Z",
-    "updatedAt": "2026-08-06T12:16:39.116Z"
+    "updatedAt": "2026-08-06T13:06:21.161Z"
   }
 ]
