@@ -5604,5 +5604,29 @@
     "status": "confirmed",
     "source": "manual",
     "createdAt": "2026-08-06T09:29:09.999Z"
+  },
+  {
+    "id": "WKBDF204",
+    "name": "Walkin",
+    "email": "",
+    "phone": "",
+    "serviceId": "wet-wispy",
+    "serviceIds": [
+      "wet-wispy"
+    ],
+    "serviceName": "Wet Wispy ไม่จำกัดเส้นและความยาว/เคลมฟรี",
+    "date": "2026-08-06",
+    "dateLabel": "วันพฤหัสบดีที่ 6 สิงหาคม 2569",
+    "time": "17:00",
+    "endTime": "17:40",
+    "startMinutes": 1020,
+    "endMinutes": 1060,
+    "startISO": "2026-08-06T17:00:00+07:00",
+    "endISO": "2026-08-06T17:40:00+07:00",
+    "price": 699,
+    "depositAmount": 0,
+    "status": "confirmed",
+    "source": "manual",
+    "createdAt": "2026-08-06T09:29:24.631Z"
   }
 ]
