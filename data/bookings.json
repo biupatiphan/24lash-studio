@@ -5613,22 +5613,23 @@
     "phone": "",
     "serviceId": "anime",
     "serviceIds": [
-      "anime"
+      "anime",
+      "removal"
     ],
-    "serviceName": "Anime ไม่จำกัดเส้นและความยาว/เคลมฟรี",
+    "serviceName": "Anime ไม่จำกัดเส้นและความยาว/เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
     "date": "2026-08-06",
     "dateLabel": "วันพฤหัสบดีที่ 6 สิงหาคม 2569",
     "time": "17:00",
-    "endTime": "17:40",
+    "endTime": "17:50",
     "startMinutes": 1020,
-    "endMinutes": 1060,
+    "endMinutes": 1070,
     "startISO": "2026-08-06T17:00:00+07:00",
-    "endISO": "2026-08-06T17:40:00+07:00",
-    "price": 759,
+    "endISO": "2026-08-06T17:50:00+07:00",
+    "price": 909,
     "depositAmount": 0,
     "status": "done",
     "source": "manual",
     "createdAt": "2026-08-06T09:29:24.631Z",
-    "updatedAt": "2026-08-06T11:10:26.339Z"
+    "updatedAt": "2026-08-06T11:31:42.200Z"
   }
 ]
