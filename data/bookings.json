@@ -5092,9 +5092,10 @@
     "endISO": "2026-08-07T15:20:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "pending",
+    "status": "noshow",
     "source": "online",
-    "createdAt": "2026-07-31T12:17:43.349Z"
+    "createdAt": "2026-07-31T12:17:43.349Z",
+    "updatedAt": "2026-08-07T06:32:24.551Z"
   },
   {
     "id": "WKB495B2",
