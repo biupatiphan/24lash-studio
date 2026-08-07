@@ -5073,31 +5073,6 @@
     "updatedAt": "2026-08-01T05:56:17.196Z"
   },
   {
-    "id": "BK5B2C57",
-    "name": "หลิน",
-    "email": "c.sarintip@gmail.com",
-    "phone": "0949955936",
-    "serviceId": "svc-26",
-    "serviceIds": [
-      "svc-26"
-    ],
-    "serviceName": "เคลมฟรี",
-    "date": "2026-08-07",
-    "dateLabel": "วันศุกร์ที่ 7 สิงหาคม 2569",
-    "time": "15:00",
-    "endTime": "15:20",
-    "startMinutes": 900,
-    "endMinutes": 920,
-    "startISO": "2026-08-07T15:00:00+07:00",
-    "endISO": "2026-08-07T15:20:00+07:00",
-    "price": 0,
-    "depositAmount": 0,
-    "status": "noshow",
-    "source": "online",
-    "createdAt": "2026-07-31T12:17:43.349Z",
-    "updatedAt": "2026-08-07T06:32:24.551Z"
-  },
-  {
     "id": "WKB495B2",
     "name": "09:00/ลูกค้าเก่า",
     "email": "",
