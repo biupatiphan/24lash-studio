@@ -5666,23 +5666,24 @@
     "phone": "0988326575",
     "serviceId": "whispy-volume",
     "serviceIds": [
-      "whispy-volume"
+      "whispy-volume",
+      "removal"
     ],
-    "serviceName": "Whispy Volume ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Whispy Volume ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
     "date": "2026-08-07",
     "dateLabel": "วันศุกร์ที่ 7 สิงหาคม 2569",
     "time": "16:00",
-    "endTime": "17:00",
+    "endTime": "17:10",
     "startMinutes": 960,
-    "endMinutes": 1020,
+    "endMinutes": 1030,
     "startISO": "2026-08-07T16:00:00+07:00",
-    "endISO": "2026-08-07T17:00:00+07:00",
-    "price": 899,
+    "endISO": "2026-08-07T17:10:00+07:00",
+    "price": 1049,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-08-07T01:37:51.105Z",
-    "updatedAt": "2026-08-07T02:01:00.751Z"
+    "updatedAt": "2026-08-07T08:58:40.545Z"
   },
   {
     "id": "BK691D5E",
