@@ -5638,25 +5638,25 @@
     "name": "นริศ",
     "email": "wanderingofme01@gmail.com",
     "phone": "0959946298",
-    "serviceId": "wet-look-5d-10d",
+    "serviceId": "wet-wispy",
     "serviceIds": [
-      "wet-look-5d-10d"
+      "wet-wispy"
     ],
-    "serviceName": "Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Wet Wispy ไม่จำกัดเส้นและความยาว/เคลมฟรี",
     "date": "2026-08-07",
     "dateLabel": "วันศุกร์ที่ 7 สิงหาคม 2569",
     "time": "10:00",
-    "endTime": "11:00",
+    "endTime": "10:40",
     "startMinutes": 600,
-    "endMinutes": 660,
+    "endMinutes": 640,
     "startISO": "2026-08-07T10:00:00+07:00",
-    "endISO": "2026-08-07T11:00:00+07:00",
-    "price": 899,
+    "endISO": "2026-08-07T10:40:00+07:00",
+    "price": 699,
     "depositAmount": 200,
     "status": "done",
     "source": "online",
     "createdAt": "2026-08-06T11:48:28.207Z",
-    "updatedAt": "2026-08-07T03:58:15.651Z"
+    "updatedAt": "2026-08-07T06:17:42.776Z"
   },
   {
     "id": "WK6DA33A",
