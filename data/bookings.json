@@ -5487,11 +5487,11 @@
     "name": "Sunny",
     "email": "ponnalin26@gmail.com",
     "phone": "0876780179",
-    "serviceId": "wet-look-3d-4d",
+    "serviceId": "whispy-wet",
     "serviceIds": [
-      "wet-look-3d-4d"
+      "whispy-wet"
     ],
-    "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Whispy Wet",
     "date": "2026-08-07",
     "dateLabel": "วันศุกร์ที่ 7 สิงหาคม 2569",
     "time": "14:00",
@@ -5505,7 +5505,7 @@
     "status": "done",
     "source": "online",
     "createdAt": "2026-08-06T04:51:41.956Z",
-    "updatedAt": "2026-08-07T08:58:23.447Z"
+    "updatedAt": "2026-08-07T08:58:33.399Z"
   },
   {
     "id": "BK9EA2A9",
