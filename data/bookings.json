@@ -5663,11 +5663,11 @@
     "name": "K.นริศ",
     "email": "",
     "phone": "",
-    "serviceId": "anime",
+    "serviceId": "u-shape-lashes",
     "serviceIds": [
-      "anime"
+      "u-shape-lashes"
     ],
-    "serviceName": "Anime ไม่จำกัดเส้นและความยาว/เคลมฟรี",
+    "serviceName": "U shape Lashes ขนตาแกนยู / ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-08-07",
     "dateLabel": "วันศุกร์ที่ 7 สิงหาคม 2569",
     "time": "12:00",
@@ -5676,11 +5676,12 @@
     "endMinutes": 760,
     "startISO": "2026-08-07T12:00:00+07:00",
     "endISO": "2026-08-07T12:40:00+07:00",
-    "price": 759,
+    "price": 699,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
-    "createdAt": "2026-08-06T18:56:24.339Z"
+    "createdAt": "2026-08-06T18:56:24.339Z",
+    "updatedAt": "2026-08-07T03:58:24.193Z"
   },
   {
     "id": "BKD6AF32",
