@@ -75,6 +75,12 @@ function renderServices() {
         <div class="type-opt ${svcType(s) === 'main' ? 'on' : ''}" data-type="main" data-ti="${i}">🎀 ทรงต่อขนตา</div>
         <div class="type-opt ${svcType(s) === 'addon' ? 'on' : ''}" data-type="addon" data-ti="${i}">➕ บริการเสริม</div>
       </div>
+      <div class="pop-toggle ${s.soloOnly ? 'on' : ''}" data-solo="${i}">${s.soloOnly ? '🔒 จองเดี่ยว (กดเพื่อเอาออก)' : '☆ ให้จองเดี่ยว (ห้ามจองคู่บริการอื่น)'}</div>
+      <div class="svc-grid" style="margin-top:8px">
+        <div><label>จำกัดเวลาจอง เริ่ม</label><input type="time" data-win="start" data-wi="${i}" value="${escapeAttr(s.windowStart || '')}" /></div>
+        <div><label>ถึง</label><input type="time" data-win="end" data-wi="${i}" value="${escapeAttr(s.windowEnd || '')}" /></div>
+      </div>
+      <div class="photo-hint">⏰ เว้นว่าง = จองได้ทั้งวันตามเวลาทำการ · ใส่ทั้งคู่เพื่อจำกัดช่วง (เช่น 11:00–13:00 สำหรับเคลมฟรี)</div>
       ${s.id
         ? `<div class="photos-box">
              <div class="lbl-sm">📸 รูปตัวอย่าง (ให้ลูกค้าดูตอนเลือกบริการ)</div>
@@ -113,11 +119,30 @@ function renderServices() {
     });
   });
 
-  wrap.querySelectorAll('input').forEach((inp) => {
+  wrap.querySelectorAll('input[data-k]').forEach((inp) => {
     inp.addEventListener('input', () => {
       const i = Number(inp.dataset.i);
       const k = inp.dataset.k;
       settings.services[i][k] = k === 'name' ? inp.value : Number(inp.value);
+    });
+  });
+
+  // จองเดี่ยว (soloOnly) — สลับเปิด/ปิด
+  wrap.querySelectorAll('[data-solo]').forEach((el) => {
+    el.addEventListener('click', () => {
+      const i = Number(el.dataset.solo);
+      settings.services[i].soloOnly = !settings.services[i].soloOnly;
+      renderServices();
+    });
+  });
+
+  // ช่วงเวลาจองเฉพาะบริการ (windowStart/windowEnd) — เว้นว่าง = ลบออก
+  wrap.querySelectorAll('[data-win]').forEach((inp) => {
+    inp.addEventListener('input', () => {
+      const i = Number(inp.dataset.wi);
+      const key = inp.dataset.win === 'start' ? 'windowStart' : 'windowEnd';
+      if (inp.value) settings.services[i][key] = inp.value;
+      else delete settings.services[i][key];
     });
   });
   wrap.querySelectorAll('[data-del]').forEach((btn) => {
