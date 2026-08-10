@@ -283,20 +283,19 @@ app.get('/api/availability', (req, res) => {
   const winStart = windowed.length ? Math.max(...windowed.map((x) => toMin(x.windowStart))) : null;
   const winEnd = windowed.length ? Math.min(...windowed.map((x) => toMin(x.windowEnd))) : null;
 
-  const slots = generateSlots()
-    // บริการมี window -> แสดงเฉพาะเวลาเริ่มที่อยู่ในช่วงนั้น (รวมเวลาปลายช่วง)
-    .filter((time) => winStart == null || (toMin(time) >= winStart && toMin(time) <= winEnd))
-    .map((time) => {
-      const start = toMin(time);
-      const end = start + totalDuration;
-      let available = end <= closeMin && !store.isSlotTaken(date, start, end);
-      // ตัดช่วงเวลาที่ร้านปิดเฉพาะกิจ (จองทับช่วงไม่ว่างไม่ได้)
-      if (blocks.some((bl) => start < bl.end && end > bl.start)) available = false;
-      // ตัดเวลาที่ผ่านไปแล้วของวันนี้ออก
-      if (date < todayStr) available = false;
-      if (date === todayStr && start <= nowMin + 30) available = false;
-      return { time, available };
-    });
+  const slots = generateSlots().map((time) => {
+    const start = toMin(time);
+    const end = start + totalDuration;
+    let available = end <= closeMin && !store.isSlotTaken(date, start, end);
+    // ตัดช่วงเวลาที่ร้านปิดเฉพาะกิจ (จองทับช่วงไม่ว่างไม่ได้)
+    if (blocks.some((bl) => start < bl.end && end > bl.start)) available = false;
+    // ตัดเวลาที่ผ่านไปแล้วของวันนี้ออก
+    if (date < todayStr) available = false;
+    if (date === todayStr && start <= nowMin + 30) available = false;
+    // นอกช่วงเวลาที่บริการนี้จองได้ (เช่น เคลมฟรี 11:00–13:00) -> แสดงแต่ขีดฆ่าเป็นไม่ว่าง
+    if (winStart != null && (start < winStart || start > winEnd)) available = false;
+    return { time, available };
+  });
 
   res.json({ closed: false, serviceDuration: totalDuration, slots });
 });
