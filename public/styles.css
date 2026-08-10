@@ -459,3 +459,34 @@ body {
 @media (max-width: 380px) {
   .slots { grid-template-columns: repeat(3, 1fr); }
 }
+
+/* ===== ชวนแอด LINE ในหน้าจองสำเร็จ ===== */
+.line-promo {
+  margin-top: 18px;
+  background: linear-gradient(180deg, #f2fff6, #eafff1);
+  border: 1.5px solid #b8f0cd;
+  border-radius: 16px;
+  padding: 16px 15px 15px;
+  text-align: center;
+}
+.line-promo-ic { font-size: 26px; line-height: 1; }
+.line-promo h3 { font-size: 15px; color: #0a7a3d; margin: 6px 0 3px; font-weight: 700; }
+.line-promo p { font-size: 12.5px; color: #3a8a5c; line-height: 1.55; margin-bottom: 13px; }
+.btn-line {
+  display: flex; align-items: center; justify-content: center; gap: 9px;
+  width: 100%; background: #06c755; color: #fff; border: none;
+  font-family: inherit; font-weight: 700; font-size: 15px;
+  padding: 14px; border-radius: 13px; cursor: pointer; text-decoration: none;
+  box-shadow: 0 6px 16px rgba(6, 199, 85, .32); transition: .15s;
+}
+.btn-line:hover { background: #05a648; transform: translateY(-1px); }
+.btn-line .line-ic {
+  background: #fff; color: #06c755; font-size: 10px; font-weight: 800;
+  padding: 3px 6px; border-radius: 6px; letter-spacing: .3px;
+}
+.line-hint { font-size: 11px; color: #4f9e6f; margin-top: 9px; }
+.line-linked {
+  margin-top: 18px; background: #eafff1; border: 1.5px solid #b8f0cd;
+  border-radius: 16px; padding: 15px; text-align: center;
+  color: #0a7a3d; font-weight: 600; font-size: 13.5px; line-height: 1.5;
+}

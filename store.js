@@ -88,6 +88,22 @@ export function add(booking) {
   return booking;
 }
 
+export function findById(id) {
+  return cache.find((x) => x.id === id) || null;
+}
+
+// ผูก LINE userId เข้ากับคิว (เฟส 1) — idempotent, ผูกซ้ำด้วย userId เดิมได้ไม่มีปัญหา
+export function linkLine(id, userId) {
+  const b = cache.find((x) => x.id === id);
+  if (!b) return null;
+  b.lineUserId = userId;
+  b.lineLinkedAt = new Date().toISOString();
+  b.updatedAt = b.lineLinkedAt;
+  writeLocal();
+  scheduleFlush();
+  return b;
+}
+
 export function setStatus(id, status) {
   const b = cache.find((x) => x.id === id);
   if (!b) return null;

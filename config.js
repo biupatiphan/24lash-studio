@@ -23,6 +23,15 @@ export const CONFIRM_SECRET =
 // รหัสผ่านเข้าหลังบ้าน — ถ้าไม่ตั้ง = ปิดหลังบ้าน (กันคนอื่นแก้)
 export const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || '';
 
+// ===== LINE Official Account (Messaging API) — ใช้ผูกคิว + เตือนคิว =====
+// สร้าง channel ที่ LINE Developers > Messaging API แล้วเอา token/secret มาใส่เป็น env
+export const LINE = {
+  channelAccessToken: process.env.LINE_CHANNEL_ACCESS_TOKEN || '',
+  channelSecret: process.env.LINE_CHANNEL_SECRET || '',
+  // LINE ID ของ OA (มี @ นำหน้า เช่น @24lash) — ใช้สร้างลิงก์ปุ่ม "แอด LINE" ในหน้าจองสำเร็จ
+  oaId: process.env.LINE_OA_ID || '',
+};
+
 // ตั้งค่า GitHub สำหรับบันทึก settings ถาวร (commit -> Render redeploy)
 export const GITHUB = {
   token: process.env.GITHUB_TOKEN || '',

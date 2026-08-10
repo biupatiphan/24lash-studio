@@ -122,6 +122,23 @@
         <h2 data-i18n="success.title">ส่งคำขอจองแล้ว!</h2>
         <p class="success-sub" id="successSub"></p>
         <div class="success-card" id="successCard"></div>
+
+        <!-- ชวนแอด LINE (แสดงเมื่อร้านตั้งค่า LINE OA ไว้) -->
+        <div class="line-promo" id="linePromo" hidden>
+          <div class="line-promo-ic">💚</div>
+          <h3 data-i18n="line.title">แอด LINE รับสิทธิ์เคลมฟรี 5 วัน</h3>
+          <p data-i18n="line.sub">แอดเพื่อนไว้เพื่อใช้สิทธิ์เคลมฟรีภายใน 5 วัน + รับแจ้งเตือนก่อนถึงคิว</p>
+          <a class="btn-line" id="lineAddBtn" href="#" target="_blank" rel="noopener">
+            <span class="line-ic">LINE</span>
+            <span data-i18n="line.btn">แอด LINE รับสิทธิ์เคลมฟรี</span>
+          </a>
+          <div class="line-hint" data-i18n="line.hint">กดแล้วแค่กด "ส่ง" ในไลน์ ก็ผูกคิวเสร็จ ✓</div>
+        </div>
+        <!-- แสดงแทนบล็อกด้านบนเมื่อผูก LINE สำเร็จแล้ว -->
+        <div class="line-linked" id="lineLinked" hidden>
+          ✅ <span data-i18n="line.linked">ผูก LINE เรียบร้อยแล้ว — รับสิทธิ์เคลมฟรี 5 วัน + เตือนคิวทาง LINE 💚</span>
+        </div>
+
         <p class="success-note" data-i18n-html="success.note">📩 เราได้รับการจองและสลิปของคุณแล้ว กำลัง <b>รอร้านยืนยัน</b><br>เมื่อร้านยืนยัน จะส่งอีเมลยืนยัน + คำเชิญปฏิทินไปที่อีเมลของคุณอีกครั้งค่ะ</p>
         <button class="btn-primary" id="bookAgain" type="button" data-i18n="btn.again">จองคิวอีกครั้ง</button>
       </div>

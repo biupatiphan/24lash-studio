@@ -34,6 +34,7 @@ const I18N = {
     'sum.service':'บริการ','sum.date':'วันที่','sum.time':'เวลา','sum.name':'ชื่อ','sum.phone':'เบอร์โทร','sum.price':'ราคาบริการ',
     timeSuffix:' น.',changeFile:'เปลี่ยนไฟล์',slipAlt:'สลิป','err.generic':'เกิดข้อผิดพลาด','err.slip':'กรุณาแนบหลักฐานการโอนมัดจำค่ะ',
     'succ.id':'รหัสการจอง','succ.service':'บริการ','succ.date':'วันที่','succ.time':'เวลา','succ.deposit':'มัดจำที่ชำระ',
+    'line.title':'แอด LINE รับสิทธิ์เคลมฟรี 5 วัน','line.sub':'แอดเพื่อนไว้เพื่อใช้สิทธิ์เคลมฟรีภายใน 5 วัน + รับแจ้งเตือนก่อนถึงคิว','line.btn':'แอด LINE รับสิทธิ์เคลมฟรี','line.hint':'กดแล้วแค่กด "ส่ง" ในไลน์ ก็ผูกคิวเสร็จ ✓','line.linked':'ผูก LINE เรียบร้อยแล้ว — รับสิทธิ์เคลมฟรี 5 วัน + เตือนคิวทาง LINE 💚',
     metaPre:'ใช้เวลา ~',min:'นาที',thanks:'ขอบคุณคุณ {name} ที่จองคิวกับเรานะคะ 💕',
   },
   en: {
@@ -52,6 +53,7 @@ const I18N = {
     'sum.service':'Service','sum.date':'Date','sum.time':'Time','sum.name':'Name','sum.phone':'Phone','sum.price':'Price',
     timeSuffix:'',changeFile:'Change file',slipAlt:'slip','err.generic':'Something went wrong','err.slip':'Please attach the deposit payment slip',
     'succ.id':'Booking ID','succ.service':'Service','succ.date':'Date','succ.time':'Time','succ.deposit':'Deposit paid',
+    'line.title':'Add LINE for a 5-day free retouch','line.sub':'Add us on LINE to claim your free retouch within 5 days + get booking reminders','line.btn':'Add LINE for free retouch','line.hint':'Tap, then just press "Send" in LINE to link your booking ✓','line.linked':'LINE linked! — 5-day free retouch + reminders via LINE 💚',
     metaPre:'approx. ',min:'min',thanks:'Thank you {name} for booking with us 💕',
   },
 };
@@ -531,6 +533,41 @@ function showSuccess(b, warning) {
     $('#successCard').insertAdjacentHTML('afterend',
       `<p class="err">${warning}</p>`);
   }
+  setupLinePromo(b);
+}
+
+// ---------- ชวนแอด LINE + เช็คสถานะการผูกคิว ----------
+let linePoll = null;
+function setupLinePromo(b) {
+  const promo = $('#linePromo');
+  const linked = $('#lineLinked');
+  if (linePoll) { clearInterval(linePoll); linePoll = null; }
+  promo.hidden = true;
+  linked.hidden = true;
+
+  const oaId = state.config && state.config.lineOaId;
+  if (!oaId) return; // ร้านยังไม่ได้ตั้งค่า LINE OA — ไม่ต้องแสดงบล็อกนี้
+
+  // ลิงก์แอด LINE พร้อมข้อความ "ผูกคิว BKXXXXXX" เติมไว้ให้ ลูกค้าแค่กดส่ง
+  $('#lineAddBtn').href =
+    `https://line.me/R/oaMessage/${encodeURIComponent(oaId)}/?${encodeURIComponent('ผูกคิว ' + b.id)}`;
+  promo.hidden = false;
+
+  // poll เช็คว่าลูกค้าผูกคิวสำเร็จหรือยัง (สูงสุด ~5 นาที) แล้วสลับเป็นสถานะ "ผูกแล้ว"
+  let tries = 0;
+  linePoll = setInterval(async () => {
+    if (++tries > 60) { clearInterval(linePoll); linePoll = null; return; }
+    try {
+      const r = await fetch(`/api/bookings/${encodeURIComponent(b.id)}/line-status`);
+      if (!r.ok) return;
+      const d = await r.json();
+      if (d.linked) {
+        clearInterval(linePoll); linePoll = null;
+        promo.hidden = true;
+        linked.hidden = false;
+      }
+    } catch { /* เงียบไว้ ลองใหม่รอบหน้า */ }
+  }, 5000);
 }
 
 init();
