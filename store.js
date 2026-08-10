@@ -104,6 +104,18 @@ export function linkLine(id, userId) {
   return b;
 }
 
+// ทำเครื่องหมายว่าคิวนี้ส่งเตือนแล้ว (กันส่งซ้ำ) — เก็บเป็น flag ตามชนิดการเตือน
+export function markReminded(id, kind = '1d') {
+  const b = cache.find((x) => x.id === id);
+  if (!b) return null;
+  b.remindersSent = Array.isArray(b.remindersSent) ? b.remindersSent : [];
+  if (!b.remindersSent.includes(kind)) b.remindersSent.push(kind);
+  b.updatedAt = new Date().toISOString();
+  writeLocal();
+  scheduleFlush();
+  return b;
+}
+
 export function setStatus(id, status) {
   const b = cache.find((x) => x.id === id);
   if (!b) return null;

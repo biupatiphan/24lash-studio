@@ -4,7 +4,7 @@ import path from 'path';
 import crypto from 'crypto';
 import { fileURLToPath } from 'url';
 import {
-  TIMEZONE, PORT, BASE_URL, CONFIRM_SECRET, ADMIN_PASSWORD, LINE,
+  TIMEZONE, PORT, BASE_URL, CONFIRM_SECRET, ADMIN_PASSWORD, LINE, CRON_KEY,
 } from './config.js';
 import {
   getSettings, getService, saveSettings, SETTINGS_PATH,
@@ -14,6 +14,7 @@ import * as store from './store.js';
 import * as photos from './photos.js';
 import { sendBookingEmails, sendConfirmationEmails, sendRescheduleEmails, sendWalkinEmail, verifyMail, googleCalUrl } from './mailer.js';
 import { lineEnabled, verifySignature, replyMessage } from './line.js';
+import { runDueReminders } from './reminder.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -743,6 +744,27 @@ app.post('/api/line/webhook', async (req, res) => {
   }
 });
 
+// ---------- เตือนคิว (เฟส 2) ----------
+// เรียกจากภายนอก (cron ฟรี เช่น cron-job.org) หรือหลังบ้าน เพื่อเช็ค+ส่งเตือนคิวพรุ่งนี้
+// ป้องกันด้วย CRON_KEY (?key=...) หรือรหัสหลังบ้าน (admin ใส่ ?force=1 เพื่อทดสอบได้)
+app.get('/api/cron/reminders', async (req, res) => {
+  const key = String(req.query.key || req.get('x-cron-key') || '');
+  let okCron = false;
+  if (CRON_KEY && key.length === CRON_KEY.length) {
+    okCron = crypto.timingSafeEqual(Buffer.from(key), Buffer.from(CRON_KEY));
+  }
+  const okAdmin = checkAdmin(req);
+  if (!okCron && !okAdmin) return res.status(403).json({ error: 'forbidden' });
+
+  try {
+    const result = await runDueReminders({ force: okAdmin && req.query.force === '1' });
+    res.json({ ok: true, ...result });
+  } catch (e) {
+    console.error('runDueReminders ล้มเหลว:', e.message);
+    res.status(500).json({ error: e.message });
+  }
+});
+
 app.get('/api/health', async (req, res) => {
   res.json({ ok: true, mail: await verifyMail(), line: lineEnabled() });
 });
@@ -754,3 +776,13 @@ await photos.init();
 app.listen(PORT, () => {
   console.log(`\n🌸 ${getSettings().shop.name} กำลังทำงานที่ http://localhost:${PORT}\n`);
 });
+
+// ตัวจับเวลาในเครื่อง (backup ตอนเว็บตื่นอยู่) — เช็คเตือนคิวทุก 30 นาที
+// หมายเหตุ: Render free หลับได้ จึงควรตั้ง cron ภายนอกยิง /api/cron/reminders ควบคู่ด้วย
+if (lineEnabled()) {
+  setInterval(() => {
+    runDueReminders()
+      .then((r) => { if (r.sent) console.log('ส่งเตือนคิวแล้ว:', r); })
+      .catch((e) => console.error('reminder loop error:', e.message));
+  }, 30 * 60 * 1000);
+}

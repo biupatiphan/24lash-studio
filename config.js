@@ -32,6 +32,12 @@ export const LINE = {
   oaId: process.env.LINE_OA_ID || '',
 };
 
+// ===== การเตือนคิว (เฟส 2) =====
+// ชั่วโมง (เวลาไทย) ที่จะเริ่มส่งเตือน "ล่วงหน้า 1 วัน" ของวันก่อนนัด (ค่าเริ่มต้น 18 = 6 โมงเย็น)
+export const REMINDER_HOUR = Math.min(23, Math.max(0, Number(process.env.REMINDER_HOUR) || 18));
+// กุญแจป้องกัน endpoint cron (/api/cron/reminders) — ถ้าไม่ตั้ง = เรียกจากภายนอกไม่ได้ (เหลือแต่ตัวจับเวลาในเครื่อง)
+export const CRON_KEY = process.env.CRON_KEY || '';
+
 // ตั้งค่า GitHub สำหรับบันทึก settings ถาวร (commit -> Render redeploy)
 export const GITHUB = {
   token: process.env.GITHUB_TOKEN || '',
