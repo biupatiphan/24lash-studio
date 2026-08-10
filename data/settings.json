@@ -134,7 +134,10 @@
       "duration": 20,
       "price": 0,
       "popular": false,
-      "type": "main"
+      "type": "main",
+      "soloOnly": true,
+      "windowStart": "11:00",
+      "windowEnd": "13:00"
     },
     {
       "id": "svc-19",

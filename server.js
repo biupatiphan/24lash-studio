@@ -151,7 +151,13 @@ function sanitizeSettings(input) {
       const type = (s.type === 'addon' || s.type === 'main')
         ? s.type
         : (/ถอด|removal|ล่าง|lower/i.test(name) ? 'addon' : 'main');
-      return { id, name, duration, price, popular: !!s.popular, type };
+      // จำกัดช่วงเวลาจองเฉพาะบริการนี้ (ถ้ากรอกทั้งคู่และถูกต้อง) เช่น เคลมฟรี 11:00–13:00
+      const ws = String(s.windowStart || '').trim();
+      const we = String(s.windowEnd || '').trim();
+      const hasWindow = HHMM_RE.test(ws) && HHMM_RE.test(we) && toMin(ws) < toMin(we);
+      const svc = { id, name, duration, price, popular: !!s.popular, type, soloOnly: !!s.soloOnly };
+      if (hasWindow) { svc.windowStart = ws; svc.windowEnd = we; }
+      return svc;
     });
   if (!services.length) throw new Error('ต้องมีบริการอย่างน้อย 1 รายการ');
   // กัน id ซ้ำ
@@ -272,17 +278,25 @@ app.get('/api/availability', (req, res) => {
     .filter((b) => b.date === date)
     .map((b) => ({ start: toMin(b.start), end: toMin(b.end) }));
 
-  const slots = generateSlots().map((time) => {
-    const start = toMin(time);
-    const end = start + totalDuration;
-    let available = end <= closeMin && !store.isSlotTaken(date, start, end);
-    // ตัดช่วงเวลาที่ร้านปิดเฉพาะกิจ (จองทับช่วงไม่ว่างไม่ได้)
-    if (blocks.some((bl) => start < bl.end && end > bl.start)) available = false;
-    // ตัดเวลาที่ผ่านไปแล้วของวันนี้ออก
-    if (date < todayStr) available = false;
-    if (date === todayStr && start <= nowMin + 30) available = false;
-    return { time, available };
-  });
+  // บริการที่จำกัดช่วงเวลาจอง (เช่น เคลมฟรี 11:00–13:00) — ใช้ช่วงที่แคบสุดในบรรดาที่เลือก
+  const windowed = chosen.filter((x) => x.windowStart && x.windowEnd);
+  const winStart = windowed.length ? Math.max(...windowed.map((x) => toMin(x.windowStart))) : null;
+  const winEnd = windowed.length ? Math.min(...windowed.map((x) => toMin(x.windowEnd))) : null;
+
+  const slots = generateSlots()
+    // บริการมี window -> แสดงเฉพาะเวลาเริ่มที่อยู่ในช่วงนั้น (รวมเวลาปลายช่วง)
+    .filter((time) => winStart == null || (toMin(time) >= winStart && toMin(time) <= winEnd))
+    .map((time) => {
+      const start = toMin(time);
+      const end = start + totalDuration;
+      let available = end <= closeMin && !store.isSlotTaken(date, start, end);
+      // ตัดช่วงเวลาที่ร้านปิดเฉพาะกิจ (จองทับช่วงไม่ว่างไม่ได้)
+      if (blocks.some((bl) => start < bl.end && end > bl.start)) available = false;
+      // ตัดเวลาที่ผ่านไปแล้วของวันนี้ออก
+      if (date < todayStr) available = false;
+      if (date === todayStr && start <= nowMin + 30) available = false;
+      return { time, available };
+    });
 
   res.json({ closed: false, serviceDuration: totalDuration, slots });
 });
@@ -304,6 +318,20 @@ app.post('/api/bookings', upload.single('slip'), async (req, res) => {
     }
     const svcs = ids.map((id) => getService(id)).filter(Boolean);
     if (!svcs.length) return res.status(400).json({ error: 'ไม่พบบริการที่เลือก' });
+
+    // บริการที่ต้อง "จองเดี่ยว" (เช่น เคลมฟรี) — ห้ามจองคู่กับบริการอื่น
+    const solo = svcs.find((s) => s.soloOnly);
+    if (solo && svcs.length > 1) {
+      return res.status(400).json({ error: `"${solo.name}" ต้องจองแยก ไม่สามารถจองพร้อมบริการอื่นได้ค่ะ` });
+    }
+
+    // บริการที่จำกัดช่วงเวลา (เช่น เคลมฟรี 11:00–13:00) — เวลาเริ่มต้องอยู่ในช่วง
+    const startCheck = toMin(time);
+    const winSvc = svcs.find((s) => s.windowStart && s.windowEnd
+      && (startCheck < toMin(s.windowStart) || startCheck > toMin(s.windowEnd)));
+    if (winSvc) {
+      return res.status(400).json({ error: `"${winSvc.name}" จองได้เฉพาะช่วง ${winSvc.windowStart}–${winSvc.windowEnd} น. เท่านั้นค่ะ` });
+    }
 
     const totalPrice = svcs.reduce((tt, s) => tt + s.price, 0);
     const totalDuration = svcs.reduce((tt, s) => tt + s.duration, 0);

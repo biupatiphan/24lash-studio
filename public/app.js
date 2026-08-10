@@ -193,17 +193,36 @@ function svcType(s) {
 function isMainId(id) {
   return svcType(state.config.services.find((s) => s.id === id)) === 'main';
 }
+// บริการที่ต้องจองเดี่ยว (เช่น เคลมฟรี) — เลือกพร้อมบริการอื่นไม่ได้
+function isSolo(id) {
+  const s = state.config.services.find((x) => x.id === id);
+  return !!(s && s.soloOnly);
+}
+// เอาการ์ดออกจากที่เลือก (ล้าง class + แกลเลอรี)
+function deselectCard(id) {
+  const c = document.querySelector(`.service[data-id="${id}"]`);
+  if (!c) return;
+  c.classList.remove('selected');
+  const g = c.querySelector('.s-gallery');
+  if (g) g.remove();
+}
+function clearSelection() {
+  state.serviceIds.slice().forEach(deselectCard);
+  state.serviceIds = [];
+}
 
 // อัปเดตสถานะกดได้/เทาของแต่ละการ์ดตามกฎ
 function refreshServiceStates() {
   const hasMain = state.serviceIds.some(isMainId);
   const full = state.serviceIds.length >= MAX_SERVICES;
+  const soloSelected = state.serviceIds.some(isSolo);
   document.querySelectorAll('.service').forEach((card) => {
     const id = card.dataset.id;
     const selected = state.serviceIds.includes(id);
     let disabled = false;
     if (!selected) {
-      if (full) disabled = true;                       // เลือกครบ 3 แล้ว
+      if (soloSelected) disabled = true;               // เลือกเคลมฟรีอยู่ ห้ามเลือกอื่น
+      else if (full) disabled = true;                  // เลือกครบ 3 แล้ว
       else if (isMainId(id) && hasMain) disabled = true; // มีทรงอยู่แล้ว เลือกทรงอื่นไม่ได้
     }
     card.classList.toggle('disabled', disabled);
@@ -218,7 +237,14 @@ function toggleService(id, cardEl) {
     cardEl.classList.remove('selected');
     const g = cardEl.querySelector('.s-gallery');
     if (g) g.remove();
+  } else if (isSolo(id)) {
+    clearSelection();                                              // เคลมฟรีจองเดี่ยว: ล้างที่เลือกทั้งหมด
+    state.serviceIds.push(id);
+    cardEl.classList.add('selected');
+    const g = getGallery(id);
+    if (g) cardEl.appendChild(g);
   } else {
+    if (state.serviceIds.some(isSolo)) clearSelection();           // ออกจากโหมดเคลมฟรีก่อน
     if (state.serviceIds.length >= MAX_SERVICES) return;            // ครบ 3 แล้ว
     if (isMainId(id) && state.serviceIds.some(isMainId)) return;    // มีทรงอยู่แล้ว
     state.serviceIds.push(id);
