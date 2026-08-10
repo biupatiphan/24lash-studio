@@ -5705,9 +5705,10 @@
     "endISO": "2026-08-10T15:20:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "pending",
+    "status": "noshow",
     "source": "online",
-    "createdAt": "2026-08-07T05:15:50.160Z"
+    "createdAt": "2026-08-07T05:15:50.160Z",
+    "updatedAt": "2026-08-10T08:42:56.526Z"
   },
   {
     "id": "BK45AEB3",
