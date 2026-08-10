@@ -4,7 +4,7 @@ import path from 'path';
 import crypto from 'crypto';
 import { fileURLToPath } from 'url';
 import {
-  TIMEZONE, PORT, BASE_URL, CONFIRM_SECRET, ADMIN_PASSWORD,
+  TIMEZONE, PORT, BASE_URL, CONFIRM_SECRET, ADMIN_PASSWORD, LINE,
 } from './config.js';
 import {
   getSettings, getService, saveSettings, SETTINGS_PATH,
@@ -13,11 +13,16 @@ import { commitFile } from './github.js';
 import * as store from './store.js';
 import * as photos from './photos.js';
 import { sendBookingEmails, sendConfirmationEmails, sendRescheduleEmails, sendWalkinEmail, verifyMail, googleCalUrl } from './mailer.js';
+import { lineEnabled, verifySignature, replyMessage } from './line.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
 
-app.use(express.json({ limit: '6mb' })); // เผื่อรูป base64 ที่ย่อแล้ว
+// เก็บ body ดิบไว้ตรวจลายเซ็น LINE webhook (ต้อง hash จาก body ก่อน parse)
+app.use(express.json({
+  limit: '6mb', // เผื่อรูป base64 ที่ย่อแล้ว
+  verify: (req, res, buf) => { req.rawBody = buf; },
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 const upload = multer({
@@ -230,6 +235,8 @@ app.get('/api/config', (req, res) => {
     closedWeekdays: s.closedWeekdays,
     closedDates: s.closedDates,
     photos: photos.asUrlMap(),
+    // LINE ID ของ OA (ถ้าตั้งค่าไว้) — หน้าเว็บใช้สร้างปุ่ม "แอด LINE" ในหน้าจองสำเร็จ
+    lineOaId: lineEnabled() ? LINE.oaId : '',
   });
 });
 
@@ -684,8 +691,60 @@ app.delete('/api/admin/bookings/:id', (req, res) => {
   res.json({ ok: true });
 });
 
+// ---------- LINE ----------
+// หน้าเว็บใช้เช็คว่าคิวนี้ผูก LINE แล้วหรือยัง (poll หลังลูกค้ากดปุ่มแอดไลน์)
+app.get('/api/bookings/:id/line-status', (req, res) => {
+  const b = store.findById(req.params.id);
+  if (!b) return res.status(404).json({ error: 'ไม่พบคิวนี้' });
+  res.json({ linked: Boolean(b.lineUserId) });
+});
+
+// รับ event จาก LINE (ลูกค้าส่ง "ผูกคิว BKXXXXXX" เข้ามา -> ผูก userId เข้ากับคิว)
+const BOOKING_CODE_RE = /\b([BW]K[0-9A-F]{6})\b/i;
+
+app.post('/api/line/webhook', async (req, res) => {
+  // ตรวจลายเซ็นก่อนเสมอ — กันคนปลอมยิง endpoint
+  if (!lineEnabled() || !verifySignature(req.rawBody, req.get('x-line-signature'))) {
+    return res.sendStatus(401);
+  }
+  // ตอบ 200 ให้ LINE ทันที แล้วค่อยประมวลผล (กัน LINE retry เพราะ timeout)
+  res.sendStatus(200);
+
+  const events = Array.isArray(req.body?.events) ? req.body.events : [];
+  for (const ev of events) {
+    try {
+      if (ev.type !== 'message' || ev.message?.type !== 'text') continue;
+      const userId = ev.source?.userId;
+      const replyToken = ev.replyToken;
+      const text = ev.message.text || '';
+      const m = text.match(BOOKING_CODE_RE);
+
+      // ไม่มีรหัสคิวในข้อความ = เป็นแชทคุยปกติ ปล่อยให้แอดมินตอบเอง (ไม่รบกวน)
+      if (!m) continue;
+
+      const code = m[1].toUpperCase();
+      const booking = store.findById(code);
+
+      if (!booking) {
+        await replyMessage(replyToken,
+          'ไม่พบคิวรหัสนี้ค่ะ 🙏 ลองตรวจสอบรหัสอีกครั้ง หรือทักแอดมินได้เลยนะคะ');
+        continue;
+      }
+
+      if (userId) store.linkLine(code, userId);
+      await replyMessage(replyToken,
+        `✅ ผูกคิว ${code} เรียบร้อยค่ะ 💚\n`
+        + `รับสิทธิ์เคลมฟรีภายใน 5 วัน + เราจะเตือนก่อนถึงคิวให้นะคะ\n\n`
+        + `📅 ${booking.dateLabel} เวลา ${booking.time} น.\n`
+        + `${booking.serviceName}`);
+    } catch (e) {
+      console.error('จัดการ LINE event ล้มเหลว:', e.message);
+    }
+  }
+});
+
 app.get('/api/health', async (req, res) => {
-  res.json({ ok: true, mail: await verifyMail() });
+  res.json({ ok: true, mail: await verifyMail(), line: lineEnabled() });
 });
 
 // โหลดข้อมูลจอง + รูปตัวอย่าง จาก GitHub (ถาวร) ก่อนเปิดรับ request
