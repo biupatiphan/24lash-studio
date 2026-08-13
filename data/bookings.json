@@ -5932,9 +5932,10 @@
     "endISO": "2026-08-13T14:20:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "pending",
+    "status": "noshow",
     "source": "online",
-    "createdAt": "2026-08-10T16:28:20.526Z"
+    "createdAt": "2026-08-10T16:28:20.526Z",
+    "updatedAt": "2026-08-13T05:49:26.919Z"
   },
   {
     "id": "WKD344DB",
