@@ -6115,11 +6115,11 @@
     "endISO": "2026-08-14T13:00:00+07:00",
     "price": 899,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-08-14T01:39:15.017Z",
     "lineUserId": "U1c32c0ae6494e93e21e762dd14c4b1e2",
     "lineLinkedAt": "2026-08-14T01:39:27.773Z",
-    "updatedAt": "2026-08-14T02:27:13.064Z"
+    "updatedAt": "2026-08-14T06:22:30.790Z"
   }
 ]
