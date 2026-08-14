@@ -6088,12 +6088,12 @@
     "endISO": "2026-08-14T16:40:00+07:00",
     "price": 599,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "confirmed",
     "source": "online",
     "createdAt": "2026-08-14T00:31:49.681Z",
     "lineUserId": "Ud695a2d6bba0658883f4b0ec329c14f5",
     "lineLinkedAt": "2026-08-14T00:32:06.440Z",
-    "updatedAt": "2026-08-14T00:32:06.440Z"
+    "updatedAt": "2026-08-14T02:27:30.723Z"
   },
   {
     "id": "BKD68081",
