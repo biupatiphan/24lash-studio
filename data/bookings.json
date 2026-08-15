@@ -6221,11 +6221,11 @@
     "endISO": "2026-08-15T18:00:00+07:00",
     "price": 899,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "confirmed",
     "source": "online",
     "createdAt": "2026-08-15T07:14:08.595Z",
     "lineUserId": "Uf01b1bd523fd8c47771780852e560cbf",
     "lineLinkedAt": "2026-08-15T07:14:57.443Z",
-    "updatedAt": "2026-08-15T07:14:57.443Z"
+    "updatedAt": "2026-08-15T07:15:00.409Z"
   }
 ]
