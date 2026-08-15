@@ -6213,12 +6213,12 @@
     "serviceName": "Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-08-15",
     "dateLabel": "วันเสาร์ที่ 15 สิงหาคม 2569",
-    "time": "17:00",
-    "endTime": "18:00",
-    "startMinutes": 1020,
-    "endMinutes": 1080,
-    "startISO": "2026-08-15T17:00:00+07:00",
-    "endISO": "2026-08-15T18:00:00+07:00",
+    "time": "17:30",
+    "endTime": "18:30",
+    "startMinutes": 1050,
+    "endMinutes": 1110,
+    "startISO": "2026-08-15T17:30:00+07:00",
+    "endISO": "2026-08-15T18:30:00+07:00",
     "price": 899,
     "depositAmount": 200,
     "status": "confirmed",
@@ -6226,7 +6226,7 @@
     "createdAt": "2026-08-15T07:14:08.595Z",
     "lineUserId": "Uf01b1bd523fd8c47771780852e560cbf",
     "lineLinkedAt": "2026-08-15T07:14:57.443Z",
-    "updatedAt": "2026-08-15T07:15:00.409Z"
+    "updatedAt": "2026-08-15T07:21:49.843Z"
   },
   {
     "id": "WKF76FD9",
