@@ -6149,5 +6149,29 @@
     "lineUserId": "U48049810871397463153294f4d2e8303",
     "lineLinkedAt": "2026-08-14T06:25:50.132Z",
     "updatedAt": "2026-08-14T09:04:31.103Z"
+  },
+  {
+    "id": "BKDC67F5",
+    "name": "Ms. Deepika",
+    "email": "deepika101preeti@gmail.com",
+    "phone": "0819812660",
+    "serviceId": "classic",
+    "serviceIds": [
+      "classic"
+    ],
+    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "date": "2026-08-16",
+    "dateLabel": "วันอาทิตย์ที่ 16 สิงหาคม 2569",
+    "time": "15:00",
+    "endTime": "15:40",
+    "startMinutes": 900,
+    "endMinutes": 940,
+    "startISO": "2026-08-16T15:00:00+07:00",
+    "endISO": "2026-08-16T15:40:00+07:00",
+    "price": 599,
+    "depositAmount": 200,
+    "status": "pending",
+    "source": "online",
+    "createdAt": "2026-08-15T01:01:07.165Z"
   }
 ]
