@@ -6224,12 +6224,12 @@
     "endISO": "2026-08-15T18:30:00+07:00",
     "price": 899,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-08-15T07:14:08.595Z",
     "lineUserId": "Uf01b1bd523fd8c47771780852e560cbf",
     "lineLinkedAt": "2026-08-15T07:14:57.443Z",
-    "updatedAt": "2026-08-15T07:21:49.843Z"
+    "updatedAt": "2026-08-15T16:50:43.544Z"
   },
   {
     "id": "WKF76FD9",
