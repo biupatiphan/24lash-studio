@@ -6175,7 +6175,10 @@
     "createdAt": "2026-08-15T01:01:07.165Z",
     "lineUserId": "U771e1132dd69123b374084b20eddaa90",
     "lineLinkedAt": "2026-08-15T01:01:55.716Z",
-    "updatedAt": "2026-08-15T02:06:57.454Z"
+    "updatedAt": "2026-08-15T11:00:18.238Z",
+    "remindersSent": [
+      "1d"
+    ]
   },
   {
     "id": "BK4C0CA1",
