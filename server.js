@@ -727,8 +727,19 @@ app.get('/api/bookings/:id/line-status', (req, res) => {
   res.json({ linked: Boolean(b.lineUserId) });
 });
 
-// รับ event จาก LINE (ลูกค้าส่ง "ผูกคิว BKXXXXXX" เข้ามา -> ผูก userId เข้ากับคิว)
-const BOOKING_CODE_RE = /\b([BW]K[0-9A-F]{6})\b/i;
+// จับ token ที่คล้ายรหัสคิว (BK/WK + 4-8 ตัว) เผื่อลูกค้าพิมพ์ตก/เกิน — คืน { found, booking }
+// found=false = ไม่มี token คล้ายรหัสเลย (แชทปกติ) · booking=null = มี token แต่หาคิวไม่เจอ
+function matchBooking(text) {
+  const cands = String(text || '').toUpperCase().match(/[BW]K[0-9A-F]{4,8}/g) || [];
+  if (!cands.length) return { found: false, booking: null };
+  for (const c of cands) {
+    const exact = store.findById(c);
+    if (exact) return { found: true, booking: exact };
+    const pre = store.getAll().filter((x) => x.id.startsWith(c));
+    if (pre.length === 1) return { found: true, booking: pre[0] }; // เดารหัสจาก prefix ที่ไม่ซ้ำ (พิมพ์ตกตัวท้าย)
+  }
+  return { found: true, booking: null };
+}
 
 app.post('/api/line/webhook', async (req, res) => {
   // ตรวจลายเซ็นก่อนเสมอ — กันคนปลอมยิง endpoint
@@ -745,13 +756,10 @@ app.post('/api/line/webhook', async (req, res) => {
       const userId = ev.source?.userId;
       const replyToken = ev.replyToken;
       const text = ev.message.text || '';
-      const m = text.match(BOOKING_CODE_RE);
+      const { found, booking } = matchBooking(text);
 
-      // ไม่มีรหัสคิวในข้อความ = เป็นแชทคุยปกติ ปล่อยให้แอดมินตอบเอง (ไม่รบกวน)
-      if (!m) continue;
-
-      const code = m[1].toUpperCase();
-      const booking = store.findById(code);
+      // ไม่มี token ที่คล้ายรหัสคิว = แชทคุยปกติ ปล่อยให้แอดมินตอบเอง (ไม่รบกวน)
+      if (!found) continue;
 
       if (!booking) {
         await replyMessage(replyToken,
@@ -759,6 +767,7 @@ app.post('/api/line/webhook', async (req, res) => {
         continue;
       }
 
+      const code = booking.id;
       if (userId) store.linkLine(code, userId);
       await replyMessage(replyToken,
         `✅ ผูกคิว ${code} เรียบร้อยค่ะ 💚\n`
