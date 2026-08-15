@@ -6170,11 +6170,11 @@
     "endISO": "2026-08-16T15:40:00+07:00",
     "price": 599,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "confirmed",
     "source": "online",
     "createdAt": "2026-08-15T01:01:07.165Z",
     "lineUserId": "U771e1132dd69123b374084b20eddaa90",
     "lineLinkedAt": "2026-08-15T01:01:55.716Z",
-    "updatedAt": "2026-08-15T01:01:55.716Z"
+    "updatedAt": "2026-08-15T02:06:57.454Z"
   }
 ]
