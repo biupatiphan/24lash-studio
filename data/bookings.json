@@ -6064,10 +6064,10 @@
     "endISO": "2026-08-16T12:20:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-08-13T05:48:32.634Z",
-    "updatedAt": "2026-08-13T18:21:35.755Z"
+    "updatedAt": "2026-08-16T05:12:58.790Z"
   },
   {
     "id": "BKA31DC5",
