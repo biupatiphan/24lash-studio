@@ -6155,11 +6155,11 @@
     "name": "Ms. Deepika",
     "email": "deepika101preeti@gmail.com",
     "phone": "0819812660",
-    "serviceId": "classic",
+    "serviceId": "wet-look-3d-4d",
     "serviceIds": [
-      "classic"
+      "wet-look-3d-4d"
     ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-08-16",
     "dateLabel": "วันอาทิตย์ที่ 16 สิงหาคม 2569",
     "time": "15:00",
@@ -6168,14 +6168,14 @@
     "endMinutes": 940,
     "startISO": "2026-08-16T15:00:00+07:00",
     "endISO": "2026-08-16T15:40:00+07:00",
-    "price": 599,
+    "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-08-15T01:01:07.165Z",
     "lineUserId": "U771e1132dd69123b374084b20eddaa90",
     "lineLinkedAt": "2026-08-15T01:01:55.716Z",
-    "updatedAt": "2026-08-15T11:00:18.238Z",
+    "updatedAt": "2026-08-16T08:42:10.928Z",
     "remindersSent": [
       "1d"
     ]
