@@ -6201,10 +6201,10 @@
     "endISO": "2026-08-16T11:50:00+07:00",
     "price": 909,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-08-15T05:56:30.849Z",
-    "updatedAt": "2026-08-16T04:04:42.042Z"
+    "updatedAt": "2026-08-16T05:12:53.765Z"
   },
   {
     "id": "BKFDA83B",
