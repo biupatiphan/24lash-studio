@@ -6280,5 +6280,30 @@
     "status": "pending",
     "source": "online",
     "createdAt": "2026-08-17T05:32:25.715Z"
+  },
+  {
+    "id": "BK71117A",
+    "name": "Nicky",
+    "email": "panggu31@gmail.com",
+    "phone": "0918842732",
+    "serviceId": "removal",
+    "serviceIds": [
+      "removal",
+      "foxy-lashes"
+    ],
+    "serviceName": "Removal (ถอดขนตา) เริ่มต้น 50-150 + Foxy Lashes ขนตาทรงฟ็อกซี่อาย/ ไม่จำกัดเส้นและความยาว/เคลมฟรี",
+    "date": "2026-08-17",
+    "dateLabel": "วันจันทร์ที่ 17 สิงหาคม 2569",
+    "time": "17:00",
+    "endTime": "18:10",
+    "startMinutes": 1020,
+    "endMinutes": 1090,
+    "startISO": "2026-08-17T17:00:00+07:00",
+    "endISO": "2026-08-17T18:10:00+07:00",
+    "price": 1250,
+    "depositAmount": 200,
+    "status": "pending",
+    "source": "online",
+    "createdAt": "2026-08-17T06:36:41.399Z"
   }
 ]
