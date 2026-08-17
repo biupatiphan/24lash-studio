@@ -6337,5 +6337,29 @@
     "lineUserId": "U12294b12cc5ab49a3ad80c313ca07bb1",
     "lineLinkedAt": "2026-08-17T07:22:54.103Z",
     "updatedAt": "2026-08-17T07:25:41.907Z"
+  },
+  {
+    "id": "BKDA2D7B",
+    "name": "อ้น",
+    "email": "onnthang333@gmail.com",
+    "phone": "0636426269",
+    "serviceId": "classic",
+    "serviceIds": [
+      "classic"
+    ],
+    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "date": "2026-08-17",
+    "dateLabel": "วันจันทร์ที่ 17 สิงหาคม 2569",
+    "time": "20:00",
+    "endTime": "20:40",
+    "startMinutes": 1200,
+    "endMinutes": 1240,
+    "startISO": "2026-08-17T20:00:00+07:00",
+    "endISO": "2026-08-17T20:40:00+07:00",
+    "price": 599,
+    "depositAmount": 200,
+    "status": "pending",
+    "source": "online",
+    "createdAt": "2026-08-17T12:25:00.112Z"
   }
 ]
