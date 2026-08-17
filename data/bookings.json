@@ -6343,11 +6343,11 @@
     "name": "อ้น",
     "email": "onnthang333@gmail.com",
     "phone": "0636426269",
-    "serviceId": "classic",
+    "serviceId": "u-shape-lashes",
     "serviceIds": [
-      "classic"
+      "u-shape-lashes"
     ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "U shape Lashes ขนตาแกนยู / ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-08-17",
     "dateLabel": "วันจันทร์ที่ 17 สิงหาคม 2569",
     "time": "20:00",
@@ -6356,10 +6356,11 @@
     "endMinutes": 1240,
     "startISO": "2026-08-17T20:00:00+07:00",
     "endISO": "2026-08-17T20:40:00+07:00",
-    "price": 599,
+    "price": 699,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "done",
     "source": "online",
-    "createdAt": "2026-08-17T12:25:00.112Z"
+    "createdAt": "2026-08-17T12:25:00.112Z",
+    "updatedAt": "2026-08-17T13:58:30.885Z"
   }
 ]
