@@ -6383,11 +6383,11 @@
     "endISO": "2026-08-18T14:40:00+07:00",
     "price": 699,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "confirmed",
     "source": "online",
     "createdAt": "2026-08-18T06:27:04.507Z",
     "lineUserId": "U69120e5a2629560b9046f372215a77ca",
     "lineLinkedAt": "2026-08-18T06:27:21.656Z",
-    "updatedAt": "2026-08-18T06:27:21.656Z"
+    "updatedAt": "2026-08-18T06:27:28.422Z"
   }
 ]
