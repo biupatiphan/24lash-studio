@@ -6441,5 +6441,29 @@
     "source": "online",
     "createdAt": "2026-08-18T19:34:05.208Z",
     "updatedAt": "2026-08-18T19:34:27.866Z"
+  },
+  {
+    "id": "WK74E7DC",
+    "name": "Walkin",
+    "email": "",
+    "phone": "",
+    "serviceId": "u-shape-lashes",
+    "serviceIds": [
+      "u-shape-lashes"
+    ],
+    "serviceName": "U shape Lashes ขนตาแกนยู / ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "date": "2026-08-19",
+    "dateLabel": "วันพุธที่ 19 สิงหาคม 2569",
+    "time": "10:00",
+    "endTime": "10:40",
+    "startMinutes": 600,
+    "endMinutes": 640,
+    "startISO": "2026-08-19T10:00:00+07:00",
+    "endISO": "2026-08-19T10:40:00+07:00",
+    "price": 699,
+    "depositAmount": 0,
+    "status": "confirmed",
+    "source": "manual",
+    "createdAt": "2026-08-18T20:01:35.197Z"
   }
 ]
