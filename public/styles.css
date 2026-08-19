@@ -16,6 +16,9 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* utility: ซ่อน element (ใช้กับส่วนมัดจำ/สลิป/โน้ตบริการฟรี ใน updatePayUI) */
+.hide { display: none !important; }
+
 body {
   font-family: 'Prompt', sans-serif;
   color: var(--text);
