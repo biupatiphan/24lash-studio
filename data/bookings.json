@@ -6513,10 +6513,10 @@
     "endISO": "2026-08-20T17:40:00+07:00",
     "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-08-19T12:15:25.201Z",
-    "updatedAt": "2026-08-20T05:03:41.679Z"
+    "updatedAt": "2026-08-20T14:30:39.724Z"
   },
   {
     "id": "BK5E9A12",
