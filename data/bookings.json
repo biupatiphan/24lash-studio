@@ -6590,6 +6590,9 @@
     "depositAmount": 200,
     "status": "pending",
     "source": "online",
-    "createdAt": "2026-08-20T09:50:01.964Z"
+    "createdAt": "2026-08-20T09:50:01.964Z",
+    "lineUserId": "Ua66f47ae0c3d0a8e6b668dfb414c1b81",
+    "lineLinkedAt": "2026-08-20T09:50:10.551Z",
+    "updatedAt": "2026-08-20T09:50:10.551Z"
   }
 ]
