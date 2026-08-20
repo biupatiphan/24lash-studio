@@ -6555,17 +6555,17 @@
     "serviceName": "Whispy Volume ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-08-20",
     "dateLabel": "วันพฤหัสบดีที่ 20 สิงหาคม 2569",
-    "time": "17:00",
-    "endTime": "18:00",
-    "startMinutes": 1020,
-    "endMinutes": 1080,
-    "startISO": "2026-08-20T17:00:00+07:00",
-    "endISO": "2026-08-20T18:00:00+07:00",
+    "time": "16:00",
+    "endTime": "17:00",
+    "startMinutes": 960,
+    "endMinutes": 1020,
+    "startISO": "2026-08-20T16:00:00+07:00",
+    "endISO": "2026-08-20T17:00:00+07:00",
     "price": 899,
     "depositAmount": 0,
     "status": "done",
     "source": "manual",
     "createdAt": "2026-08-20T05:00:36.261Z",
-    "updatedAt": "2026-08-20T05:03:08.732Z"
+    "updatedAt": "2026-08-20T05:03:28.656Z"
   }
 ]
