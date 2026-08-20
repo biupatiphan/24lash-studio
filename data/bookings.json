@@ -6523,11 +6523,11 @@
     "name": "Pim",
     "email": "satjapronzon@gmail.com",
     "phone": "0931354686",
-    "serviceId": "classic",
+    "serviceId": "yy-shape-lashes-y",
     "serviceIds": [
-      "classic"
+      "yy-shape-lashes-y"
     ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "YY shape Lashes ขนตาแกนY/ไม่จำกัดเส้นและความยาว/เคลมฟรี",
     "date": "2026-08-20",
     "dateLabel": "วันพฤหัสบดีที่ 20 สิงหาคม 2569",
     "time": "12:00",
@@ -6536,12 +6536,12 @@
     "endMinutes": 760,
     "startISO": "2026-08-20T12:00:00+07:00",
     "endISO": "2026-08-20T12:40:00+07:00",
-    "price": 599,
+    "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-08-19T14:44:41.851Z",
-    "updatedAt": "2026-08-19T14:56:57.683Z"
+    "updatedAt": "2026-08-20T05:19:14.029Z"
   },
   {
     "id": "WK009A3D",
