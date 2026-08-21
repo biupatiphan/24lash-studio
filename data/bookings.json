@@ -6614,10 +6614,10 @@
     "endISO": "2026-08-21T20:00:00+07:00",
     "price": 899,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-08-21T04:12:47.051Z",
-    "updatedAt": "2026-08-21T04:15:56.997Z"
+    "updatedAt": "2026-08-21T16:04:43.196Z"
   },
   {
     "id": "BK8EE881",
