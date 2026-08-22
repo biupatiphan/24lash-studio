@@ -6729,31 +6729,6 @@
     "updatedAt": "2026-08-22T06:11:13.868Z"
   },
   {
-    "id": "WKCABFA9",
-    "name": "Alina",
-    "email": "",
-    "phone": "",
-    "serviceId": "wet-look-3d-4d",
-    "serviceIds": [
-      "wet-look-3d-4d"
-    ],
-    "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
-    "date": "2026-08-22",
-    "dateLabel": "วันเสาร์ที่ 22 สิงหาคม 2569",
-    "time": "21:00",
-    "endTime": "21:40",
-    "startMinutes": 1260,
-    "endMinutes": 1300,
-    "startISO": "2026-08-22T21:00:00+07:00",
-    "endISO": "2026-08-22T21:40:00+07:00",
-    "price": 699,
-    "depositAmount": 0,
-    "status": "noshow",
-    "source": "manual",
-    "createdAt": "2026-08-22T06:41:37.710Z",
-    "updatedAt": "2026-08-22T14:53:19.468Z"
-  },
-  {
     "id": "BK24AA12",
     "name": "คุณอิ๋ว",
     "email": "iewpimkaew@gmail.com",
