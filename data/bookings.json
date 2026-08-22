@@ -6682,26 +6682,25 @@
     "serviceId": "refill",
     "serviceIds": [
       "refill",
-      "removal",
-      "svc-19"
+      "removal"
     ],
-    "serviceName": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150 + ต่อขนตาล่าง",
+    "serviceName": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
     "date": "2026-08-22",
     "dateLabel": "วันเสาร์ที่ 22 สิงหาคม 2569",
     "time": "16:00",
-    "endTime": "17:05",
+    "endTime": "16:50",
     "startMinutes": 960,
-    "endMinutes": 1025,
+    "endMinutes": 1010,
     "startISO": "2026-08-22T16:00:00+07:00",
-    "endISO": "2026-08-22T17:05:00+07:00",
-    "price": 1059,
+    "endISO": "2026-08-22T16:50:00+07:00",
+    "price": 909,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-08-21T19:40:33.489Z",
     "lineUserId": "U5135e52894bcea35ce2466016b1e1b97",
     "lineLinkedAt": "2026-08-21T19:45:34.389Z",
-    "updatedAt": "2026-08-22T01:38:03.902Z"
+    "updatedAt": "2026-08-22T10:29:48.667Z"
   },
   {
     "id": "BK5E25A0",
