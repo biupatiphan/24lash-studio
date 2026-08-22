@@ -6624,27 +6624,28 @@
     "name": "mayyoncp@gmail.com Phaisaree",
     "email": "mayyoncp@gmail.com",
     "phone": "0962494799",
-    "serviceId": "anime",
+    "serviceId": "wet-look-5d-10d",
     "serviceIds": [
-      "anime"
+      "wet-look-5d-10d",
+      "removal"
     ],
-    "serviceName": "Anime ไม่จำกัดเส้นและความยาว/เคลมฟรี",
+    "serviceName": "Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
     "date": "2026-08-22",
     "dateLabel": "วันเสาร์ที่ 22 สิงหาคม 2569",
     "time": "14:00",
-    "endTime": "14:40",
+    "endTime": "15:10",
     "startMinutes": 840,
-    "endMinutes": 880,
+    "endMinutes": 910,
     "startISO": "2026-08-22T14:00:00+07:00",
-    "endISO": "2026-08-22T14:40:00+07:00",
-    "price": 759,
+    "endISO": "2026-08-22T15:10:00+07:00",
+    "price": 999,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-08-21T10:05:37.462Z",
     "lineUserId": "U04df029a5a7f86f60ce16c20269f0fea",
     "lineLinkedAt": "2026-08-21T10:05:50.061Z",
-    "updatedAt": "2026-08-21T11:00:21.018Z",
+    "updatedAt": "2026-08-22T07:36:46.772Z",
     "remindersSent": [
       "1d"
     ]
