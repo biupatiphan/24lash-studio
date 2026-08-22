@@ -6709,22 +6709,23 @@
     "phone": "0932346192",
     "serviceId": "svc-19",
     "serviceIds": [
-      "svc-19"
+      "svc-19",
+      "refill"
     ],
-    "serviceName": "ต่อขนตาล่าง",
+    "serviceName": "ต่อขนตาล่าง + Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-08-22",
     "dateLabel": "วันเสาร์ที่ 22 สิงหาคม 2569",
     "time": "13:00",
-    "endTime": "13:15",
+    "endTime": "13:55",
     "startMinutes": 780,
-    "endMinutes": 795,
+    "endMinutes": 835,
     "startISO": "2026-08-22T13:00:00+07:00",
-    "endISO": "2026-08-22T13:15:00+07:00",
-    "price": 150,
+    "endISO": "2026-08-22T13:55:00+07:00",
+    "price": 909,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-08-22T04:26:56.776Z",
-    "updatedAt": "2026-08-22T04:38:20.247Z"
+    "updatedAt": "2026-08-22T06:11:13.868Z"
   }
 ]
