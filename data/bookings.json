@@ -6748,11 +6748,11 @@
     "endISO": "2026-08-22T18:40:00+07:00",
     "price": 759,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-08-22T09:27:39.584Z",
     "lineUserId": "U715c8e53bc400e19aeccdbdffb8224d6",
     "lineLinkedAt": "2026-08-22T09:27:56.588Z",
-    "updatedAt": "2026-08-22T09:28:15.794Z"
+    "updatedAt": "2026-08-22T14:53:31.757Z"
   }
 ]
