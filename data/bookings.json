@@ -6934,11 +6934,11 @@
     "endISO": "2026-08-28T13:20:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "pending",
+    "status": "confirmed",
     "source": "online",
     "createdAt": "2026-08-25T10:26:50.438Z",
     "lineUserId": "U5135e52894bcea35ce2466016b1e1b97",
     "lineLinkedAt": "2026-08-25T10:27:07.499Z",
-    "updatedAt": "2026-08-25T10:27:07.499Z"
+    "updatedAt": "2026-08-25T10:33:50.769Z"
   }
 ]
