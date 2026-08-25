@@ -6882,12 +6882,12 @@
     "endISO": "2026-08-26T16:55:00+07:00",
     "price": 909,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "confirmed",
     "source": "online",
     "createdAt": "2026-08-25T07:18:09.717Z",
     "lineUserId": "Uc8d9cfc1ab8b18c9e9dbe680051664b4",
     "lineLinkedAt": "2026-08-25T07:18:28.494Z",
-    "updatedAt": "2026-08-25T07:18:28.494Z"
+    "updatedAt": "2026-08-25T07:40:18.908Z"
   },
   {
     "id": "BK307B90",
