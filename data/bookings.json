@@ -6914,5 +6914,29 @@
     "lineUserId": "U5135e52894bcea35ce2466016b1e1b97",
     "lineLinkedAt": "2026-08-25T10:27:07.499Z",
     "updatedAt": "2026-08-25T10:33:50.769Z"
+  },
+  {
+    "id": "WK574682",
+    "name": "Exponential /IG",
+    "email": "",
+    "phone": "",
+    "serviceId": "svc-26",
+    "serviceIds": [
+      "svc-26"
+    ],
+    "serviceName": "เคลมฟรี",
+    "date": "2026-08-26",
+    "dateLabel": "วันพุธที่ 26 สิงหาคม 2569",
+    "time": "13:00",
+    "endTime": "13:20",
+    "startMinutes": 780,
+    "endMinutes": 800,
+    "startISO": "2026-08-26T13:00:00+07:00",
+    "endISO": "2026-08-26T13:20:00+07:00",
+    "price": 0,
+    "depositAmount": 0,
+    "status": "confirmed",
+    "source": "manual",
+    "createdAt": "2026-08-25T10:37:04.206Z"
   }
 ]
