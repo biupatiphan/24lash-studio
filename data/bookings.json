@@ -7095,9 +7095,10 @@
     "endISO": "2026-08-27T16:40:00+07:00",
     "price": 599,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "noshow",
     "source": "online",
-    "createdAt": "2026-08-26T09:11:04.872Z"
+    "createdAt": "2026-08-26T09:11:04.872Z",
+    "updatedAt": "2026-08-26T09:22:34.454Z"
   },
   {
     "id": "BK13DEA1",
