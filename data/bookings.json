@@ -6941,9 +6941,10 @@
     "endISO": "2026-08-26T13:20:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
-    "createdAt": "2026-08-25T10:37:04.206Z"
+    "createdAt": "2026-08-25T10:37:04.206Z",
+    "updatedAt": "2026-08-26T07:01:36.422Z"
   },
   {
     "id": "BKD294B0",
