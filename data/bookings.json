@@ -6874,25 +6874,25 @@
     "name": "หว่าหวา",
     "email": "ladapimol.cho@gmail.com",
     "phone": "0909707105",
-    "serviceId": "wet-look-3d-4d",
+    "serviceId": "wet-look-5d-10d",
     "serviceIds": [
-      "wet-look-3d-4d"
+      "wet-look-5d-10d"
     ],
-    "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-08-26",
     "dateLabel": "วันพุธที่ 26 สิงหาคม 2569",
     "time": "12:00",
-    "endTime": "12:40",
+    "endTime": "13:00",
     "startMinutes": 720,
-    "endMinutes": 760,
+    "endMinutes": 780,
     "startISO": "2026-08-26T12:00:00+07:00",
-    "endISO": "2026-08-26T12:40:00+07:00",
-    "price": 699,
+    "endISO": "2026-08-26T13:00:00+07:00",
+    "price": 899,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-08-25T07:39:58.251Z",
-    "updatedAt": "2026-08-25T07:40:34.273Z"
+    "updatedAt": "2026-08-26T05:18:37.014Z"
   },
   {
     "id": "BKFC7FDA",
