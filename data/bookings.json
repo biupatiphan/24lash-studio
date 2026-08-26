@@ -6778,10 +6778,10 @@
     "endISO": "2026-08-26T11:05:00+07:00",
     "price": 1059,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-08-23T15:31:52.588Z",
-    "updatedAt": "2026-08-25T11:00:19.348Z",
+    "updatedAt": "2026-08-26T04:55:33.633Z",
     "lineUserId": "U2f39f7eac0557d99d7b070f5d8d9ad37",
     "lineLinkedAt": "2026-08-23T15:32:27.121Z",
     "remindersSent": [
