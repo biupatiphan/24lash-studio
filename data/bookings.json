@@ -7146,11 +7146,11 @@
     "endISO": "2026-08-27T17:40:00+07:00",
     "price": 759,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "confirmed",
     "source": "online",
     "createdAt": "2026-08-27T00:58:54.273Z",
     "lineUserId": "U24682d5d7bcff72ba207b3ef350cbe45",
     "lineLinkedAt": "2026-08-27T00:59:15.261Z",
-    "updatedAt": "2026-08-27T00:59:15.261Z"
+    "updatedAt": "2026-08-27T02:10:04.332Z"
   }
 ]
