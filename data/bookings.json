@@ -7021,12 +7021,12 @@
     "endISO": "2026-08-28T17:55:00+07:00",
     "price": 909,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-08-26T04:04:50.573Z",
     "lineUserId": "U1889a321b553ce57e60fdfe013f579aa",
     "lineLinkedAt": "2026-08-26T04:05:03.894Z",
-    "updatedAt": "2026-08-27T11:00:19.505Z",
+    "updatedAt": "2026-08-28T11:40:13.051Z",
     "remindersSent": [
       "1d"
     ]
