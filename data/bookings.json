@@ -7087,11 +7087,11 @@
     "name": "Julia Sirmer",
     "email": "julia.sirmer@gmail.com",
     "phone": "4917581763",
-    "serviceId": "classic",
+    "serviceId": "u-shape-lashes",
     "serviceIds": [
-      "classic"
+      "u-shape-lashes"
     ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "U shape Lashes ขนตาแกนยู / ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-08-28",
     "dateLabel": "วันศุกร์ที่ 28 สิงหาคม 2569",
     "time": "16:00",
@@ -7100,11 +7100,12 @@
     "endMinutes": 1000,
     "startISO": "2026-08-28T16:00:00+07:00",
     "endISO": "2026-08-28T16:40:00+07:00",
-    "price": 599,
+    "price": 699,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "done",
     "source": "online",
-    "createdAt": "2026-08-26T09:12:29.816Z"
+    "createdAt": "2026-08-26T09:12:29.816Z",
+    "updatedAt": "2026-08-28T10:13:00.873Z"
   },
   {
     "id": "BKD55D28",
