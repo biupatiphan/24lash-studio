@@ -7064,24 +7064,23 @@
     "phone": "0926541459",
     "serviceId": "wet-look-3d-4d",
     "serviceIds": [
-      "wet-look-3d-4d",
-      "removal"
+      "wet-look-3d-4d"
     ],
-    "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
+    "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-08-28",
     "dateLabel": "วันศุกร์ที่ 28 สิงหาคม 2569",
     "time": "11:00",
-    "endTime": "11:50",
+    "endTime": "11:40",
     "startMinutes": 660,
-    "endMinutes": 710,
+    "endMinutes": 700,
     "startISO": "2026-08-28T11:00:00+07:00",
-    "endISO": "2026-08-28T11:50:00+07:00",
-    "price": 849,
+    "endISO": "2026-08-28T11:40:00+07:00",
+    "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-08-26T07:44:53.390Z",
-    "updatedAt": "2026-08-26T08:00:01.949Z"
+    "updatedAt": "2026-08-28T06:31:33.802Z"
   },
   {
     "id": "BK13DEA1",
