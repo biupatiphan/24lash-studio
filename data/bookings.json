@@ -7228,10 +7228,10 @@
     "endISO": "2026-08-28T12:20:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-08-27T15:58:33.601Z",
-    "updatedAt": "2026-08-27T15:59:36.435Z"
+    "updatedAt": "2026-08-28T06:31:36.604Z"
   },
   {
     "id": "BKF5B650",
