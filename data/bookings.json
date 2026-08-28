@@ -6914,12 +6914,12 @@
     "endISO": "2026-08-28T13:20:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-08-25T10:26:50.438Z",
     "lineUserId": "U5135e52894bcea35ce2466016b1e1b97",
     "lineLinkedAt": "2026-08-25T10:27:07.499Z",
-    "updatedAt": "2026-08-27T11:00:19.269Z",
+    "updatedAt": "2026-08-28T06:31:42.985Z",
     "remindersSent": [
       "1d"
     ]
