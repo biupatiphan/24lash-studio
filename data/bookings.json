@@ -6819,25 +6819,25 @@
     "name": "nut",
     "email": "penne.palalenx@gmail.com",
     "phone": "0831167788",
-    "serviceId": "wet-look-3d-4d",
+    "serviceId": "wet-look-5d-10d",
     "serviceIds": [
-      "wet-look-3d-4d"
+      "wet-look-5d-10d"
     ],
-    "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-08-29",
     "dateLabel": "วันเสาร์ที่ 29 สิงหาคม 2569",
     "time": "18:00",
-    "endTime": "18:40",
+    "endTime": "19:00",
     "startMinutes": 1080,
-    "endMinutes": 1120,
+    "endMinutes": 1140,
     "startISO": "2026-08-29T18:00:00+07:00",
-    "endISO": "2026-08-29T18:40:00+07:00",
-    "price": 699,
+    "endISO": "2026-08-29T19:00:00+07:00",
+    "price": 899,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-08-24T05:00:42.227Z",
-    "updatedAt": "2026-08-29T09:13:18.777Z"
+    "updatedAt": "2026-08-29T14:55:39.533Z"
   },
   {
     "id": "BK09723D",
