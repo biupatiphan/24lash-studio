@@ -6793,26 +6793,25 @@
     "name": "ตาล",
     "email": "hattayapapinid@gmail.com",
     "phone": "0944248999",
-    "serviceId": "wet-wispy",
+    "serviceId": "u-shape-lashes",
     "serviceIds": [
-      "wet-wispy",
-      "svc-19"
+      "u-shape-lashes"
     ],
-    "serviceName": "Wet Wispy ไม่จำกัดเส้นและความยาว/เคลมฟรี + ต่อขนตาล่าง",
+    "serviceName": "U shape Lashes ขนตาแกนยู / ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-08-30",
     "dateLabel": "วันอาทิตย์ที่ 30 สิงหาคม 2569",
     "time": "12:00",
-    "endTime": "12:55",
+    "endTime": "12:40",
     "startMinutes": 720,
-    "endMinutes": 775,
+    "endMinutes": 760,
     "startISO": "2026-08-30T12:00:00+07:00",
-    "endISO": "2026-08-30T12:55:00+07:00",
-    "price": 849,
+    "endISO": "2026-08-30T12:40:00+07:00",
+    "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-08-24T04:01:05.263Z",
-    "updatedAt": "2026-08-24T04:03:33.711Z"
+    "updatedAt": "2026-08-30T06:12:45.452Z"
   },
   {
     "id": "BKD3DD78",
