@@ -181,7 +181,13 @@
   },
   "closedWeekdays": [],
   "closedDates": [],
-  "blockedTimes": [],
+  "blockedTimes": [
+    {
+      "date": "2026-08-30",
+      "start": "14:00",
+      "end": "21:00"
+    }
+  ],
   "shop": {
     "name": "Lashbkk24",
     "address": "Ideo mobi 81 ติดบีทีเอสอ่อนนุช",
