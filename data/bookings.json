@@ -7319,23 +7319,24 @@
     "phone": "",
     "serviceId": "mega-volume",
     "serviceIds": [
-      "mega-volume"
+      "mega-volume",
+      "removal"
     ],
-    "serviceName": "Mega Volume ไม่จำกัดเส้นและความยาว/เคลมฟรี",
+    "serviceName": "Mega Volume ไม่จำกัดเส้นและความยาว/เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
     "date": "2026-08-30",
     "dateLabel": "วันอาทิตย์ที่ 30 สิงหาคม 2569",
     "time": "10:30",
-    "endTime": "11:30",
+    "endTime": "11:40",
     "startMinutes": 630,
-    "endMinutes": 690,
+    "endMinutes": 700,
     "startISO": "2026-08-30T10:30:00+07:00",
-    "endISO": "2026-08-30T11:30:00+07:00",
-    "price": 1200,
+    "endISO": "2026-08-30T11:40:00+07:00",
+    "price": 1350,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
     "createdAt": "2026-08-29T14:56:22.394Z",
-    "updatedAt": "2026-08-29T14:56:48.435Z"
+    "updatedAt": "2026-08-30T04:05:25.960Z"
   },
   {
     "id": "BK2422E4",
