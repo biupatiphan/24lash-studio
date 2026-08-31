@@ -7515,11 +7515,11 @@
     "endISO": "2026-08-31T21:40:00+07:00",
     "price": 759,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "confirmed",
     "source": "online",
     "createdAt": "2026-08-31T11:05:57.002Z",
     "lineUserId": "U733935ca1ddf5dcadfc236a3bc208292",
     "lineLinkedAt": "2026-08-31T11:06:12.859Z",
-    "updatedAt": "2026-08-31T11:06:12.859Z"
+    "updatedAt": "2026-08-31T11:11:00.853Z"
   }
 ]
