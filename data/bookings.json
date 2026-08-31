@@ -7204,10 +7204,10 @@
     "endISO": "2026-08-31T11:00:00+07:00",
     "price": 899,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "noshow",
     "source": "online",
     "createdAt": "2026-08-27T13:17:01.288Z",
-    "updatedAt": "2026-08-28T10:13:21.261Z"
+    "updatedAt": "2026-08-31T14:02:05.504Z"
   },
   {
     "id": "BKA1B4F7",
