@@ -7504,18 +7504,19 @@
       "removal"
     ],
     "serviceName": "Removal (ถอดขนตา) เริ่มต้น 50-150",
-    "date": "2026-08-31",
-    "dateLabel": "วันจันทร์ที่ 31 สิงหาคม 2569",
+    "date": "2026-09-01",
+    "dateLabel": "วันอังคารที่ 1 กันยายน 2569",
     "time": "17:00",
     "endTime": "17:10",
     "startMinutes": 1020,
     "endMinutes": 1030,
-    "startISO": "2026-08-31T17:00:00+07:00",
-    "endISO": "2026-08-31T17:10:00+07:00",
+    "startISO": "2026-09-01T17:00:00+07:00",
+    "endISO": "2026-09-01T17:10:00+07:00",
     "price": 0,
     "depositAmount": 0,
     "status": "confirmed",
     "source": "manual",
-    "createdAt": "2026-08-31T06:11:15.989Z"
+    "createdAt": "2026-08-31T06:11:15.989Z",
+    "updatedAt": "2026-08-31T06:19:50.365Z"
   }
 ]
