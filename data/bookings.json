@@ -7408,12 +7408,12 @@
     "endISO": "2026-08-31T19:40:00+07:00",
     "price": 759,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-08-30T09:34:02.204Z",
     "lineUserId": "U70106a4b25da378581774e336e1c5b97",
     "lineLinkedAt": "2026-08-30T09:34:14.458Z",
-    "updatedAt": "2026-08-30T13:06:39.508Z",
+    "updatedAt": "2026-08-31T12:50:58.084Z",
     "remindersSent": [
       "1d"
     ]
