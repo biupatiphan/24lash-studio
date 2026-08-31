@@ -7185,31 +7185,6 @@
     "updatedAt": "2026-08-27T09:53:03.675Z"
   },
   {
-    "id": "BKC8BABF",
-    "name": "นิวยอร์ก",
-    "email": "pimozliza.newyorkz@gmail.com",
-    "phone": "0809251107",
-    "serviceId": "wet-look-5d-10d",
-    "serviceIds": [
-      "wet-look-5d-10d"
-    ],
-    "serviceName": "Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
-    "date": "2026-08-31",
-    "dateLabel": "วันจันทร์ที่ 31 สิงหาคม 2569",
-    "time": "10:00",
-    "endTime": "11:00",
-    "startMinutes": 600,
-    "endMinutes": 660,
-    "startISO": "2026-08-31T10:00:00+07:00",
-    "endISO": "2026-08-31T11:00:00+07:00",
-    "price": 899,
-    "depositAmount": 200,
-    "status": "noshow",
-    "source": "online",
-    "createdAt": "2026-08-27T13:17:01.288Z",
-    "updatedAt": "2026-08-31T14:02:05.504Z"
-  },
-  {
     "id": "BKA1B4F7",
     "name": "แจน",
     "email": "y.nattanicha@outlook.com",
