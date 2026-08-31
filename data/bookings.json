@@ -7444,5 +7444,29 @@
     "lineUserId": "U89670283f79f9ec701d8077b64a322fe",
     "lineLinkedAt": "2026-08-31T00:19:05.344Z",
     "updatedAt": "2026-08-31T00:19:05.344Z"
+  },
+  {
+    "id": "WKAFBAED",
+    "name": "Areerat (IG)",
+    "email": "",
+    "phone": "",
+    "serviceId": "svc-26",
+    "serviceIds": [
+      "svc-26"
+    ],
+    "serviceName": "เคลมฟรี",
+    "date": "2026-08-31",
+    "dateLabel": "วันจันทร์ที่ 31 สิงหาคม 2569",
+    "time": "18:00",
+    "endTime": "18:20",
+    "startMinutes": 1080,
+    "endMinutes": 1100,
+    "startISO": "2026-08-31T18:00:00+07:00",
+    "endISO": "2026-08-31T18:20:00+07:00",
+    "price": 0,
+    "depositAmount": 0,
+    "status": "confirmed",
+    "source": "manual",
+    "createdAt": "2026-08-31T02:07:26.192Z"
   }
 ]
