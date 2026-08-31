@@ -7490,9 +7490,10 @@
     "endISO": "2026-08-31T17:20:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "noshow",
     "source": "manual",
-    "createdAt": "2026-08-31T06:10:42.335Z"
+    "createdAt": "2026-08-31T06:10:42.335Z",
+    "updatedAt": "2026-08-31T06:19:57.616Z"
   },
   {
     "id": "WK1C730F",
