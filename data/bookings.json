@@ -7471,31 +7471,6 @@
     "updatedAt": "2026-08-31T05:30:16.724Z"
   },
   {
-    "id": "WK2E0B60",
-    "name": "เคลมฟรี",
-    "email": "",
-    "phone": "",
-    "serviceId": "svc-26",
-    "serviceIds": [
-      "svc-26"
-    ],
-    "serviceName": "เคลมฟรี",
-    "date": "2026-08-31",
-    "dateLabel": "วันจันทร์ที่ 31 สิงหาคม 2569",
-    "time": "17:00",
-    "endTime": "17:20",
-    "startMinutes": 1020,
-    "endMinutes": 1040,
-    "startISO": "2026-08-31T17:00:00+07:00",
-    "endISO": "2026-08-31T17:20:00+07:00",
-    "price": 0,
-    "depositAmount": 0,
-    "status": "noshow",
-    "source": "manual",
-    "createdAt": "2026-08-31T06:10:42.335Z",
-    "updatedAt": "2026-08-31T06:19:57.616Z"
-  },
-  {
     "id": "WK1C730F",
     "name": "เคลมฟรี",
     "email": "",
