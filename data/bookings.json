@@ -7452,23 +7452,24 @@
     "phone": "0611820220",
     "serviceId": "mega-volume",
     "serviceIds": [
-      "mega-volume"
+      "mega-volume",
+      "removal"
     ],
-    "serviceName": "Mega Volume ไม่จำกัดเส้นและความยาว/เคลมฟรี",
+    "serviceName": "Mega Volume ไม่จำกัดเส้นและความยาว/เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
     "date": "2026-08-31",
     "dateLabel": "วันจันทร์ที่ 31 สิงหาคม 2569",
     "time": "17:00",
-    "endTime": "18:00",
+    "endTime": "18:10",
     "startMinutes": 1020,
-    "endMinutes": 1080,
+    "endMinutes": 1090,
     "startISO": "2026-08-31T17:00:00+07:00",
-    "endISO": "2026-08-31T18:00:00+07:00",
-    "price": 1200,
+    "endISO": "2026-08-31T18:10:00+07:00",
+    "price": 1350,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-08-31T05:25:32.151Z",
-    "updatedAt": "2026-08-31T05:30:16.724Z"
+    "updatedAt": "2026-08-31T11:21:08.191Z"
   },
   {
     "id": "WK1C730F",
