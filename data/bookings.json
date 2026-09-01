@@ -7615,11 +7615,11 @@
     "endMinutes": 1130,
     "startISO": "2026-09-01T18:00:00+07:00",
     "endISO": "2026-09-01T18:50:00+07:00",
-    "price": 909,
+    "price": 833,
     "depositAmount": 200,
     "status": "confirmed",
     "source": "online",
     "createdAt": "2026-09-01T07:57:17.481Z",
-    "updatedAt": "2026-09-01T07:57:46.281Z"
+    "updatedAt": "2026-09-01T07:58:27.474Z"
   }
 ]
