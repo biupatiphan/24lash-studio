@@ -7540,12 +7540,12 @@
     "endMinutes": 940,
     "startISO": "2026-09-01T15:00:00+07:00",
     "endISO": "2026-09-01T15:40:00+07:00",
-    "price": 759,
+    "price": 683,
     "depositAmount": 200,
     "status": "done",
     "source": "online",
     "createdAt": "2026-09-01T03:52:00.807Z",
-    "updatedAt": "2026-09-01T11:13:04.463Z"
+    "updatedAt": "2026-09-01T11:13:18.404Z"
   },
   {
     "id": "WKBA5F63",
