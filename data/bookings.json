@@ -7720,5 +7720,29 @@
     "status": "confirmed",
     "source": "manual",
     "createdAt": "2026-09-02T08:21:59.273Z"
+  },
+  {
+    "id": "BK236256",
+    "name": "Kafew",
+    "email": "suttichaipiya@gmail.com",
+    "phone": "0909078719",
+    "serviceId": "u-shape-lashes",
+    "serviceIds": [
+      "u-shape-lashes"
+    ],
+    "serviceName": "U shape Lashes ขนตาแกนยู / ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "date": "2026-09-03",
+    "dateLabel": "วันพฤหัสบดีที่ 3 กันยายน 2569",
+    "time": "20:00",
+    "endTime": "20:40",
+    "startMinutes": 1200,
+    "endMinutes": 1240,
+    "startISO": "2026-09-03T20:00:00+07:00",
+    "endISO": "2026-09-03T20:40:00+07:00",
+    "price": 699,
+    "depositAmount": 200,
+    "status": "pending",
+    "source": "online",
+    "createdAt": "2026-09-02T11:01:34.975Z"
   }
 ]
