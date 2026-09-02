@@ -7692,10 +7692,10 @@
     "endISO": "2026-09-02T17:00:00+07:00",
     "price": 899,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-09-02T02:02:42.628Z",
-    "updatedAt": "2026-09-02T02:23:20.975Z"
+    "updatedAt": "2026-09-02T11:51:51.294Z"
   },
   {
     "id": "WK4946CF",
