@@ -7828,23 +7828,24 @@
     "phone": "",
     "serviceId": "wet-look-3d-4d",
     "serviceIds": [
-      "wet-look-3d-4d"
+      "wet-look-3d-4d",
+      "removal"
     ],
-    "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
     "date": "2026-09-03",
     "dateLabel": "วันพฤหัสบดีที่ 3 กันยายน 2569",
     "time": "19:00",
-    "endTime": "19:40",
+    "endTime": "19:50",
     "startMinutes": 1140,
-    "endMinutes": 1180,
+    "endMinutes": 1190,
     "startISO": "2026-09-03T19:00:00+07:00",
-    "endISO": "2026-09-03T19:40:00+07:00",
-    "price": 699,
+    "endISO": "2026-09-03T19:50:00+07:00",
+    "price": 799,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
     "createdAt": "2026-09-03T03:52:49.684Z",
-    "updatedAt": "2026-09-03T10:27:02.915Z"
+    "updatedAt": "2026-09-03T13:04:54.709Z"
   },
   {
     "id": "BK6BB599",
