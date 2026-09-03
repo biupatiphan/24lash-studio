@@ -8040,11 +8040,11 @@
     "endISO": "2026-09-04T14:40:00+07:00",
     "price": 759,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "confirmed",
     "source": "online",
     "createdAt": "2026-09-03T13:45:50.733Z",
     "lineUserId": "Uae02f600380100d5afb6f376d69db687",
     "lineLinkedAt": "2026-09-03T13:46:11.209Z",
-    "updatedAt": "2026-09-03T13:46:11.209Z"
+    "updatedAt": "2026-09-03T13:46:32.380Z"
   }
 ]
