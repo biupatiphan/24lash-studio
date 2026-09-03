@@ -7876,11 +7876,11 @@
     "name": "ออย",
     "email": "oyl1990.nn@gmail.com",
     "phone": "0948951404",
-    "serviceId": "classic",
+    "serviceId": "u-shape-lashes",
     "serviceIds": [
-      "classic"
+      "u-shape-lashes"
     ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "U shape Lashes ขนตาแกนยู / ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-09-03",
     "dateLabel": "วันพฤหัสบดีที่ 3 กันยายน 2569",
     "time": "21:00",
@@ -7889,12 +7889,12 @@
     "endMinutes": 1300,
     "startISO": "2026-09-03T21:00:00+07:00",
     "endISO": "2026-09-03T21:40:00+07:00",
-    "price": 599,
+    "price": 699,
     "depositAmount": 200,
     "status": "confirmed",
     "source": "online",
     "createdAt": "2026-09-03T06:13:09.837Z",
-    "updatedAt": "2026-09-03T11:04:35.927Z"
+    "updatedAt": "2026-09-03T11:06:39.980Z"
   },
   {
     "id": "BK2C3F3A",
