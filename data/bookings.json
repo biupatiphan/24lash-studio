@@ -7994,5 +7994,29 @@
     "status": "confirmed",
     "source": "manual",
     "createdAt": "2026-09-03T10:43:39.025Z"
+  },
+  {
+    "id": "WK2B85FD",
+    "name": "K.nyein sandar",
+    "email": "",
+    "phone": "",
+    "serviceId": "u-shape-lashes",
+    "serviceIds": [
+      "u-shape-lashes"
+    ],
+    "serviceName": "U shape Lashes ขนตาแกนยู / ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "date": "2026-09-03",
+    "dateLabel": "วันพฤหัสบดีที่ 3 กันยายน 2569",
+    "time": "22:00",
+    "endTime": "22:40",
+    "startMinutes": 1320,
+    "endMinutes": 1360,
+    "startISO": "2026-09-03T22:00:00+07:00",
+    "endISO": "2026-09-03T22:40:00+07:00",
+    "price": 699,
+    "depositAmount": 0,
+    "status": "confirmed",
+    "source": "manual",
+    "createdAt": "2026-09-03T11:06:16.547Z"
   }
 ]
