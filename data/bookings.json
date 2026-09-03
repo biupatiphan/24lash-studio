@@ -7892,10 +7892,10 @@
     "endISO": "2026-09-03T21:40:00+07:00",
     "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-09-03T06:13:09.837Z",
-    "updatedAt": "2026-09-03T11:06:39.980Z"
+    "updatedAt": "2026-09-03T13:55:23.811Z"
   },
   {
     "id": "BK2C3F3A",
