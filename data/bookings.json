@@ -8016,9 +8016,10 @@
     "endISO": "2026-09-03T22:40:00+07:00",
     "price": 699,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
-    "createdAt": "2026-09-03T11:06:16.547Z"
+    "createdAt": "2026-09-03T11:06:16.547Z",
+    "updatedAt": "2026-09-03T15:49:04.664Z"
   },
   {
     "id": "BK182A6A",
