@@ -7806,19 +7806,20 @@
       "whispy-volume"
     ],
     "serviceName": "Whispy Volume ไม่จำกัดเส้นและความยาว+เคลมฟรี",
-    "date": "2026-09-03",
-    "dateLabel": "วันพฤหัสบดีที่ 3 กันยายน 2569",
+    "date": "2026-09-06",
+    "dateLabel": "วันอาทิตย์ที่ 6 กันยายน 2569",
     "time": "12:00",
     "endTime": "13:00",
     "startMinutes": 720,
     "endMinutes": 780,
-    "startISO": "2026-09-03T12:00:00+07:00",
-    "endISO": "2026-09-03T13:00:00+07:00",
+    "startISO": "2026-09-06T12:00:00+07:00",
+    "endISO": "2026-09-06T13:00:00+07:00",
     "price": 899,
     "depositAmount": 0,
     "status": "confirmed",
     "source": "manual",
-    "createdAt": "2026-09-03T03:43:50.837Z"
+    "createdAt": "2026-09-03T03:43:50.837Z",
+    "updatedAt": "2026-09-03T04:10:27.232Z"
   },
   {
     "id": "WK50BF24",
