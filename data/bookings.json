@@ -8045,6 +8045,9 @@
     "createdAt": "2026-09-03T13:45:50.733Z",
     "lineUserId": "Uae02f600380100d5afb6f376d69db687",
     "lineLinkedAt": "2026-09-03T13:46:11.209Z",
-    "updatedAt": "2026-09-03T13:46:32.380Z"
+    "updatedAt": "2026-09-03T13:50:11.597Z",
+    "remindersSent": [
+      "1d"
+    ]
   }
 ]
