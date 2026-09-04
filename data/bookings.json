@@ -8186,25 +8186,26 @@
     "phone": "0834629663",
     "serviceId": "svc-19",
     "serviceIds": [
-      "svc-19"
+      "svc-19",
+      "refill"
     ],
-    "serviceName": "ต่อขนตาล่าง",
+    "serviceName": "ต่อขนตาล่าง + Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-09-05",
     "dateLabel": "วันเสาร์ที่ 5 กันยายน 2569",
     "time": "10:00",
-    "endTime": "10:15",
+    "endTime": "10:55",
     "startMinutes": 600,
-    "endMinutes": 615,
+    "endMinutes": 655,
     "startISO": "2026-09-05T10:00:00+07:00",
-    "endISO": "2026-09-05T10:15:00+07:00",
-    "price": 150,
+    "endISO": "2026-09-05T10:55:00+07:00",
+    "price": 909,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "confirmed",
     "source": "online",
     "createdAt": "2026-09-04T16:19:57.975Z",
     "lineUserId": "U10b7ef21b7546226da496c36521d0507",
     "lineLinkedAt": "2026-09-04T16:20:27.213Z",
-    "updatedAt": "2026-09-04T16:25:08.344Z",
+    "updatedAt": "2026-09-04T17:37:52.007Z",
     "remindersSent": [
       "1d"
     ]
