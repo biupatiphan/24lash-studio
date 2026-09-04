@@ -8107,11 +8107,11 @@
     "name": "โฟม",
     "email": "foammmy@gmail.com",
     "phone": "0803265915",
-    "serviceId": "whispy-classic",
+    "serviceId": "refill",
     "serviceIds": [
-      "whispy-classic"
+      "refill"
     ],
-    "serviceName": "Whispy Classic ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-09-04",
     "dateLabel": "วันศุกร์ที่ 4 กันยายน 2569",
     "time": "18:00",
@@ -8120,14 +8120,14 @@
     "endMinutes": 1120,
     "startISO": "2026-09-04T18:00:00+07:00",
     "endISO": "2026-09-04T18:40:00+07:00",
-    "price": 699,
+    "price": 759,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-09-04T03:36:36.855Z",
     "lineUserId": "U0e6b277cbefaaa5fc06e39323a1ba9bf",
     "lineLinkedAt": "2026-09-04T03:37:04.419Z",
-    "updatedAt": "2026-09-04T05:17:23.509Z"
+    "updatedAt": "2026-09-04T11:14:32.909Z"
   },
   {
     "id": "WK87D432",
