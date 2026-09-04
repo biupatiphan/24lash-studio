@@ -8204,6 +8204,9 @@
     "createdAt": "2026-09-04T16:19:57.975Z",
     "lineUserId": "U10b7ef21b7546226da496c36521d0507",
     "lineLinkedAt": "2026-09-04T16:20:27.213Z",
-    "updatedAt": "2026-09-04T16:20:27.213Z"
+    "updatedAt": "2026-09-04T16:25:08.344Z",
+    "remindersSent": [
+      "1d"
+    ]
   }
 ]
