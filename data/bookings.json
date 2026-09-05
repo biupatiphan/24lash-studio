@@ -8184,5 +8184,29 @@
     "remindersSent": [
       "1d"
     ]
+  },
+  {
+    "id": "BK895460",
+    "name": "รุ้ง",
+    "email": "rungzee@gmail.com",
+    "phone": "0628746166",
+    "serviceId": "classic",
+    "serviceIds": [
+      "classic"
+    ],
+    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "date": "2026-09-06",
+    "dateLabel": "วันอาทิตย์ที่ 6 กันยายน 2569",
+    "time": "13:00",
+    "endTime": "13:40",
+    "startMinutes": 780,
+    "endMinutes": 820,
+    "startISO": "2026-09-06T13:00:00+07:00",
+    "endISO": "2026-09-06T13:40:00+07:00",
+    "price": 599,
+    "depositAmount": 200,
+    "status": "pending",
+    "source": "online",
+    "createdAt": "2026-09-05T05:56:21.836Z"
   }
 ]
