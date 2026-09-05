@@ -7848,31 +7848,6 @@
     "updatedAt": "2026-09-03T13:04:54.709Z"
   },
   {
-    "id": "BK6BB599",
-    "name": "Tulsi Thapa",
-    "email": "tulsi0208@gmail.com",
-    "phone": "0629925460",
-    "serviceId": "wet-look-3d-4d",
-    "serviceIds": [
-      "wet-look-3d-4d"
-    ],
-    "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
-    "date": "2026-09-05",
-    "dateLabel": "วันเสาร์ที่ 5 กันยายน 2569",
-    "time": "11:00",
-    "endTime": "11:40",
-    "startMinutes": 660,
-    "endMinutes": 700,
-    "startISO": "2026-09-05T11:00:00+07:00",
-    "endISO": "2026-09-05T11:40:00+07:00",
-    "price": 699,
-    "depositAmount": 200,
-    "status": "noshow",
-    "source": "online",
-    "createdAt": "2026-09-03T05:27:38.412Z",
-    "updatedAt": "2026-09-05T02:20:16.898Z"
-  },
-  {
     "id": "BKCE32A9",
     "name": "ออย",
     "email": "oyl1990.nn@gmail.com",
