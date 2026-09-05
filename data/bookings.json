@@ -7927,11 +7927,11 @@
     "name": "Dream",
     "email": "dreamteerarat@gmail.com",
     "phone": "0930045566",
-    "serviceId": "classic",
+    "serviceId": "u-shape-lashes",
     "serviceIds": [
-      "classic"
+      "u-shape-lashes"
     ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "U shape Lashes ขนตาแกนยู / ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-09-05",
     "dateLabel": "วันเสาร์ที่ 5 กันยายน 2569",
     "time": "13:00",
@@ -7940,12 +7940,12 @@
     "endMinutes": 820,
     "startISO": "2026-09-05T13:00:00+07:00",
     "endISO": "2026-09-05T13:40:00+07:00",
-    "price": 599,
+    "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-09-03T09:33:05.295Z",
-    "updatedAt": "2026-09-04T13:49:12.875Z"
+    "updatedAt": "2026-09-05T07:12:10.216Z"
   },
   {
     "id": "WK5C1766",
