@@ -7917,10 +7917,10 @@
     "endISO": "2026-09-05T12:20:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-09-03T08:10:25.273Z",
-    "updatedAt": "2026-09-03T08:12:44.510Z"
+    "updatedAt": "2026-09-05T05:39:00.882Z"
   },
   {
     "id": "BK9CD588",
