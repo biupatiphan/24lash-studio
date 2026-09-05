@@ -8167,12 +8167,12 @@
     "serviceName": "ต่อขนตาล่าง + Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-09-05",
     "dateLabel": "วันเสาร์ที่ 5 กันยายน 2569",
-    "time": "10:00",
-    "endTime": "10:55",
-    "startMinutes": 600,
-    "endMinutes": 655,
-    "startISO": "2026-09-05T10:00:00+07:00",
-    "endISO": "2026-09-05T10:55:00+07:00",
+    "time": "11:00",
+    "endTime": "11:55",
+    "startMinutes": 660,
+    "endMinutes": 715,
+    "startISO": "2026-09-05T11:00:00+07:00",
+    "endISO": "2026-09-05T11:55:00+07:00",
     "price": 909,
     "depositAmount": 200,
     "status": "confirmed",
@@ -8180,7 +8180,7 @@
     "createdAt": "2026-09-04T16:19:57.975Z",
     "lineUserId": "U10b7ef21b7546226da496c36521d0507",
     "lineLinkedAt": "2026-09-04T16:20:27.213Z",
-    "updatedAt": "2026-09-04T17:37:52.007Z",
+    "updatedAt": "2026-09-05T02:21:38.541Z",
     "remindersSent": [
       "1d"
     ]
