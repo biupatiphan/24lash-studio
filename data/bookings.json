@@ -8270,21 +8270,23 @@
     "phone": "",
     "serviceId": "whispy-volume",
     "serviceIds": [
-      "whispy-volume"
+      "whispy-volume",
+      "removal"
     ],
-    "serviceName": "Whispy Volume ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Whispy Volume ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
     "date": "2026-09-07",
     "dateLabel": "วันจันทร์ที่ 7 กันยายน 2569",
     "time": "16:00",
-    "endTime": "17:00",
+    "endTime": "17:10",
     "startMinutes": 960,
-    "endMinutes": 1020,
+    "endMinutes": 1030,
     "startISO": "2026-09-07T16:00:00+07:00",
-    "endISO": "2026-09-07T17:00:00+07:00",
-    "price": 899,
+    "endISO": "2026-09-07T17:10:00+07:00",
+    "price": 1049,
     "depositAmount": 0,
     "status": "confirmed",
     "source": "manual",
-    "createdAt": "2026-09-06T04:02:24.755Z"
+    "createdAt": "2026-09-06T04:02:24.755Z",
+    "updatedAt": "2026-09-06T04:19:52.250Z"
   }
 ]
