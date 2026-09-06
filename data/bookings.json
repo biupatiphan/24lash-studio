@@ -8261,10 +8261,10 @@
     "endISO": "2026-09-06T11:00:00+07:00",
     "price": 899,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-09-05T08:54:01.679Z",
-    "updatedAt": "2026-09-05T16:33:42.377Z"
+    "updatedAt": "2026-09-06T16:27:35.782Z"
   },
   {
     "id": "WK8E4B7F",
