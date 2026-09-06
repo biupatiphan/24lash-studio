@@ -7801,25 +7801,25 @@
     "name": "K.alice",
     "email": "",
     "phone": "",
-    "serviceId": "whispy-volume",
+    "serviceId": "yy-shape-lashes-y",
     "serviceIds": [
-      "whispy-volume"
+      "yy-shape-lashes-y"
     ],
-    "serviceName": "Whispy Volume ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "YY shape Lashes ขนตาแกนY/ไม่จำกัดเส้นและความยาว/เคลมฟรี",
     "date": "2026-09-06",
     "dateLabel": "วันอาทิตย์ที่ 6 กันยายน 2569",
     "time": "12:00",
-    "endTime": "13:00",
+    "endTime": "12:40",
     "startMinutes": 720,
-    "endMinutes": 780,
+    "endMinutes": 760,
     "startISO": "2026-09-06T12:00:00+07:00",
-    "endISO": "2026-09-06T13:00:00+07:00",
-    "price": 899,
+    "endISO": "2026-09-06T12:40:00+07:00",
+    "price": 699,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
     "createdAt": "2026-09-03T03:43:50.837Z",
-    "updatedAt": "2026-09-03T04:10:27.232Z"
+    "updatedAt": "2026-09-06T16:28:04.189Z"
   },
   {
     "id": "WK50BF24",
