@@ -8236,7 +8236,10 @@
     "createdAt": "2026-09-05T08:21:13.874Z",
     "lineUserId": "Ue95ab4681690a8b3574970be14531dda",
     "lineLinkedAt": "2026-09-05T08:23:19.488Z",
-    "updatedAt": "2026-09-05T08:23:19.488Z"
+    "updatedAt": "2026-09-06T11:00:19.123Z",
+    "remindersSent": [
+      "1d"
+    ]
   },
   {
     "id": "BKBD8321",
