@@ -8034,22 +8034,24 @@
     "phone": "",
     "serviceId": "refill",
     "serviceIds": [
-      "refill"
+      "refill",
+      "removal"
     ],
-    "serviceName": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
     "date": "2026-09-06",
     "dateLabel": "วันอาทิตย์ที่ 6 กันยายน 2569",
     "time": "11:00",
-    "endTime": "11:40",
+    "endTime": "11:50",
     "startMinutes": 660,
-    "endMinutes": 700,
+    "endMinutes": 710,
     "startISO": "2026-09-06T11:00:00+07:00",
-    "endISO": "2026-09-06T11:40:00+07:00",
-    "price": 759,
+    "endISO": "2026-09-06T11:50:00+07:00",
+    "price": 809,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
-    "createdAt": "2026-09-03T15:15:20.680Z"
+    "createdAt": "2026-09-03T15:15:20.680Z",
+    "updatedAt": "2026-09-06T16:27:56.434Z"
   },
   {
     "id": "BK1303A5",
