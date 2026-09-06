@@ -8192,11 +8192,11 @@
     "name": "รุ้ง",
     "email": "rungzee@gmail.com",
     "phone": "0628746166",
-    "serviceId": "classic",
+    "serviceId": "u-shape-lashes",
     "serviceIds": [
-      "classic"
+      "u-shape-lashes"
     ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "U shape Lashes ขนตาแกนยู / ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-09-06",
     "dateLabel": "วันอาทิตย์ที่ 6 กันยายน 2569",
     "time": "13:00",
@@ -8205,12 +8205,12 @@
     "endMinutes": 820,
     "startISO": "2026-09-06T13:00:00+07:00",
     "endISO": "2026-09-06T13:40:00+07:00",
-    "price": 599,
+    "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-09-05T05:56:21.836Z",
-    "updatedAt": "2026-09-05T06:01:58.023Z"
+    "updatedAt": "2026-09-06T16:28:12.835Z"
   },
   {
     "id": "BK196206",
