@@ -8419,5 +8419,29 @@
     "source": "online",
     "createdAt": "2026-09-07T02:31:13.119Z",
     "updatedAt": "2026-09-07T03:00:43.021Z"
+  },
+  {
+    "id": "WK697F19",
+    "name": "K.exponiential /IG",
+    "email": "",
+    "phone": "",
+    "serviceId": "u-shape-lashes",
+    "serviceIds": [
+      "u-shape-lashes"
+    ],
+    "serviceName": "U shape Lashes ขนตาแกนยู / ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "date": "2026-09-08",
+    "dateLabel": "วันอังคารที่ 8 กันยายน 2569",
+    "time": "10:00",
+    "endTime": "10:40",
+    "startMinutes": 600,
+    "endMinutes": 640,
+    "startISO": "2026-09-08T10:00:00+07:00",
+    "endISO": "2026-09-08T10:40:00+07:00",
+    "price": 699,
+    "depositAmount": 0,
+    "status": "confirmed",
+    "source": "manual",
+    "createdAt": "2026-09-07T04:47:25.624Z"
   }
 ]
