@@ -8465,10 +8465,10 @@
     "endISO": "2026-09-07T18:10:00+07:00",
     "price": 699,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-09-07T05:33:48.203Z",
-    "updatedAt": "2026-09-07T06:59:31.992Z"
+    "updatedAt": "2026-09-07T12:34:58.324Z"
   },
   {
     "id": "BKFE8C60",
