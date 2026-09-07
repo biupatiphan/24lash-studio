@@ -8499,11 +8499,11 @@
     "name": "มิ้ง",
     "email": "jwongianta@gmail.com",
     "phone": "0983848407",
-    "serviceId": "wet-look-3d-4d",
+    "serviceId": "anime",
     "serviceIds": [
-      "wet-look-3d-4d"
+      "anime"
     ],
-    "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Anime ไม่จำกัดเส้นและความยาว/เคลมฟรี",
     "date": "2026-09-07",
     "dateLabel": "วันจันทร์ที่ 7 กันยายน 2569",
     "time": "20:00",
@@ -8512,14 +8512,14 @@
     "endMinutes": 1240,
     "startISO": "2026-09-07T20:00:00+07:00",
     "endISO": "2026-09-07T20:40:00+07:00",
-    "price": 699,
+    "price": 759,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-09-07T11:58:41.901Z",
     "lineUserId": "Udd36e1c04f7d8831a011fac5c65d0c64",
     "lineLinkedAt": "2026-09-07T11:59:12.791Z",
-    "updatedAt": "2026-09-07T12:03:51.464Z"
+    "updatedAt": "2026-09-07T13:50:01.923Z"
   },
   {
     "id": "BKB55F69",
