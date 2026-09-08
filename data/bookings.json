@@ -8574,10 +8574,10 @@
     "endISO": "2026-09-08T12:20:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "noshow",
     "source": "online",
     "createdAt": "2026-09-07T15:26:42.176Z",
-    "updatedAt": "2026-09-07T15:51:24.353Z"
+    "updatedAt": "2026-09-08T05:48:03.843Z"
   },
   {
     "id": "WK8A8A76",
