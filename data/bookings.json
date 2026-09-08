@@ -8610,11 +8610,11 @@
     "name": "K.bell /IG",
     "email": "",
     "phone": "",
-    "serviceId": "hybrid",
+    "serviceId": "volume",
     "serviceIds": [
-      "hybrid"
+      "volume"
     ],
-    "serviceName": "Hybrid Lash  ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Volume Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-09-08",
     "dateLabel": "วันอังคารที่ 8 กันยายน 2569",
     "time": "13:00",
@@ -8623,11 +8623,11 @@
     "endMinutes": 870,
     "startISO": "2026-09-08T13:00:00+07:00",
     "endISO": "2026-09-08T14:30:00+07:00",
-    "price": 750,
+    "price": 1099,
     "depositAmount": 0,
     "status": "done",
     "source": "manual",
     "createdAt": "2026-09-08T05:52:09.761Z",
-    "updatedAt": "2026-09-08T07:05:54.467Z"
+    "updatedAt": "2026-09-08T07:06:05.829Z"
   }
 ]
