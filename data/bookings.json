@@ -8674,11 +8674,11 @@
     "endISO": "2026-09-10T11:30:00+07:00",
     "price": 699,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "confirmed",
     "source": "online",
     "createdAt": "2026-09-08T10:37:38.071Z",
     "lineUserId": "Ud606d5069c65e7944f4956260fba8f3b",
     "lineLinkedAt": "2026-09-08T10:37:58.413Z",
-    "updatedAt": "2026-09-08T10:37:58.413Z"
+    "updatedAt": "2026-09-08T10:39:38.050Z"
   }
 ]
