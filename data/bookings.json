@@ -8651,11 +8651,12 @@
     "endMinutes": 1110,
     "startISO": "2026-09-08T17:00:00+07:00",
     "endISO": "2026-09-08T18:30:00+07:00",
-    "price": 699,
+    "price": 539,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
-    "createdAt": "2026-09-08T08:13:22.246Z"
+    "createdAt": "2026-09-08T08:13:22.246Z",
+    "updatedAt": "2026-09-08T16:18:12.663Z"
   },
   {
     "id": "BK637D4B",
