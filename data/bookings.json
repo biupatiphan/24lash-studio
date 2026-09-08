@@ -8440,9 +8440,10 @@
     "endISO": "2026-09-08T10:40:00+07:00",
     "price": 699,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
-    "createdAt": "2026-09-07T04:47:25.624Z"
+    "createdAt": "2026-09-07T04:47:25.624Z",
+    "updatedAt": "2026-09-08T04:34:47.700Z"
   },
   {
     "id": "BK43B3BF",
