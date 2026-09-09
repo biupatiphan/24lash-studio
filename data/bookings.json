@@ -8735,11 +8735,11 @@
     "endISO": "2026-09-10T13:45:00+07:00",
     "price": 1049,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "confirmed",
     "source": "online",
     "createdAt": "2026-09-09T13:33:17.501Z",
     "lineUserId": "U7e77e2d19769cf7a6fd04d90d08af44d",
     "lineLinkedAt": "2026-09-09T13:33:36.457Z",
-    "updatedAt": "2026-09-09T13:33:36.457Z"
+    "updatedAt": "2026-09-09T13:33:48.786Z"
   }
 ]
