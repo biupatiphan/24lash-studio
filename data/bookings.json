@@ -8263,12 +8263,12 @@
     "endISO": "2026-09-09T18:40:00+07:00",
     "price": 759,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-09-06T06:11:03.024Z",
     "lineUserId": "U50f7909d538e0f0aa5ce81f982a99bb6",
     "lineLinkedAt": "2026-09-06T06:11:27.582Z",
-    "updatedAt": "2026-09-08T11:00:18.889Z",
+    "updatedAt": "2026-09-09T13:35:00.913Z",
     "remindersSent": [
       "1d"
     ]
