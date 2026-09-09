@@ -8552,10 +8552,10 @@
     "endISO": "2026-09-09T20:00:00+07:00",
     "price": 899,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
     "createdAt": "2026-09-08T01:47:04.399Z",
-    "updatedAt": "2026-09-09T03:45:46.557Z"
+    "updatedAt": "2026-09-09T13:35:03.856Z"
   },
   {
     "id": "BK3A072C",
@@ -8740,6 +8740,9 @@
     "createdAt": "2026-09-09T13:33:17.501Z",
     "lineUserId": "U7e77e2d19769cf7a6fd04d90d08af44d",
     "lineLinkedAt": "2026-09-09T13:33:36.457Z",
-    "updatedAt": "2026-09-09T13:33:48.786Z"
+    "updatedAt": "2026-09-09T13:35:08.048Z",
+    "remindersSent": [
+      "1d"
+    ]
   }
 ]
