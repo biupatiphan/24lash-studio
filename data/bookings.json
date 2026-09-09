@@ -8684,7 +8684,10 @@
     "createdAt": "2026-09-08T10:37:38.071Z",
     "lineUserId": "Ud606d5069c65e7944f4956260fba8f3b",
     "lineLinkedAt": "2026-09-08T10:37:58.413Z",
-    "updatedAt": "2026-09-08T10:39:38.050Z"
+    "updatedAt": "2026-09-09T11:00:20.160Z",
+    "remindersSent": [
+      "1d"
+    ]
   },
   {
     "id": "BK042236",
