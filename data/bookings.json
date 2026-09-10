@@ -8794,9 +8794,10 @@
     "endISO": "2026-09-11T12:30:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
-    "createdAt": "2026-09-09T15:22:52.255Z"
+    "createdAt": "2026-09-09T15:22:52.255Z",
+    "updatedAt": "2026-09-10T15:14:58.370Z"
   },
   {
     "id": "BKAB828D",
