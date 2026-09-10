@@ -8343,10 +8343,10 @@
     "endISO": "2026-09-09T16:40:00+07:00",
     "price": 759,
     "depositAmount": 200,
-    "status": "done",
+    "status": "confirmed",
     "source": "online",
     "createdAt": "2026-09-06T11:36:49.998Z",
-    "updatedAt": "2026-09-10T03:21:31.787Z"
+    "updatedAt": "2026-09-09T04:15:23.863Z"
   },
   {
     "id": "BKAB8FD8",
@@ -8666,25 +8666,26 @@
     "phone": "0865556069",
     "serviceId": "wet-look-3d-4d",
     "serviceIds": [
-      "wet-look-3d-4d"
+      "wet-look-3d-4d",
+      "removal"
     ],
-    "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
     "date": "2026-09-10",
     "dateLabel": "วันพฤหัสบดีที่ 10 กันยายน 2569",
     "time": "10:00",
-    "endTime": "11:30",
+    "endTime": "11:15",
     "startMinutes": 600,
-    "endMinutes": 690,
+    "endMinutes": 675,
     "startISO": "2026-09-10T10:00:00+07:00",
-    "endISO": "2026-09-10T11:30:00+07:00",
-    "price": 699,
+    "endISO": "2026-09-10T11:15:00+07:00",
+    "price": 749,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-09-08T10:37:38.071Z",
     "lineUserId": "Ud606d5069c65e7944f4956260fba8f3b",
     "lineLinkedAt": "2026-09-08T10:37:58.413Z",
-    "updatedAt": "2026-09-09T11:00:20.160Z",
+    "updatedAt": "2026-09-10T03:34:51.043Z",
     "remindersSent": [
       "1d"
     ]
