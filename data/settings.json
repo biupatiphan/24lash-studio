@@ -3,7 +3,7 @@
     {
       "id": "classic",
       "name": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
-      "duration": 90,
+      "duration": 60,
       "price": 599,
       "popular": false,
       "type": "main",
@@ -21,7 +21,7 @@
     {
       "id": "hybrid",
       "name": "Hybrid Lash  ไม่จำกัดเส้นและความยาว+เคลมฟรี",
-      "duration": 90,
+      "duration": 60,
       "price": 750,
       "popular": false,
       "type": "main",
@@ -30,7 +30,7 @@
     {
       "id": "refill",
       "name": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี",
-      "duration": 90,
+      "duration": 60,
       "price": 759,
       "popular": true,
       "type": "main",
@@ -48,7 +48,7 @@
     {
       "id": "whispy-classic",
       "name": "Whispy Classic ไม่จำกัดเส้นและความยาว+เคลมฟรี",
-      "duration": 90,
+      "duration": 60,
       "price": 699,
       "popular": false,
       "type": "main",
@@ -66,7 +66,7 @@
     {
       "id": "wet-look-3d-4d",
       "name": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
-      "duration": 90,
+      "duration": 60,
       "price": 699,
       "popular": false,
       "type": "main",
@@ -84,7 +84,7 @@
     {
       "id": "u-shape-lashes",
       "name": "U shape Lashes ขนตาแกนยู / ไม่จำกัดเส้นและความยาว+เคลมฟรี",
-      "duration": 90,
+      "duration": 60,
       "price": 699,
       "popular": false,
       "type": "main",
@@ -93,7 +93,7 @@
     {
       "id": "yy-shape-lashes-y",
       "name": "YY shape Lashes ขนตาแกนY/ไม่จำกัดเส้นและความยาว/เคลมฟรี",
-      "duration": 90,
+      "duration": 60,
       "price": 699,
       "popular": false,
       "type": "main",
@@ -102,7 +102,7 @@
     {
       "id": "ww-shape-lashes-ww",
       "name": "WW shape Lashes ขนตาแกนWW/ ไม่จำกัดเส้นและความยาว/เคลมฟรี",
-      "duration": 90,
+      "duration": 60,
       "price": 699,
       "popular": false,
       "type": "main",
@@ -120,7 +120,7 @@
     {
       "id": "wet-wispy",
       "name": "Wet Wispy ไม่จำกัดเส้นและความยาว/เคลมฟรี",
-      "duration": 90,
+      "duration": 60,
       "price": 699,
       "popular": false,
       "type": "main",
@@ -138,7 +138,7 @@
     {
       "id": "anime",
       "name": "Anime ไม่จำกัดเส้นและความยาว/เคลมฟรี",
-      "duration": 90,
+      "duration": 60,
       "price": 759,
       "popular": false,
       "type": "main",
@@ -167,7 +167,7 @@
     {
       "id": "whispy-wet",
       "name": "Whispy Wet",
-      "duration": 90,
+      "duration": 60,
       "price": 699,
       "popular": false,
       "type": "main",
