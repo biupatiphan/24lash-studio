@@ -8818,12 +8818,12 @@
     "endISO": "2026-09-11T22:00:00+07:00",
     "price": 699,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "confirmed",
     "source": "online",
     "createdAt": "2026-09-10T11:47:06.305Z",
     "lineUserId": "U00b7cc240a197d6e2bea5caf58d958e7",
     "lineLinkedAt": "2026-09-10T11:47:14.051Z",
-    "updatedAt": "2026-09-10T11:50:11.218Z",
+    "updatedAt": "2026-09-10T12:01:42.894Z",
     "remindersSent": [
       "1d"
     ]
