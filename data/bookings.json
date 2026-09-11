@@ -8830,31 +8830,6 @@
     ]
   },
   {
-    "id": "WK572499",
-    "name": "โรส",
-    "email": "",
-    "phone": "",
-    "serviceId": "svc-26",
-    "serviceIds": [
-      "svc-26"
-    ],
-    "serviceName": "เคลมฟรี",
-    "date": "2026-09-11",
-    "dateLabel": "วันศุกร์ที่ 11 กันยายน 2569",
-    "time": "17:00",
-    "endTime": "17:30",
-    "startMinutes": 1020,
-    "endMinutes": 1050,
-    "startISO": "2026-09-11T17:00:00+07:00",
-    "endISO": "2026-09-11T17:30:00+07:00",
-    "price": 0,
-    "depositAmount": 0,
-    "status": "noshow",
-    "source": "manual",
-    "createdAt": "2026-09-11T04:31:02.765Z",
-    "updatedAt": "2026-09-11T08:50:38.119Z"
-  },
-  {
     "id": "WK89E9DE",
     "name": "K.douman",
     "email": "",
