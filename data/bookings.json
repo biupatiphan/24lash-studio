@@ -8710,10 +8710,10 @@
     "endISO": "2026-09-11T13:30:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-09-09T10:07:07.947Z",
-    "updatedAt": "2026-09-09T10:07:24.848Z"
+    "updatedAt": "2026-09-11T08:50:26.892Z"
   },
   {
     "id": "BKDCA4BB",
