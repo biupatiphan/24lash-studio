@@ -8811,12 +8811,12 @@
     "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-09-11",
     "dateLabel": "วันศุกร์ที่ 11 กันยายน 2569",
-    "time": "21:00",
-    "endTime": "22:00",
-    "startMinutes": 1260,
-    "endMinutes": 1320,
-    "startISO": "2026-09-11T21:00:00+07:00",
-    "endISO": "2026-09-11T22:00:00+07:00",
+    "time": "17:00",
+    "endTime": "18:00",
+    "startMinutes": 1020,
+    "endMinutes": 1080,
+    "startISO": "2026-09-11T17:00:00+07:00",
+    "endISO": "2026-09-11T18:00:00+07:00",
     "price": 699,
     "depositAmount": 200,
     "status": "confirmed",
@@ -8824,7 +8824,7 @@
     "createdAt": "2026-09-10T11:47:06.305Z",
     "lineUserId": "U00b7cc240a197d6e2bea5caf58d958e7",
     "lineLinkedAt": "2026-09-10T11:47:14.051Z",
-    "updatedAt": "2026-09-10T12:01:42.894Z",
+    "updatedAt": "2026-09-11T09:18:50.419Z",
     "remindersSent": [
       "1d"
     ]
