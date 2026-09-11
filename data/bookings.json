@@ -8772,7 +8772,10 @@
     "createdAt": "2026-09-09T13:56:03.218Z",
     "lineUserId": "U7141fb7123ea1244860146e75315c5c6",
     "lineLinkedAt": "2026-09-09T13:56:19.298Z",
-    "updatedAt": "2026-09-09T13:56:27.146Z"
+    "updatedAt": "2026-09-11T11:00:19.843Z",
+    "remindersSent": [
+      "1d"
+    ]
   },
   {
     "id": "WKC5C0DD",
