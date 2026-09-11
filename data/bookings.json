@@ -8882,6 +8882,8 @@
     "status": "confirmed",
     "source": "online",
     "createdAt": "2026-09-11T11:09:52.276Z",
-    "updatedAt": "2026-09-11T11:16:10.726Z"
+    "updatedAt": "2026-09-11T11:16:14.000Z",
+    "lineUserId": "U0fd331cdbcdc644f5d54eb2ec9c0a7e4",
+    "lineLinkedAt": "2026-09-11T11:16:14.000Z"
   }
 ]
