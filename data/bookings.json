@@ -8849,9 +8849,10 @@
     "endISO": "2026-09-11T17:30:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "noshow",
     "source": "manual",
-    "createdAt": "2026-09-11T04:31:02.765Z"
+    "createdAt": "2026-09-11T04:31:02.765Z",
+    "updatedAt": "2026-09-11T08:50:38.119Z"
   },
   {
     "id": "WK89E9DE",
