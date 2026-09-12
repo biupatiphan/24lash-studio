@@ -8895,24 +8895,25 @@
     "phone": "0838087778",
     "serviceId": "anime",
     "serviceIds": [
-      "anime"
+      "anime",
+      "removal"
     ],
-    "serviceName": "Anime ไม่จำกัดเส้นและความยาว/เคลมฟรี",
+    "serviceName": "Anime ไม่จำกัดเส้นและความยาว/เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
     "date": "2026-09-12",
     "dateLabel": "วันเสาร์ที่ 12 กันยายน 2569",
     "time": "11:00",
-    "endTime": "12:00",
+    "endTime": "12:15",
     "startMinutes": 660,
-    "endMinutes": 720,
+    "endMinutes": 735,
     "startISO": "2026-09-12T11:00:00+07:00",
-    "endISO": "2026-09-12T12:00:00+07:00",
-    "price": 759,
+    "endISO": "2026-09-12T12:15:00+07:00",
+    "price": 859,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-09-12T03:21:15.389Z",
     "lineUserId": "U61be2539c1e29f09900e899345aa4522",
     "lineLinkedAt": "2026-09-12T03:28:50.828Z",
-    "updatedAt": "2026-09-12T03:28:50.828Z"
+    "updatedAt": "2026-09-12T05:17:58.727Z"
   }
 ]
