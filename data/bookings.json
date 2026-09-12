@@ -8914,30 +8914,5 @@
     "lineUserId": "U61be2539c1e29f09900e899345aa4522",
     "lineLinkedAt": "2026-09-12T03:28:50.828Z",
     "updatedAt": "2026-09-12T03:28:50.828Z"
-  },
-  {
-    "id": "BK92D9E0",
-    "name": "Ee Yin Goh",
-    "email": "eyin.goh@gmail.com",
-    "phone": "+61432042203",
-    "serviceId": "classic",
-    "serviceIds": [
-      "classic"
-    ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
-    "date": "2026-09-12",
-    "dateLabel": "วันเสาร์ที่ 12 กันยายน 2569",
-    "time": "15:00",
-    "endTime": "16:00",
-    "startMinutes": 900,
-    "endMinutes": 960,
-    "startISO": "2026-09-12T15:00:00+07:00",
-    "endISO": "2026-09-12T16:00:00+07:00",
-    "price": 599,
-    "depositAmount": 200,
-    "status": "noshow",
-    "source": "online",
-    "createdAt": "2026-09-12T04:49:21.828Z",
-    "updatedAt": "2026-09-12T05:16:59.265Z"
   }
 ]
