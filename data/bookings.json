@@ -8916,5 +8916,30 @@
     "lineUserId": "U61be2539c1e29f09900e899345aa4522",
     "lineLinkedAt": "2026-09-12T03:28:50.828Z",
     "updatedAt": "2026-09-12T05:17:58.727Z"
+  },
+  {
+    "id": "WKA78253",
+    "name": "Walk in",
+    "email": "",
+    "phone": "",
+    "serviceId": "refill",
+    "serviceIds": [
+      "refill",
+      "svc-19"
+    ],
+    "serviceName": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี + ต่อขนตาล่าง",
+    "date": "2026-09-13",
+    "dateLabel": "วันอาทิตย์ที่ 13 กันยายน 2569",
+    "time": "15:00",
+    "endTime": "16:15",
+    "startMinutes": 900,
+    "endMinutes": 975,
+    "startISO": "2026-09-13T15:00:00+07:00",
+    "endISO": "2026-09-13T16:15:00+07:00",
+    "price": 909,
+    "depositAmount": 0,
+    "status": "done",
+    "source": "manual",
+    "createdAt": "2026-09-13T10:13:33.295Z"
   }
 ]
