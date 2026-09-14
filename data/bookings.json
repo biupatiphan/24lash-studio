@@ -9051,5 +9051,29 @@
     "lineUserId": "U827cbce09b7586b6bc6d85de3add2843",
     "lineLinkedAt": "2026-09-13T18:52:33.497Z",
     "updatedAt": "2026-09-13T18:52:33.497Z"
+  },
+  {
+    "id": "WK894F53",
+    "name": "K.nana walkin",
+    "email": "",
+    "phone": "",
+    "serviceId": "volume",
+    "serviceIds": [
+      "volume"
+    ],
+    "serviceName": "Volume Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "date": "2026-09-14",
+    "dateLabel": "วันจันทร์ที่ 14 กันยายน 2569",
+    "time": "15:00",
+    "endTime": "16:30",
+    "startMinutes": 900,
+    "endMinutes": 990,
+    "startISO": "2026-09-14T15:00:00+07:00",
+    "endISO": "2026-09-14T16:30:00+07:00",
+    "price": 1099,
+    "depositAmount": 0,
+    "status": "confirmed",
+    "source": "manual",
+    "createdAt": "2026-09-14T05:00:43.273Z"
   }
 ]
