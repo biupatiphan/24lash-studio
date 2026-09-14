@@ -9127,5 +9127,29 @@
     "source": "online",
     "createdAt": "2026-09-14T09:23:09.872Z",
     "updatedAt": "2026-09-14T10:33:16.720Z"
+  },
+  {
+    "id": "WK9EECF3",
+    "name": "Exponential",
+    "email": "",
+    "phone": "",
+    "serviceId": "svc-26",
+    "serviceIds": [
+      "svc-26"
+    ],
+    "serviceName": "เคลมฟรี",
+    "date": "2026-09-14",
+    "dateLabel": "วันจันทร์ที่ 14 กันยายน 2569",
+    "time": "14:00",
+    "endTime": "14:30",
+    "startMinutes": 840,
+    "endMinutes": 870,
+    "startISO": "2026-09-14T14:00:00+07:00",
+    "endISO": "2026-09-14T14:30:00+07:00",
+    "price": 0,
+    "depositAmount": 0,
+    "status": "confirmed",
+    "source": "manual",
+    "createdAt": "2026-09-14T10:33:42.789Z"
   }
 ]
