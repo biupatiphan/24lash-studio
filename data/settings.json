@@ -12,7 +12,7 @@
     {
       "id": "volume",
       "name": "Volume Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
-      "duration": 90,
+      "duration": 60,
       "price": 1099,
       "popular": false,
       "type": "main",
@@ -75,7 +75,7 @@
     {
       "id": "wet-look-5d-10d",
       "name": "Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
-      "duration": 90,
+      "duration": 60,
       "price": 899,
       "popular": false,
       "type": "main",
