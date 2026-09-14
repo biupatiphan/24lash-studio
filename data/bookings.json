@@ -9059,22 +9059,24 @@
     "phone": "",
     "serviceId": "volume",
     "serviceIds": [
-      "volume"
+      "volume",
+      "removal"
     ],
-    "serviceName": "Volume Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Volume Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
     "date": "2026-09-14",
     "dateLabel": "วันจันทร์ที่ 14 กันยายน 2569",
     "time": "15:00",
-    "endTime": "16:30",
+    "endTime": "16:45",
     "startMinutes": 900,
-    "endMinutes": 990,
+    "endMinutes": 1005,
     "startISO": "2026-09-14T15:00:00+07:00",
-    "endISO": "2026-09-14T16:30:00+07:00",
-    "price": 1099,
+    "endISO": "2026-09-14T16:45:00+07:00",
+    "price": 1249,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
-    "createdAt": "2026-09-14T05:00:43.273Z"
+    "createdAt": "2026-09-14T05:00:43.273Z",
+    "updatedAt": "2026-09-14T09:13:06.033Z"
   },
   {
     "id": "BKACF9A6",
