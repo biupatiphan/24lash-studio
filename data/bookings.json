@@ -9045,12 +9045,12 @@
     "endISO": "2026-09-14T19:00:00+07:00",
     "price": 759,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "confirmed",
     "source": "online",
     "createdAt": "2026-09-13T18:52:14.780Z",
     "lineUserId": "U827cbce09b7586b6bc6d85de3add2843",
     "lineLinkedAt": "2026-09-13T18:52:33.497Z",
-    "updatedAt": "2026-09-13T18:52:33.497Z"
+    "updatedAt": "2026-09-14T09:07:55.585Z"
   },
   {
     "id": "WK894F53",
