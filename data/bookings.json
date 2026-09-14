@@ -9108,24 +9108,24 @@
     "name": "Kookie",
     "email": "kookie.wei0727@gmail.com",
     "phone": "0430 473 985",
-    "serviceId": "wet-look-3d-4d",
+    "serviceId": "svc-26",
     "serviceIds": [
-      "wet-look-3d-4d"
+      "svc-26"
     ],
-    "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "เคลมฟรี",
     "date": "2026-09-15",
     "dateLabel": "วันอังคารที่ 15 กันยายน 2569",
     "time": "12:00",
-    "endTime": "13:00",
+    "endTime": "12:30",
     "startMinutes": 720,
-    "endMinutes": 780,
+    "endMinutes": 750,
     "startISO": "2026-09-15T12:00:00+07:00",
-    "endISO": "2026-09-15T13:00:00+07:00",
-    "price": 699,
+    "endISO": "2026-09-15T12:30:00+07:00",
+    "price": 0,
     "depositAmount": 200,
     "status": "confirmed",
     "source": "online",
     "createdAt": "2026-09-14T09:23:09.872Z",
-    "updatedAt": "2026-09-14T09:35:51.960Z"
+    "updatedAt": "2026-09-14T10:33:16.720Z"
   }
 ]
