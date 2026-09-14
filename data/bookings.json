@@ -9096,8 +9096,9 @@
     "endISO": "2026-09-18T20:00:00+07:00",
     "price": 750,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "confirmed",
     "source": "online",
-    "createdAt": "2026-09-14T09:06:59.890Z"
+    "createdAt": "2026-09-14T09:06:59.890Z",
+    "updatedAt": "2026-09-14T09:07:43.073Z"
   }
 ]
