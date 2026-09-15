@@ -9105,31 +9105,6 @@
     "updatedAt": "2026-09-14T10:32:09.900Z"
   },
   {
-    "id": "BK800216",
-    "name": "Kookie",
-    "email": "kookie.wei0727@gmail.com",
-    "phone": "0430 473 985",
-    "serviceId": "svc-26",
-    "serviceIds": [
-      "svc-26"
-    ],
-    "serviceName": "เคลมฟรี",
-    "date": "2026-09-15",
-    "dateLabel": "วันอังคารที่ 15 กันยายน 2569",
-    "time": "13:00",
-    "endTime": "13:30",
-    "startMinutes": 780,
-    "endMinutes": 810,
-    "startISO": "2026-09-15T13:00:00+07:00",
-    "endISO": "2026-09-15T13:30:00+07:00",
-    "price": 0,
-    "depositAmount": 200,
-    "status": "noshow",
-    "source": "online",
-    "createdAt": "2026-09-14T09:23:09.872Z",
-    "updatedAt": "2026-09-15T03:38:53.522Z"
-  },
-  {
     "id": "WK9EECF3",
     "name": "Exponential",
     "email": "",
