@@ -9007,23 +9007,24 @@
     "phone": "0972364586",
     "serviceId": "whispy-classic",
     "serviceIds": [
-      "whispy-classic"
+      "whispy-classic",
+      "removal"
     ],
-    "serviceName": "Whispy Classic ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Whispy Classic ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
     "date": "2026-09-15",
     "dateLabel": "วันอังคารที่ 15 กันยายน 2569",
     "time": "21:00",
-    "endTime": "22:00",
+    "endTime": "22:15",
     "startMinutes": 1260,
-    "endMinutes": 1320,
+    "endMinutes": 1335,
     "startISO": "2026-09-15T21:00:00+07:00",
-    "endISO": "2026-09-15T22:00:00+07:00",
-    "price": 699,
+    "endISO": "2026-09-15T22:15:00+07:00",
+    "price": 799,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-09-13T11:59:16.517Z",
-    "updatedAt": "2026-09-13T12:07:33.385Z"
+    "updatedAt": "2026-09-15T14:56:45.106Z"
   },
   {
     "id": "BKE1DED0",
