@@ -9224,12 +9224,12 @@
     "endISO": "2026-09-16T20:00:00+07:00",
     "price": 759,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "confirmed",
     "source": "online",
     "createdAt": "2026-09-15T14:31:22.338Z",
     "lineUserId": "U598b793213f4a2bdc49061f3db4f81d0",
     "lineLinkedAt": "2026-09-15T14:31:34.846Z",
-    "updatedAt": "2026-09-15T14:31:49.439Z",
+    "updatedAt": "2026-09-15T14:54:25.058Z",
     "remindersSent": [
       "1d"
     ]
