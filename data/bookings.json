@@ -9124,10 +9124,10 @@
     "endISO": "2026-09-15T14:30:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
     "createdAt": "2026-09-14T10:33:42.789Z",
-    "updatedAt": "2026-09-14T11:01:51.014Z"
+    "updatedAt": "2026-09-15T07:31:28.141Z"
   },
   {
     "id": "BK05F284",
