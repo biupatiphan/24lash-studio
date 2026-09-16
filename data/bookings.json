@@ -9161,11 +9161,11 @@
     "name": "Kyla /IG",
     "email": "",
     "phone": "",
-    "serviceId": "wet-wispy",
+    "serviceId": "wet-look-5d-10d",
     "serviceIds": [
-      "wet-wispy"
+      "wet-look-5d-10d"
     ],
-    "serviceName": "Wet Wispy ไม่จำกัดเส้นและความยาว/เคลมฟรี",
+    "serviceName": "Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-09-16",
     "dateLabel": "วันพุธที่ 16 กันยายน 2569",
     "time": "18:00",
@@ -9174,12 +9174,12 @@
     "endMinutes": 1140,
     "startISO": "2026-09-16T18:00:00+07:00",
     "endISO": "2026-09-16T19:00:00+07:00",
-    "price": 699,
+    "price": 899,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
     "createdAt": "2026-09-15T05:28:38.288Z",
-    "updatedAt": "2026-09-16T04:01:26.055Z"
+    "updatedAt": "2026-09-16T13:52:55.774Z"
   },
   {
     "id": "BK037C46",
