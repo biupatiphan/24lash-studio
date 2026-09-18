@@ -9342,11 +9342,11 @@
     "name": "คุณ พอ",
     "email": "cheesecake20@hotmail.com",
     "phone": "0993619642",
-    "serviceId": "classic",
+    "serviceId": "u-shape-lashes",
     "serviceIds": [
-      "classic"
+      "u-shape-lashes"
     ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "U shape Lashes ขนตาแกนยู / ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-09-18",
     "dateLabel": "วันศุกร์ที่ 18 กันยายน 2569",
     "time": "16:00",
@@ -9355,10 +9355,11 @@
     "endMinutes": 1020,
     "startISO": "2026-09-18T16:00:00+07:00",
     "endISO": "2026-09-18T17:00:00+07:00",
-    "price": 599,
+    "price": 699,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "done",
     "source": "online",
-    "createdAt": "2026-09-18T03:35:22.628Z"
+    "createdAt": "2026-09-18T03:35:22.628Z",
+    "updatedAt": "2026-09-18T12:46:22.944Z"
   }
 ]
