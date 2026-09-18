@@ -9266,11 +9266,11 @@
     "name": "ปราง",
     "email": "p.pariyakorn@gmail.com",
     "phone": "0869668285",
-    "serviceId": "classic",
+    "serviceId": "u-shape-lashes",
     "serviceIds": [
-      "classic"
+      "u-shape-lashes"
     ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "U shape Lashes ขนตาแกนยู / ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-09-18",
     "dateLabel": "วันศุกร์ที่ 18 กันยายน 2569",
     "time": "17:00",
@@ -9279,12 +9279,12 @@
     "endMinutes": 1080,
     "startISO": "2026-09-18T17:00:00+07:00",
     "endISO": "2026-09-18T18:00:00+07:00",
-    "price": 599,
+    "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-09-17T06:45:35.739Z",
-    "updatedAt": "2026-09-18T06:16:29.843Z"
+    "updatedAt": "2026-09-18T12:46:31.831Z"
   },
   {
     "id": "BK74E31F",
