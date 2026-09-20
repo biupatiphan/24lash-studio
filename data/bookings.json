@@ -9256,10 +9256,10 @@
     "endISO": "2026-09-20T18:00:00+07:00",
     "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-09-16T10:38:15.666Z",
-    "updatedAt": "2026-09-16T10:38:34.548Z"
+    "updatedAt": "2026-09-20T13:29:57.306Z"
   },
   {
     "id": "BK402DC7",
