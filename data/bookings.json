@@ -9151,10 +9151,10 @@
     "endISO": "2026-09-20T17:00:00+07:00",
     "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-09-14T15:45:00.932Z",
-    "updatedAt": "2026-09-20T07:56:59.752Z"
+    "updatedAt": "2026-09-20T10:15:05.307Z"
   },
   {
     "id": "WKD39892",
