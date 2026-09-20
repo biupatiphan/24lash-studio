@@ -9490,11 +9490,11 @@
     "endISO": "2026-09-21T18:00:00+07:00",
     "price": 759,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "confirmed",
     "source": "online",
     "createdAt": "2026-09-20T17:08:34.205Z",
     "lineUserId": "U0c2c8535a05c15675069bee6e19efb3b",
     "lineLinkedAt": "2026-09-20T17:08:59.582Z",
-    "updatedAt": "2026-09-20T17:08:59.582Z"
+    "updatedAt": "2026-09-20T17:09:02.360Z"
   }
 ]
