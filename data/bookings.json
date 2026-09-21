@@ -9363,37 +9363,6 @@
     "updatedAt": "2026-09-18T12:46:22.944Z"
   },
   {
-    "id": "BK492150",
-    "name": "นิว",
-    "email": "newsansaenee@gmail.com",
-    "phone": "0959753997",
-    "serviceId": "anime",
-    "serviceIds": [
-      "anime",
-      "removal"
-    ],
-    "serviceName": "Anime ไม่จำกัดเส้นและความยาว/เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
-    "date": "2026-09-21",
-    "dateLabel": "วันจันทร์ที่ 21 กันยายน 2569",
-    "time": "14:00",
-    "endTime": "15:15",
-    "startMinutes": 840,
-    "endMinutes": 915,
-    "startISO": "2026-09-21T14:00:00+07:00",
-    "endISO": "2026-09-21T15:15:00+07:00",
-    "price": 909,
-    "depositAmount": 200,
-    "status": "noshow",
-    "source": "online",
-    "createdAt": "2026-09-19T17:04:20.508Z",
-    "lineUserId": "U48049810871397463153294f4d2e8303",
-    "lineLinkedAt": "2026-09-19T17:04:42.512Z",
-    "updatedAt": "2026-09-21T07:34:41.929Z",
-    "remindersSent": [
-      "1d"
-    ]
-  },
-  {
     "id": "BK099732",
     "name": "View",
     "email": "Sumaetahsv@gmail.com",
