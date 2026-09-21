@@ -9486,10 +9486,10 @@
     "endISO": "2026-09-21T14:00:00+07:00",
     "price": 899,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-09-21T03:09:46.646Z",
-    "updatedAt": "2026-09-21T03:16:15.616Z"
+    "updatedAt": "2026-09-21T07:34:57.405Z"
   },
   {
     "id": "WK05DD23",
