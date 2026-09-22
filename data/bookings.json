@@ -9322,20 +9322,20 @@
       "removal"
     ],
     "serviceName": "Hybrid Lash  ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
-    "date": "2026-09-25",
-    "dateLabel": "วันศุกร์ที่ 25 กันยายน 2569",
+    "date": "2026-10-09",
+    "dateLabel": "วันศุกร์ที่ 9 ตุลาคม 2569",
     "time": "20:00",
     "endTime": "21:15",
     "startMinutes": 1200,
     "endMinutes": 1275,
-    "startISO": "2026-09-25T20:00:00+07:00",
-    "endISO": "2026-09-25T21:15:00+07:00",
+    "startISO": "2026-10-09T20:00:00+07:00",
+    "endISO": "2026-10-09T21:15:00+07:00",
     "price": 900,
     "depositAmount": 200,
     "status": "confirmed",
     "source": "online",
     "createdAt": "2026-09-17T13:43:23.684Z",
-    "updatedAt": "2026-09-17T13:44:19.620Z"
+    "updatedAt": "2026-09-22T08:11:22.656Z"
   },
   {
     "id": "BKB95882",
