@@ -9692,5 +9692,29 @@
     "lineUserId": "Uf5af74cfe81de20d2678317bf5062af5",
     "lineLinkedAt": "2026-09-24T10:20:43.215Z",
     "updatedAt": "2026-09-24T10:48:15.264Z"
+  },
+  {
+    "id": "WK92F523",
+    "name": "K.lucky",
+    "email": "",
+    "phone": "",
+    "serviceId": "refill",
+    "serviceIds": [
+      "refill"
+    ],
+    "serviceName": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "date": "2026-09-24",
+    "dateLabel": "วันพฤหัสบดีที่ 24 กันยายน 2569",
+    "time": "18:00",
+    "endTime": "19:00",
+    "startMinutes": 1080,
+    "endMinutes": 1140,
+    "startISO": "2026-09-24T18:00:00+07:00",
+    "endISO": "2026-09-24T19:00:00+07:00",
+    "price": 759,
+    "depositAmount": 0,
+    "status": "confirmed",
+    "source": "manual",
+    "createdAt": "2026-09-24T10:57:50.824Z"
   }
 ]
