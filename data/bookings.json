@@ -9665,32 +9665,5 @@
     "status": "done",
     "source": "manual",
     "createdAt": "2026-09-24T04:20:48.103Z"
-  },
-  {
-    "id": "BKB15E77",
-    "name": "จิราพร",
-    "email": "jirapornjueajan@gmail.com",
-    "phone": "0627769725",
-    "serviceId": "refill",
-    "serviceIds": [
-      "refill"
-    ],
-    "serviceName": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี",
-    "date": "2026-09-24",
-    "dateLabel": "วันพฤหัสบดีที่ 24 กันยายน 2569",
-    "time": "18:00",
-    "endTime": "19:00",
-    "startMinutes": 1080,
-    "endMinutes": 1140,
-    "startISO": "2026-09-24T18:00:00+07:00",
-    "endISO": "2026-09-24T19:00:00+07:00",
-    "price": 759,
-    "depositAmount": 200,
-    "status": "noshow",
-    "source": "online",
-    "createdAt": "2026-09-24T07:09:00.764Z",
-    "lineUserId": "U7c6b7811a24d39f896eb1d1a7d53088d",
-    "lineLinkedAt": "2026-09-24T07:09:49.067Z",
-    "updatedAt": "2026-09-24T08:11:55.400Z"
   }
 ]
