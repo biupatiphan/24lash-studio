@@ -9692,7 +9692,10 @@
     "createdAt": "2026-09-24T10:20:20.732Z",
     "lineUserId": "Uf5af74cfe81de20d2678317bf5062af5",
     "lineLinkedAt": "2026-09-24T10:20:43.215Z",
-    "updatedAt": "2026-09-24T10:48:15.264Z"
+    "updatedAt": "2026-09-24T11:00:20.542Z",
+    "remindersSent": [
+      "1d"
+    ]
   },
   {
     "id": "WK92F523",
