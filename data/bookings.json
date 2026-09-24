@@ -9636,11 +9636,12 @@
     "endMinutes": 1080,
     "startISO": "2026-09-24T17:00:00+07:00",
     "endISO": "2026-09-24T18:00:00+07:00",
-    "price": 499,
+    "price": 599,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
-    "createdAt": "2026-09-23T09:30:23.064Z"
+    "createdAt": "2026-09-23T09:30:23.064Z",
+    "updatedAt": "2026-09-24T10:57:57.097Z"
   },
   {
     "id": "WKB88AF7",
