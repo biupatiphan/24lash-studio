@@ -9592,10 +9592,10 @@
     "endISO": "2026-09-25T18:00:00+07:00",
     "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-09-23T03:23:29.695Z",
-    "updatedAt": "2026-09-23T03:40:05.210Z"
+    "updatedAt": "2026-09-25T12:34:01.097Z"
   },
   {
     "id": "WKE71C33",
