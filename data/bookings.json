@@ -9601,22 +9601,24 @@
     "phone": "",
     "serviceId": "whispy-volume",
     "serviceIds": [
-      "whispy-volume"
+      "whispy-volume",
+      "removal"
     ],
-    "serviceName": "Whispy Volume ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Whispy Volume ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
     "date": "2026-09-25",
     "dateLabel": "วันศุกร์ที่ 25 กันยายน 2569",
     "time": "11:00",
-    "endTime": "12:00",
+    "endTime": "12:15",
     "startMinutes": 660,
-    "endMinutes": 720,
+    "endMinutes": 735,
     "startISO": "2026-09-25T11:00:00+07:00",
-    "endISO": "2026-09-25T12:00:00+07:00",
-    "price": 899,
+    "endISO": "2026-09-25T12:15:00+07:00",
+    "price": 1049,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
-    "createdAt": "2026-09-23T09:28:14.343Z"
+    "createdAt": "2026-09-23T09:28:14.343Z",
+    "updatedAt": "2026-09-25T05:25:12.040Z"
   },
   {
     "id": "WK7A512D",
