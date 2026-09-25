@@ -9729,11 +9729,11 @@
     "name": "Molly /IG",
     "email": "",
     "phone": "",
-    "serviceId": "whispy-volume",
+    "serviceId": "volume",
     "serviceIds": [
-      "whispy-volume"
+      "volume"
     ],
-    "serviceName": "Whispy Volume ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Volume Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-09-25",
     "dateLabel": "วันศุกร์ที่ 25 กันยายน 2569",
     "time": "15:00",
@@ -9742,10 +9742,11 @@
     "endMinutes": 960,
     "startISO": "2026-09-25T15:00:00+07:00",
     "endISO": "2026-09-25T16:00:00+07:00",
-    "price": 899,
+    "price": 1099,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
-    "createdAt": "2026-09-24T10:59:53.083Z"
+    "createdAt": "2026-09-24T10:59:53.083Z",
+    "updatedAt": "2026-09-25T08:19:27.643Z"
   }
 ]
