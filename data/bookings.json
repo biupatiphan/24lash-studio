@@ -9663,9 +9663,10 @@
     "endISO": "2026-09-25T13:00:00+07:00",
     "price": 699,
     "depositAmount": 599,
-    "status": "done",
+    "status": "confirmed",
     "source": "manual",
-    "createdAt": "2026-09-24T04:20:48.103Z"
+    "createdAt": "2026-09-24T04:20:48.103Z",
+    "updatedAt": "2026-09-25T03:17:28.704Z"
   },
   {
     "id": "BK6F8AB6",
