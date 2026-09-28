@@ -8569,12 +8569,12 @@
     "serviceName": "Whispy Classic ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-10-04",
     "dateLabel": "วันอาทิตย์ที่ 4 ตุลาคม 2569",
-    "time": "18:00",
-    "endTime": "18:40",
-    "startMinutes": 1080,
-    "endMinutes": 1120,
-    "startISO": "2026-10-04T18:00:00+07:00",
-    "endISO": "2026-10-04T18:40:00+07:00",
+    "time": "13:00",
+    "endTime": "13:40",
+    "startMinutes": 780,
+    "endMinutes": 820,
+    "startISO": "2026-10-04T13:00:00+07:00",
+    "endISO": "2026-10-04T13:40:00+07:00",
     "price": 699,
     "depositAmount": 200,
     "status": "confirmed",
@@ -8582,7 +8582,7 @@
     "createdAt": "2026-09-08T04:00:33.297Z",
     "lineUserId": "Uf4d00f58a6d55fafa6d02b4fe0851a50",
     "lineLinkedAt": "2026-09-08T04:00:54.757Z",
-    "updatedAt": "2026-09-28T09:41:14.612Z"
+    "updatedAt": "2026-09-28T09:41:29.919Z"
   },
   {
     "id": "WKFC1CFC",
