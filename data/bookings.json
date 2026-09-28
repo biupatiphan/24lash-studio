@@ -9899,11 +9899,11 @@
     "endISO": "2026-09-28T19:00:00+07:00",
     "price": 699,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "confirmed",
     "source": "online",
     "createdAt": "2026-09-28T08:03:29.944Z",
     "lineUserId": "U0aa2b01c9b0f6f684950d1745e847508",
     "lineLinkedAt": "2026-09-28T08:03:43.487Z",
-    "updatedAt": "2026-09-28T08:03:43.487Z"
+    "updatedAt": "2026-09-28T08:05:48.424Z"
   }
 ]
