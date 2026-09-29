@@ -9827,7 +9827,10 @@
     "createdAt": "2026-09-27T10:01:09.796Z",
     "lineUserId": "U7f8f2e72df87dc0ee09ba36d4972cff8",
     "lineLinkedAt": "2026-09-27T10:01:31.322Z",
-    "updatedAt": "2026-09-27T10:01:53.628Z"
+    "updatedAt": "2026-09-29T11:23:13.684Z",
+    "remindersSent": [
+      "1d"
+    ]
   },
   {
     "id": "BKA80276",
@@ -9958,7 +9961,10 @@
     "createdAt": "2026-09-29T06:01:28.523Z",
     "lineUserId": "Ud695a2d6bba0658883f4b0ec329c14f5",
     "lineLinkedAt": "2026-09-29T06:01:54.736Z",
-    "updatedAt": "2026-09-29T07:40:41.578Z"
+    "updatedAt": "2026-09-29T11:23:13.867Z",
+    "remindersSent": [
+      "1d"
+    ]
   },
   {
     "id": "BK7E55C3",
