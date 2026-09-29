@@ -9874,10 +9874,10 @@
     "endISO": "2026-09-29T18:00:00+07:00",
     "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-09-27T12:19:41.414Z",
-    "updatedAt": "2026-09-29T09:06:24.788Z"
+    "updatedAt": "2026-09-29T11:09:21.067Z"
   },
   {
     "id": "BKF64357",
