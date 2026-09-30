@@ -10103,14 +10103,14 @@
       "wet-look-3d-4d"
     ],
     "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
-    "date": "2026-09-30",
-    "dateLabel": "วันพุธที่ 30 กันยายน 2569",
-    "time": "19:00",
-    "endTime": "20:00",
-    "startMinutes": 1140,
-    "endMinutes": 1200,
-    "startISO": "2026-09-30T19:00:00+07:00",
-    "endISO": "2026-09-30T20:00:00+07:00",
+    "date": "2026-10-01",
+    "dateLabel": "วันพฤหัสบดีที่ 1 ตุลาคม 2569",
+    "time": "15:00",
+    "endTime": "16:00",
+    "startMinutes": 900,
+    "endMinutes": 960,
+    "startISO": "2026-10-01T15:00:00+07:00",
+    "endISO": "2026-10-01T16:00:00+07:00",
     "price": 699,
     "depositAmount": 200,
     "status": "confirmed",
@@ -10118,7 +10118,7 @@
     "createdAt": "2026-09-30T08:43:56.978Z",
     "lineUserId": "U50cdbe47f2fd576ad9df278ae42abd94",
     "lineLinkedAt": "2026-09-30T08:44:12.630Z",
-    "updatedAt": "2026-09-30T08:56:32.383Z"
+    "updatedAt": "2026-09-30T08:58:04.986Z"
   },
   {
     "id": "BK2DBF73",
