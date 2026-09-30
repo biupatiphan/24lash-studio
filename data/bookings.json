@@ -9809,25 +9809,26 @@
     "phone": "0867886783",
     "serviceId": "whispy-classic",
     "serviceIds": [
-      "whispy-classic"
+      "whispy-classic",
+      "removal"
     ],
-    "serviceName": "Whispy Classic ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Whispy Classic ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
     "date": "2026-09-30",
     "dateLabel": "วันพุธที่ 30 กันยายน 2569",
     "time": "20:00",
-    "endTime": "21:00",
+    "endTime": "20:55",
     "startMinutes": 1200,
-    "endMinutes": 1260,
+    "endMinutes": 1255,
     "startISO": "2026-09-30T20:00:00+07:00",
-    "endISO": "2026-09-30T21:00:00+07:00",
-    "price": 699,
+    "endISO": "2026-09-30T20:55:00+07:00",
+    "price": 849,
     "depositAmount": 200,
     "status": "done",
     "source": "online",
     "createdAt": "2026-09-27T10:01:09.796Z",
     "lineUserId": "U7f8f2e72df87dc0ee09ba36d4972cff8",
     "lineLinkedAt": "2026-09-27T10:01:31.322Z",
-    "updatedAt": "2026-09-30T11:39:32.704Z",
+    "updatedAt": "2026-09-30T13:49:10.300Z",
     "remindersSent": [
       "1d"
     ]
