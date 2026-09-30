@@ -9822,12 +9822,12 @@
     "endISO": "2026-09-30T21:00:00+07:00",
     "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-09-27T10:01:09.796Z",
     "lineUserId": "U7f8f2e72df87dc0ee09ba36d4972cff8",
     "lineLinkedAt": "2026-09-27T10:01:31.322Z",
-    "updatedAt": "2026-09-29T11:23:13.684Z",
+    "updatedAt": "2026-09-30T11:39:32.704Z",
     "remindersSent": [
       "1d"
     ]
