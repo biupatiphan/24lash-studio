@@ -10139,9 +10139,10 @@
     "endISO": "2026-10-01T12:00:00+07:00",
     "price": 699,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
-    "createdAt": "2026-09-30T09:46:22.376Z"
+    "createdAt": "2026-09-30T09:46:22.376Z",
+    "updatedAt": "2026-10-01T12:37:39.954Z"
   },
   {
     "id": "BKAD586B",
