@@ -10240,9 +10240,10 @@
     "endISO": "2026-10-03T19:00:00+07:00",
     "price": 699,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "confirmed",
     "source": "online",
-    "createdAt": "2026-10-01T07:22:30.621Z"
+    "createdAt": "2026-10-01T07:22:30.621Z",
+    "updatedAt": "2026-10-01T07:39:27.996Z"
   },
   {
     "id": "WK888B5E",
