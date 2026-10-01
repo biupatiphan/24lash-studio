@@ -10087,12 +10087,12 @@
     "endISO": "2026-10-01T16:00:00+07:00",
     "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-09-30T08:43:56.978Z",
     "lineUserId": "U50cdbe47f2fd576ad9df278ae42abd94",
     "lineLinkedAt": "2026-09-30T08:44:12.630Z",
-    "updatedAt": "2026-09-30T08:58:04.986Z"
+    "updatedAt": "2026-10-01T12:37:43.207Z"
   },
   {
     "id": "BK2DBF73",
