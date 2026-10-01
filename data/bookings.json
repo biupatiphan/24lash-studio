@@ -10264,8 +10264,9 @@
     "endISO": "2026-10-05T21:00:00+07:00",
     "price": 899,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "noshow",
     "source": "manual",
-    "createdAt": "2026-10-01T07:36:42.403Z"
+    "createdAt": "2026-10-01T07:36:42.403Z",
+    "updatedAt": "2026-10-01T07:38:09.370Z"
   }
 ]
