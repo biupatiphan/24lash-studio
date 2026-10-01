@@ -9462,12 +9462,12 @@
     "endISO": "2026-10-01T18:00:00+07:00",
     "price": 759,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "noshow",
     "source": "online",
     "createdAt": "2026-09-20T17:08:34.205Z",
     "lineUserId": "U0c2c8535a05c15675069bee6e19efb3b",
     "lineLinkedAt": "2026-09-20T17:08:59.582Z",
-    "updatedAt": "2026-09-21T09:38:38.773Z"
+    "updatedAt": "2026-10-01T06:15:07.773Z"
   },
   {
     "id": "BK8C6239",
