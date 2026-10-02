@@ -7593,10 +7593,10 @@
     "endISO": "2026-09-01T18:50:00+07:00",
     "price": 833,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-09-01T07:57:17.481Z",
-    "updatedAt": "2026-09-01T07:58:27.474Z"
+    "updatedAt": "2026-10-02T09:28:04.403Z"
   },
   {
     "id": "BKB7B691",
