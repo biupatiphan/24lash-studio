@@ -10410,11 +10410,11 @@
     "name": "Yimmy",
     "email": "prakaiyimyuenying@gmail.com",
     "phone": "0800769439",
-    "serviceId": "whispy-wet",
+    "serviceId": "wet-look-5d-10d",
     "serviceIds": [
-      "whispy-wet"
+      "wet-look-5d-10d"
     ],
-    "serviceName": "Whispy Wet",
+    "serviceName": "Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-10-02",
     "dateLabel": "วันศุกร์ที่ 2 ตุลาคม 2569",
     "time": "18:00",
@@ -10423,11 +10423,11 @@
     "endMinutes": 1140,
     "startISO": "2026-10-02T18:00:00+07:00",
     "endISO": "2026-10-02T19:00:00+07:00",
-    "price": 699,
+    "price": 899,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-10-02T08:39:24.402Z",
-    "updatedAt": "2026-10-02T08:47:39.909Z"
+    "updatedAt": "2026-10-02T12:08:03.902Z"
   }
 ]
