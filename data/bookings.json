@@ -8320,10 +8320,10 @@
     "endISO": "2026-09-10T15:40:00+07:00",
     "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-09-06T10:25:46.553Z",
-    "updatedAt": "2026-09-06T11:03:24.429Z"
+    "updatedAt": "2026-10-02T09:28:17.842Z"
   },
   {
     "id": "BKA37F04",
@@ -9308,10 +9308,10 @@
     "endISO": "2026-09-18T20:00:00+07:00",
     "price": 759,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-09-17T07:00:24.444Z",
-    "updatedAt": "2026-09-17T07:01:12.504Z"
+    "updatedAt": "2026-10-02T09:28:20.779Z"
   },
   {
     "id": "BKBAD9DE",
