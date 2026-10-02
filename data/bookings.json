@@ -10285,23 +10285,24 @@
     "phone": "0928255312",
     "serviceId": "wet-look-3d-4d",
     "serviceIds": [
-      "wet-look-3d-4d"
+      "wet-look-3d-4d",
+      "removal"
     ],
-    "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
     "date": "2026-10-02",
     "dateLabel": "วันศุกร์ที่ 2 ตุลาคม 2569",
     "time": "19:00",
-    "endTime": "20:00",
+    "endTime": "20:15",
     "startMinutes": 1140,
-    "endMinutes": 1200,
+    "endMinutes": 1215,
     "startISO": "2026-10-02T19:00:00+07:00",
-    "endISO": "2026-10-02T20:00:00+07:00",
-    "price": 699,
+    "endISO": "2026-10-02T20:15:00+07:00",
+    "price": 849,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-10-01T13:34:10.577Z",
-    "updatedAt": "2026-10-01T13:35:10.117Z"
+    "updatedAt": "2026-10-02T12:08:10.681Z"
   },
   {
     "id": "BK49B4B1",
