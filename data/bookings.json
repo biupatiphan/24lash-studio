@@ -8585,7 +8585,10 @@
     "createdAt": "2026-09-08T04:00:33.297Z",
     "lineUserId": "Uf4d00f58a6d55fafa6d02b4fe0851a50",
     "lineLinkedAt": "2026-09-08T04:00:54.757Z",
-    "updatedAt": "2026-09-28T10:03:12.290Z"
+    "updatedAt": "2026-10-02T11:17:42.141Z",
+    "remindersSent": [
+      "1d"
+    ]
   },
   {
     "id": "WKFC1CFC",
