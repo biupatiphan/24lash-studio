@@ -591,11 +591,17 @@ function renderForecast(r) {
 }
 
 function renderKpis(r) {
+  const forfeit = Number(r.forfeitTotal) || 0;
+  // การ์ดมัดจำริบ (คิวไม่มา) — โชว์เฉพาะเมื่อมีจริง พร้อมรายได้รวมจริง
+  const forfeitCard = forfeit > 0
+    ? `<div class="kpi"><div class="k-label">🚫 มัดจำริบ (ไม่มา)</div><div class="k-val">${baht(forfeit)}</div><div class="k-sub">${r.forfeitCount} คิว · รายได้รวมจริง ${baht(r.totalIncome)}</div></div>`
+    : '';
   $('#kpis').innerHTML = `
     <div class="kpi"><div class="k-label">💰 ยอดขาย (เสร็จแล้ว)</div><div class="k-val">${baht(r.totalSales)}</div></div>
     <div class="kpi"><div class="k-label">📅 คิวเสร็จแล้ว</div><div class="k-val">${r.doneCount} คิว</div><div class="k-sub">รอรับ ${r.counts.confirmed} · รอยืนยัน ${r.counts.pending}</div></div>
     <div class="kpi"><div class="k-label">🎫 มัดจำรับล่วงหน้า</div><div class="k-val">${baht(r.depositTotal)}</div></div>
-    <div class="kpi"><div class="k-label">🏪 รับหน้าร้าน</div><div class="k-val">${baht(r.onSiteTotal)}</div></div>`;
+    <div class="kpi"><div class="k-label">🏪 รับหน้าร้าน</div><div class="k-val">${baht(r.onSiteTotal)}</div></div>
+    ${forfeitCard}`;
 }
 
 // กราฟแท่งยอดขายรายวัน — โชว์ตอนดูแบบหลายวัน (เดือนนี้/เลือกเดือน/ช่วงวันที่)
