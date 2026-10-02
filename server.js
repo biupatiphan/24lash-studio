@@ -504,6 +504,8 @@ app.get('/api/admin/report', (req, res) => {
   const done = list.filter((b) => b.status === store.STATUS.DONE);
   // มัดจำ = เงินที่รับเข้ามาแล้วตั้งแต่ตอนจอง (ไม่นับคิวที่ยกเลิก/ไม่มา)
   const depositList = list.filter((b) => b.status !== store.STATUS.CANCELLED && b.status !== store.STATUS.NOSHOW);
+  // คิวไม่มา (no-show) = ริบมัดจำ -> เป็นรายได้จริง
+  const noshowList = list.filter((b) => b.status === store.STATUS.NOSHOW);
   const sum = (arr, f) => arr.reduce((t, x) => t + (Number(f(x)) || 0), 0);
 
   const byService = {};
@@ -514,11 +516,18 @@ app.get('/api/admin/report', (req, res) => {
     byService[k].sales += Number(b.price) || 0;
   });
 
+  const totalSales = sum(done, (b) => b.price);
+  const forfeitTotal = sum(noshowList, (b) => b.depositAmount); // มัดจำริบจากคิวไม่มา
+
   res.json({
-    totalSales: sum(done, (b) => b.price),
+    totalSales,
     doneCount: done.length,
     depositTotal: sum(depositList, (b) => b.depositAmount),
     onSiteTotal: sum(done, (b) => (Number(b.price) || 0) - (Number(b.depositAmount) || 0)),
+    // รายได้จากมัดจำริบ (คิวไม่มา) + รายได้รวมจริง = ยอดขาย + มัดจำริบ
+    forfeitTotal,
+    forfeitCount: noshowList.length,
+    totalIncome: totalSales + forfeitTotal,
     // คาดการณ์: ราคารวมของทุกคิวที่ยังอยู่ (ไม่นับ ไม่มา/ยกเลิก)
     forecast: sum(depositList, (b) => b.price),
     forecastCount: depositList.length,
