@@ -10375,11 +10375,12 @@
     "endMinutes": 660,
     "startISO": "2026-10-03T10:00:00+07:00",
     "endISO": "2026-10-03T11:00:00+07:00",
-    "price": 759,
+    "price": 518,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
-    "createdAt": "2026-10-02T04:35:55.398Z"
+    "createdAt": "2026-10-02T04:35:55.398Z",
+    "updatedAt": "2026-10-03T02:47:40.345Z"
   },
   {
     "id": "WK257087",
