@@ -10505,11 +10505,11 @@
     "endISO": "2026-10-03T18:00:00+07:00",
     "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-10-03T07:38:46.102Z",
     "lineUserId": "Ub49669110603136339fb03d658482592",
     "lineLinkedAt": "2026-10-03T07:38:55.190Z",
-    "updatedAt": "2026-10-03T07:41:09.497Z"
+    "updatedAt": "2026-10-03T10:09:18.188Z"
   }
 ]
