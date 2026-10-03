@@ -13,7 +13,7 @@
       "id": "hybrid",
       "name": "Hybrid Lash  ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
-      "price": 750,
+      "price": 799,
       "popular": false,
       "type": "main",
       "soloOnly": false
@@ -22,7 +22,7 @@
       "id": "refill",
       "name": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
-      "price": 850,
+      "price": 899,
       "popular": true,
       "type": "main",
       "soloOnly": false
@@ -40,7 +40,7 @@
       "id": "whispy-classic",
       "name": "Whispy Classic ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 40,
-      "price": 699,
+      "price": 899,
       "popular": false,
       "type": "main",
       "soloOnly": false
@@ -100,15 +100,6 @@
       "soloOnly": false
     },
     {
-      "id": "foxy-lashes",
-      "name": "Foxy Lashes ขนตาทรงฟ็อกซี่อาย/ ไม่จำกัดเส้นและความยาว/เคลมฟรี",
-      "duration": 90,
-      "price": 1100,
-      "popular": false,
-      "type": "main",
-      "soloOnly": false
-    },
-    {
       "id": "wet-wispy",
       "name": "Wet Wispy ไม่จำกัดเส้นและความยาว/เคลมฟรี",
       "duration": 60,
@@ -130,21 +121,10 @@
       "id": "anime",
       "name": "Anime ไม่จำกัดเส้นและความยาว/เคลมฟรี",
       "duration": 60,
-      "price": 850,
+      "price": 899,
       "popular": false,
       "type": "main",
       "soloOnly": false
-    },
-    {
-      "id": "svc-26",
-      "name": "เคลมฟรี",
-      "duration": 30,
-      "price": 0,
-      "popular": false,
-      "type": "main",
-      "soloOnly": true,
-      "windowStart": "11:00",
-      "windowEnd": "13:00"
     },
     {
       "id": "svc-19",
