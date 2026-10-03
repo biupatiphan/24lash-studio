@@ -9322,12 +9322,12 @@
     "name": "Beth",
     "email": "pensuang@gmail.com",
     "phone": "0975949457",
-    "serviceId": "hybrid",
+    "serviceId": "wet-look-5d-10d",
     "serviceIds": [
-      "hybrid",
+      "wet-look-5d-10d",
       "removal"
     ],
-    "serviceName": "Hybrid Lash  ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
+    "serviceName": "Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 50-150",
     "date": "2026-10-03",
     "dateLabel": "วันเสาร์ที่ 3 ตุลาคม 2569",
     "time": "11:00",
@@ -9336,12 +9336,12 @@
     "endMinutes": 735,
     "startISO": "2026-10-03T11:00:00+07:00",
     "endISO": "2026-10-03T12:15:00+07:00",
-    "price": 900,
+    "price": 1049,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-09-17T13:43:23.684Z",
-    "updatedAt": "2026-09-30T04:20:45.609Z"
+    "updatedAt": "2026-10-03T04:14:09.410Z"
   },
   {
     "id": "BKB95882",
