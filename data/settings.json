@@ -10,15 +10,6 @@
       "soloOnly": false
     },
     {
-      "id": "volume",
-      "name": "Volume Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
-      "duration": 60,
-      "price": 1099,
-      "popular": false,
-      "type": "main",
-      "soloOnly": false
-    },
-    {
       "id": "hybrid",
       "name": "Hybrid Lash  ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
@@ -31,16 +22,16 @@
       "id": "refill",
       "name": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
-      "price": 759,
+      "price": 850,
       "popular": true,
       "type": "main",
       "soloOnly": false
     },
     {
       "id": "removal",
-      "name": "Removal (ถอดขนตา) เริ่มต้น 50-150",
+      "name": "Removal (ถอดขนตา) เริ่มต้น 100-200",
       "duration": 15,
-      "price": 150,
+      "price": 100,
       "popular": false,
       "type": "addon",
       "soloOnly": false
@@ -58,7 +49,7 @@
       "id": "whispy-volume",
       "name": "Whispy Volume ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
-      "price": 899,
+      "price": 999,
       "popular": false,
       "type": "main",
       "soloOnly": false
@@ -67,7 +58,7 @@
       "id": "wet-look-3d-4d",
       "name": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
-      "price": 699,
+      "price": 899,
       "popular": false,
       "type": "main",
       "soloOnly": false
@@ -76,7 +67,7 @@
       "id": "wet-look-5d-10d",
       "name": "Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 60,
-      "price": 899,
+      "price": 999,
       "popular": false,
       "type": "main",
       "soloOnly": false
@@ -121,7 +112,7 @@
       "id": "wet-wispy",
       "name": "Wet Wispy ไม่จำกัดเส้นและความยาว/เคลมฟรี",
       "duration": 60,
-      "price": 699,
+      "price": 899,
       "popular": false,
       "type": "main",
       "soloOnly": false
@@ -130,7 +121,7 @@
       "id": "mega-volume",
       "name": "Mega Volume ไม่จำกัดเส้นและความยาว/เคลมฟรี",
       "duration": 90,
-      "price": 1200,
+      "price": 1300,
       "popular": false,
       "type": "main",
       "soloOnly": false
@@ -139,7 +130,7 @@
       "id": "anime",
       "name": "Anime ไม่จำกัดเส้นและความยาว/เคลมฟรี",
       "duration": 60,
-      "price": 759,
+      "price": 850,
       "popular": false,
       "type": "main",
       "soloOnly": false
@@ -168,7 +159,7 @@
       "id": "whispy-wet",
       "name": "Whispy Wet",
       "duration": 60,
-      "price": 699,
+      "price": 899,
       "popular": false,
       "type": "main",
       "soloOnly": false
