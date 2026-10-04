@@ -10225,12 +10225,12 @@
     "endMinutes": 1260,
     "startISO": "2026-10-04T20:00:00+07:00",
     "endISO": "2026-10-04T21:00:00+07:00",
-    "price": 699,
+    "price": 499,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-10-01T06:27:14.501Z",
-    "updatedAt": "2026-10-04T02:29:15.664Z"
+    "updatedAt": "2026-10-04T13:26:46.256Z"
   },
   {
     "id": "BKD89E05",
