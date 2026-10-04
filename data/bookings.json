@@ -10175,9 +10175,12 @@
     "status": "confirmed",
     "source": "online",
     "createdAt": "2026-09-30T13:46:57.432Z",
-    "updatedAt": "2026-09-30T13:47:20.820Z",
+    "updatedAt": "2026-10-04T13:09:24.724Z",
     "lineUserId": "Ucc7d05e8b024289f94da770a7692f4f7",
-    "lineLinkedAt": "2026-09-30T13:47:20.820Z"
+    "lineLinkedAt": "2026-09-30T13:47:20.820Z",
+    "remindersSent": [
+      "1d"
+    ]
   },
   {
     "id": "BK4F4389",
