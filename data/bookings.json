@@ -10584,12 +10584,12 @@
     "endMinutes": 900,
     "startISO": "2026-10-04T14:00:00+07:00",
     "endISO": "2026-10-04T15:00:00+07:00",
-    "price": 699,
+    "price": 899,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-10-03T16:46:04.716Z",
-    "updatedAt": "2026-10-03T16:54:47.389Z"
+    "updatedAt": "2026-10-04T08:12:20.447Z"
   },
   {
     "id": "WK2C5E2C",
