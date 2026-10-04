@@ -10596,24 +10596,25 @@
     "name": "Walkin",
     "email": "",
     "phone": "",
-    "serviceId": "classic",
+    "serviceId": "wet-volume",
     "serviceIds": [
-      "classic"
+      "wet-volume",
+      "removal"
     ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Wet volume + Removal (ถอดขนตา) เริ่มต้น 100-200",
     "date": "2026-10-04",
     "dateLabel": "วันอาทิตย์ที่ 4 ตุลาคม 2569",
     "time": "12:00",
-    "endTime": "13:00",
+    "endTime": "13:15",
     "startMinutes": 720,
-    "endMinutes": 780,
+    "endMinutes": 795,
     "startISO": "2026-10-04T12:00:00+07:00",
-    "endISO": "2026-10-04T13:00:00+07:00",
-    "price": 699,
+    "endISO": "2026-10-04T13:15:00+07:00",
+    "price": 1350,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
     "createdAt": "2026-10-04T02:22:54.677Z",
-    "updatedAt": "2026-10-04T02:28:54.923Z"
+    "updatedAt": "2026-10-04T04:56:04.862Z"
   }
 ]
