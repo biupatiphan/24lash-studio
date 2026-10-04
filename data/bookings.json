@@ -10589,5 +10589,29 @@
     "source": "online",
     "createdAt": "2026-10-03T16:46:04.716Z",
     "updatedAt": "2026-10-03T16:54:47.389Z"
+  },
+  {
+    "id": "WK2C5E2C",
+    "name": "Walkin",
+    "email": "",
+    "phone": "",
+    "serviceId": "classic",
+    "serviceIds": [
+      "classic"
+    ],
+    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "date": "2026-10-04",
+    "dateLabel": "วันอาทิตย์ที่ 4 ตุลาคม 2569",
+    "time": "11:00",
+    "endTime": "12:00",
+    "startMinutes": 660,
+    "endMinutes": 720,
+    "startISO": "2026-10-04T11:00:00+07:00",
+    "endISO": "2026-10-04T12:00:00+07:00",
+    "price": 699,
+    "depositAmount": 0,
+    "status": "confirmed",
+    "source": "manual",
+    "createdAt": "2026-10-04T02:22:54.677Z"
   }
 ]
