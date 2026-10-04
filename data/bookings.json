@@ -10521,11 +10521,11 @@
     "name": "Whatsapp",
     "email": "",
     "phone": "",
-    "serviceId": "wet-look-5d-10d",
+    "serviceId": "wet-volume",
     "serviceIds": [
-      "wet-look-5d-10d"
+      "wet-volume"
     ],
-    "serviceName": "Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Wet volume",
     "date": "2026-10-04",
     "dateLabel": "วันอาทิตย์ที่ 4 ตุลาคม 2569",
     "time": "10:00",
@@ -10534,12 +10534,12 @@
     "endMinutes": 660,
     "startISO": "2026-10-04T10:00:00+07:00",
     "endISO": "2026-10-04T11:00:00+07:00",
-    "price": 999,
+    "price": 1200,
     "depositAmount": 0,
     "status": "done",
     "source": "manual",
     "createdAt": "2026-10-03T12:52:27.784Z",
-    "updatedAt": "2026-10-04T03:08:23.737Z"
+    "updatedAt": "2026-10-04T04:20:00.265Z"
   },
   {
     "id": "BKB233A1",
