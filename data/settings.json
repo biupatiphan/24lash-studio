@@ -143,6 +143,24 @@
       "popular": false,
       "type": "main",
       "soloOnly": false
+    },
+    {
+      "id": "wet-volume",
+      "name": "Wet volume",
+      "duration": 60,
+      "price": 1200,
+      "popular": false,
+      "type": "main",
+      "soloOnly": false
+    },
+    {
+      "id": "volume",
+      "name": "Volume",
+      "duration": 60,
+      "price": 1200,
+      "popular": false,
+      "type": "main",
+      "soloOnly": false
     }
   ],
   "businessHours": {
