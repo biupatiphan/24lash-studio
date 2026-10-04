@@ -10550,20 +10550,20 @@
       "svc-26"
     ],
     "serviceName": "เคลมฟรี",
-    "date": "2026-10-04",
-    "dateLabel": "วันอาทิตย์ที่ 4 ตุลาคม 2569",
+    "date": "2026-10-05",
+    "dateLabel": "วันจันทร์ที่ 5 ตุลาคม 2569",
     "time": "12:00",
     "endTime": "12:30",
     "startMinutes": 720,
     "endMinutes": 750,
-    "startISO": "2026-10-04T12:00:00+07:00",
-    "endISO": "2026-10-04T12:30:00+07:00",
+    "startISO": "2026-10-05T12:00:00+07:00",
+    "endISO": "2026-10-05T12:30:00+07:00",
     "price": 0,
     "depositAmount": 0,
     "status": "confirmed",
     "source": "online",
     "createdAt": "2026-10-03T12:56:06.509Z",
-    "updatedAt": "2026-10-03T12:56:23.543Z"
+    "updatedAt": "2026-10-04T02:28:43.065Z"
   },
   {
     "id": "BKA8420C",
