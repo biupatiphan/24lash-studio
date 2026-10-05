@@ -10278,9 +10278,10 @@
     "endISO": "2026-10-05T21:00:00+07:00",
     "price": 899,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
-    "createdAt": "2026-10-01T07:38:34.321Z"
+    "createdAt": "2026-10-01T07:38:34.321Z",
+    "updatedAt": "2026-10-05T14:30:00.493Z"
   },
   {
     "id": "BKD9869B",
