@@ -10564,10 +10564,10 @@
     "endISO": "2026-10-05T12:30:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "noshow",
     "source": "online",
     "createdAt": "2026-10-03T12:56:06.509Z",
-    "updatedAt": "2026-10-04T02:28:43.065Z"
+    "updatedAt": "2026-10-05T12:30:09.633Z"
   },
   {
     "id": "BKA8420C",
