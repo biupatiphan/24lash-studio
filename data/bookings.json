@@ -10747,10 +10747,11 @@
     "endMinutes": 615,
     "startISO": "2026-10-06T10:00:00+07:00",
     "endISO": "2026-10-06T10:15:00+07:00",
-    "price": 100,
+    "price": 0,
     "depositAmount": 0,
     "status": "confirmed",
     "source": "manual",
-    "createdAt": "2026-10-05T14:32:12.800Z"
+    "createdAt": "2026-10-05T14:32:12.800Z",
+    "updatedAt": "2026-10-05T15:56:36.017Z"
   }
 ]
