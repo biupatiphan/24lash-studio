@@ -10172,10 +10172,10 @@
     "endISO": "2026-10-05T14:00:00+07:00",
     "price": 599,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-09-30T13:46:57.432Z",
-    "updatedAt": "2026-10-04T13:09:24.724Z",
+    "updatedAt": "2026-10-05T12:30:17.053Z",
     "lineUserId": "Ucc7d05e8b024289f94da770a7692f4f7",
     "lineLinkedAt": "2026-09-30T13:47:20.820Z",
     "remindersSent": [
@@ -10543,31 +10543,6 @@
     "source": "manual",
     "createdAt": "2026-10-03T12:52:27.784Z",
     "updatedAt": "2026-10-04T04:20:00.265Z"
-  },
-  {
-    "id": "BKB233A1",
-    "name": "Yimmy",
-    "email": "prakaiyimyuenying@gmail.com",
-    "phone": "08007694",
-    "serviceId": "svc-26",
-    "serviceIds": [
-      "svc-26"
-    ],
-    "serviceName": "เคลมฟรี",
-    "date": "2026-10-05",
-    "dateLabel": "วันจันทร์ที่ 5 ตุลาคม 2569",
-    "time": "12:00",
-    "endTime": "12:30",
-    "startMinutes": 720,
-    "endMinutes": 750,
-    "startISO": "2026-10-05T12:00:00+07:00",
-    "endISO": "2026-10-05T12:30:00+07:00",
-    "price": 0,
-    "depositAmount": 0,
-    "status": "noshow",
-    "source": "online",
-    "createdAt": "2026-10-03T12:56:06.509Z",
-    "updatedAt": "2026-10-05T12:30:09.633Z"
   },
   {
     "id": "BKA8420C",
