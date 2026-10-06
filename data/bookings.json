@@ -10777,5 +10777,29 @@
     "status": "confirmed",
     "source": "manual",
     "createdAt": "2026-10-05T15:57:08.484Z"
+  },
+  {
+    "id": "WK3F664A",
+    "name": "Bp/Line เคลมฟรี",
+    "email": "",
+    "phone": "",
+    "serviceId": "removal",
+    "serviceIds": [
+      "removal"
+    ],
+    "serviceName": "Removal (ถอดขนตา) เริ่มต้น 100-200",
+    "date": "2026-10-07",
+    "dateLabel": "วันพุธที่ 7 ตุลาคม 2569",
+    "time": "21:00",
+    "endTime": "21:15",
+    "startMinutes": 1260,
+    "endMinutes": 1275,
+    "startISO": "2026-10-07T21:00:00+07:00",
+    "endISO": "2026-10-07T21:15:00+07:00",
+    "price": 0,
+    "depositAmount": 0,
+    "status": "confirmed",
+    "source": "manual",
+    "createdAt": "2026-10-06T02:26:43.273Z"
   }
 ]
