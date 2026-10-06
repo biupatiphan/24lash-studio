@@ -10461,10 +10461,10 @@
     "endISO": "2026-10-06T19:15:00+07:00",
     "price": 909,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-10-03T04:13:27.702Z",
-    "updatedAt": "2026-10-03T04:13:42.678Z"
+    "updatedAt": "2026-10-06T10:57:14.461Z"
   },
   {
     "id": "BK3AB23A",
