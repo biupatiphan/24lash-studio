@@ -10774,9 +10774,10 @@
     "endISO": "2026-10-06T12:00:00+07:00",
     "price": 999,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
-    "createdAt": "2026-10-05T15:57:08.484Z"
+    "createdAt": "2026-10-05T15:57:08.484Z",
+    "updatedAt": "2026-10-06T10:57:10.392Z"
   },
   {
     "id": "WK3F664A",
