@@ -10749,10 +10749,10 @@
     "endISO": "2026-10-06T10:15:00+07:00",
     "price": 0,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
     "createdAt": "2026-10-05T14:32:12.800Z",
-    "updatedAt": "2026-10-05T15:56:36.017Z"
+    "updatedAt": "2026-10-06T10:57:06.445Z"
   },
   {
     "id": "WK3C541F",
