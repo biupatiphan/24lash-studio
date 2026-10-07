@@ -10678,9 +10678,12 @@
     "status": "confirmed",
     "source": "online",
     "createdAt": "2026-10-04T17:25:18.317Z",
-    "updatedAt": "2026-10-04T17:25:49.161Z",
+    "updatedAt": "2026-10-07T11:33:30.957Z",
     "lineUserId": "U22121c38645b1c2eb531d4278889b28a",
-    "lineLinkedAt": "2026-10-04T17:25:49.161Z"
+    "lineLinkedAt": "2026-10-04T17:25:49.161Z",
+    "remindersSent": [
+      "1d"
+    ]
   },
   {
     "id": "BK5395D0",
@@ -10856,7 +10859,10 @@
     "createdAt": "2026-10-07T08:17:21.965Z",
     "lineUserId": "U733935ca1ddf5dcadfc236a3bc208292",
     "lineLinkedAt": "2026-10-07T08:17:36.484Z",
-    "updatedAt": "2026-10-07T08:18:55.180Z"
+    "updatedAt": "2026-10-07T11:33:31.127Z",
+    "remindersSent": [
+      "1d"
+    ]
   },
   {
     "id": "WK56D624",
