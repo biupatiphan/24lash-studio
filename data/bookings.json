@@ -10607,14 +10607,14 @@
       "removal"
     ],
     "serviceName": "Whispy Volume ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 100-200",
-    "date": "2026-10-07",
-    "dateLabel": "วันพุธที่ 7 ตุลาคม 2569",
-    "time": "11:00",
-    "endTime": "12:15",
-    "startMinutes": 660,
-    "endMinutes": 735,
-    "startISO": "2026-10-07T11:00:00+07:00",
-    "endISO": "2026-10-07T12:15:00+07:00",
+    "date": "2026-10-08",
+    "dateLabel": "วันพฤหัสบดีที่ 8 ตุลาคม 2569",
+    "time": "20:17",
+    "endTime": "21:32",
+    "startMinutes": 1217,
+    "endMinutes": 1292,
+    "startISO": "2026-10-08T20:17:00+07:00",
+    "endISO": "2026-10-08T21:32:00+07:00",
     "price": 1099,
     "depositAmount": 200,
     "status": "confirmed",
@@ -10622,7 +10622,7 @@
     "createdAt": "2026-10-04T08:01:38.595Z",
     "lineUserId": "Ua085b4a429b91c8d64c201b533ffe86e",
     "lineLinkedAt": "2026-10-04T08:01:56.858Z",
-    "updatedAt": "2026-10-06T16:29:48.421Z",
+    "updatedAt": "2026-10-07T07:52:23.928Z",
     "remindersSent": [
       "1d"
     ]
