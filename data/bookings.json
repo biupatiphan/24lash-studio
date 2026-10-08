@@ -10910,10 +10910,10 @@
     "endISO": "2026-10-08T15:00:00+07:00",
     "price": 999,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-10-07T15:52:57.462Z",
-    "updatedAt": "2026-10-07T15:53:25.072Z"
+    "updatedAt": "2026-10-08T06:45:03.319Z"
   },
   {
     "id": "BK1764CC",
