@@ -10601,12 +10601,12 @@
     "name": "โซเฟีย",
     "email": "duaa.billionwoman@gmail.com",
     "phone": "0801380050",
-    "serviceId": "whispy-volume",
+    "serviceId": "volume",
     "serviceIds": [
-      "whispy-volume",
+      "volume",
       "removal"
     ],
-    "serviceName": "Whispy Volume ไม่จำกัดเส้นและความยาว+เคลมฟรี + Removal (ถอดขนตา) เริ่มต้น 100-200",
+    "serviceName": "Volume + Removal (ถอดขนตา) เริ่มต้น 100-200",
     "date": "2026-10-08",
     "dateLabel": "วันพฤหัสบดีที่ 8 ตุลาคม 2569",
     "time": "20:17",
@@ -10615,14 +10615,14 @@
     "endMinutes": 1292,
     "startISO": "2026-10-08T20:17:00+07:00",
     "endISO": "2026-10-08T21:32:00+07:00",
-    "price": 1099,
+    "price": 1300,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-10-04T08:01:38.595Z",
     "lineUserId": "Ua085b4a429b91c8d64c201b533ffe86e",
     "lineLinkedAt": "2026-10-04T08:01:56.858Z",
-    "updatedAt": "2026-10-07T07:52:23.928Z",
+    "updatedAt": "2026-10-08T14:14:32.920Z",
     "remindersSent": [
       "1d"
     ]
