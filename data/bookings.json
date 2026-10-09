@@ -10965,10 +10965,10 @@
     "endISO": "2026-10-09T22:00:00+07:00",
     "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-10-08T06:07:18.683Z",
-    "updatedAt": "2026-10-08T06:07:35.437Z"
+    "updatedAt": "2026-10-09T13:05:12.311Z"
   },
   {
     "id": "BK4293BE",
