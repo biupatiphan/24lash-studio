@@ -11068,10 +11068,10 @@
     "endISO": "2026-10-09T18:00:00+07:00",
     "price": 1200,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
     "createdAt": "2026-10-09T03:16:36.932Z",
-    "updatedAt": "2026-10-09T04:35:29.404Z"
+    "updatedAt": "2026-10-09T11:07:53.053Z"
   },
   {
     "id": "BK3F61BE",
