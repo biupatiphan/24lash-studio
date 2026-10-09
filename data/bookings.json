@@ -10041,14 +10041,14 @@
     "endMinutes": 1200,
     "startISO": "2026-10-09T19:00:00+07:00",
     "endISO": "2026-10-09T20:00:00+07:00",
-    "price": 899,
+    "price": 999,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-09-29T15:24:40.356Z",
     "lineUserId": "Ue87e2291bbc2216194cbffc14e8b65c3",
     "lineLinkedAt": "2026-09-29T15:25:07.594Z",
-    "updatedAt": "2026-10-08T14:29:49.834Z",
+    "updatedAt": "2026-10-09T11:08:11.510Z",
     "remindersSent": [
       "1d"
     ]
