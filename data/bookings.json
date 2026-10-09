@@ -10981,14 +10981,14 @@
       "svc-19"
     ],
     "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี + ต่อขนตาล่าง",
-    "date": "2026-10-11",
-    "dateLabel": "วันอาทิตย์ที่ 11 ตุลาคม 2569",
-    "time": "12:00",
-    "endTime": "13:15",
-    "startMinutes": 720,
-    "endMinutes": 795,
-    "startISO": "2026-10-11T12:00:00+07:00",
-    "endISO": "2026-10-11T13:15:00+07:00",
+    "date": "2026-10-10",
+    "dateLabel": "วันเสาร์ที่ 10 ตุลาคม 2569",
+    "time": "11:00",
+    "endTime": "12:15",
+    "startMinutes": 660,
+    "endMinutes": 735,
+    "startISO": "2026-10-10T11:00:00+07:00",
+    "endISO": "2026-10-10T12:15:00+07:00",
     "price": 849,
     "depositAmount": 200,
     "status": "confirmed",
@@ -10996,7 +10996,7 @@
     "createdAt": "2026-10-08T14:48:43.038Z",
     "lineUserId": "U35fbedf9ef02cb042828ad4a7acfbd9f",
     "lineLinkedAt": "2026-10-08T14:48:59.471Z",
-    "updatedAt": "2026-10-08T14:49:06.595Z"
+    "updatedAt": "2026-10-09T11:25:48.296Z"
   },
   {
     "id": "BKBFEEFD",
