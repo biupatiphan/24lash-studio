@@ -11043,10 +11043,10 @@
     "endISO": "2026-10-09T14:00:00+07:00",
     "price": 699,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-10-09T03:15:36.592Z",
-    "updatedAt": "2026-10-09T03:15:52.578Z"
+    "updatedAt": "2026-10-09T07:06:49.989Z"
   },
   {
     "id": "WK1D79AB",
