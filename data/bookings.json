@@ -10818,11 +10818,11 @@
     "name": "แยม",
     "email": "sudprathana.jaya@gmail.com",
     "phone": "0830154438",
-    "serviceId": "yy-shape-lashes-y",
+    "serviceId": "wet-look-5d-10d",
     "serviceIds": [
-      "yy-shape-lashes-y"
+      "wet-look-5d-10d"
     ],
-    "serviceName": "YY shape Lashes ขนตาแกนY/ไม่จำกัดเส้นและความยาว/เคลมฟรี",
+    "serviceName": "Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-10-09",
     "dateLabel": "วันศุกร์ที่ 9 ตุลาคม 2569",
     "time": "14:00",
@@ -10831,12 +10831,12 @@
     "endMinutes": 900,
     "startISO": "2026-10-09T14:00:00+07:00",
     "endISO": "2026-10-09T15:00:00+07:00",
-    "price": 699,
+    "price": 999,
     "depositAmount": 200,
     "status": "done",
     "source": "online",
     "createdAt": "2026-10-06T03:56:45.940Z",
-    "updatedAt": "2026-10-09T07:06:52.506Z"
+    "updatedAt": "2026-10-09T07:15:55.970Z"
   },
   {
     "id": "BKEBBD8C",
