@@ -30,7 +30,7 @@
     {
       "id": "removal",
       "name": "Removal (ถอดขนตา) เริ่มต้น 100-200",
-      "duration": 10,
+      "duration": 5,
       "price": 100,
       "popular": false,
       "type": "addon",
@@ -129,7 +129,7 @@
     {
       "id": "svc-19",
       "name": "ต่อขนตาล่าง",
-      "duration": 15,
+      "duration": 10,
       "price": 150,
       "popular": false,
       "type": "addon",
