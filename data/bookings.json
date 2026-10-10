@@ -11122,11 +11122,11 @@
     "endISO": "2026-10-20T19:00:00+07:00",
     "price": 699,
     "depositAmount": 200,
-    "status": "pending",
+    "status": "confirmed",
     "source": "online",
     "createdAt": "2026-10-10T02:12:26.610Z",
     "lineUserId": "U8571454a6caba7d379d9e4646d78bb8c",
     "lineLinkedAt": "2026-10-10T02:12:39.125Z",
-    "updatedAt": "2026-10-10T02:12:39.125Z"
+    "updatedAt": "2026-10-10T03:01:51.456Z"
   }
 ]
