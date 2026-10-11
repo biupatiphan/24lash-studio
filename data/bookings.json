@@ -11235,5 +11235,29 @@
     "lineUserId": "Ub52d8765f7a357b04e6432e406edbd46",
     "lineLinkedAt": "2026-10-11T10:37:21.657Z",
     "updatedAt": "2026-10-11T10:37:30.693Z"
+  },
+  {
+    "id": "WK6CB929",
+    "name": "Walkin",
+    "email": "",
+    "phone": "",
+    "serviceId": "wet-look-5d-10d",
+    "serviceIds": [
+      "wet-look-5d-10d"
+    ],
+    "serviceName": "Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "date": "2026-10-11",
+    "dateLabel": "วันอาทิตย์ที่ 11 ตุลาคม 2569",
+    "time": "18:00",
+    "endTime": "18:40",
+    "startMinutes": 1080,
+    "endMinutes": 1120,
+    "startISO": "2026-10-11T18:00:00+07:00",
+    "endISO": "2026-10-11T18:40:00+07:00",
+    "price": 999,
+    "depositAmount": 0,
+    "status": "done",
+    "source": "manual",
+    "createdAt": "2026-10-11T12:10:33.954Z"
   }
 ]
