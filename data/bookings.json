@@ -11229,12 +11229,12 @@
     "endISO": "2026-10-12T12:00:00+07:00",
     "price": 999,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-10-11T10:36:47.192Z",
     "lineUserId": "Ub52d8765f7a357b04e6432e406edbd46",
     "lineLinkedAt": "2026-10-11T10:37:21.657Z",
-    "updatedAt": "2026-10-11T10:37:30.693Z"
+    "updatedAt": "2026-10-12T07:11:58.496Z"
   },
   {
     "id": "WK6CB929",
