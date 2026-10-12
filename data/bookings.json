@@ -11332,10 +11332,10 @@
     "endISO": "2026-10-12T19:40:00+07:00",
     "price": 999,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-10-12T10:45:31.937Z",
-    "updatedAt": "2026-10-12T10:45:57.876Z",
+    "updatedAt": "2026-10-12T13:28:27.298Z",
     "lineUserId": "U65155c38f9ceea76571acb5a88377d38",
     "lineLinkedAt": "2026-10-12T10:45:57.876Z"
   },
