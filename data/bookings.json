@@ -11398,22 +11398,24 @@
     "phone": "",
     "serviceId": "wet-volume",
     "serviceIds": [
-      "wet-volume"
+      "wet-volume",
+      "removal"
     ],
-    "serviceName": "Wet volume",
+    "serviceName": "Wet volume + Removal (ถอดขนตา) เริ่มต้น 100-200",
     "date": "2026-10-13",
     "dateLabel": "วันอังคารที่ 13 ตุลาคม 2569",
     "time": "18:00",
-    "endTime": "18:40",
+    "endTime": "18:45",
     "startMinutes": 1080,
-    "endMinutes": 1120,
+    "endMinutes": 1125,
     "startISO": "2026-10-13T18:00:00+07:00",
-    "endISO": "2026-10-13T18:40:00+07:00",
-    "price": 1200,
+    "endISO": "2026-10-13T18:45:00+07:00",
+    "price": 1400,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
-    "createdAt": "2026-10-13T03:47:29.674Z"
+    "createdAt": "2026-10-13T03:47:29.674Z",
+    "updatedAt": "2026-10-13T16:20:34.033Z"
   },
   {
     "id": "WKE573B5",
