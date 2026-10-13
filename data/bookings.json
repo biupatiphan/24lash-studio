@@ -11366,5 +11366,29 @@
     "lineUserId": "Uef4912d439b598c1a28618b2f65e7bfa",
     "lineLinkedAt": "2026-10-12T11:49:18.087Z",
     "updatedAt": "2026-10-12T13:28:44.532Z"
+  },
+  {
+    "id": "WKB04480",
+    "name": "Walkin เคลมฟรี",
+    "email": "",
+    "phone": "",
+    "serviceId": "classic",
+    "serviceIds": [
+      "classic"
+    ],
+    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "date": "2026-10-13",
+    "dateLabel": "วันอังคารที่ 13 ตุลาคม 2569",
+    "time": "11:00",
+    "endTime": "11:40",
+    "startMinutes": 660,
+    "endMinutes": 700,
+    "startISO": "2026-10-13T11:00:00+07:00",
+    "endISO": "2026-10-13T11:40:00+07:00",
+    "price": 0,
+    "depositAmount": 0,
+    "status": "done",
+    "source": "manual",
+    "createdAt": "2026-10-13T03:00:16.126Z"
   }
 ]
