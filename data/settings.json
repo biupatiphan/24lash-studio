@@ -165,7 +165,7 @@
   ],
   "businessHours": {
     "open": "10:00",
-    "close": "23:00",
+    "close": "22:00",
     "slotMinutes": 60
   },
   "closedWeekdays": [],
@@ -173,7 +173,7 @@
   "blockedTimes": [
     {
       "date": "2026-10-13",
-      "start": "11:00",
+      "start": "12:00",
       "end": "18:00"
     }
   ],
