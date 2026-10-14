@@ -169,7 +169,11 @@
     "slotMinutes": 60
   },
   "closedWeekdays": [],
-  "closedDates": [],
+  "closedDates": [
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23"
+  ],
   "blockedTimes": [
     {
       "date": "2026-10-14",
