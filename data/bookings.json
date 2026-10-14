@@ -11447,11 +11447,11 @@
     "name": "ตวง",
     "email": "tuangputha@gmail.com",
     "phone": "0982476790",
-    "serviceId": "classic",
+    "serviceId": "refill",
     "serviceIds": [
-      "classic"
+      "refill"
     ],
-    "serviceName": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
+    "serviceName": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี",
     "date": "2026-10-14",
     "dateLabel": "วันพุธที่ 14 ตุลาคม 2569",
     "time": "20:00",
@@ -11460,11 +11460,11 @@
     "endMinutes": 1240,
     "startISO": "2026-10-14T20:00:00+07:00",
     "endISO": "2026-10-14T20:40:00+07:00",
-    "price": 699,
+    "price": 899,
     "depositAmount": 200,
-    "status": "confirmed",
+    "status": "done",
     "source": "online",
     "createdAt": "2026-10-14T07:19:48.379Z",
-    "updatedAt": "2026-10-14T07:20:06.688Z"
+    "updatedAt": "2026-10-14T14:18:19.895Z"
   }
 ]
