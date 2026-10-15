@@ -4,7 +4,7 @@
       "id": "classic",
       "name": "Classic Lash ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 40,
-      "price": 699,
+      "price": 650,
       "popular": false,
       "type": "main",
       "soloOnly": false
@@ -13,7 +13,7 @@
       "id": "hybrid",
       "name": "Hybrid Lash  ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 40,
-      "price": 799,
+      "price": 750,
       "popular": false,
       "type": "main",
       "soloOnly": false
@@ -22,7 +22,7 @@
       "id": "refill",
       "name": "Monako ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 40,
-      "price": 899,
+      "price": 850,
       "popular": true,
       "type": "main",
       "soloOnly": false
@@ -40,7 +40,7 @@
       "id": "whispy-classic",
       "name": "Whispy Classic ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 40,
-      "price": 899,
+      "price": 850,
       "popular": false,
       "type": "main",
       "soloOnly": false
@@ -58,7 +58,7 @@
       "id": "wet-look-3d-4d",
       "name": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 40,
-      "price": 899,
+      "price": 850,
       "popular": false,
       "type": "main",
       "soloOnly": false
@@ -67,7 +67,7 @@
       "id": "wet-look-5d-10d",
       "name": "Wet Look 5D-10D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
       "duration": 40,
-      "price": 999,
+      "price": 950,
       "popular": false,
       "type": "main",
       "soloOnly": false
@@ -103,7 +103,7 @@
       "id": "wet-wispy",
       "name": "Wet Wispy ไม่จำกัดเส้นและความยาว/เคลมฟรี",
       "duration": 40,
-      "price": 899,
+      "price": 850,
       "popular": false,
       "type": "main",
       "soloOnly": false
@@ -139,7 +139,7 @@
       "id": "whispy-wet",
       "name": "Whispy Wet",
       "duration": 40,
-      "price": 899,
+      "price": 850,
       "popular": false,
       "type": "main",
       "soloOnly": false
@@ -148,7 +148,7 @@
       "id": "wet-volume",
       "name": "Wet volume",
       "duration": 40,
-      "price": 1200,
+      "price": 1150,
       "popular": false,
       "type": "main",
       "soloOnly": false
@@ -157,7 +157,7 @@
       "id": "volume",
       "name": "Volume",
       "duration": 40,
-      "price": 1200,
+      "price": 1150,
       "popular": false,
       "type": "main",
       "soloOnly": false
