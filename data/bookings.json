@@ -11511,9 +11511,10 @@
     "endISO": "2026-10-16T10:40:00+07:00",
     "price": 699,
     "depositAmount": 0,
-    "status": "confirmed",
+    "status": "done",
     "source": "manual",
-    "createdAt": "2026-10-15T13:08:41.273Z"
+    "createdAt": "2026-10-15T13:08:41.273Z",
+    "updatedAt": "2026-10-16T09:19:12.444Z"
   },
   {
     "id": "BK129334",
