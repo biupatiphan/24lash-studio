@@ -11542,30 +11542,5 @@
     "updatedAt": "2026-10-16T04:58:46.871Z",
     "lineUserId": "Uc8090bb5505fe4088c4cd1b65095c24e",
     "lineLinkedAt": "2026-10-16T04:58:46.871Z"
-  },
-  {
-    "id": "WK48ADD0",
-    "name": "Walkin",
-    "email": "",
-    "phone": "",
-    "serviceId": "yy-shape-lashes-y",
-    "serviceIds": [
-      "yy-shape-lashes-y"
-    ],
-    "serviceName": "YY shape Lashes ขนตาแกนY/ไม่จำกัดเส้นและความยาว/เคลมฟรี",
-    "date": "2026-10-16",
-    "dateLabel": "วันศุกร์ที่ 16 ตุลาคม 2569",
-    "time": "17:00",
-    "endTime": "17:40",
-    "startMinutes": 1020,
-    "endMinutes": 1060,
-    "startISO": "2026-10-16T17:00:00+07:00",
-    "endISO": "2026-10-16T17:40:00+07:00",
-    "price": 699,
-    "depositAmount": 0,
-    "status": "noshow",
-    "source": "manual",
-    "createdAt": "2026-10-16T09:19:29.373Z",
-    "updatedAt": "2026-10-16T09:43:47.768Z"
   }
 ]
