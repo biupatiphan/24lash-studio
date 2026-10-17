@@ -11553,18 +11553,19 @@
       "wet-look-3d-4d"
     ],
     "serviceName": "Wet Look 3D-4D ไม่จำกัดเส้นและความยาว+เคลมฟรี",
-    "date": "2026-10-17",
-    "dateLabel": "วันเสาร์ที่ 17 ตุลาคม 2569",
+    "date": "2026-10-18",
+    "dateLabel": "วันอาทิตย์ที่ 18 ตุลาคม 2569",
     "time": "12:00",
     "endTime": "12:40",
     "startMinutes": 720,
     "endMinutes": 760,
-    "startISO": "2026-10-17T12:00:00+07:00",
-    "endISO": "2026-10-17T12:40:00+07:00",
+    "startISO": "2026-10-18T12:00:00+07:00",
+    "endISO": "2026-10-18T12:40:00+07:00",
     "price": 850,
     "depositAmount": 0,
     "status": "confirmed",
     "source": "manual",
-    "createdAt": "2026-10-17T08:29:52.422Z"
+    "createdAt": "2026-10-17T08:29:52.422Z",
+    "updatedAt": "2026-10-17T11:42:35.660Z"
   }
 ]
