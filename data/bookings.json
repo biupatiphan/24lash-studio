@@ -11536,10 +11536,10 @@
     "endISO": "2026-10-17T10:40:00+07:00",
     "price": 850,
     "depositAmount": 200,
-    "status": "noshow",
+    "status": "confirmed",
     "source": "online",
     "createdAt": "2026-10-16T04:58:19.774Z",
-    "updatedAt": "2026-10-17T01:35:51.665Z",
+    "updatedAt": "2026-10-17T08:29:02.146Z",
     "lineUserId": "Uc8090bb5505fe4088c4cd1b65095c24e",
     "lineLinkedAt": "2026-10-16T04:58:46.871Z"
   }
